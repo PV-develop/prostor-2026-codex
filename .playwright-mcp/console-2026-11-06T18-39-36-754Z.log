@@ -1,0 +1,2 @@
+[  508606ms] ReferenceError: red is not defined
+    at loop (http://localhost:4321/src/scripts/particles.ts?t=1793990885143:327:22)

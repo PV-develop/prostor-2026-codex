@@ -1,0 +1,481 @@
+- generic [active] [ref=f16e1]:
+  - main [ref=f16e2]:
+    - generic [ref=f16e3]:
+      - generic [ref=f16e6]:
+        - link "Простор" [ref=f16e7] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=f16e8]:
+          - generic [ref=f16e459]: 8 800 555-50-70
+          - link "Обсудить задачу ↗" [ref=f16e460] [cursor=pointer]:
+            - /url: "#"
+          - button "Меню" [ref=f16e12] [cursor=pointer]
+      - generic [ref=f16e18]:
+        - generic [ref=f16e19]: Performance · Prostor
+        - heading "Performance-маркетинг под задачи бизнеса." [level=1] [ref=f16e21]: Performance-маркетингпод задачи бизнеса.
+        - generic [ref=f16e23]:
+          - generic:
+            - generic: Используем собственную
+            - generic: аналитику Prostor
+          - generic [ref=f16e24]: "20"
+        - generic [ref=f16e25]:
+          - paragraph [ref=f16e462]: Подбираем и объединяем рекламные инструменты, чтобы привлекать целевые обращения, лиды и будущих клиентов, а также управлять стоимостью привлечения и результатами. Связываем кампании с аналитикой и результатами обработки заявок.
+          - generic [ref=f16e27]:
+            - link "Обсудить привлечение клиентов →" [ref=f16e28] [cursor=pointer]:
+              - /url: "#contacts"
+              - text: Обсудить привлечение клиентов
+              - generic [ref=f16e29]: →
+            - link "Получить аудит рекламы ↗" [ref=f16e30] [cursor=pointer]:
+              - /url: "#contacts"
+              - text: Получить аудит рекламы
+              - generic [ref=f16e31]: ↗
+    - navigation "Навигация по странице" [ref=f16e32]:
+      - generic [ref=f16e33]:
+        - link "Задачи" [ref=f16e34] [cursor=pointer]:
+          - /url: "#tasks"
+        - link "Каналы" [ref=f16e36] [cursor=pointer]:
+          - /url: "#channels"
+        - link "Подход" [ref=f16e38] [cursor=pointer]:
+          - /url: "#approach"
+        - link "Метрики" [ref=f16e40] [cursor=pointer]:
+          - /url: "#metrics"
+        - link "Процесс" [ref=f16e42] [cursor=pointer]:
+          - /url: "#process"
+        - link "Стоимость" [ref=f16e44] [cursor=pointer]:
+          - /url: "#pricing"
+    - region [ref=f16e46]:
+      - generic [ref=f16e47]:
+        - paragraph [ref=f16e48]: 01 / Задачи
+        - heading "Когда бизнесу нужна работа с performance-рекламой" [level=2] [ref=f16e50]
+        - paragraph [ref=f16e51]: Четыре ситуации, в которых performance-реклама помогает найти точки роста.
+      - generic [ref=f16e52]:
+        - article [ref=f16e53]:
+          - generic [ref=f16e54]: "01"
+          - generic [ref=f16e55]:
+            - heading "Нужны целевые обращения" [level=3] [ref=f16e56]
+            - paragraph [ref=f16e57]: Определить, какие рекламные инструменты стоит проверить для вашего продукта и аудитории.
+          - generic [ref=f16e58]: ↗
+        - article [ref=f16e59]:
+          - generic [ref=f16e60]: "02"
+          - generic [ref=f16e61]:
+            - heading "Реклама есть, результат не устраивает" [level=3] [ref=f16e62]
+            - paragraph [ref=f16e63]: "Разобраться, где теряются бюджет и обращения: в настройках рекламных кампаний, предложении, посадочной странице или обработке заявок."
+          - generic [ref=f16e64]: ↗
+        - article [ref=f16e65]:
+          - generic [ref=f16e66]: "03"
+          - generic [ref=f16e67]:
+            - heading "Нужно проверить новое направление" [level=3] [ref=f16e68]
+            - paragraph [ref=f16e69]: Протестировать продукт, оффер, географию или аудиторию по заранее согласованным критериям.
+          - generic [ref=f16e70]: ↗
+        - article [ref=f16e71]:
+          - generic [ref=f16e72]: "04"
+          - generic [ref=f16e73]:
+            - heading "Нужно увеличить объём" [level=3] [ref=f16e74]
+            - paragraph [ref=f16e75]: Найти возможности роста и оценить, как расширение повлияет на стоимость и качество привлечения.
+          - generic [ref=f16e76]: ↗
+    - region [ref=f16e77]:
+      - generic [ref=f16e78]:
+        - paragraph [ref=f16e79]: 02 / Каналы
+        - heading "Подбираем инструменты под вашу задачу" [level=2] [ref=f16e81]
+        - paragraph [ref=f16e82]: Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.
+      - generic [ref=f16e83]:
+        - article [ref=f16e84]:
+          - generic [ref=f16e85]: "01"
+          - heading "Контекстная реклама" [level=3] [ref=f16e87]
+          - paragraph [ref=f16e88]: Запускаем и развиваем рекламу в Яндекс Директе с согласованными целями и аналитикой.
+          - generic [ref=f16e89]:
+            - text: Задача канала
+            - paragraph [ref=f16e90]: Привлечение пользователей с уже сформированным спросом.
+        - article [ref=f16e91]:
+          - generic [ref=f16e92]: "02"
+          - heading "Таргетированная реклама" [level=3] [ref=f16e94]
+          - paragraph [ref=f16e95]: "Настраиваем и ведём рекламу в соцсетях и мессенджерах: подбираем аудитории, тестируем объявления и отслеживаем обращения."
+          - generic [ref=f16e96]:
+            - text: Задача канала
+            - paragraph [ref=f16e97]: Формирование спроса и привлечение целевых аудиторий.
+        - article [ref=f16e98]:
+          - generic [ref=f16e99]: "03"
+          - heading "Яндекс Промостраницы" [level=3] [ref=f16e101]
+          - paragraph [ref=f16e102]: Создаём и продвигаем статьи в Яндекс Промостраницах, чтобы знакомить аудиторию с продуктом и привлекать заинтересованных пользователей на сайт.
+          - generic [ref=f16e103]:
+            - text: Задача канала
+            - paragraph [ref=f16e104]: Знакомство с продуктом через контент.
+        - article [ref=f16e105]:
+          - generic [ref=f16e106]: "04"
+          - heading "Авито" [level=3] [ref=f16e108]
+          - paragraph [ref=f16e109]: Оформляем и продвигаем объявления на Авито и с помощью Авито Ads, тестируем подачу предложений и отслеживаем обращения.
+          - generic [ref=f16e110]:
+            - text: Задача канала
+            - paragraph [ref=f16e111]: Привлечение покупателей через объявления.
+        - article [ref=f16e112]:
+          - generic [ref=f16e113]: "05"
+          - heading "Геосервисы" [level=3] [ref=f16e115]
+          - paragraph [ref=f16e116]: Оформляем и продвигаем карточки компании в картах и геосервисах, чтобы клиентам было проще найти и выбрать вас.
+          - generic [ref=f16e117]:
+            - text: Задача канала
+            - paragraph [ref=f16e118]: Повышение локальной видимости компании.
+    - region [ref=f16e119]:
+      - generic [ref=f16e120]:
+        - paragraph [ref=f16e121]: 03 / Подход
+        - heading "Как мы определяем, куда направить бюджет" [level=2] [ref=f16e123]
+      - table "Как принимаем решения о распределении бюджета" [ref=f16e124]:
+        - generic [ref=f16e125]:
+          - row [ref=f16e463]:
+            - columnheader "Что выясняем" [ref=f16e464]
+            - columnheader "Какое решение принимаем" [ref=f16e465]
+          - row [ref=f16e126]:
+            - cell "01 Цель и экономика продукта" [ref=f16e127]:
+              - generic [ref=f16e128]: "01"
+              - heading "Цель и экономика продукта" [level=3] [ref=f16e129]
+            - cell [ref=f16e130]:
+              - generic [ref=f16e131]: →
+              - paragraph [ref=f16e132]: Какой результат/KPI оцениваем и какую стоимость привлечения рассматриваем как ориентир.
+          - row [ref=f16e133]:
+            - cell "02 Аудитория и путь до покупки" [ref=f16e134]:
+              - generic [ref=f16e135]: "02"
+              - heading "Аудитория и путь до покупки" [level=3] [ref=f16e136]
+            - cell [ref=f16e137]:
+              - generic [ref=f16e138]: →
+              - paragraph [ref=f16e139]: Какие точки контакта и рекламные инструменты стоит проверить.
+          - row [ref=f16e140]:
+            - cell "03 Состояние сайта и обработки заявок" [ref=f16e141]:
+              - generic [ref=f16e142]: "03"
+              - heading "Состояние сайта и обработки заявок" [level=3] [ref=f16e143]
+            - cell [ref=f16e144]:
+              - generic [ref=f16e145]: →
+              - paragraph [ref=f16e146]: Что нужно подготовить до запуска или улучшить параллельно.
+          - row [ref=f16e147]:
+            - cell "04 Доступный бюджет и данные" [ref=f16e148]:
+              - generic [ref=f16e149]: "04"
+              - heading "Доступный бюджет и данные" [level=3] [ref=f16e150]
+            - cell [ref=f16e151]:
+              - generic [ref=f16e152]: →
+              - paragraph [ref=f16e153]: С какого набора гипотез начать, чтобы не распылять ресурсы.
+          - row [ref=f16e154]:
+            - cell "05 Результаты тестов" [ref=f16e155]:
+              - generic [ref=f16e156]: "05"
+              - heading "Результаты тестов" [level=3] [ref=f16e157]
+            - cell [ref=f16e158]:
+              - generic [ref=f16e159]: →
+              - paragraph [ref=f16e160]: Что продолжать, пересматривать, останавливать или расширять.
+        - complementary [ref=f16e161]: Не распределяем бюджет поровну между площадками. Сначала определяем приоритеты и критерии проверки, затем корректируем план по результатам.
+    - region [ref=f16e162]:
+      - generic [ref=f16e163]:
+        - paragraph [ref=f16e164]: 04 / Аналитика
+        - heading "Согласовываем показатели до запуска" [level=2] [ref=f16e166]
+      - generic [ref=f16e167]:
+        - article [ref=f16e168]:
+          - text: "01"
+          - heading "Обращения" [level=3] [ref=f16e169]
+          - paragraph [ref=f16e170]: Количество лидов, CPL — стоимость обращения, CPO — стоимость заказа.
+        - article [ref=f16e171]:
+          - text: "02"
+          - heading "Качество" [level=3] [ref=f16e172]
+          - paragraph [ref=f16e173]: Количество и стоимость квалифицированных обращений по согласованным критериям.
+        - article [ref=f16e174]:
+          - text: "03"
+          - heading "Целевые действия" [level=3] [ref=f16e175]
+          - paragraph [ref=f16e176]: CPA — стоимость конкретного согласованного действия, CR — конверсия на выбранном этапе.
+        - article [ref=f16e177]:
+          - text: "04"
+          - heading "Продажи и экономика" [level=3] [ref=f16e178]
+          - paragraph [ref=f16e179]: Выручка, стоимость привлечения покупателя, ROMI, ДРР.
+      - paragraph [ref=f16e180]: "Для каждого проекта выбираем применимые показатели и фиксируем, что именно считаем лидом, целевым обращением и продажей. При необходимости настраиваем аналитику: от базовых целей в Метрике до полноценной сквозной аналитики."
+    - region [ref=f16e181]:
+      - generic [ref=f16e182]:
+        - paragraph [ref=f16e183]: 05 / Процесс
+        - heading "От диагностики до регулярной оптимизации" [level=2] [ref=f16e185]
+        - paragraph [ref=f16e186]: Последовательность этапов и ясные решения на каждом шаге работы.
+      - generic [ref=f16e187]:
+        - article [ref=f16e188]:
+          - generic [ref=f16e189]:
+            - generic [ref=f16e190]: "01"
+            - generic [ref=f16e191]: 1–2 недели
+          - heading "Диагностика" [level=3] [ref=f16e195]
+          - paragraph [ref=f16e196]: Разбираем текущую ситуацию, анализируем сайт, рекламу и её результаты, если запускалась, цели, доступные данные и ограничения.
+          - generic [ref=f16e197]:
+            - generic [ref=f16e198]: Вы получаете
+            - paragraph [ref=f16e199]: Карту ограничений и точек роста
+        - article [ref=f16e200]:
+          - generic [ref=f16e201]:
+            - generic [ref=f16e202]: "02"
+            - generic [ref=f16e203]: 1 неделя
+          - heading "Планирование и подготовка предложения" [level=3] [ref=f16e207]
+          - paragraph [ref=f16e208]: Согласовываем гипотезы, инструменты, бюджет и показатели.
+          - generic [ref=f16e209]:
+            - generic [ref=f16e210]: Вы получаете
+            - paragraph [ref=f16e211]: План тестов и медиаплан
+        - article [ref=f16e212]:
+          - generic [ref=f16e213]:
+            - generic [ref=f16e214]: "03"
+            - generic [ref=f16e215]: 2–4 недели
+          - heading "Подготовка и запуск" [level=3] [ref=f16e219]
+          - paragraph [ref=f16e220]: Готовим кампании, материалы, настраиваем аналитику.
+          - generic [ref=f16e221]:
+            - generic [ref=f16e222]: Вы получаете
+            - paragraph [ref=f16e223]: Запущенные кампании и настроенную аналитику
+        - article [ref=f16e224]:
+          - generic [ref=f16e225]:
+            - generic [ref=f16e226]: "04"
+            - generic [ref=f16e227]: Каждый месяц
+          - heading "Оптимизация" [level=3] [ref=f16e231]
+          - paragraph [ref=f16e232]: Анализируем результаты и корректируем работу.
+          - generic [ref=f16e233]:
+            - generic [ref=f16e234]: Вы получаете
+            - paragraph [ref=f16e235]: Отчёт и обновлённый план
+        - article [ref=f16e236]:
+          - generic [ref=f16e237]:
+            - generic [ref=f16e238]: "05"
+            - generic [ref=f16e239]: Постоянно
+          - heading "Решение о развитии" [level=3] [ref=f16e243]
+          - paragraph [ref=f16e244]: Оцениваем дальнейшие гипотезы и возможности расширения.
+          - generic [ref=f16e245]:
+            - generic [ref=f16e246]: Вы получаете
+            - paragraph [ref=f16e247]: Рост на проверенных каналах
+    - region [ref=f16e248]:
+      - generic [ref=f16e249]:
+        - paragraph [ref=f16e250]: 06 / Стоимость
+        - heading "Сколько стоит performance-маркетинг" [level=2] [ref=f16e252]
+      - generic [ref=f16e253]:
+        - article [ref=f16e254]:
+          - generic [ref=f16e255]: "01"
+          - generic [ref=f16e256]:
+            - paragraph [ref=f16e257]: Услуги агентства
+            - heading "Работа агентства" [level=3] [ref=f16e258]
+            - paragraph [ref=f16e259]: Подготовка, запуск, ведение, аналитика и другие согласованные работы.
+        - article [ref=f16e260]:
+          - generic [ref=f16e261]: "02"
+          - generic [ref=f16e262]:
+            - paragraph [ref=f16e263]: Бюджет площадок
+            - heading "Рекламный бюджет" [level=3] [ref=f16e264]
+            - paragraph [ref=f16e265]: Расходы на размещение на выбранных площадках.
+        - text: =
+      - generic [ref=f16e266]:
+        - heading "Также могут потребоваться отдельно" [level=3] [ref=f16e267]
+        - list [ref=f16e268]:
+          - listitem [ref=f16e269]: + Посадочные страницы
+          - listitem [ref=f16e270]: + Интеграции
+          - listitem [ref=f16e271]: + Производство рекламных материалов
+          - listitem [ref=f16e272]: + Коллтрекинг
+          - listitem [ref=f16e273]: + Другие согласованные доработки
+      - link "Обсудить сотрудничество ↓" [ref=f16e274] [cursor=pointer]:
+        - /url: "#contacts"
+        - text: Обсудить сотрудничество
+        - generic [ref=f16e275]: ↓
+    - generic [ref=f16e276]:
+      - generic [ref=f16e277]: Контакты
+      - generic [ref=f16e279]:
+        - generic [ref=f16e280]:
+          - generic [ref=f16e281]:
+            - heading "Оставьте заявку, чтобы обсудить проект" [level=2] [ref=f16e282]
+            - paragraph [ref=f16e283]: Свяжемся в течение часа и проконсультируем по вашему вопросу.
+          - generic [ref=f16e284]:
+            - generic [ref=f16e285]:
+              - generic: Имя
+              - textbox "Имя" [ref=f16e286]
+            - generic [ref=f16e287]:
+              - generic: Почта
+              - textbox "Почта" [ref=f16e288]
+            - generic [ref=f16e289]:
+              - generic: Телефон
+              - textbox "Телефон" [ref=f16e290]:
+                - /placeholder: ""
+            - generic [ref=f16e291]:
+              - generic: Опишите задачу
+              - textbox "Опишите задачу" [ref=f16e292]
+            - generic [ref=f16e296] [cursor=pointer]:
+              - generic [ref=f16e297]: Приложить бриф или документ
+              - generic [ref=f16e298]: PDF, DOC, XLS, PPT — до 20 МБ
+          - generic [ref=f16e299]:
+            - button "Отправить заявку →" [ref=f16e300] [cursor=pointer]:
+              - generic [ref=f16e301]: Отправить заявку
+              - generic [ref=f16e302]: →
+            - generic [ref=f16e303]:
+              - text: Отправляя заявку, вы соглашаетесь с
+              - link "политикой обработки персональных данных" [ref=f16e304] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f16e305]:
+          - generic [ref=f16e306]:
+            - generic [ref=f16e307]:
+              - heading "Или сразу заполните бриф из 5 вопросов" [level=3] [ref=f16e308]
+              - paragraph [ref=f16e309]: Чем раньше мы поймём задачу, тем точнее подготовим предложение.
+            - link "Заполнить бриф →" [ref=f16e310] [cursor=pointer]:
+              - /url: "#"
+              - text: Заполнить бриф
+              - generic [ref=f16e311]: →
+          - generic [ref=f16e312]:
+            - heading "Контакты" [level=3] [ref=f16e313]
+            - generic [ref=f16e314]:
+              - link "8 800 555-50-70 Бесплатно по России" [ref=f16e315] [cursor=pointer]:
+                - /url: tel:88005555070
+                - generic [ref=f16e316]: 8 800 555-50-70
+                - generic [ref=f16e317]: Бесплатно по России
+              - link "8 812 640-07-09 Санкт-Петербург, Липовая аллея, 9" [ref=f16e318] [cursor=pointer]:
+                - /url: tel:88126400709
+                - generic [ref=f16e319]: 8 812 640-07-09
+                - generic [ref=f16e320]: Санкт-Петербург, Липовая аллея, 9
+              - link "ork@prosto-r.ru Почта для заявок" [ref=f16e321] [cursor=pointer]:
+                - /url: mailto:ork@prosto-r.ru
+                - generic [ref=f16e322]: ork@prosto-r.ru
+                - generic [ref=f16e323]: Почта для заявок
+              - generic [ref=f16e324]:
+                - generic [ref=f16e325]: Написать в мессенджер
+                - generic [ref=f16e326]:
+                  - link "Telegram" [ref=f16e327] [cursor=pointer]:
+                    - /url: "#"
+                  - link "WhatsApp" [ref=f16e328] [cursor=pointer]:
+                    - /url: "#"
+      - generic [ref=f16e329]:
+        - generic [ref=f16e330]:
+          - generic [ref=f16e331]:
+            - generic [ref=f16e332]:
+              - generic [ref=f16e333]: Остались вопросы?Свяжитесь с нами
+              - generic [ref=f16e334]:
+                - link "ork@prosto-r.ru" [ref=f16e335] [cursor=pointer]:
+                  - /url: mailto:ork@prosto-r.ru
+                - link "8 800 555-50-70" [ref=f16e336] [cursor=pointer]:
+                  - /url: tel:88005555070
+                - link "8 812 640-07-09" [ref=f16e337] [cursor=pointer]:
+                  - /url: tel:88126400709
+              - generic [ref=f16e338]:
+                - link "Telegram" [ref=f16e339] [cursor=pointer]:
+                  - /url: "#"
+                - link "WhatsApp" [ref=f16e340] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=f16e341]: 197183, Санкт-Петербург,Липовая аллея, 9, БЦ «Приморский»
+            - generic [ref=f16e342]:
+              - link "Обсудить проект →" [ref=f16e343] [cursor=pointer]:
+                - /url: "#"
+                - text: Обсудить проект
+                - generic [ref=f16e344]: →
+              - link "Присоединиться к команде →" [ref=f16e345] [cursor=pointer]:
+                - /url: "#"
+                - text: Присоединиться к команде
+                - generic [ref=f16e346]: →
+              - link "Стать партнёром →" [ref=f16e347] [cursor=pointer]:
+                - /url: "#"
+                - text: Стать партнёром
+                - generic [ref=f16e348]: →
+          - generic [ref=f16e349]:
+            - generic [ref=f16e350]: Услуги
+            - generic [ref=f16e352]:
+              - generic [ref=f16e353]:
+                - generic [ref=f16e354]:
+                  - link "Performance-маркетинг" [ref=f16e355] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Контекстная реклама" [ref=f16e356] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Таргетированная реклама" [ref=f16e357] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Реклама в Промостраницах" [ref=f16e358] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Продвижение на Авито" [ref=f16e359] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Продвижение в ГЕО-сервисах" [ref=f16e360] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f16e361]:
+                  - link "SEO-продвижение" [ref=f16e362] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Продвижение в Яндекс" [ref=f16e363] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Продвижение в Google" [ref=f16e364] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Зарубежное SEO" [ref=f16e365] [cursor=pointer]:
+                    - /url: "#"
+                  - link "SEO при редизайне и переезде" [ref=f16e366] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Бесплатный SEO-аудит" [ref=f16e367] [cursor=pointer]:
+                    - /url: "#"
+              - generic [ref=f16e368]:
+                - generic [ref=f16e369]:
+                  - link "AI-оптимизация" [ref=f16e370] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Продвижение в нейросетях" [ref=f16e371] [cursor=pointer]:
+                    - /url: "#"
+                  - link "GEO / AEO продвижение" [ref=f16e372] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Аудит видимости в ИИ-поиске" [ref=f16e373] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f16e374]:
+                  - link "Управление репутацией" [ref=f16e375] [cursor=pointer]:
+                    - /url: "#"
+                  - link "SERM" [ref=f16e376] [cursor=pointer]:
+                    - /url: "#"
+                  - link "ORM" [ref=f16e377] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Репутационный аудит" [ref=f16e378] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f16e379]:
+                  - link "Разработка и дизайн" [ref=f16e380] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Разработка сайтов" [ref=f16e381] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Системы управления" [ref=f16e382] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Дизайн сайтов" [ref=f16e383] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Техническая поддержка" [ref=f16e384] [cursor=pointer]:
+                    - /url: "#"
+          - generic [ref=f16e385]:
+            - generic [ref=f16e386]: Агентство
+            - generic [ref=f16e388]:
+              - link "О компании" [ref=f16e389] [cursor=pointer]:
+                - /url: "#"
+              - link "Преимущества" [ref=f16e390] [cursor=pointer]:
+                - /url: "#"
+              - link "Награды и сертификаты" [ref=f16e391] [cursor=pointer]:
+                - /url: "#"
+              - link "Команда" [ref=f16e392] [cursor=pointer]:
+                - /url: "#"
+              - link "Отзывы" [ref=f16e393] [cursor=pointer]:
+                - /url: "#"
+              - link "Партнёрам" [ref=f16e394] [cursor=pointer]:
+                - /url: "#"
+              - link "Вакансии" [ref=f16e395] [cursor=pointer]:
+                - /url: "#"
+              - link "Новости" [ref=f16e396] [cursor=pointer]:
+                - /url: "#"
+              - link "Блог" [ref=f16e397] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f16e398]:
+              - link "Отраслевые решения" [ref=f16e399] [cursor=pointer]:
+                - /url: "#"
+              - link "Недвижимость" [ref=f16e400] [cursor=pointer]:
+                - /url: "#"
+              - link "Строительство" [ref=f16e401] [cursor=pointer]:
+                - /url: "#"
+              - link "Девелопмент" [ref=f16e402] [cursor=pointer]:
+                - /url: "#"
+              - link "Медицина" [ref=f16e403] [cursor=pointer]:
+                - /url: "#"
+              - link "Интернет-магазины" [ref=f16e404] [cursor=pointer]:
+                - /url: "#"
+              - link "B2B" [ref=f16e405] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f16e406]:
+              - link "Кейсы" [ref=f16e407] [cursor=pointer]:
+                - /url: "#"
+              - link "Цены" [ref=f16e408] [cursor=pointer]:
+                - /url: "#"
+              - link "Контакты" [ref=f16e409] [cursor=pointer]:
+                - /url: "#"
+              - link "FAQ" [ref=f16e410] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f16e411]:
+          - generic [ref=f16e412]: © 2006–2026 Простор
+          - generic [ref=f16e413]:
+            - link "Политика обработки персональных данных" [ref=f16e414] [cursor=pointer]:
+              - /url: "#"
+            - link "Согласие на обработку данных" [ref=f16e415] [cursor=pointer]:
+              - /url: "#"
+            - link "Политика cookies" [ref=f16e416] [cursor=pointer]:
+              - /url: "#"
+            - link "Карта сайта" [ref=f16e417] [cursor=pointer]:
+              - /url: "#"
+          - link "Наверх" [ref=f16e418] [cursor=pointer]:
+            - /url: "#"
+        - img "Простор" [ref=f16e421]
+  - generic [ref=f16e424]:
+    - button [ref=f16e425]
+    - button [ref=f16e431]
+    - button [ref=f16e435]
+    - button [ref=f16e440]

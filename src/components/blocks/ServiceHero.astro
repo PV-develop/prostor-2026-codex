@@ -1,0 +1,49 @@
+---
+import SiteHeader from './SiteHeader.astro';
+import ServiceAnchorNav from './ServiceAnchorNav.astro';
+export interface ServiceNavItem { label: string; href: `#${string}`; }
+export interface ServiceCTA { label: string; href: string; }
+interface Props {
+  eyebrow: string;
+  title: string;
+  accentText?: string;
+  description: string;
+  additionalLabel?: string;
+  primaryCTA: ServiceCTA;
+  secondaryCTA?: ServiceCTA;
+  visualPreset?: 'performance' | 'static';
+  navigationItems: readonly ServiceNavItem[];
+}
+const { eyebrow, title, accentText, description, additionalLabel, primaryCTA, secondaryCTA, visualPreset = 'static', navigationItems } = Astro.props;
+---
+<section data-screen-label="01 Сервисный экран" data-service-hero data-visual-preset={visualPreset} style="position:relative;min-height:860px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;background:#0F0F0F;color:#E9EBEF">
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:220px 220px"></div>
+  <SiteHeader activeSection="services" />
+  <div data-m="heropad" style="position:relative;padding:0 48px;display:flex;flex-direction:column;z-index:2">
+    <div data-m="herogrid" style="position:relative;z-index:3;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:72px 0 56px 32px;align-items:start">
+      <div data-tl="h" style="grid-column:1/9;grid-row:1;display:flex;align-items:center;gap:12px;width:max-content;max-width:100%;font:500 13px/1.35 Onest,sans-serif;color:#FA001E"><span style="width:8px;height:8px;background:#FA001E;display:inline-block;flex:none"></span>{eyebrow}</div>
+      <h1 data-reveal style="grid-column:1/9;grid-row:2;position:relative;z-index:2;margin:0;font:700 clamp(84px,11.7vw,168px)/.88 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance">{title}<br /><span style="color:#FA001E">{accentText}</span></h1>
+      <p data-m="leadm" style="display:none;margin:0;font:400 17px/1.5 Onest,sans-serif;color:rgba(233,235,239,.86);text-wrap:pretty;max-width:520px">{description}</p>
+      {visualPreset === 'performance' && <div data-reveal data-m="twenty" style="grid-column:8/13;grid-row:1/4;justify-self:stretch;align-self:stretch;min-height:440px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:12px">
+        {additionalLabel && <div data-cap style="position:absolute;z-index:6;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-align:center;pointer-events:none;white-space:nowrap"><span style="display:block;overflow:hidden;padding:0 4px"><span data-cap-line style="display:block;transform:translateY(110%);font:700 clamp(28px,2.8vw,40px)/1.04 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;white-space:nowrap">Используем собственную</span></span><span style="display:block;overflow:hidden;padding:0 4px"><span data-cap-line style="display:flex;justify-content:center;gap:10px;transform:translateY(110%);font:700 clamp(28px,2.8vw,40px)/1.04 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;white-space:nowrap"><span data-cap-plate style="display:inline-block;background:#FA001E;color:#0F0F0F;padding:0 8px;clip-path:inset(0 100% 0 0)">аналитику Prostor</span></span></span></div>}
+        <span data-parallax data-particle-shape="triangle" style="display:block;width:min(100%,480px);height:clamp(340px,40vw,520px);font:800 clamp(280px,34vw,480px)/.8 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.04em;text-align:right;-webkit-text-fill-color:transparent;color:transparent;user-select:none">20</span>
+      </div>}
+      <div data-reveal data-m="herocta" style="grid-column:1/13;grid-row:3;align-self:start;margin-top:56px;display:flex;flex-direction:column;gap:36px;max-width:none;position:relative;z-index:4">
+        <p data-m="lead" style="margin:0;max-width:520px;font:400 17px/1.5 Onest,sans-serif;color:rgba(233,235,239,.86);text-wrap:pretty">{description}</p>
+        <div data-m="actionsrow" style="display:flex;width:100%;align-items:flex-end;gap:24px">
+          <div data-actions-buttons style="display:flex;gap:2px;flex-wrap:wrap">
+          <a href={primaryCTA.href} style="background-image:linear-gradient(90deg,#FA001E 50%,#BD0000 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#E9EBEF;padding:28px 36px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s" class="export-hover-36">{primaryCTA.label}<span>→</span></a>
+          {secondaryCTA && <a href={secondaryCTA.href} style="border:1px solid rgba(233,235,239,.4);background-image:linear-gradient(90deg,#E9EBEF 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;padding:28px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:16px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s" class="export-hover-37">{secondaryCTA.label}<span>↗</span></a>}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ServiceAnchorNav items={navigationItems} />
+<style is:global>
+@media(max-width:1024px){[data-service-hero]{min-height:820px}[data-service-hero] [data-m="herogrid"]{grid-template-columns:repeat(8,minmax(0,1fr));padding:64px 0 48px 20px}[data-service-hero] [data-m="herogrid"]>div:first-child{grid-column:1/7!important}[data-service-hero] h1{grid-column:1/7!important;font-size:clamp(64px,9vw,108px)!important}[data-service-hero] [data-m="twenty"]{grid-column:6/9;grid-row:1/4}[data-service-hero] [data-m="herocta"]{grid-column:1/6;grid-row:3;margin-top:48px!important}[data-service-hero] [data-m="trust"]{grid-template-columns:1fr;gap:12px}}
+@media(max-width:768px){[data-service-hero]{min-height:0!important}[data-service-hero] [data-m="heropad"]{padding:0 20px!important}[data-service-hero] [data-m="herogrid"]{display:flex!important;flex-direction:column;align-items:stretch;padding:36px 0 48px!important;gap:20px}[data-service-hero] [data-m="herogrid"]>div:first-child{order:0}[data-service-hero] h1{font-size:min(18vw,82px)!important;line-height:.9!important}[data-service-hero] [data-m="lead"]{display:none!important}[data-service-hero] [data-m="leadm"]{display:block!important;order:1}[data-service-hero] [data-m="twenty"]{order:2;align-self:stretch!important;min-height:340px!important;margin:0!important}[data-service-hero] [data-parallax]{height:340px!important;font-size:min(78vw,360px)!important}[data-service-hero] [data-m="herocta"]{order:3;margin-top:0!important;max-width:none!important}[data-service-hero] [data-m="herocta"]>p{display:none!important}[data-service-hero] [data-m="herocta"]>div{display:flex;gap:2px;flex-wrap:wrap}[data-service-hero] [data-m="herocta"]>div>a{flex:1 1 150px;justify-content:center;padding:22px 16px!important}[data-service-hero] [data-m="trust"]{margin:0 20px!important;padding:18px 0 22px!important}}
+@media(max-width:1024px){[data-service-hero] [data-m="actionsrow"]{flex-wrap:wrap;align-items:flex-start}[data-service-hero] [data-cap]{margin-left:auto!important}}
+@media(max-width:768px){[data-service-hero] [data-m="actionsrow"]{gap:20px}[data-service-hero] [data-actions-buttons]{width:100%;gap:2px}[data-service-hero] [data-actions-buttons]>a{flex:1 1 150px;justify-content:center;padding:22px 16px!important}[data-service-hero] [data-cap-line]{font-size:clamp(22px,7vw,28px)!important}}
+</style>

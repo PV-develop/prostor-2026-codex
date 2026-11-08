@@ -1,0 +1,48 @@
+[ 3854308ms] ReferenceError: Cannot access 'disp' before initialization
+    at setC (http://localhost:4321/src/scripts/thread.ts:222:9)
+    at onHdr (http://localhost:4321/src/scripts/thread.ts:229:22)
+    at initThread (http://localhost:4321/src/scripts/thread.ts:231:2)
+    at http://localhost:4321/src/scripts/home.ts?t=1793976105597:240:1
+[ 4207308ms] ReferenceError: Cannot access 'req' before initialization
+    at setC (http://localhost:4321/src/scripts/thread.ts:227:10)
+    at onHdr (http://localhost:4321/src/scripts/thread.ts:229:22)
+[ 8618347ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/services/performance-marketing/:0
+[ 8618371ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/favicon.ico:0
+[13426921ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13447923ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13479853ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13480629ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13489494ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13515483ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13617811ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13663629ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13688444ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13688526ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13688595ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13688703ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13705075ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[13706847ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/services/performance-marketing/:0
+[17952799ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17952859ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17959085ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17960558ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17971952ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17973079ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17973595ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17973816ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17973995ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17977020ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[17999729ms] TypeError: Cannot read properties of null (reading 'textContent')
+    at build (http://localhost:4321/src/scripts/particles.ts?t=1793990093246:54:71)
+[18633961ms] ReferenceError: red is not defined
+    at loop (http://localhost:4321/src/scripts/particles.ts?t=1793990885143:327:22)

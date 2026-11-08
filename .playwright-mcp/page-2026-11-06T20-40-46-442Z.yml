@@ -1,0 +1,536 @@
+- generic [ref=f7e2]:
+  - generic [ref=f7e3]:
+    - generic [ref=f7e6]:
+      - link "Простор" [ref=f7e7] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=f7e8]:
+        - link "Обсудить ↗" [ref=f7e9] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=f7e10]: Обсудить
+          - generic [ref=f7e11]: ↗
+        - button "Меню" [ref=f7e12] [cursor=pointer]
+    - generic [ref=f7e18]:
+      - heading "Разгоняем маркетинг, вникаем в бизнес." [level=1] [ref=f7e19]:
+        - text: Разгоняем
+        - generic [ref=f7e20]: маркетинг,
+        - text: вникаем в бизнес.
+      - paragraph [ref=f7e21]: Объединяем стратегию, продвижение, разработку и аналитику в единую систему, чтобы привлекать целевые обращения, повышать конверсию и понимать, какие вложения приносят результат
+      - generic [ref=f7e22]:
+        - generic:
+          - generic: Лет в чужом бизнесе
+          - generic: как в своём
+        - generic [ref=f7e23]: "20"
+      - generic [ref=f7e25]:
+        - link "Обсудить задачу →" [ref=f7e26] [cursor=pointer]:
+          - /url: "#"
+          - text: Обсудить задачу
+          - generic [ref=f7e27]: →
+        - link "Кейсы ↓" [ref=f7e28] [cursor=pointer]:
+          - /url: "#"
+          - text: Кейсы
+          - generic [ref=f7e29]: ↓
+    - generic [ref=f7e30]:
+      - generic [ref=f7e31]: Нам доверяют
+      - generic [ref=f7e34]:
+        - generic [ref=f7e35]: Клиент один
+        - generic [ref=f7e37]: Застройщик
+        - generic [ref=f7e39]: Сеть клиник
+        - generic [ref=f7e41]: Отели Сочи
+        - generic [ref=f7e43]: Электротехника
+        - generic [ref=f7e45]: Юридическая группа
+        - generic [ref=f7e47]: Девелопер
+        - generic [ref=f7e49]: Интернет-магазин
+        - generic [ref=f7e51]: Клиент один
+        - generic [ref=f7e53]: Застройщик
+        - generic [ref=f7e55]: Сеть клиник
+        - generic [ref=f7e57]: Отели Сочи
+        - generic [ref=f7e59]: Электротехника
+        - generic [ref=f7e61]: Юридическая группа
+        - generic [ref=f7e63]: Девелопер
+        - generic [ref=f7e65]: Интернет-магазин
+  - generic [ref=f7e67]:
+    - generic [ref=f7e68]:
+      - generic [ref=f7e69]: 02 — Направления
+      - heading "С какой задачей требуется помощь?" [level=2] [ref=f7e71]: С какой задачейтребуется помощь?
+      - paragraph [ref=f7e72]: Нужно усилить отдельное направление? Выстроить маркетинг с нуля? Начнём с задачи вашего бизнеса.
+    - generic [ref=f7e73]:
+      - link "01 Performance-маркетинг Привлекать целевые обращения с помощью рекламы и управлять стоимостью привлечения Контекст · Таргет · Авито →" [ref=f7e74] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=f7e75]: "01"
+        - generic [ref=f7e78]: Performance-маркетинг
+        - generic [ref=f7e79]:
+          - text: Привлекать целевые обращения с помощью рекламы и управлять стоимостью привлечения
+          - generic [ref=f7e80]: Контекст · Таргет · Авито
+        - generic [ref=f7e81]: →
+      - link "02 SEO-продвижение Развивать видимость сайта в поиске и привлекать тех, кто уже ищет ваши товары и услуги Яндекс · Google · Зарубеж →" [ref=f7e82] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=f7e83]: "02"
+        - generic [ref=f7e86]: SEO-продвижение
+        - generic [ref=f7e87]:
+          - text: Развивать видимость сайта в поиске и привлекать тех, кто уже ищет ваши товары и услуги
+          - generic [ref=f7e88]: Яндекс · Google · Зарубеж
+        - generic [ref=f7e89]: →
+      - link "03 NEW AI-продвижение Повышать видимость компании и сайта в ответах нейросетей и ИИ-поиске GEO / AEO · Нейросети →" [ref=f7e90] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=f7e91]: "03"
+        - generic [ref=f7e94]:
+          - generic [ref=f7e95]: NEW
+          - generic [ref=f7e96]: AI-продвижение
+        - generic [ref=f7e97]:
+          - text: Повышать видимость компании и сайта в ответах нейросетей и ИИ-поиске
+          - generic [ref=f7e98]: GEO / AEO · Нейросети
+        - generic [ref=f7e99]: →
+      - link "04 Управление репутацией Работать с отзывами и информацией о компании, которые влияют на доверие и выбор клиента SERM · ORM · Аудит →" [ref=f7e100] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=f7e101]: "04"
+        - generic [ref=f7e104]: Управление репутацией
+        - generic [ref=f7e105]:
+          - text: Работать с отзывами и информацией о компании, которые влияют на доверие и выбор клиента
+          - generic [ref=f7e106]: SERM · ORM · Аудит
+        - generic [ref=f7e107]: →
+      - 'link "05 Разработка и дизайн Создать или улучшить сайт на любой CMS: структура, дизайн, функциональность и удобство Сайты · UX/UI · Поддержка →" [ref=f7e108] [cursor=pointer]':
+        - /url: "#"
+        - generic [ref=f7e109]: "05"
+        - generic [ref=f7e112]: Разработка и дизайн
+        - generic [ref=f7e113]:
+          - text: "Создать или улучшить сайт на любой CMS: структура, дизайн, функциональность и удобство"
+          - generic [ref=f7e114]: Сайты · UX/UI · Поддержка
+        - generic [ref=f7e115]: →
+    - 'link "06 Всё вместе Комплексный маркетинг Если нужно связать несколько направлений, соберём общий план: цели, каналы привлечения, задачи по сайту, аналитику и зоны ответственности. Определим, что запускать сначала и по каким показателям оценивать результат. Обсудить комплексный маркетинг →" [ref=f7e116] [cursor=pointer]':
+      - /url: "#"
+      - generic [ref=f7e117]: "06"
+      - generic [ref=f7e120]:
+        - generic [ref=f7e121]: Всё вместе
+        - generic [ref=f7e122]: Комплексный маркетинг
+      - generic [ref=f7e123]:
+        - text: "Если нужно связать несколько направлений, соберём общий план: цели, каналы привлечения, задачи по сайту, аналитику и зоны ответственности. Определим, что запускать сначала и по каким показателям оценивать результат."
+        - generic [ref=f7e124]: Обсудить комплексный маркетинг
+      - generic [ref=f7e125]: →
+    - generic [ref=f7e126]:
+      - generic [ref=f7e127]: Отраслевые решения
+      - generic [ref=f7e129]:
+        - generic [ref=f7e130]:
+          - generic [ref=f7e131]: Решаем задачи для
+          - link "Недвижимости" [ref=f7e132] [cursor=pointer]:
+            - /url: "#"
+          - link "Строительства" [ref=f7e133] [cursor=pointer]:
+            - /url: "#"
+          - link "Девелопмента" [ref=f7e134] [cursor=pointer]:
+            - /url: "#"
+          - link "Медицины" [ref=f7e135] [cursor=pointer]:
+            - /url: "#"
+          - link "Интернет-магазинов" [ref=f7e136] [cursor=pointer]:
+            - /url: "#"
+          - link "B2B" [ref=f7e137] [cursor=pointer]:
+            - /url: "#"
+          - link "и других отраслей" [ref=f7e138] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=f7e141]:
+          - generic [ref=f7e142]: Здесь самые популярные направления. Работаем и с другими отраслями — расскажите о своей.
+          - link "Подобрать отраслевое решение →" [ref=f7e143] [cursor=pointer]:
+            - /url: "#"
+            - text: Подобрать отраслевое решение
+            - generic [ref=f7e144]: →
+  - generic [ref=f7e145]:
+    - generic [ref=f7e146]: 03 — Кейсы
+    - generic [ref=f7e148]:
+      - heading "Задачи бизнеса, которые уже решили" [level=2] [ref=f7e149]: Задачи бизнеса,которые уже решили
+      - link "Все кейсы →" [ref=f7e150] [cursor=pointer]:
+        - /url: "#"
+        - text: Все кейсы
+        - generic [ref=f7e151]: →
+    - generic [ref=f7e152]:
+      - 'link "Replace Edit PERFORMANCE B2B · Юристы +0% Обращений за 6 месяцев Юридическая компания С 40 до 200 обращений в месяц: новая семантика, посадочные, коллтрекинг и CRM" [ref=f7e153] [cursor=pointer]':
+        - /url: "#"
+        - generic [ref=f7e155]:
+          - generic:
+            - button "Replace"
+            - button "Edit"
+        - generic:
+          - generic: PERFORMANCE
+          - generic: B2B · Юристы
+        - generic:
+          - generic: +0%
+          - generic: Обращений за 6 месяцев
+          - generic: Юридическая компания
+          - generic: "С 40 до 200 обращений в месяц: новая семантика, посадочные, коллтрекинг и CRM"
+      - 'link "Replace Edit SEO + таргет E-commerce +0% Органики за 12 месяцев Магазин электротехники Снизили зависимость от платной рекламы: техническое SEO, структура каталога, +18% в корзину" [ref=f7e157] [cursor=pointer]':
+        - /url: "#"
+        - generic [ref=f7e159]:
+          - generic:
+            - button "Replace"
+            - button "Edit"
+        - generic:
+          - generic: SEO + таргет
+          - generic: E-commerce
+        - generic:
+          - generic: +0%
+          - generic: Органики за 12 месяцев
+          - generic: Магазин электротехники
+          - generic: "Снизили зависимость от платной рекламы: техническое SEO, структура каталога, +18% в корзину"
+      - 'link "Replace Edit Комплекс Гостиницы +0% Бронирований за сезон Сеть отелей в Сочи Прямые бронирования без агрегаторов: геосервисы, SEO и отзывы одной командой" [ref=f7e161] [cursor=pointer]':
+        - /url: "#"
+        - generic [ref=f7e163]:
+          - generic:
+            - button "Replace"
+            - button "Edit"
+        - generic:
+          - generic: Комплекс
+          - generic: Гостиницы
+        - generic:
+          - generic: +0%
+          - generic: Бронирований за сезон
+          - generic: Сеть отелей в Сочи
+          - generic: "Прямые бронирования без агрегаторов: геосервисы, SEO и отзывы одной командой"
+  - generic [ref=f7e165]:
+    - generic [ref=f7e166]:
+      - generic [ref=f7e167]:
+        - generic [ref=f7e168]: 04 — Процесс
+        - heading "Как мы выстраиваем работу" [level=2] [ref=f7e170]: Как мывыстраиваем работу
+      - generic [ref=f7e171]: Пять этапов — от диагностики до масштабирования. На каждом вы заранее знаете, что делаем, сколько это занимает и что получаете в итоге.
+    - generic [ref=f7e172]:
+      - generic [ref=f7e173]: 5 этапов · листайте
+      - generic [ref=f7e175]: →
+    - generic [ref=f7e176]:
+      - generic [ref=f7e177]:
+        - generic [ref=f7e178]:
+          - generic [ref=f7e179]: "01"
+          - generic [ref=f7e180]: 1–2 недели
+        - generic [ref=f7e185]: Разбираем ситуацию
+        - generic [ref=f7e186]: Аудит текущего продвижения, сайта, воронки, аналитики и конкурентов
+        - generic [ref=f7e187]:
+          - generic [ref=f7e188]: Вы получаете
+          - generic [ref=f7e189]: Карта ограничений и точек роста
+      - generic [ref=f7e190]:
+        - generic [ref=f7e191]:
+          - generic [ref=f7e192]: "02"
+          - generic [ref=f7e193]: 1 неделя
+        - generic [ref=f7e198]: Формируем приоритеты
+        - generic [ref=f7e199]: Определяем задачи, точки роста, гипотезы и ожидаемый эффект
+        - generic [ref=f7e200]:
+          - generic [ref=f7e201]: Вы получаете
+          - generic [ref=f7e202]: План с очерёдностью и прогнозом
+      - generic [ref=f7e203]:
+        - generic [ref=f7e204]:
+          - generic [ref=f7e205]: "03"
+          - generic [ref=f7e206]: 2–4 недели
+        - generic [ref=f7e212]: Запускаем работу
+        - generic [ref=f7e213]: "Реализуем выбранные направления: performance, SEO, AI, репутация, сайт"
+        - generic [ref=f7e214]:
+          - generic [ref=f7e215]: Вы получаете
+          - generic [ref=f7e216]: Работающие каналы и ответственные
+      - generic [ref=f7e217]:
+        - generic [ref=f7e218]:
+          - generic [ref=f7e219]: "04"
+          - generic [ref=f7e220]: Каждый месяц
+        - generic [ref=f7e226]: Измеряем и корректируем
+        - generic [ref=f7e227]: Отслеживаем показатели, проверяем гипотезы, пересматриваем план
+        - generic [ref=f7e228]:
+          - generic [ref=f7e229]: Вы получаете
+          - generic [ref=f7e230]: Отчёт и обновлённый план
+      - generic [ref=f7e231]:
+        - generic [ref=f7e232]:
+          - generic [ref=f7e233]: "05"
+          - generic [ref=f7e234]: Постоянно
+        - generic [ref=f7e236]: Масштабируемто, что работает
+        - generic [ref=f7e237]: Усиливаем эффективные каналы и решения
+        - generic [ref=f7e238]:
+          - generic [ref=f7e239]: Вы получаете
+          - generic [ref=f7e240]: Рост на проверенных каналах
+    - generic [ref=f7e241]:
+      - generic [ref=f7e242]: Первые каналы запускаем через 4–7 недель
+      - generic [ref=f7e243]: Отчёт и обновлённый план — ежемесячно
+  - generic [ref=f7e244]:
+    - generic [ref=f7e245]: Хотите понять,с чего начатьв вашем случае?
+    - generic [ref=f7e246]:
+      - generic [ref=f7e247]: Оставьте контакты — свяжемся в течение часа и проконсультируем по вашему вопросу.
+      - generic [ref=f7e248]:
+        - generic: Имя
+        - textbox "Имя" [ref=f7e249]
+      - generic [ref=f7e250]:
+        - generic: Телефон
+        - textbox "Телефон" [ref=f7e251]:
+          - /placeholder: ""
+      - link "Обсудить задачу →" [ref=f7e252] [cursor=pointer]:
+        - /url: "#"
+        - text: Обсудить задачу
+        - generic [ref=f7e253]: →
+  - generic [ref=f7e255]:
+    - generic [ref=f7e256]: 05 — Команда
+    - generic [ref=f7e258]:
+      - heading "Кто ведёт ваш проект" [level=2] [ref=f7e259]: Кто ведётваш проект
+      - link "Вся команда →" [ref=f7e260] [cursor=pointer]:
+        - /url: "#"
+        - text: Вся команда
+        - generic [ref=f7e261]: →
+    - generic [ref=f7e262]:
+      - generic [ref=f7e263]:
+        - generic [ref=f7e264]:
+          - img "Илья Чугаевский" [ref=f7e265]
+          - generic [ref=f7e266]: "01"
+        - generic [ref=f7e267]:
+          - generic [ref=f7e268]: Илья Чугаевский
+          - generic [ref=f7e269]: Founder
+          - generic [ref=f7e270]: С 2006
+      - generic [ref=f7e271]:
+        - generic [ref=f7e272]:
+          - img "Андрей Спиридонов" [ref=f7e273]
+          - generic [ref=f7e274]: "02"
+        - generic [ref=f7e275]:
+          - generic [ref=f7e276]: Андрей Спиридонов
+          - generic [ref=f7e277]: Founder
+      - generic [ref=f7e278]:
+        - generic [ref=f7e279]:
+          - img "Никита Осипов" [ref=f7e280]
+          - generic [ref=f7e281]: "03"
+        - generic [ref=f7e282]:
+          - generic [ref=f7e283]: Никита Осипов
+          - generic [ref=f7e284]: COO
+      - generic [ref=f7e285]:
+        - generic [ref=f7e286]:
+          - img "Сергей Кожуркин" [ref=f7e287]
+          - generic [ref=f7e288]: "04"
+        - generic [ref=f7e289]:
+          - generic [ref=f7e290]: Сергей Кожуркин
+          - generic [ref=f7e291]: CIO
+    - generic [ref=f7e292]: Отзывы
+    - generic [ref=f7e295]:
+      - generic [ref=f7e296]: Логотип 01
+      - generic [ref=f7e297]: Логотип 02
+      - generic [ref=f7e298]: Логотип 03
+      - generic [ref=f7e299]: Логотип 04
+      - generic [ref=f7e300]: Логотип 05
+      - generic [ref=f7e301]: Логотип 06
+      - generic [ref=f7e302]: Логотип 07
+      - generic [ref=f7e303]: Логотип 08
+      - generic [ref=f7e304]: Логотип 01
+      - generic [ref=f7e305]: Логотип 02
+      - generic [ref=f7e306]: Логотип 03
+      - generic [ref=f7e307]: Логотип 04
+      - generic [ref=f7e308]: Логотип 05
+      - generic [ref=f7e309]: Логотип 06
+      - generic [ref=f7e310]: Логотип 07
+      - generic [ref=f7e311]: Логотип 08
+    - generic [ref=f7e312]:
+      - generic [ref=f7e313]: «
+      - generic [ref=f7e314]:
+        - generic [ref=f7e315]: Первый подрядчик, у которого отчёт сходится с нашей CRM. Перестали спорить про цифры и начали говорить про продажи.
+        - generic [ref=f7e316]:
+          - generic [ref=f7e317]: Имя ФамилияКоммерческий директор, застройщик
+          - link "Все отзывы →" [ref=f7e322] [cursor=pointer]:
+            - /url: "#"
+            - text: Все отзывы
+            - generic [ref=f7e323]: →
+  - generic [ref=f7e324]:
+    - generic [ref=f7e325]: Контакты
+    - generic [ref=f7e327]:
+      - generic [ref=f7e328]:
+        - generic [ref=f7e329]:
+          - heading "Оставьте заявку, чтобы обсудить проект" [level=2] [ref=f7e330]
+          - paragraph [ref=f7e331]: Свяжемся в течение часа и проконсультируем по вашему вопросу.
+        - generic [ref=f7e332]:
+          - generic [ref=f7e333]:
+            - generic: Имя
+            - textbox "Имя" [ref=f7e334]
+          - generic [ref=f7e335]:
+            - generic: Почта
+            - textbox "Почта" [ref=f7e336]
+          - generic [ref=f7e337]:
+            - generic: Телефон
+            - textbox "Телефон" [ref=f7e338]:
+              - /placeholder: ""
+          - generic [ref=f7e339]:
+            - generic: Опишите задачу
+            - textbox "Опишите задачу" [ref=f7e340]
+          - generic [ref=f7e344] [cursor=pointer]:
+            - generic [ref=f7e345]: Приложить бриф или документ
+            - generic [ref=f7e346]: PDF, DOC, XLS, PPT — до 20 МБ
+        - generic [ref=f7e347]:
+          - button "Отправить заявку →" [ref=f7e348] [cursor=pointer]:
+            - generic [ref=f7e349]: Отправить заявку
+            - generic [ref=f7e350]: →
+          - generic [ref=f7e351]:
+            - text: Отправляя заявку, вы соглашаетесь с
+            - link "политикой обработки персональных данных" [ref=f7e352] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=f7e353]:
+        - generic [ref=f7e354]:
+          - generic [ref=f7e355]:
+            - heading "Или сразу заполните бриф из 5 вопросов" [level=3] [ref=f7e356]
+            - paragraph [ref=f7e357]: Чем раньше мы поймём задачу, тем точнее подготовим предложение.
+          - link "Заполнить бриф →" [ref=f7e358] [cursor=pointer]:
+            - /url: "#"
+            - text: Заполнить бриф
+            - generic [ref=f7e359]: →
+        - generic [ref=f7e360]:
+          - heading "Контакты" [level=3] [ref=f7e361]
+          - generic [ref=f7e362]:
+            - link "8 800 555-50-70 Бесплатно по России" [ref=f7e363] [cursor=pointer]:
+              - /url: tel:88005555070
+              - generic [ref=f7e364]: 8 800 555-50-70
+              - generic [ref=f7e365]: Бесплатно по России
+            - link "8 812 640-07-09 Санкт-Петербург, Липовая аллея, 9" [ref=f7e366] [cursor=pointer]:
+              - /url: tel:88126400709
+              - generic [ref=f7e367]: 8 812 640-07-09
+              - generic [ref=f7e368]: Санкт-Петербург, Липовая аллея, 9
+            - link "ork@prosto-r.ru Почта для заявок" [ref=f7e369] [cursor=pointer]:
+              - /url: mailto:ork@prosto-r.ru
+              - generic [ref=f7e370]: ork@prosto-r.ru
+              - generic [ref=f7e371]: Почта для заявок
+            - generic [ref=f7e372]:
+              - generic [ref=f7e373]: Написать в мессенджер
+              - generic [ref=f7e374]:
+                - link "Telegram" [ref=f7e375] [cursor=pointer]:
+                  - /url: "#"
+                - link "WhatsApp" [ref=f7e376] [cursor=pointer]:
+                  - /url: "#"
+    - contentinfo [ref=f7e377]:
+      - generic [ref=f7e378]:
+        - generic [ref=f7e379]:
+          - generic [ref=f7e380]:
+            - generic [ref=f7e381]: Остались вопросы?Свяжитесь с нами
+            - generic [ref=f7e382]:
+              - link "ork@prosto-r.ru" [ref=f7e383] [cursor=pointer]:
+                - /url: mailto:ork@prosto-r.ru
+              - link "8 800 555-50-70" [ref=f7e384] [cursor=pointer]:
+                - /url: tel:88005555070
+              - link "8 812 640-07-09" [ref=f7e385] [cursor=pointer]:
+                - /url: tel:88126400709
+            - generic [ref=f7e386]:
+              - link "Telegram" [ref=f7e387] [cursor=pointer]:
+                - /url: "#"
+              - link "WhatsApp" [ref=f7e388] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f7e389]: 197183, Санкт-Петербург,Липовая аллея, 9, БЦ «Приморский»
+          - generic [ref=f7e390]:
+            - link "Обсудить проект →" [ref=f7e391] [cursor=pointer]:
+              - /url: "#"
+              - text: Обсудить проект
+              - generic [ref=f7e392]: →
+            - link "Присоединиться к команде →" [ref=f7e393] [cursor=pointer]:
+              - /url: "#"
+              - text: Присоединиться к команде
+              - generic [ref=f7e394]: →
+            - link "Стать партнёром →" [ref=f7e395] [cursor=pointer]:
+              - /url: "#"
+              - text: Стать партнёром
+              - generic [ref=f7e396]: →
+        - generic [ref=f7e397]:
+          - generic [ref=f7e398]: Услуги
+          - generic [ref=f7e400]:
+            - generic [ref=f7e401]:
+              - generic [ref=f7e402]:
+                - link "Performance-маркетинг" [ref=f7e403] [cursor=pointer]:
+                  - /url: "#"
+                - link "Контекстная реклама" [ref=f7e404] [cursor=pointer]:
+                  - /url: "#"
+                - link "Таргетированная реклама" [ref=f7e405] [cursor=pointer]:
+                  - /url: "#"
+                - link "Реклама в Промостраницах" [ref=f7e406] [cursor=pointer]:
+                  - /url: "#"
+                - link "Продвижение на Авито" [ref=f7e407] [cursor=pointer]:
+                  - /url: "#"
+                - link "Продвижение в ГЕО-сервисах" [ref=f7e408] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=f7e409]:
+                - link "SEO-продвижение" [ref=f7e410] [cursor=pointer]:
+                  - /url: "#"
+                - link "Продвижение в Яндекс" [ref=f7e411] [cursor=pointer]:
+                  - /url: "#"
+                - link "Продвижение в Google" [ref=f7e412] [cursor=pointer]:
+                  - /url: "#"
+                - link "Зарубежное SEO" [ref=f7e413] [cursor=pointer]:
+                  - /url: "#"
+                - link "SEO при редизайне и переезде" [ref=f7e414] [cursor=pointer]:
+                  - /url: "#"
+                - link "Бесплатный SEO-аудит" [ref=f7e415] [cursor=pointer]:
+                  - /url: "#"
+            - generic [ref=f7e416]:
+              - generic [ref=f7e417]:
+                - link "AI-оптимизация" [ref=f7e418] [cursor=pointer]:
+                  - /url: "#"
+                - link "Продвижение в нейросетях" [ref=f7e419] [cursor=pointer]:
+                  - /url: "#"
+                - link "GEO / AEO продвижение" [ref=f7e420] [cursor=pointer]:
+                  - /url: "#"
+                - link "Аудит видимости в ИИ-поиске" [ref=f7e421] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=f7e422]:
+                - link "Управление репутацией" [ref=f7e423] [cursor=pointer]:
+                  - /url: "#"
+                - link "SERM" [ref=f7e424] [cursor=pointer]:
+                  - /url: "#"
+                - link "ORM" [ref=f7e425] [cursor=pointer]:
+                  - /url: "#"
+                - link "Репутационный аудит" [ref=f7e426] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=f7e427]:
+                - link "Разработка и дизайн" [ref=f7e428] [cursor=pointer]:
+                  - /url: "#"
+                - link "Разработка сайтов" [ref=f7e429] [cursor=pointer]:
+                  - /url: "#"
+                - link "Системы управления" [ref=f7e430] [cursor=pointer]:
+                  - /url: "#"
+                - link "Дизайн сайтов" [ref=f7e431] [cursor=pointer]:
+                  - /url: "#"
+                - link "Техническая поддержка" [ref=f7e432] [cursor=pointer]:
+                  - /url: "#"
+        - generic [ref=f7e433]:
+          - generic [ref=f7e434]: Агентство
+          - generic [ref=f7e436]:
+            - link "О компании" [ref=f7e437] [cursor=pointer]:
+              - /url: "#"
+            - link "Преимущества" [ref=f7e438] [cursor=pointer]:
+              - /url: "#"
+            - link "Награды и сертификаты" [ref=f7e439] [cursor=pointer]:
+              - /url: "#"
+            - link "Команда" [ref=f7e440] [cursor=pointer]:
+              - /url: "#"
+            - link "Отзывы" [ref=f7e441] [cursor=pointer]:
+              - /url: "#"
+            - link "Партнёрам" [ref=f7e442] [cursor=pointer]:
+              - /url: "#"
+            - link "Вакансии" [ref=f7e443] [cursor=pointer]:
+              - /url: "#"
+            - link "Новости" [ref=f7e444] [cursor=pointer]:
+              - /url: "#"
+            - link "Блог" [ref=f7e445] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=f7e446]:
+            - link "Отраслевые решения" [ref=f7e447] [cursor=pointer]:
+              - /url: "#"
+            - link "Недвижимость" [ref=f7e448] [cursor=pointer]:
+              - /url: "#"
+            - link "Строительство" [ref=f7e449] [cursor=pointer]:
+              - /url: "#"
+            - link "Девелопмент" [ref=f7e450] [cursor=pointer]:
+              - /url: "#"
+            - link "Медицина" [ref=f7e451] [cursor=pointer]:
+              - /url: "#"
+            - link "Интернет-магазины" [ref=f7e452] [cursor=pointer]:
+              - /url: "#"
+            - link "B2B" [ref=f7e453] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=f7e454]:
+            - link "Кейсы" [ref=f7e455] [cursor=pointer]:
+              - /url: "#"
+            - link "Цены" [ref=f7e456] [cursor=pointer]:
+              - /url: "#"
+            - link "Контакты" [ref=f7e457] [cursor=pointer]:
+              - /url: "#"
+            - link "FAQ" [ref=f7e458] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=f7e459]:
+        - generic [ref=f7e460]: © 2006–2026 Простор
+        - generic [ref=f7e461]:
+          - link "Политика обработки персональных данных" [ref=f7e462] [cursor=pointer]:
+            - /url: "#"
+          - link "Согласие на обработку данных" [ref=f7e463] [cursor=pointer]:
+            - /url: "#"
+          - link "Политика cookies" [ref=f7e464] [cursor=pointer]:
+            - /url: "#"
+          - link "Карта сайта" [ref=f7e465] [cursor=pointer]:
+            - /url: "#"
+        - link "Наверх" [ref=f7e466] [cursor=pointer]:
+          - /url: "#"
+      - img "Простор" [ref=f7e469]

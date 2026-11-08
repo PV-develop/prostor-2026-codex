@@ -1,0 +1,132 @@
+[     219ms] [ERROR] WebSocket connection to 'ws://localhost:4321/?token=Lchx5ll7t9MX' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/@vite/client:1692
+[     279ms] [ERROR] WebSocket connection to 'ws://localhost:4321/?token=Lchx5ll7t9MX' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/@vite/client:1702
+[     282ms] [ERROR] [vite] failed to connect to websocket.
+your current setup:
+  (browser) localhost:4321/ <--[HTTP]--> localhost:4321/ (server)
+  (browser) localhost:4321/ <--[WebSocket (failing)]--> localhost:4321/ (server)
+Check out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr . @ http://localhost:4321/@vite/client:1712
+[     341ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.setAppStatus (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:386:20)
+    at http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:278:15
+    at Array.forEach (<anonymous>)
+    at AstroDevToolbar.connectedCallback (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:277:13) @ http://localhost:4321/@vite/client:1756
+[     341ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.setAppStatus (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:386:20)
+    at http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:278:15
+    at Array.forEach (<anonymous>)
+    at AstroDevToolbar.connectedCallback (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:277:13) @ http://localhost:4321/@vite/client:1756
+[     341ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.setAppStatus (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:386:20)
+    at http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:278:15
+    at Array.forEach (<anonymous>)
+    at AstroDevToolbar.connectedCallback (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:277:13) @ http://localhost:4321/@vite/client:1756
+[     341ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.setAppStatus (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:386:20)
+    at http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:278:15
+    at Array.forEach (<anonymous>)
+    at AstroDevToolbar.connectedCallback (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:277:13) @ http://localhost:4321/@vite/client:1756
+[     341ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.setAppStatus (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:386:20)
+    at http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:278:15
+    at Array.forEach (<anonymous>)
+    at AstroDevToolbar.connectedCallback (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:277:13) @ http://localhost:4321/@vite/client:1756
+[     352ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.initApp (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:322:41) @ http://localhost:4321/@vite/client:1756
+[     352ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.initApp (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:322:41) @ http://localhost:4321/@vite/client:1756
+[     352ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.initApp (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:322:41) @ http://localhost:4321/@vite/client:1756
+[     352ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.initApp (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:322:41) @ http://localhost:4321/@vite/client:1756
+[     362ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/logo-black.svg:0
+[     362ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[     362ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/i_chugaevsky.webp:0
+[     363ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[     364ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/a_spiridonov.webp:0
+[     364ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[     365ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/n_osipov.webp:0
+[     365ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[     367ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/s_kozhurkin.webp:0
+[     367ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[     368ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:260:7)
+    at Object.send (http://localhost:4321/@vite/client:1728:16)
+    at Object.send (http://localhost:4321/@vite/client:119:21)
+    at Object.send (http://localhost:4321/@vite/client:199:30)
+    at HMRClient.send (http://localhost:4321/@vite/client:588:18)
+    at HMRContext.send (http://localhost:4321/@vite/client:549:18)
+    at AstroDevToolbar.initApp (http://localhost:4321/node_modules/.vite/deps/toolbar--72C0u4u.js?v=3a6a072e:322:41) @ http://localhost:4321/@vite/client:1756
+[    1704ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/logo-black.svg:0
+[    1704ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    1705ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/i_chugaevsky.webp:0
+[    1705ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    1706ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/a_spiridonov.webp:0
+[    1706ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    1707ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/n_osipov.webp:0
+[    1707ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    1708ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/s_kozhurkin.webp:0
+[    1708ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    8241ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/logo-black.svg:0
+[    8241ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    8241ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/i_chugaevsky.webp:0
+[    8241ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    8242ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/a_spiridonov.webp:0
+[    8242ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    8243ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/n_osipov.webp:0
+[    8243ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216
+[    8244ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/src/team/s_kozhurkin.webp:0
+[    8244ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/astro_runtime_client_dev-toolbar_entrypoint__js.js?v=3a6a072e:216

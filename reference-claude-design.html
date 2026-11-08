@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="src/logo-white.svg" type="image/svg+xml">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./image-slot.js"></script><style>@font-face{font-family:Onest;font-style:normal;font-weight:400;font-display:swap;src:url("fonts/onest-400.ttf") format("truetype")}@font-face{font-family:Onest;font-style:normal;font-weight:500;font-display:swap;src:url("fonts/onest-500.ttf") format("truetype")}@font-face{font-family:Onest;font-style:normal;font-weight:600;font-display:swap;src:url("fonts/onest-600.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/jetbrains-mono-400.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/jetbrains-mono-500.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url("fonts/jetbrains-mono-600.ttf") format("truetype")}@font-face{font-family:Steelfish;font-weight:700;font-display:swap;font-stretch:25% 100%;src:url("fonts/Steelfish-Bold.ttf") format("truetype")}@font-face{font-family:Steelfish;font-weight:800;font-display:swap;font-stretch:25% 100%;src:url("fonts/Steelfish-ExtraBold.ttf") format("truetype")}body{margin:0;background:#0F0F0F;font-family:Onest,system-ui,sans-serif;color:#0F0F0F;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{color:inherit}@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes marqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}@keyframes spin{to{transform:rotate(360deg)}}[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
+[data-menu]{opacity:0;visibility:hidden;transform:translateY(-14px);pointer-events:none;transition:opacity .3s ease,transform .45s cubic-bezier(.2,.7,.2,1),visibility 0s linear .45s}
+[data-menu][data-open="true"]{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .35s ease .05s,transform .55s cubic-bezier(.2,.7,.2,1) .05s}
+[data-menu] details>summary{list-style:none}
+[data-menu] details>summary::-webkit-details-marker{display:none}
+[data-menu] details[open]>summary>span:last-child{transform:rotate(45deg)}
+[data-mmain] [data-mextra]{display:none}
+[data-menu] [data-mplus]{display:none}
+@media (max-width:1100px){[data-m="hphone"]{display:none!important}
+[data-menu] [data-mg]{grid-template-columns:1.3fr 1.6fr!important}
+[data-menu] [data-mc]{grid-column:1/-1;flex-direction:row!important;flex-wrap:wrap;align-items:center;gap:14px 30px}
+}
+@media (max-width:1024px){
+[data-m="proc"]{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:2px!important;scroll-padding:0 48px;scrollbar-width:none;padding-bottom:4px!important}
+[data-m="proc"]::-webkit-scrollbar{display:none}
+[data-m="proc"]>div{flex:0 0 min(78vw,340px);scroll-snap-align:start;min-height:380px!important}
+}
+@media (max-width:768px){
+[data-m="proc"]{padding-left:20px!important;padding-right:20px!important;margin-top:16px!important;scroll-padding:0 20px}
+[data-m="proc"]>div{flex:0 0 80%!important;min-height:0!important}
+[data-m="prochint"]{display:flex!important;margin:32px 20px 0!important}
+[data-hdr]{padding:14px 20px!important;gap:8px!important;grid-template-columns:auto minmax(0,1fr) auto!important}
+[data-hconn],[data-thread]{display:none!important}
+[data-m="hright"]{justify-self:end;gap:8px!important}
+[data-m="hright"]>a{padding:12px 14px!important;height:40px;display:flex;align-items:center;gap:8px;box-sizing:border-box}
+[data-m="hright"]>button{padding:0!important;width:40px!important;height:40px!important;justify-content:center!important}
+[data-m="hright"] [data-mblabel]{display:none}
+[data-m="hright"] [data-mfull]{display:none}
+[data-m="hright"] [data-mshort]{display:inline!important}
+[data-menu]{padding:14px 20px 22px!important;max-height:100svh!important}
+[data-menu] [data-mh]{display:flex!important;flex-wrap:wrap;align-items:center;gap:12px!important;padding-bottom:14px}
+[data-menu] [data-mh]>a[href^="tel"]{display:none}
+[data-menu] [data-mh]>button{order:2!important;margin-left:auto!important;min-width:0!important;border:0!important;background:transparent!important;padding:2px!important;color:#0F0F0F!important}
+[data-menu] [data-mhlabel]{display:none}
+[data-menu] [data-mh]>button>span:last-child{font-size:28px!important}
+[data-menu] [data-mg]{grid-template-columns:1fr!important;gap:24px!important;padding-top:18px}
+[data-menu] [data-mmain]{display:grid!important;grid-template-columns:1fr 1fr;gap:20px 24px;border-right:0!important;padding-right:0!important;border-bottom:1px solid rgba(15,15,15,.12);padding-bottom:22px}
+[data-menu] [data-mmain]>a{font-size:26px}
+[data-menu] [data-mmain]>a>span{display:none}
+[data-menu] [data-mmain] [data-mextra]{display:block}
+[data-menu] [data-mservices]{border-bottom:1px solid rgba(15,15,15,.12);padding-bottom:22px}
+[data-menu] [data-msnav]{gap:22px 20px!important}
+[data-menu] [data-mplus]{display:inline}
+[data-menu] [data-msnav] summary{font-size:20px!important;margin-bottom:0!important}
+[data-menu] [data-mgrp][open] summary{margin-bottom:12px!important}
+[data-menu] [data-mc]{flex-direction:column!important;gap:18px!important;align-items:stretch!important}
+[data-menu] [data-mc]>details{display:none}
+[data-menu] [data-mc]>a:not([data-mcta]){display:none!important}
+[data-menu] [data-mcontacts]{display:flex!important;flex-direction:row;justify-content:space-between;align-items:baseline;gap:16px;margin-top:6px}
+[data-menu] [data-mcontacts]>a{margin-top:0!important}
+[data-menu] [data-marrow]{display:none}
+[data-menu] [data-mphone]{display:block!important}
+[data-menu] [data-msoc]{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 12px;margin-top:6px}
+[data-menu] [data-mcta]{display:flex!important;margin-top:12px}
+[data-screen-label^="01"]{min-height:0!important}
+[data-screen-label^="01"] [data-tl="v"]{display:none!important}
+[data-m="heropad"]{padding:0 20px!important}
+[data-m="herogrid"]{display:flex!important;flex-direction:column;align-items:stretch;padding:36px 0 48px!important;gap:32px}
+[data-m="herogrid"] h1{font-size:min(22vw,96px)!important}
+[data-m="lead"]{display:none!important}
+[data-m="leadm"]{display:block!important;order:1}
+[data-m="herocta"]{order:2;margin-top:0!important;max-width:none!important}
+[data-m="herocta"] a{flex:1 1 150px;justify-content:center;padding:22px 20px!important}
+[data-m="twenty"]{order:3;align-self:stretch!important;margin-top:8px}
+[data-m="twenty"]{order:-1;align-items:center!important;align-self:center!important;justify-self:center!important;gap:8px!important;margin:0 0 8px!important}
+[data-m="twenty"] [data-cap]{align-items:center!important;text-align:center!important}
+[data-m="twenty"] [data-parallax]{font-size:min(88vw,420px)!important;width:max-content;text-align:center!important}
+[data-m="twenty"] [data-cap-line]{font-size:30px!important}
+[data-logo] svg,[data-logo] img{display:none!important}
+[data-logo]{background:url(src/logo-white.svg) no-repeat -39px 0/auto 26px}
+[data-fmark]{width:100%!important;max-width:100%!important;margin-left:0!important;aspect-ratio:168/34!important;background:url(src/logo-white.svg) no-repeat 100% 0/130.36% auto}
+[data-fmark]>svg{display:none!important}
+[data-m="trust"]{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important;row-gap:14px;padding:18px 0 22px!important}
+[data-tl="v"]{writing-mode:horizontal-tb!important;transform:none!important}
+[data-tl="h"]{margin-left:20px!important;margin-right:20px!important}
+[data-screen-label^="02"],[data-screen-label^="03"]{padding:88px 0 96px!important}
+[data-screen-label^="04"]{padding-top:88px!important}
+[data-screen-label^="05"]{padding:88px 0 72px!important}
+[data-screen-label^="06"]{padding:40px 0!important}
+[data-m="s2head"]{display:flex!important;flex-direction:column;align-items:flex-start;gap:24px;padding:0 20px!important}
+[data-m="s2head"] p{font-size:17px!important}
+[data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"n a" "t t" "d d";gap:14px 16px!important;padding:28px 20px!important;align-items:start!important}
+[data-m="srow"]>:nth-child(1){grid-area:n;margin:0!important;align-self:center!important}
+[data-m="srow"]>:nth-child(2){grid-area:t}
+[data-m="srow"]>:nth-child(3){grid-area:d;max-width:none!important}
+[data-m="srow"]>:nth-child(4){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
+[data-m="otr"]{margin-top:96px!important;padding:0 20px!important;display:flex!important;flex-direction:column;gap:24px}
+[data-m="sechead"]{flex-direction:column;align-items:flex-start!important;gap:28px!important;padding:0 20px!important}
+[data-m="sechead"]>a{margin-bottom:0!important}
+[data-m="cases"]{margin-top:48px!important;padding:0 20px!important;grid-template-columns:minmax(0,1fr)!important;gap:32px!important}
+[data-m="cases"]>a{height:auto!important;margin-top:0!important}
+[data-m="cases"] [data-gs-photo]{height:300px!important}
+[data-m="team"]{margin-top:48px!important;padding:0 20px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+[data-team-card]{padding:12px!important}
+[data-team-caption]{padding:16px 0 2px!important}
+[data-team-name]{font-size:22px!important}
+[data-team-role],[data-team-year]{font-size:11px!important;margin-top:10px!important}
+[data-team-year]{margin-top:12px!important}
+[data-team-number]{left:10px!important;bottom:10px!important;min-width:32px!important;padding:8px!important;font-size:10px!important}
+[data-m="s4head"]{padding:0 20px!important;gap:20px!important}
+[data-m="s4head"]>div:first-child{flex-direction:column;gap:20px!important}
+[data-m="s4head"]>div:first-child>div:first-child{writing-mode:horizontal-tb!important;transform:none!important}
+[data-m="procnote"]{margin:16px 20px 0!important;flex-direction:column;gap:6px!important}
+[data-m="cta"]{margin:56px 20px 0!important;padding:36px 20px!important;gap:28px!important}
+[data-m="cta"]>div:nth-child(2){grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+[data-m="spacer"]{height:80px!important}
+[data-m="quote"]{padding:64px 20px 0!important;display:flex!important;flex-direction:column;gap:20px}
+[data-m="quote"]>div:first-child{font-size:96px!important;line-height:.8!important}
+[data-m="contacts"]{padding:0 20px!important}
+[data-screen-label^="07"]{margin:80px 20px 0!important;padding-top:48px!important}
+[data-m="fbar"]{display:flex!important;flex-wrap:wrap;gap:16px 24px!important;margin-top:56px!important}
+[data-m="fbar"]>div{justify-content:flex-start!important;order:3;flex-basis:100%}
+[data-m="fbar"]>a{margin-left:auto}
+}</style></helmet>
+<div style="margin:0 auto;background:#E9EBEF;overflow:clip">
+
+<div data-screen-label="01 Первый экран" style="background:#0F0F0F;color:#E9EBEF;position:relative;min-height:860px;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden">
+<div aria-hidden="true" style="position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:220px 220px"></div>
+<div aria-hidden="true" data-hsp style="height:91px"></div><div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;padding:24px 48px;position:fixed;top:0;left:0;right:0;margin:0 auto;box-sizing:border-box;z-index:50;background:rgba(15,15,15,0);transition:background .4s,backdrop-filter .4s,-webkit-backdrop-filter .4s" data-hdr><span data-hconn style="position:absolute;left:22px;top:56px;bottom:0;width:1px;background:#FA001E;transform:scaleY(0);transform-origin:top;transition:transform .35s cubic-bezier(.6,0,.2,1)"></span><a href="#" data-logo aria-label="Простор" style="position:relative;display:block;height:26px;width:128px"><img data-logo-word src="src/logo-white.svg" alt="" style="position:absolute;top:0;left:-39px;height:26px;width:auto;max-width:none;clip-path:inset(0 0 0 39px)"></a><div data-m="hright" style="display:flex;gap:16px;align-items:center;justify-self:end;font:500 12px 'JetBrains Mono',monospace;letter-spacing:.08em;white-space:nowrap"><span data-m="hphone" style="font:700 24px/1 Steelfish,sans-serif;font-stretch:25%;letter-spacing:.02em">8 800 555-50-70</span><a href="#" style="background-image:linear-gradient(90deg,#E9EBEF 50%,#FA001E 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#FFFFFF;padding:14px 18px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:background-position .55s cubic-bezier(.7,0,.2,1)" style-hover="background-position:0 0;color:#0F0F0F"><span data-mfull>Обсудить задачу</span><span data-mshort style="display:none">Обсудить</span> <span>↗</span></a><button data-mbtn onClick="{{ toggleMenu }}" aria-label="Меню" style="all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;height:44px;padding:13px 16px;border:1px solid rgba(233,235,239,.32);color:#E9EBEF;font:600 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#E9EBEF;color:#0F0F0F"><span data-mblabel>Меню</span><span style="display:flex;flex-direction:column;gap:3px"><span style="width:14px;height:1.5px;background:currentColor"></span><span style="width:14px;height:1.5px;background:currentColor"></span><span style="width:14px;height:1.5px;background:currentColor"></span></span></button></div></div><div data-menu data-open="{{ menuOpen }}" style="position:fixed;top:0;left:0;right:0;z-index:60;box-sizing:border-box;background:#E9EBEF;color:#0F0F0F;border-bottom:1px solid rgba(15,15,15,.22);max-height:92svh;overflow:auto;padding:20px 48px 34px"><div data-mh style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:28px;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(15,15,15,.14)"><a href="#" aria-label="Простор" style="display:flex;height:31px;align-items:center"><img src="src/logo-black.svg" alt="" style="display:block;height:31px;width:auto"></a><a href="tel:88005555070" style="justify-self:start;font:700 clamp(36px,4vw,60px)/1 Steelfish,sans-serif;font-stretch:25%;letter-spacing:.01em;color:#0F0F0F;white-space:nowrap">8 800 555-50-70</a><button onClick="{{ closeMenu }}" aria-label="Закрыть меню" style="all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:18px;min-width:124px;padding:13px 20px;border:1px solid #0F0F0F;color:#0F0F0F;font:600 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#0F0F0F;color:#E9EBEF"><span data-mhlabel>Закрыть</span><span style="font:400 18px/1 Onest,sans-serif">×</span></button></div><div data-mg style="display:grid;grid-template-columns:3fr 6fr 2.4fr;gap:40px;padding-top:26px"><nav data-mmain aria-label="Разделы сайта" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;border-right:1px solid rgba(15,15,15,.12);padding-right:36px"><a href="#directions" style="display:flex;align-items:flex-start;gap:14px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E"><span style="margin-top:7px;font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#FA001E">01</span>Направления</a><a href="#cases" style="display:flex;align-items:flex-start;gap:14px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E"><span style="margin-top:7px;font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#FA001E">02</span>Кейсы и отрасли</a><a href="#process" style="display:flex;align-items:flex-start;gap:14px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E"><span style="margin-top:7px;font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#FA001E">03</span>Процесс и команда</a><a href="#reviews" style="display:flex;align-items:flex-start;gap:14px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E"><span style="margin-top:7px;font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#FA001E">04</span>Отзывы</a><a href="#contacts" style="display:flex;align-items:flex-start;gap:14px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E"><span style="margin-top:7px;font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#FA001E">05</span>Контакты</a><a href="#" data-mextra style="font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F">Цены</a><a href="#" data-mextra style="font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F">О компании</a><a href="#" data-mextra style="font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F">Блог</a></nav><div data-mservices><div style="margin-bottom:22px;font:500 13px/1.35 Onest,sans-serif;color:#FA001E;display:flex;gap:12px;align-items:center"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>Услуги</div><div data-msnav style="display:grid;grid-template-columns:1fr 1fr;gap:30px 36px"><details data-mgrp open style="margin:0"><summary style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;font:700 24px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;list-style:none;cursor:pointer">Продвижение<span data-mplus style="font:400 22px/1 Onest,sans-serif;transition:transform .3s">+</span></summary><div style="display:flex;flex-direction:column;gap:9px"><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Контекстная реклама</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">SEO-продвижение</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">AI-оптимизация</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Реклама ВКонтакте</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Реклама в Telegram</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Продвижение на Авито</a></div></details><details data-mgrp open style="margin:0"><summary style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;font:700 24px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;list-style:none;cursor:pointer">Разработка<span data-mplus style="font:400 22px/1 Onest,sans-serif;transition:transform .3s">+</span></summary><div style="display:flex;flex-direction:column;gap:9px"><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Разработка сайтов</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Разработка</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Создание лендингов</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Корпоративный сайт на ИИ-платформе</a></div></details><details data-mgrp open style="margin:0"><summary style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;font:700 24px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;list-style:none;cursor:pointer">Репутация и геосервисы<span data-mplus style="font:400 22px/1 Onest,sans-serif;transition:transform .3s">+</span></summary><div style="display:flex;flex-direction:column;gap:9px"><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Управление репутацией</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Геомаркетинг</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Ведение и оформление Яндекс Бизнес</a></div></details><details data-mgrp open style="margin:0"><summary style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;font:700 24px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;list-style:none;cursor:pointer">Стратегия и поддержка<span data-mplus style="font:400 22px/1 Onest,sans-serif;transition:transform .3s">+</span></summary><div style="display:flex;flex-direction:column;gap:9px"><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Стратегия Digital-маркетинга</a><a href="#" style="font:400 14px/1.45 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Техническая поддержка</a></div></details></div></div><div data-mc style="display:flex;flex-direction:column;gap:16px;align-items:flex-start"><details style="width:100%"><summary style="display:flex;align-items:center;gap:10px;list-style:none;cursor:pointer;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E">Цены<span style="font:400 22px/1 Onest,sans-serif;transition:transform .3s">+</span></summary><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0 2px"><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">SEO-продвижение ↗</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Контекстная реклама ↗</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(15,15,15,.62);transition:color .2s" style-hover="color:#FA001E">Разработка сайтов ↗</a></div></details><a href="#" style="display:flex;align-items:center;gap:8px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E">О компании <span style="font:400 20px/1 Onest,sans-serif">↗</span></a><a href="#" style="display:flex;align-items:center;gap:8px;font:700 clamp(28px,2.4vw,38px)/1.02 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;transition:color .25s" style-hover="color:#FA001E">Блог <span style="font:400 20px/1 Onest,sans-serif">↗</span></a><div data-mcontacts style="display:contents"><a href="mailto:ork@prosto-r.ru" style="margin-top:10px;display:flex;align-items:center;gap:6px;font:500 14px/1.4 Onest,sans-serif;color:#0F0F0F;transition:color .2s" style-hover="color:#FA001E">ork@prosto-r.ru <span data-marrow style="font:400 13px/1 Onest,sans-serif">↗</span></a><a data-mphone href="tel:88005555070" style="display:none;font:500 14px/1.4 Onest,sans-serif;color:#0F0F0F">8 800 555-50-70</a></div><div data-msoc style="display:flex;flex-direction:column;gap:11px;margin-top:12px"><a href="https://telegram.me/agency_prostor" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;font:500 13px/1.4 Onest,sans-serif;color:rgba(15,15,15,.75);transition:color .2s" style-hover="color:#FA001E"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:15px;height:15px;flex:none"><path d="M3 10.5 20 4l-3.5 16-5-5-3 3 .5-6 8-5-10 4.5Z"/></svg>Telegram</a><a href="https://wa.me/79118270369" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;font:500 13px/1.4 Onest,sans-serif;color:rgba(15,15,15,.75);transition:color .2s" style-hover="color:#FA001E"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:15px;height:15px;flex:none"><path d="M5 18 3 21l4-1a9 9 0 1 0-2-2Z"/><path d="m8 7 2 3-1 1c1 2 2 3 4 3l1-1 3 1c-1 4-6 3-9 0S5 8 8 7Z"/></svg>WhatsApp</a><a href="https://vk.com/prostor_24" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;font:500 13px/1.4 Onest,sans-serif;color:rgba(15,15,15,.75);transition:color .2s" style-hover="color:#FA001E"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:15px;height:15px;flex:none"><path d="M3 7h3c0 4 2 6 3 7V7h3v4c2-1 3-3 4-4h4l-4 6c3 2 4 4 4 4h-4l-4-4v4H9C5 16 3 12 3 7Z"/></svg>ВКонтакте</a><a href="https://www.youtube.com/@ProstorDigitalAgency/videos" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;font:500 13px/1.4 Onest,sans-serif;color:rgba(15,15,15,.75);transition:color .2s" style-hover="color:#FA001E"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;flex:none"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m10 9 6 3-6 3Z" fill="currentColor"/></svg>YouTube</a><a href="https://dzen.ru/prostor_digital_agency" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;font:500 13px/1.4 Onest,sans-serif;color:rgba(15,15,15,.75);transition:color .2s" style-hover="color:#FA001E"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:15px;height:15px;flex:none"><path d="M12 2c0 8 2 10 10 10-8 0-10 2-10 10 0-8-2-10-10-10C10 12 12 10 12 2Z"/></svg>Дзен</a></div><a href="#" data-mcta style="display:none;align-items:center;justify-content:space-between;gap:20px;background:#FA001E;color:#E9EBEF;padding:20px 24px;font:600 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase">Обсудить задачу <span>↗</span></a></div></div></div>
+
+<div data-m="heropad" style="position:relative;padding:0 48px;display:flex;flex-direction:column">
+<div data-tl="v" style="position:absolute;left:30px;top:40px;writing-mode:vertical-rl;transform:rotate(180deg);font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#FA001E;clip-path:inset(100% 0 0 0);display:flex;gap:14px;align-items:center">Digital-маркетинг с 2006 года · Простор<span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span></div>
+<div style="position:relative;z-index:3;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:72px 0 56px 32px;align-items:start" data-m="herogrid">
+<h1 data-reveal style="margin:0;font:700 clamp(84px,11.7vw,168px)/.88 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em;grid-column:1/10;grid-row:1;text-wrap:balance;position:relative;z-index:2;grid-column:1/9">Разгоняем<br><span style="position:relative">маркетинг,<span data-m="lead" style="position:absolute;left:calc(100% + .3em);top:-.66em;width:min(340px,22vw)"><span style="display:block;font:400 clamp(15px,1.2vw,18px)/1.45 Onest,sans-serif;font-stretch:100%;text-transform:none;letter-spacing:0;color:rgba(233,235,239,.86);text-wrap:pretty;text-align:left">Объединяем стратегию, продвижение, разработку и аналитику в единую систему, чтобы привлекать целевые обращения, повышать конверсию и понимать, какие вложения приносят результат</span></span></span><br><span style="color:#FA001E">вникаем</span> в бизнес<span style="color:#FA001E">.</span></h1><p data-m="leadm" style="display:none;margin:0;font:400 17px/1.5 Onest,sans-serif;color:rgba(233,235,239,.86);text-wrap:pretty;max-width:520px">Объединяем стратегию, продвижение, разработку и аналитику в единую систему, чтобы привлекать целевые обращения, повышать конверсию и понимать, какие вложения приносят результат</p>
+<div data-reveal data-m="twenty" style="grid-column:9/13;grid-row:1;justify-self:end;align-self:end;margin-bottom:.02em;display:flex;flex-direction:column;align-items:flex-end;gap:28px;position:relative;z-index:1;font-size:clamp(84px,11.7vw,168px)"><div data-cap style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;text-align:right;pointer-events:none"><span style="display:block;overflow:hidden;padding:0 4px"><span data-cap-line style="display:block;transform:translateY(110%);font:700 clamp(28px,2.8vw,40px)/1.04 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;white-space:nowrap">Лет в чужом бизнесе</span></span><span style="display:block;overflow:hidden;padding:0 4px"><span data-cap-line style="display:flex;gap:10px;transform:translateY(110%);font:700 clamp(28px,2.8vw,40px)/1.04 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;white-space:nowrap"><span data-cap-plate style="display:inline-block;background:#FA001E;color:#0F0F0F;padding:0 8px;clip-path:inset(0 100% 0 0)">как в своём</span></span></span></div><div data-parallax style="font:800 clamp(220px,30vw,440px)/.72 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.04em;text-align:right;-webkit-text-fill-color:transparent;color:transparent;user-select:none">20</div></div>
+<div data-reveal data-m="herocta" style="grid-column:1/8;grid-row:2;align-self:start;margin-top:56px;display:flex;flex-direction:column;gap:36px;max-width:620px"><div style="display:flex;gap:2px;flex-wrap:wrap"><a href="#" style="background-image:linear-gradient(90deg,#FA001E 50%,#BD0000 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#E9EBEF;padding:28px 36px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#0F0F0F">Обсудить задачу <span>→</span></a><a href="#" style="border:1px solid rgba(233,235,239,.4);background-image:linear-gradient(90deg,#E9EBEF 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;padding:28px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:16px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s" style-hover="background-position:0 0;color:#0F0F0F;border-color:#E9EBEF">Кейсы <span>↓</span></a></div></div>
+</div>
+</div>
+
+<div data-m="trust" style="position:relative;z-index:4;margin:0 48px;border-top:1px solid rgba(233,235,239,.14);padding:22px 0 26px;display:grid;grid-template-columns:200px minmax(0,1fr);align-items:center;column-gap:24px"><span data-tl="h" style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#FA001E;display:flex;gap:12px;align-items:center;width:max-content;clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1) .2s"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>Нам доверяют</span><div style="overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)"><div style="display:flex;gap:44px;align-items:center;width:max-content;animation:marq 40s linear infinite;font:700 30px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:rgba(233,235,239,.55)"><span>Клиент один</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Застройщик</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Сеть клиник</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Отели Сочи</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Электротехника</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Юридическая группа</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Девелопер</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Интернет-магазин</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Клиент один</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Застройщик</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Сеть клиник</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Отели Сочи</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Электротехника</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Юридическая группа</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Девелопер</span><span style="width:5px;height:5px;background:#FA001E"></span><span>Интернет-магазин</span><span style="width:5px;height:5px;background:#FA001E"></span></div></div></div>
+</div>
+
+<div data-screen-label="02 Задачи" id="directions" style="padding:140px 0 160px;position:relative">
+<div data-reveal data-m="s2head" style="padding:0 48px;display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;row-gap:40px;align-items:end"><div data-tl="v" style="grid-column:1;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#BD0000;display:flex;gap:12px;align-items:center;align-self:start;justify-self:start;writing-mode:vertical-rl;transform:rotate(180deg);clip-path:inset(100% 0 0 0)">02 — Направления<span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span></div><h2 style="grid-column:2;margin:0;font:700 clamp(64px,8.3vw,120px)/.9 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">С какой задачей<br>требуется <span style="-webkit-text-stroke:2px #0F0F0F;color:transparent">помощь</span><span style="color:#FA001E">?</span></h2><p style="grid-column:3/5;align-self:end;margin:0;max-width:420px;font:400 20px/1.45 Onest,sans-serif;color:#0F0F0F;text-wrap:pretty">Нужно усилить отдельное направление? Выстроить маркетинг с нуля? Начнём с задачи вашего бизнеса.</p><div style="display:none;flex-direction:column;border-top:1px solid #0F0F0F"><div style="display:flex;justify-content:space-between;padding:10px 0;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:rgba(15,15,15,.55)"><span>Два пути</span><span>А / Б</span></div><a href="#" style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;border-top:1px solid rgba(15,15,15,.18);font-size:16px;line-height:1.35;transition:padding .3s" style-hover="padding-left:8px"><span style="width:28px;height:28px;border:1px solid #0F0F0F;display:flex;align-items:center;justify-content:center;font:600 11px 'JetBrains Mono',monospace">А</span><span>Нужно усилить отдельное направление?</span><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:rgba(15,15,15,.55)">01–05 ↓</span></a><a href="#" style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;border-top:1px solid rgba(15,15,15,.18);font-size:16px;line-height:1.35;transition:padding .3s" style-hover="padding-left:8px"><span style="width:28px;height:28px;border:1px solid #0F0F0F;display:flex;align-items:center;justify-content:center;font:600 11px 'JetBrains Mono',monospace">Б</span><span>Выстроить маркетинг с нуля?</span><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:rgba(15,15,15,.55)">06 ↓</span></a><div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;align-items:center;padding:16px 0 0;border-top:1px solid #0F0F0F;font:700 clamp(22px,2vw,28px)/1.05 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase"><span style="width:28px;height:28px;background:#FA001E;color:#0F0F0F;display:flex;align-items:center;justify-content:center;font:600 14px 'JetBrains Mono',monospace">↓</span>Начнём с задачи вашего бизнеса.</div></div></div>
+
+<div style="margin-top:72px;border-top:1px solid #0F0F0F">
+<a href="#" data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px 48px;border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" style-hover="background-position:0 0;color:#E9EBEF"><span data-tl style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">01</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">Performance-маркетинг</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">Привлекать целевые обращения с помощью рекламы и управлять стоимостью привлечения<br><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">Контекст · Таргет · Авито</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>
+<a href="#" data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px 48px;border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" style-hover="background-position:0 0;color:#E9EBEF"><span data-tl style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">02</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">SEO-продвижение</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">Развивать видимость сайта в поиске и привлекать тех, кто уже ищет ваши товары и услуги<br><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">Яндекс · Google · Зарубеж</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>
+<a href="#" data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px 48px;border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" style-hover="background-position:0 0;color:#E9EBEF"><span data-tl style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">03</span></span><span style="display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:flex-start;gap:14px"><span style="font:600 12px/1.2 Onest,sans-serif;letter-spacing:.01em;background:#FA001E;color:#0F0F0F;padding:5px 8px;flex:none;white-space:nowrap;line-height:1;margin-top:calc(clamp(40px,5vw,72px) * .06)">NEW</span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">AI-продвижение</span></span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">Повышать видимость компании и сайта в ответах нейросетей и ИИ-поиске<br><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">GEO / AEO · Нейросети</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>
+<a href="#" data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px 48px;border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" style-hover="background-position:0 0;color:#E9EBEF"><span data-tl style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">04</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">Управление репутацией</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">Работать с отзывами и информацией о компании, которые влияют на доверие и выбор клиента<br><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">SERM · ORM · Аудит</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>
+<a href="#" data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px 48px;border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" style-hover="background-position:0 0;color:#E9EBEF"><span data-tl style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">05</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">Разработка и дизайн</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">Создать или улучшить сайт на любой CMS: структура, дизайн, функциональность и удобство<br><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">Сайты · UX/UI · Поддержка</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>
+</div>
+
+<a href="#" data-reveal data-tl-inv data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px 48px;border-bottom:1px solid #0F0F0F;position:relative;color:#E9EBEF;background-image:linear-gradient(90deg,#FA001E 50%,#BD0000 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" style-hover="background-position:0 0;color:#0F0F0F"><span data-tl style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#0F0F0F;flex:none"></span><span style="opacity:.7">06</span></span><span style="display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:flex-start;gap:14px"><span style="font:600 12px/1.2 Onest,sans-serif;letter-spacing:.01em;background:#0F0F0F;color:#E9EBEF;padding:5px 8px;flex:none;white-space:nowrap;line-height:1;margin-top:calc(clamp(40px,5vw,72px) * .06)">Всё вместе</span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em"><span style="color:#0F0F0F">Комплексный</span> маркетинг</span></span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">Если нужно связать несколько направлений, соберём общий план: цели, каналы привлечения, задачи по сайту, аналитику и зоны ответственности. Определим, что запускать сначала и по каким показателям оценивать результат.<br><span style="font:600 12px/1.2 Onest,sans-serif;letter-spacing:.01em;display:block;margin-top:14px">Обсудить комплексный маркетинг</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>
+
+<div style="margin-top:160px;padding:0 48px;display:grid;grid-template-columns:minmax(24px,120px) minmax(0,1fr);column-gap:32px" data-reveal data-m="otr">
+<div data-tl="v" style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#BD0000;writing-mode:vertical-rl;transform:rotate(180deg);justify-self:start;align-self:start;display:flex;gap:12px;align-items:center;clip-path:inset(100% 0 0 0)">Отраслевые решения<span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span></div>
+<div><div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font:700 clamp(34px,4.4vw,64px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase"><span style="margin-right:20px;color:#FA001E">Решаем задачи для</span><a href="#" style="border:1px solid #0F0F0F;padding:16px 22px;text-box:trim-both cap alphabetic;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .5s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#E9EBEF">Недвижимости</a><a href="#" style="border:1px solid #0F0F0F;padding:16px 22px;text-box:trim-both cap alphabetic;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .5s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#E9EBEF">Строительства</a><a href="#" style="border:1px solid #0F0F0F;padding:16px 22px;text-box:trim-both cap alphabetic;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .5s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#E9EBEF">Девелопмента</a><a href="#" style="border:1px solid #0F0F0F;padding:16px 22px;text-box:trim-both cap alphabetic;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .5s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#E9EBEF">Медицины</a><a href="#" style="border:1px solid #0F0F0F;padding:16px 22px;text-box:trim-both cap alphabetic;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .5s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#E9EBEF">Интернет-магазинов</a><a href="#" style="border:1px solid #0F0F0F;padding:16px 22px;text-box:trim-both cap alphabetic;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .5s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#E9EBEF">B2B</a><a href="#" style="display:inline-flex;gap:.22em;align-items:center;color:rgba(15,15,15,.35);transition:color .3s,gap .3s" style-hover="color:#0F0F0F;gap:.36em">и других отраслей<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" style="width:.6em;height:.6em;flex:none"><path d="M3 12h17M13 5l7 7-7 7"></path></svg></a></div><div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;font-size:15px;color:rgba(15,15,15,.7)"><span style="max-width:440px;flex:1 1 300px">Здесь самые популярные направления. Работаем и с другими отраслями — расскажите о своей.</span><a href="#" style="background-image:linear-gradient(90deg,#FA001E 50%,#0F0F0F 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#E9EBEF;padding:22px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1)" style-hover="background-position:0 0">Подобрать отраслевое решение <span>→</span></a></div></div>
+</div>
+</div>
+
+<div data-screen-label="03 Кейсы" id="cases" style="background:#0F0F0F;color:#E9EBEF;padding:140px 0 160px;overflow:hidden">
+<div data-tl="h" style="margin:0 48px 40px;width:max-content;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#FA001E;display:flex;gap:12px;align-items:center;clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1) .2s"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>03 — Кейсы</div>
+<div data-reveal data-m="sechead" style="padding:0 48px;display:flex;justify-content:space-between;align-items:end;gap:48px"><h2 style="margin:0;font:700 clamp(64px,8.3vw,120px)/.9 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Задачи бизнеса,<br><span style="-webkit-text-stroke:2px #E9EBEF;color:transparent">которые уже</span> решили</h2><a href="#" style="border:1px solid rgba(233,235,239,.4);background-image:linear-gradient(90deg,#E9EBEF 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;padding:24px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;white-space:nowrap;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s;margin-bottom:12px" style-hover="background-position:0 0;color:#0F0F0F;border-color:#E9EBEF">Все кейсы <span>→</span></a></div>
+
+<div style="margin-top:96px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;padding:0 48px" data-m="cases">
+<a href="#" data-reveal style="position:relative;background:#1a1a1a;color:#E9EBEF;display:flex;flex-direction:column;overflow:hidden;transition:transform .5s" style-hover="transform:translateY(-12px)"><div data-gs-photo style="position:relative;height:360px;flex:none;overflow:hidden;filter:brightness(.7)"><image-slot id="caseB1" src="src/cases/case-1.webp" shape="rect" placeholder="Фото: юридическая компания"></image-slot></div><div data-gs style="position:absolute;inset:0;backdrop-filter:grayscale(1) brightness(.78);-webkit-backdrop-filter:grayscale(1) brightness(.78);clip-path:inset(0 0 0 0);transition:clip-path .7s cubic-bezier(.7,0,.2,1);pointer-events:none"></div><div style="position:relative;padding:24px;display:flex;justify-content:space-between;font:600 12px/1.2 Onest,sans-serif;letter-spacing:.01em;pointer-events:none"><span style="background:#FA001E;color:#0F0F0F;padding:6px 10px">PERFORMANCE</span><span style="opacity:.6">B2B · Юристы</span></div><div style="position:relative;padding:0 24px 28px;pointer-events:none;color:#E9EBEF"><div style="font:700 clamp(96px,11vw,170px)/.78 Steelfish,sans-serif;font-stretch:25%">+<span data-count="400">0</span><span style="color:#FA001E;font-size:.55em">%</span></div><div style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;opacity:.6;margin-top:16px">Обращений за 6 месяцев</div><div style="font:700 30px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;margin-top:22px;padding-top:18px;border-top:1px solid rgba(233,235,239,.25)">Юридическая компания</div><div style="font-size:14px;line-height:1.45;opacity:.75;margin-top:10px">С 40 до 200 обращений в месяц: новая семантика, посадочные, коллтрекинг и CRM</div></div></a>
+<a href="#" data-reveal style="position:relative;background:#1a1a1a;color:#E9EBEF;display:flex;flex-direction:column;overflow:hidden;transition:transform .5s" style-hover="transform:translateY(-12px)"><div data-gs-photo style="position:relative;height:360px;flex:none;overflow:hidden;filter:brightness(.7)"><image-slot id="caseB2" src="src/cases/case-2.webp" shape="rect" placeholder="Фото: интернет-магазин"></image-slot></div><div data-gs style="position:absolute;inset:0;backdrop-filter:grayscale(1) brightness(.78);-webkit-backdrop-filter:grayscale(1) brightness(.78);clip-path:inset(0 0 0 0);transition:clip-path .7s cubic-bezier(.7,0,.2,1);pointer-events:none"></div><div style="position:relative;padding:24px;display:flex;justify-content:space-between;font:600 12px/1.2 Onest,sans-serif;letter-spacing:.01em;pointer-events:none"><span style="background:#FA001E;color:#0F0F0F;padding:6px 10px">SEO + таргет</span><span style="opacity:.6">E-commerce</span></div><div style="position:relative;padding:0 24px 28px;pointer-events:none;color:#E9EBEF"><div style="font:700 clamp(96px,11vw,170px)/.78 Steelfish,sans-serif;font-stretch:25%">+<span data-count="110">0</span><span style="color:#FA001E;font-size:.55em">%</span></div><div style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;opacity:.6;margin-top:16px">Органики за 12 месяцев</div><div style="font:700 30px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;margin-top:22px;padding-top:18px;border-top:1px solid rgba(233,235,239,.25)">Магазин электротехники</div><div style="font-size:14px;line-height:1.45;opacity:.75;margin-top:10px">Снизили зависимость от платной рекламы: техническое SEO, структура каталога, +18% в корзину</div></div></a>
+<a href="#" data-reveal style="position:relative;background:#1a1a1a;color:#E9EBEF;display:flex;flex-direction:column;overflow:hidden;transition:transform .5s" style-hover="transform:translateY(-12px)"><div data-gs-photo style="position:relative;height:360px;flex:none;overflow:hidden;filter:brightness(.7)"><image-slot id="caseB3" src="src/cases/case-3.webp" shape="rect" placeholder="Фото: отели Сочи"></image-slot></div><div data-gs style="position:absolute;inset:0;backdrop-filter:grayscale(1) brightness(.78);-webkit-backdrop-filter:grayscale(1) brightness(.78);clip-path:inset(0 0 0 0);transition:clip-path .7s cubic-bezier(.7,0,.2,1);pointer-events:none"></div><div style="position:relative;padding:24px;display:flex;justify-content:space-between;font:600 12px/1.2 Onest,sans-serif;letter-spacing:.01em;pointer-events:none"><span style="background:#FA001E;color:#0F0F0F;padding:6px 10px">Комплекс</span><span style="opacity:.6">Гостиницы</span></div><div style="position:relative;padding:0 24px 28px;pointer-events:none;color:#E9EBEF"><div style="font:700 clamp(96px,11vw,170px)/.78 Steelfish,sans-serif;font-stretch:25%">+<span data-count="56">0</span><span style="color:#FA001E;font-size:.55em">%</span></div><div style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;opacity:.6;margin-top:16px">Бронирований за сезон</div><div style="font:700 30px/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;margin-top:22px;padding-top:18px;border-top:1px solid rgba(233,235,239,.25)">Сеть отелей в Сочи</div><div style="font-size:14px;line-height:1.45;opacity:.75;margin-top:10px">Прямые бронирования без агрегаторов: геосервисы, SEO и отзывы одной командой</div></div></a>
+
+</div>
+</div>
+
+<div data-screen-label="04 Как работаем" id="process" style="position:relative;padding:140px 0 0;background:#E9EBEF">
+<div data-reveal data-m="s4head" style="padding:0 48px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px"><div style="display:flex;gap:20px"><div style="font:500 13px/1.35 Onest,sans-serif;color:#BD0000;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;gap:12px;align-items:center;align-self:flex-start;flex:none">04 — Процесс<span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span></div><h2 style="margin:0;font:700 clamp(48px,6vw,96px)/.9 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Как мы<br>выстраиваем <span style="-webkit-text-stroke:2px #0F0F0F;color:transparent">работу</span></h2></div><div style="font-size:16px;line-height:1.5;color:rgba(15,15,15,.74);max-width:460px;text-wrap:pretty">Пять этапов — от диагностики до масштабирования. На каждом вы заранее знаете, что делаем, сколько это занимает и что получаете в итоге.</div></div>
+<div data-m="prochint" style="display:none;align-items:center;gap:10px;font:500 13px/1 Onest,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:rgba(15,15,15,.6)"><span>5 этапов · листайте</span><span style="display:flex;width:28px;height:1px;background:currentColor;position:relative"></span><span style="margin-left:-12px">→</span></div>
+<div style="padding:0 48px;margin-top:80px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 12px;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word" lang="ru" data-m="proc">
+<div data-reveal style="transition-delay:0ms;grid-row:1;position:relative;z-index:10;background:#F4F5F7;color:#0F0F0F;padding:32px clamp(18px,1.6vw,28px) 40px;display:flex;flex-direction:column;min-width:0;min-height:480px;box-sizing:border-box"><div style="display:flex;align-items:flex-end;gap:12px"><div style="font:700 clamp(52px,5vw,72px)/.8 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.02em;color:#0F0F0F;flex:none">01</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-bottom:6px"><div style="font:500 clamp(11px,1vw,13px)/1.25 Onest,sans-serif;white-space:nowrap;color:rgba(15,15,15,.7)">1–2 недели</div><div data-arw style="position:relative;height:2px"><span style="position:absolute;left:0;right:1px;top:0;height:2px;background:#9A9CA1"></span><span style="position:absolute;right:1px;top:-3px;width:8px;height:8px;box-sizing:border-box;border-top:2px solid #9A9CA1;border-right:2px solid #9A9CA1;transform:rotate(45deg)"></span></div></div></div><div style="margin-top:44px;font:700 clamp(22px,1.9vw,32px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Разбираем ситуацию</div><div style="margin-top:20px;font-size:clamp(13px,1.1vw,15px);line-height:1.5;color:rgba(15,15,15,.7);text-wrap:pretty">Аудит текущего продвижения, сайта, воронки, аналитики и конкурентов</div><div style="margin-top:auto;padding-top:32px;border-top:1px solid rgba(15,15,15,.14);display:flex;flex-direction:column;gap:6px"><div style="font:500 13px/1.3 Onest,sans-serif;color:#BD0000">Вы получаете</div><div style="font:500 clamp(14px,1.2vw,17px)/1.3 Onest,sans-serif;text-wrap:pretty">Карта ограничений и точек роста</div></div></div>
+<div data-reveal style="transition-delay:90ms;grid-row:1;position:relative;z-index:9;background:#F4F5F7;color:#0F0F0F;padding:32px clamp(18px,1.6vw,28px) 40px;display:flex;flex-direction:column;min-width:0;min-height:480px;box-sizing:border-box"><div style="display:flex;align-items:flex-end;gap:12px"><div style="font:700 clamp(52px,5vw,72px)/.8 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.02em;color:#0F0F0F;flex:none">02</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-bottom:6px"><div style="font:500 clamp(11px,1vw,13px)/1.25 Onest,sans-serif;white-space:nowrap;color:rgba(15,15,15,.7)">1 неделя</div><div data-arw style="position:relative;height:2px"><span style="position:absolute;left:0;right:1px;top:0;height:2px;background:#9A9CA1"></span><span style="position:absolute;right:1px;top:-3px;width:8px;height:8px;box-sizing:border-box;border-top:2px solid #9A9CA1;border-right:2px solid #9A9CA1;transform:rotate(45deg)"></span></div></div></div><div style="margin-top:44px;font:700 clamp(22px,1.9vw,32px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Формируем приоритеты</div><div style="margin-top:20px;font-size:clamp(13px,1.1vw,15px);line-height:1.5;color:rgba(15,15,15,.7);text-wrap:pretty">Определяем задачи, точки роста, гипотезы и ожидаемый эффект</div><div style="margin-top:auto;padding-top:32px;border-top:1px solid rgba(15,15,15,.14);display:flex;flex-direction:column;gap:6px"><div style="font:500 13px/1.3 Onest,sans-serif;color:#BD0000">Вы получаете</div><div style="font:500 clamp(14px,1.2vw,17px)/1.3 Onest,sans-serif;text-wrap:pretty">План с очерёдностью и прогнозом</div></div></div>
+<div data-reveal style="transition-delay:180ms;grid-row:1;position:relative;z-index:8;background:#F4F5F7;color:#0F0F0F;padding:32px clamp(18px,1.6vw,28px) 40px;display:flex;flex-direction:column;min-width:0;min-height:480px;box-sizing:border-box"><div style="display:flex;align-items:flex-end;gap:12px"><div style="font:700 clamp(52px,5vw,72px)/.8 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.02em;color:#0F0F0F;flex:none">03</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-bottom:6px"><div style="font:500 clamp(11px,1vw,13px)/1.25 Onest,sans-serif;white-space:nowrap;color:rgba(15,15,15,.7)">2–4 недели</div><div data-arw-c style="position:relative;height:0;margin-bottom:-8px"><span style="position:absolute;left:0;right:1px;top:0;height:12px;box-sizing:border-box;border-left:2px solid #9A9CA1;border-bottom:2px solid #9A9CA1"></span></div><div data-arw style="position:relative;height:2px"><span style="position:absolute;left:0;right:1px;top:0;height:2px;background:#9A9CA1"></span><span style="position:absolute;right:1px;top:-3px;width:8px;height:8px;box-sizing:border-box;border-top:2px solid #9A9CA1;border-right:2px solid #9A9CA1;transform:rotate(45deg)"></span></div></div></div><div style="margin-top:44px;font:700 clamp(22px,1.9vw,32px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Запускаем работу</div><div style="margin-top:20px;font-size:clamp(13px,1.1vw,15px);line-height:1.5;color:rgba(15,15,15,.7);text-wrap:pretty">Реализуем выбранные направления: performance, SEO, AI, репутация, сайт</div><div style="margin-top:auto;padding-top:32px;border-top:1px solid rgba(15,15,15,.14);display:flex;flex-direction:column;gap:6px"><div style="font:500 13px/1.3 Onest,sans-serif;color:#BD0000">Вы получаете</div><div style="font:500 clamp(14px,1.2vw,17px)/1.3 Onest,sans-serif;text-wrap:pretty">Работающие каналы и ответственные</div></div></div>
+<div data-reveal style="transition-delay:270ms;grid-row:1;position:relative;z-index:7;background:#F4F5F7;color:#0F0F0F;padding:32px clamp(18px,1.6vw,28px) 40px;display:flex;flex-direction:column;min-width:0;min-height:480px;box-sizing:border-box"><div style="display:flex;align-items:flex-end;gap:12px"><div style="font:700 clamp(52px,5vw,72px)/.8 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.02em;color:#0F0F0F;flex:none">04</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-bottom:6px"><div style="font:500 clamp(11px,1vw,13px)/1.25 Onest,sans-serif;white-space:nowrap;color:rgba(15,15,15,.7)">Каждый месяц</div><div style="position:relative;height:14px;margin-bottom:-12px"><span data-arw-a style="position:absolute;left:0;right:0;top:0;height:12px;box-sizing:border-box;border-top:2px solid #9A9CA1;border-right:2px solid #9A9CA1"></span><span data-arw-b style="position:absolute;left:0;right:0;top:10px;height:2px;background:#9A9CA1"><span style="position:absolute;left:1px;top:-3px;width:8px;height:8px;box-sizing:border-box;border-left:2px solid #9A9CA1;border-bottom:2px solid #9A9CA1;transform:rotate(45deg)"></span></span></div></div></div><div style="margin-top:44px;font:700 clamp(22px,1.9vw,32px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Измеряем и корректируем</div><div style="margin-top:20px;font-size:clamp(13px,1.1vw,15px);line-height:1.5;color:rgba(15,15,15,.7);text-wrap:pretty">Отслеживаем показатели, проверяем гипотезы, пересматриваем план</div><div style="margin-top:auto;padding-top:32px;border-top:1px solid rgba(15,15,15,.14);display:flex;flex-direction:column;gap:6px"><div style="font:500 13px/1.3 Onest,sans-serif;color:#BD0000">Вы получаете</div><div style="font:500 clamp(14px,1.2vw,17px)/1.3 Onest,sans-serif;text-wrap:pretty">Отчёт и обновлённый план</div></div></div>
+<div data-reveal style="transition-delay:360ms;grid-row:1;background:#FA001E;color:#E9EBEF;padding:32px clamp(18px,1.6vw,28px) 40px;display:flex;flex-direction:column;min-width:0;min-height:480px;box-sizing:border-box"><div style="display:flex;align-items:flex-end;gap:12px"><div style="font:700 clamp(52px,5vw,72px)/.8 Steelfish,sans-serif;font-stretch:25%;letter-spacing:-.02em;flex:none">05</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-bottom:6px"><div style="font:500 clamp(11px,1vw,13px)/1.25 Onest,sans-serif;white-space:nowrap;color:#E9EBEF">Постоянно</div></div></div><div style="margin-top:44px;font:700 clamp(28px,2.5vw,46px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Масштабируем<br>то, что работает</div><div style="margin-top:20px;font-size:clamp(13px,1.1vw,15px);line-height:1.5;color:rgba(233,235,239,.85);text-wrap:pretty">Усиливаем эффективные каналы и решения</div><div style="margin-top:auto;padding-top:32px;border-top:1px solid rgba(233,235,239,.35);display:flex;flex-direction:column;gap:6px"><div style="font:500 13px/1.3 Onest,sans-serif;color:#E9EBEF">Вы получаете</div><div style="font:500 clamp(14px,1.2vw,17px)/1.3 Onest,sans-serif;text-wrap:pretty">Рост на проверенных каналах</div></div></div>
+</div>
+<div data-reveal data-m="procnote" style="margin:8px 48px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font:400 15px/1.5 Onest,sans-serif;color:rgba(15,15,15,.6)"><span>Первые каналы запускаем через 4–7 недель</span><span>Отчёт и обновлённый план — ежемесячно</span></div>
+</div>
+
+<div data-reveal data-m="cta" style="margin:80px 48px 0;background:#0F0F0F;color:#E9EBEF;padding:64px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px 64px;align-items:start"><div style="font:700 clamp(40px,5vw,72px)/.9 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Хотите понять,<br>с чего начать<br><span style="color:#FA001E">в вашем случае?</span></div><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 28px;align-items:end"><div style="grid-column:1/-1;font-size:16px;line-height:1.5;color:rgba(233,235,239,.72);max-width:440px;text-wrap:pretty">Оставьте контакты — свяжемся в течение часа и проконсультируем по вашему вопросу.</div><label style="position:relative;display:block;cursor:text"><span style="position:absolute;left:18px;top:{{ nTop }};font:400 {{ nSize }} Onest,sans-serif;color:rgba(233,235,239,.55);pointer-events:none;transition:top .2s,font-size .2s">Имя</span><input type="text" value="{{ vN }}" onChange="{{ onN }}" onFocus="{{ focN }}" onBlur="{{ blurN }}" style="all:unset;box-sizing:border-box;width:100%;height:60px;padding:22px 18px 0;background:#1A1A1A;border:1px solid rgba(233,235,239,.22);color:#E9EBEF;font:400 16px Onest,sans-serif;transition:border-color .25s" style-focus="border-color:#E9EBEF"></label><label style="position:relative;display:block;cursor:text"><span style="position:absolute;left:18px;top:{{ pTop }};font:400 {{ pSize }} Onest,sans-serif;color:rgba(233,235,239,.55);pointer-events:none;transition:top .2s,font-size .2s">Телефон</span><input type="tel" value="{{ vP }}" placeholder="{{ pPh }}" onChange="{{ onP }}" onFocus="{{ focP }}" onBlur="{{ blurP }}" style="all:unset;box-sizing:border-box;width:100%;height:60px;padding:22px 18px 0;background:#1A1A1A;border:1px solid rgba(233,235,239,.22);color:#E9EBEF;font:400 16px Onest,sans-serif;transition:border-color .25s" style-focus="border-color:#E9EBEF"></label><a href="#" style="grid-column:1/-1;justify-content:space-between;background-image:linear-gradient(90deg,#FA001E 50%,#BD0000 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#E9EBEF;padding:26px 30px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:24px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,gap .35s" style-hover="background-position:0 0;color:#0F0F0F;gap:36px">Обсудить задачу <span>→</span></a></div></div>
+
+<div aria-hidden="true" data-m="spacer" style="height:160px;background:#E9EBEF"></div>
+<div data-screen-label="05 Команда и отзывы" id="reviews" style="background:#0F0F0F;color:#E9EBEF;padding:140px 0 100px;overflow:hidden">
+<div data-tl="h" style="margin:0 48px 40px;width:max-content;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#FA001E;display:flex;gap:12px;align-items:center;clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1) .2s"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>05 — Команда</div>
+<div data-reveal data-m="sechead" style="padding:0 48px;display:flex;justify-content:space-between;align-items:end;gap:48px"><h2 style="margin:0;font:700 clamp(64px,8.3vw,120px)/.9 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;flex:1;min-width:0"><span style="white-space:nowrap">Кто ведёт</span><br><span style="white-space:nowrap;padding-left:.6em">ваш проект</span></h2><a href="#" style="border:1px solid rgba(233,235,239,.4);background-image:linear-gradient(90deg,#E9EBEF 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;padding:24px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;white-space:nowrap;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s;margin-bottom:12px" style-hover="background-position:0 0;color:#0F0F0F;border-color:#E9EBEF">Вся команда <span>→</span></a></div>
+
+<div style="margin-top:96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;padding:0 48px;align-items:stretch" data-m="team">
+<div data-reveal data-team-card style="position:relative;background:#E9EBEF;color:#0F0F0F;padding:20px;display:flex;flex-direction:column;overflow:hidden"><div data-team-photo style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#D6D8DC;flex:none"><img src="src/team/i_chugaevsky.webp" alt="Илья Чугаевский" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"><span style="position:absolute;left:20px;bottom:20px;min-width:44px;box-sizing:border-box;padding:10px 12px;background:#FA001E;color:#E9EBEF;font:500 13px/1 'JetBrains Mono',monospace;text-align:center" data-team-number>01</span></div><div data-team-caption style="padding:24px 0 4px"><div data-team-name style="font:700 clamp(30px,2.4vw,44px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Илья Чугаевский</div><div data-team-role style="font:400 13px/1.35 'JetBrains Mono',monospace;margin-top:12px">Founder</div><div data-team-year style="font:400 13px/1.35 'JetBrains Mono',monospace;margin-top:20px">С 2006</div></div></div>
+<div data-reveal data-team-card style="position:relative;background:#E9EBEF;color:#0F0F0F;padding:20px;display:flex;flex-direction:column;overflow:hidden"><div data-team-photo style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#D6D8DC;flex:none"><img src="src/team/a_spiridonov.webp" alt="Андрей Спиридонов" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"><span style="position:absolute;left:20px;bottom:20px;min-width:44px;box-sizing:border-box;padding:10px 12px;background:#FA001E;color:#E9EBEF;font:500 13px/1 'JetBrains Mono',monospace;text-align:center" data-team-number>02</span></div><div data-team-caption style="padding:24px 0 4px"><div data-team-name style="font:700 clamp(30px,2.4vw,44px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Андрей Спиридонов</div><div data-team-role style="font:400 13px/1.35 'JetBrains Mono',monospace;margin-top:12px">Founder</div></div></div>
+<div data-reveal data-team-card style="position:relative;background:#E9EBEF;color:#0F0F0F;padding:20px;display:flex;flex-direction:column;overflow:hidden"><div data-team-photo style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#D6D8DC;flex:none"><img src="src/team/n_osipov.webp" alt="Никита Осипов" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"><span style="position:absolute;left:20px;bottom:20px;min-width:44px;box-sizing:border-box;padding:10px 12px;background:#FA001E;color:#E9EBEF;font:500 13px/1 'JetBrains Mono',monospace;text-align:center" data-team-number>03</span></div><div data-team-caption style="padding:24px 0 4px"><div data-team-name style="font:700 clamp(30px,2.4vw,44px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Никита Осипов</div><div data-team-role style="font:400 13px/1.35 'JetBrains Mono',monospace;margin-top:12px">COO</div></div></div>
+<div data-reveal data-team-card style="position:relative;background:#E9EBEF;color:#0F0F0F;padding:20px;display:flex;flex-direction:column;overflow:hidden"><div data-team-photo style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#D6D8DC;flex:none"><img src="src/team/s_kozhurkin.webp" alt="Сергей Кожуркин" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"><span style="position:absolute;left:20px;bottom:20px;min-width:44px;box-sizing:border-box;padding:10px 12px;background:#FA001E;color:#E9EBEF;font:500 13px/1 'JetBrains Mono',monospace;text-align:center" data-team-number>04</span></div><div data-team-caption style="padding:24px 0 4px"><div data-team-name style="font:700 clamp(30px,2.4vw,44px)/.95 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Сергей Кожуркин</div><div data-team-role style="font:400 13px/1.35 'JetBrains Mono',monospace;margin-top:12px">CIO</div></div></div>
+</div>
+
+<div data-tl="h" style="margin:180px 48px 40px;width:max-content;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#FA001E;display:flex;gap:12px;align-items:center;clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1) .2s"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>Отзывы</div>
+<div style="border-top:1px solid rgba(233,235,239,.18);border-bottom:1px solid rgba(233,235,239,.18);overflow:hidden;padding:18px 0"><div style="display:flex;gap:16px;width:max-content;animation:marqR 60s linear infinite;padding-right:16px"><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 01</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 02</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 03</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 04</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 05</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 06</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 07</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 08</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 01</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 02</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 03</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 04</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 05</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 06</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 07</div><div style="flex:none;width:168px;height:64px;border:1px dashed rgba(233,235,239,.22);display:flex;align-items:center;justify-content:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(233,235,239,.4)">Логотип 08</div></div></div>
+
+<div data-reveal data-m="quote" style="padding:96px 48px 0;display:grid;grid-template-columns:minmax(24px,120px) minmax(0,1fr);column-gap:32px"><div style="font:700 clamp(120px,15vw,220px)/.6 Steelfish,sans-serif;font-stretch:25%;color:#FA001E">«</div>
+<div><div style="font:700 clamp(36px,5vw,72px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;max-width:1100px;text-wrap:balance">Первый подрядчик, у которого отчёт сходится с нашей CRM. Перестали спорить про цифры и начали говорить <span style="-webkit-text-stroke:2px #E9EBEF;color:transparent">про продажи.</span></div><div style="margin-top:36px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px"><div style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:rgba(233,235,239,.55);line-height:1.8">Имя Фамилия<br>Коммерческий директор, застройщик</div><div style="display:flex;gap:2px"><span style="width:40px;height:4px;background:#FA001E"></span><span style="width:40px;height:4px;background:rgba(233,235,239,.25)"></span><span style="width:40px;height:4px;background:rgba(233,235,239,.25)"></span></div><a href="#" style="font:600 11px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;display:flex;gap:16px;border-bottom:1px solid #E9EBEF;padding-bottom:4px;transition:gap .3s" style-hover="gap:26px;color:#FA001E;border-color:#FA001E">Все отзывы <span>→</span></a></div></div></div>
+
+</div>
+<div data-screen-label="06 Контакты" id="contacts" style="background:#0F0F0F;color:#E9EBEF;padding:60px 0 48px;overflow:hidden">
+<div data-tl="h" style="margin:0 48px 40px;width:max-content;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#FA001E;display:flex;gap:12px;align-items:center;clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1) .2s"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>Контакты</div>
+<div data-reveal data-m="contacts" style="padding:0 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:2px">
+<form onSubmit="{{ onSend }}" style="margin:0;background:#1A1A1A;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:16px"><h2 style="margin:0;font:700 clamp(44px,4.6vw,68px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Оставьте заявку, чтобы <span style="color:#FA001E">обсудить проект</span></h2><p style="margin:0;font-size:16px;line-height:1.5;color:rgba(233,235,239,.72);max-width:440px;text-wrap:pretty">Свяжемся в течение часа и проконсультируем по вашему вопросу.</p></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(max(220px,calc(50% - 6px)),1fr));gap:12px">
+<label style="position:relative;display:block;cursor:text;grid-column:1/-1"><span style="position:absolute;left:18px;top:{{ cnTop }};font:400 {{ cnSize }} Onest,sans-serif;color:rgba(233,235,239,.55);pointer-events:none;transition:top .2s,font-size .2s">Имя</span><input type="text" value="{{ vCN }}" onChange="{{ onCN }}" onFocus="{{ focCN }}" onBlur="{{ blurCN }}" style="all:unset;box-sizing:border-box;width:100%;height:60px;padding:22px 18px 0;background:#0F0F0F;border:1px solid rgba(233,235,239,.22);color:#E9EBEF;font:400 16px Onest,sans-serif;transition:border-color .25s" style-focus="border-color:#E9EBEF"></label>
+<label style="position:relative;display:block;cursor:text"><span style="position:absolute;left:18px;top:{{ ceTop }};font:400 {{ ceSize }} Onest,sans-serif;color:rgba(233,235,239,.55);pointer-events:none;transition:top .2s,font-size .2s">Почта</span><input type="email" value="{{ vCE }}" onChange="{{ onCE }}" onFocus="{{ focCE }}" onBlur="{{ blurCE }}" style="all:unset;box-sizing:border-box;width:100%;height:60px;padding:22px 18px 0;background:#0F0F0F;border:1px solid rgba(233,235,239,.22);color:#E9EBEF;font:400 16px Onest,sans-serif;transition:border-color .25s" style-focus="border-color:#E9EBEF"></label>
+<label style="position:relative;display:block;cursor:text"><span style="position:absolute;left:18px;top:{{ cpTop }};font:400 {{ cpSize }} Onest,sans-serif;color:rgba(233,235,239,.55);pointer-events:none;transition:top .2s,font-size .2s">Телефон</span><input type="tel" value="{{ vCP }}" placeholder="{{ cpPh }}" onChange="{{ onCP }}" onFocus="{{ focCP }}" onBlur="{{ blurCP }}" style="all:unset;box-sizing:border-box;width:100%;height:60px;padding:22px 18px 0;background:#0F0F0F;border:1px solid rgba(233,235,239,.22);color:#E9EBEF;font:400 16px Onest,sans-serif;transition:border-color .25s" style-focus="border-color:#E9EBEF"></label>
+<label style="position:relative;display:block;cursor:text;grid-column:1/-1"><span style="position:absolute;left:18px;top:{{ cmTop }};font:400 {{ cmSize }} Onest,sans-serif;color:rgba(233,235,239,.55);pointer-events:none;transition:top .2s,font-size .2s">Опишите задачу</span><textarea value="{{ vCM }}" onChange="{{ onCM }}" onFocus="{{ focCM }}" onBlur="{{ blurCM }}" rows="4" style="all:unset;box-sizing:border-box;display:block;width:100%;min-height:136px;padding:30px 18px 14px;background:#0F0F0F;border:1px solid rgba(233,235,239,.22);color:#E9EBEF;font:400 16px/1.5 Onest,sans-serif;white-space:pre-wrap;transition:border-color .25s" style-focus="border-color:#E9EBEF"></textarea></label>
+<label style="grid-column:1/-1;display:flex;align-items:center;gap:16px;min-height:60px;padding:12px 18px;box-sizing:border-box;border:1px dashed rgba(233,235,239,.32);cursor:pointer;transition:border-color .25s" style-hover="border-color:#E9EBEF"><input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt" onChange="{{ onFile }}" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="#FA001E" stroke-width="2" stroke-linecap="square" style="width:20px;height:20px;flex:none"><path d="M20 11.5l-8.2 8.2a5 5 0 01-7.1-7.1l8.5-8.5a3.3 3.3 0 014.7 4.7l-8.5 8.5a1.7 1.7 0 01-2.4-2.4l7.8-7.8"></path></svg><span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font:500 15px/1.3 Onest,sans-serif;color:#E9EBEF;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ fileLabel }}</span><span style="font:400 12px/1.3 Onest,sans-serif;color:rgba(233,235,239,.5)">PDF, DOC, XLS, PPT — до 20 МБ</span></span></label>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px"><button type="submit" style="all:unset;box-sizing:border-box;cursor:pointer;background-image:linear-gradient(90deg,#E9EBEF 50%,#FA001E 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#FFFFFF;padding:24px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s" style-hover="background-position:0 0;color:#0F0F0F"><span>{{ sendLabel }}</span><span>→</span></button><div style="font-size:12px;line-height:1.5;color:rgba(233,235,239,.5)">Отправляя заявку, вы соглашаетесь с <a href="#" style="color:rgba(233,235,239,.8);text-decoration:underline;text-underline-offset:3px">политикой обработки персональных данных</a></div></div>
+</form>
+<div style="display:grid;grid-template-rows:auto 1fr;gap:2px;min-width:0">
+<div style="background:#E9EBEF;color:#0F0F0F;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:28px"><div style="display:flex;flex-direction:column;gap:16px"><h3 style="margin:0;font:700 clamp(36px,3.6vw,52px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;text-wrap:balance">Или сразу заполните бриф из 5 вопросов</h3><p style="margin:0;font-size:16px;line-height:1.5;max-width:420px;text-wrap:pretty">Чем раньше мы поймём задачу, тем точнее подготовим предложение.</p></div><a href="#" style="align-self:flex-start;background-image:linear-gradient(90deg,#FA001E 50%,#0F0F0F 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;color:#FFFFFF;padding:22px 28px;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1)" style-hover="background-position:0 0">Заполнить бриф <span>→</span></a></div>
+<div style="background:#1A1A1A;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:32px"><h3 style="margin:0;font:700 clamp(36px,3.6vw,52px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Контакты</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 32px">
+<a href="tel:88005555070" style="display:flex;flex-direction:column;gap:6px;color:#E9EBEF;transition:color .25s" style-hover="color:#FA001E"><span style="font:700 clamp(28px,2.6vw,36px)/1 Steelfish,sans-serif;font-stretch:25%">8 800 555-50-70</span><span style="font-size:13px;line-height:1.4;color:rgba(233,235,239,.5)">Бесплатно по России</span></a>
+<a href="tel:88126400709" style="display:flex;flex-direction:column;gap:6px;color:#E9EBEF;transition:color .25s" style-hover="color:#FA001E"><span style="font:700 clamp(28px,2.6vw,36px)/1 Steelfish,sans-serif;font-stretch:25%">8 812 640-07-09</span><span style="font-size:13px;line-height:1.4;color:rgba(233,235,239,.5)">Санкт-Петербург, Липовая аллея, 9</span></a>
+<a href="mailto:ork@prosto-r.ru" style="display:flex;flex-direction:column;gap:6px;color:#E9EBEF;transition:color .25s" style-hover="color:#FA001E"><span style="font:700 clamp(28px,2.6vw,36px)/1 Steelfish,sans-serif;font-stretch:25%">ork@prosto-r.ru</span><span style="font-size:13px;line-height:1.4;color:rgba(233,235,239,.5)">Почта для заявок</span></a>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;line-height:1.4;color:rgba(233,235,239,.5)">Написать в мессенджер</span><div style="display:flex;gap:2px;flex-wrap:wrap"><a href="#" style="border:1px solid rgba(233,235,239,.32);padding:12px 16px;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#E9EBEF;transition:background .25s,color .25s" style-hover="background:#E9EBEF;color:#0F0F0F">Telegram</a><a href="#" style="border:1px solid rgba(233,235,239,.32);padding:12px 16px;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#E9EBEF;transition:background .25s,color .25s" style-hover="background:#E9EBEF;color:#0F0F0F">WhatsApp</a></div></div>
+</div></div>
+</div>
+</div>
+<footer data-screen-label="07 Футер" style="margin:120px 48px 0;border-top:1px solid rgba(233,235,239,.18);padding-top:64px;color:#E9EBEF">
+<div style="display:flex;flex-wrap:wrap;gap:56px 48px">
+<div style="flex:4 1 320px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:56px">
+<div style="display:flex;flex-direction:column;gap:28px"><div style="font:700 clamp(44px,4.4vw,64px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase">Остались вопросы?<br><span style="color:#FA001E">Свяжитесь с нами</span></div>
+<div style="display:flex;flex-direction:column;gap:14px"><a href="mailto:ork@prosto-r.ru" style="font:700 clamp(28px,2.6vw,36px)/1 Steelfish,sans-serif;font-stretch:25%;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">ork@prosto-r.ru</a><a href="tel:88005555070" style="font:700 clamp(28px,2.6vw,36px)/1 Steelfish,sans-serif;font-stretch:25%;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">8 800 555-50-70</a><a href="tel:88126400709" style="font:700 clamp(28px,2.6vw,36px)/1 Steelfish,sans-serif;font-stretch:25%;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">8 812 640-07-09</a></div>
+<div style="display:flex;gap:2px;flex-wrap:wrap"><a href="#" style="border:1px solid rgba(233,235,239,.32);padding:12px 16px;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#E9EBEF;transition:background .25s,color .25s" style-hover="background:#E9EBEF;color:#0F0F0F">Telegram</a><a href="#" style="border:1px solid rgba(233,235,239,.32);padding:12px 16px;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#E9EBEF;transition:background .25s,color .25s" style-hover="background:#E9EBEF;color:#0F0F0F">WhatsApp</a></div>
+<div style="font:400 14px/1.5 Onest,sans-serif;color:rgba(233,235,239,.6)">197183, Санкт-Петербург,<br>Липовая аллея, 9, БЦ «Приморский»</div></div>
+<div style="display:flex;flex-direction:column;gap:16px"><a href="#" style="display:flex;gap:12px;align-items:center;font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s,gap .3s" style-hover="color:#FA001E;gap:20px">Обсудить проект<span>→</span></a><a href="#" style="display:flex;gap:12px;align-items:center;font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s,gap .3s" style-hover="color:#FA001E;gap:20px">Присоединиться к команде<span>→</span></a><a href="#" style="display:flex;gap:12px;align-items:center;font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s,gap .3s" style-hover="color:#FA001E;gap:20px">Стать партнёром<span>→</span></a></div>
+</div>
+<div style="flex:5 1 420px;min-width:0;display:flex;flex-direction:column;gap:28px"><div style="font:500 13px/1.35 Onest,sans-serif;color:#FA001E;display:flex;gap:12px;align-items:center"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>Услуги</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:32px 32px">
+<div style="display:flex;flex-direction:column;gap:28px"><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:500 14px/1.4 Onest,sans-serif;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Performance-маркетинг</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Контекстная реклама</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Таргетированная реклама</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Реклама в Промостраницах</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Продвижение на Авито</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Продвижение в ГЕО-сервисах</a></div><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:500 14px/1.4 Onest,sans-serif;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">SEO-продвижение</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Продвижение в Яндекс</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Продвижение в Google</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Зарубежное SEO</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">SEO при редизайне и переезде</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Бесплатный SEO-аудит</a></div></div>
+<div style="display:flex;flex-direction:column;gap:28px"><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:500 14px/1.4 Onest,sans-serif;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">AI-оптимизация</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Продвижение в нейросетях</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">GEO / AEO продвижение</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Аудит видимости в ИИ-поиске</a></div><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:500 14px/1.4 Onest,sans-serif;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Управление репутацией</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">SERM</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">ORM</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Репутационный аудит</a></div><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:500 14px/1.4 Onest,sans-serif;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Разработка и дизайн</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Разработка сайтов</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Системы управления</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Дизайн сайтов</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Техническая поддержка</a></div></div>
+</div></div>
+<div style="flex:3 1 240px;min-width:0;display:flex;flex-direction:column;gap:28px"><div style="font:500 13px/1.35 Onest,sans-serif;color:#FA001E;display:flex;gap:12px;align-items:center"><span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span>Агентство</div>
+<div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">О компании</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Преимущества</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Награды и сертификаты</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Команда</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Отзывы</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Партнёрам</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Вакансии</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Новости</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Блог</a></div>
+<div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font:500 14px/1.4 Onest,sans-serif;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Отраслевые решения</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Недвижимость</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Строительство</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Девелопмент</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Медицина</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">Интернет-магазины</a><a href="#" style="font:400 14px/1.4 Onest,sans-serif;color:rgba(233,235,239,.6);transition:color .2s" style-hover="color:#FA001E">B2B</a></div>
+<div style="display:flex;flex-direction:column;gap:12px;padding-top:8px"><a href="#" style="font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Кейсы</a><a href="#" style="font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Цены</a><a href="#" style="font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">Контакты</a><a href="#" style="font:700 clamp(26px,2.2vw,32px)/1 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#E9EBEF;transition:color .2s" style-hover="color:#FA001E">FAQ</a></div>
+</div>
+</div>
+<div data-m="fbar" style="margin-top:72px;padding-top:24px;border-top:1px solid rgba(233,235,239,.18);display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px 40px;font:400 13px/1.5 Onest,sans-serif;color:rgba(233,235,239,.5)">
+<span>© 2006–2026 Простор</span>
+<div style="display:flex;gap:8px 28px;flex-wrap:wrap;justify-content:flex-end"><a href="#" style="color:rgba(233,235,239,.5);transition:color .2s" style-hover="color:#E9EBEF">Политика обработки персональных данных</a><a href="#" style="color:rgba(233,235,239,.5);transition:color .2s" style-hover="color:#E9EBEF">Согласие на обработку данных</a><a href="#" style="color:rgba(233,235,239,.5);transition:color .2s" style-hover="color:#E9EBEF">Политика cookies</a><a href="#" style="color:rgba(233,235,239,.5);transition:color .2s" style-hover="color:#E9EBEF">Карта сайта</a></div>
+<a href="#" onClick="{{ toTop }}" aria-label="Наверх" style="flex:none;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(233,235,239,.32);color:#E9EBEF;transition:background .25s,color .25s,border-color .25s" style-hover="background:#FA001E;border-color:#FA001E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" style="width:18px;height:18px"><path d="M12 20V5M5 12l7-7 7 7"></path></svg></a>
+</div>
+<div data-fmark aria-label="Простор" role="img" style="margin-top:72px;width:100%;aspect-ratio:219/34;position:relative"></div>
+</footer>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  _arrows() {
+    const sec = document.querySelector('[data-screen-label^="04"]'); if (!sec) return;
+    const seq = [];
+    sec.querySelectorAll('[data-arw], [data-arw-a]').forEach(el => {
+      if (el.hasAttribute('data-arw')) seq.push([el, 'inset(-6px 100% -6px 0)', 'inset(-6px -6px -6px 0)', 420]);
+      else { seq.push([el, 'inset(-6px 100% -6px 0)', 'inset(-6px -6px -6px 0)', 360]); const b = el.parentElement.querySelector('[data-arw-b]'); if (b) seq.push([b, 'inset(-6px 0 -6px 100%)', 'inset(-6px -6px -6px -6px)', 360]); }
+    });
+    const c3 = sec.querySelector('[data-arw-c]'); if (c3) seq.push([c3, 'inset(-6px 0 -20px 100%)', 'inset(-6px -6px -20px -6px)', 420]);
+    seq.forEach(([el, from]) => { el.style.clipPath = from; });
+    const grid = seq.length ? seq[0][0].closest('[data-reveal]').parentElement : sec;
+    let done = false;
+    const run = () => {
+      if (done) return; done = true; window.removeEventListener('scroll', chk); window.removeEventListener('resize', chk); io.disconnect();
+      let t = 650;
+      seq.forEach(([el, , to, d]) => { el.style.transition = `clip-path ${d}ms cubic-bezier(.6,0,.3,1) ${t}ms`; requestAnimationFrame(() => { el.style.clipPath = to; }); t += d + 60; });
+    };
+    const chk = () => { const r = grid.getBoundingClientRect(); if (r.top < innerHeight * .75 && r.bottom > 0) run(); };
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) run(); }, { threshold: .35 });
+    io.observe(grid);
+    window.addEventListener('scroll', chk, { passive: true }); window.addEventListener('resize', chk); chk();
+  }
+  componentDidMount() {
+    this._arrows();
+    this._proc();
+    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+    const rv = document.querySelectorAll('[data-reveal]'); rv.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); else io.observe(el); }); setTimeout(() => rv.forEach(el => el.classList.add('in')), 2500);
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const co = new IntersectionObserver((es) => es.forEach(e => {
+      if (!e.isIntersecting) return; co.unobserve(e.target);
+      const el = e.target, to = +el.dataset.count, t0 = performance.now(), d = 1500;
+      const step = now => { const p = Math.min(1, (now - t0) / d); el.textContent = Math.round(to * ease(p)); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }), { threshold: .4 });
+    document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+    const U = id => `src/chips/photo-${id}.jpg`;
+    const PH = { 'Недвижимости': '1560518883-ce09059eeffa', 'Строительства': '1504307651254-35680f356dfd', 'Девелопмента': '1486406146926-c627a92ad1ab', 'Медицины': '1519494026892-80bbd2d6fd0d', 'Интернет-магазинов': '1441986300917-64674bd600d8', 'B2B': '1497366216548-37526070297c' };
+    document.querySelectorAll('a').forEach(a => {
+      const id = PH[a.textContent.trim()]; if (!id || a.querySelector('[data-chip-ph]')) return;
+      a.style.position = 'relative'; a.style.isolation = 'isolate'; a.style.overflow = 'hidden';
+      const ph = document.createElement('span'); ph.dataset.chipPh = '';
+      ph.style.cssText = `position:absolute;inset:-1px;z-index:-1;pointer-events:none;background:linear-gradient(rgba(15,15,15,.5),rgba(15,15,15,.5)),url(${U(id)}) center/cover #0F0F0F;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)`;
+      a.appendChild(ph); new Image().src = U(id);
+      a.addEventListener('mouseenter', () => { ph.style.clipPath = 'inset(0 0 0 0)'; });
+      a.addEventListener('mouseleave', () => { ph.style.clipPath = 'inset(0 100% 0 0)'; });
+    });
+    document.querySelectorAll('[data-gs]').forEach(ov => {
+      const card = ov.parentElement;
+      card.addEventListener('mouseenter', () => { ov.style.clipPath = 'inset(0 0 100% 0)'; });
+      card.addEventListener('mouseleave', () => { ov.style.clipPath = 'inset(0 0 0 0)'; });
+    });
+    const px = document.querySelector('[data-parallax]');
+    if (px) this._particles(px);
+    this._thread();
+    this._menu();
+  }
+  _menu() {
+    const menu = document.querySelector('[data-menu]'); if (!menu) return;
+    menu.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]'); if (!a) return;
+      e.preventDefault();
+      const id = a.getAttribute('href');
+      this.setState({ menuOpen: false });
+      if (id.length > 1) { const t = document.querySelector(id); if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth' }), 80); }
+    });
+    this._mdc = e => { if (this.state && this.state.menuOpen && !e.target.closest('[data-menu]') && !e.target.closest('[data-mbtn]')) this.setState({ menuOpen: false }); };
+    document.addEventListener('click', this._mdc);
+    this._esc = e => { if (e.key === 'Escape' && this.state && this.state.menuOpen) this.setState({ menuOpen: false }); };
+    window.addEventListener('keydown', this._esc);
+    const grps = [...document.querySelectorAll('[data-msnav] details')];
+    if (grps.length) {
+      let gMob = innerWidth <= 768;
+      grps.forEach(d => { d.open = !gMob; });
+      this._mgr = () => { const m = innerWidth <= 768; if (m !== gMob) { gMob = m; grps.forEach(d => { d.open = !m; }); } };
+      window.addEventListener('resize', this._mgr);
+    }
+  }
+  _thread() {
+    const hero = document.querySelector('[data-screen-label^="01"]'); if (!hero) return;
+    const root = hero.parentElement, logo = hero.querySelector('img'); root.style.position = 'relative';
+    const X = 22, RED = '#FA001E', TR = 'rgba(128,128,128,.42)'; this._tlX = X;
+    const wrap = document.createElement('div'); wrap.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:6'; wrap.dataset.thread = '1';
+    const mk = css => { const d = document.createElement('div'); d.style.cssText = 'position:absolute;' + css; wrap.appendChild(d); return d; };
+    const stub = mk(`left:${X}px;height:1px;background:${RED};transform:scaleX(0);transform-origin:right;transition:transform .6s cubic-bezier(.6,0,.2,1)`), track = mk(`left:${X}px;width:1px;background:${TR}`), fill = mk(`left:${X}px;width:1px;background:${RED};height:0`);
+    const head = mk(`left:${X - 3}px;width:7px;height:7px;background:${RED};opacity:0;transition:opacity .2s`);
+    root.appendChild(wrap);
+    let intro = false, live = false, iT = 0; stub.style.display = 'none'; head.style.opacity = '1';
+    wrap.style.transition = 'opacity .35s'; wrap.style.opacity = '0';
+    const hdr = document.querySelector('[data-hdr]'), logoA = hdr && hdr.querySelector('[data-logo]'), conn = hdr && hdr.querySelector('[data-hconn]');
+    let lg = null;
+    const EZ = 'cubic-bezier(.7,0,.2,1)';
+    const applyLogo = c => {
+      if (!lg) return; const n = lg.letters.length;
+      lg.letters.forEach((it, i) => {
+        const d = c ? i * 55 : (n - 1 - i) * 40;
+        it.g.style.transition = `transform .6s ${EZ} ${d}ms, opacity .25s ${c ? d + 420 : d}ms`;
+        it.g.style.transform = `translate(${c ? 3 - it.b.x : -48}px,0)`;
+        it.g.style.opacity = c ? '0' : '1';
+      });
+      const id = c ? (n - 1) * 55 + 480 : 0;
+      lg.icon.style.transition = `transform .45s cubic-bezier(.3,1.3,.5,1) ${id}ms, opacity .3s ${id}ms`;
+      lg.icon.style.transform = c ? 'scale(1)' : 'scale(.82)'; lg.icon.style.opacity = c ? '1' : '0';
+      lg.icon.querySelectorAll('path').forEach(p => { p.style.transition = c ? `fill .5s ${id + 320}ms` : 'fill .25s'; p.style.fill = c ? '#FA001E' : ''; });
+    };
+    const fmEl = root.querySelector('[data-fmark]');
+    let fm = null, fmY = -1, fmOn = false, fmBr = null, fmRaf = 0, fmT = [];
+    const buildFM = t => {
+      if (!fmEl) return;
+      const NS = 'http://www.w3.org/2000/svg', ps = [...new DOMParser().parseFromString(t, 'image/svg+xml').querySelectorAll('path')];
+      const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 219 34'); svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible';
+      const id = 'fmc' + Math.random().toString(36).slice(2, 7);
+      const defs = document.createElementNS(NS, 'defs'), cp = document.createElementNS(NS, 'clipPath'), rc = document.createElementNS(NS, 'rect');
+      cp.setAttribute('id', id); rc.setAttribute('x', '-2'); rc.setAttribute('y', '-4'); rc.setAttribute('height', '42'); rc.setAttribute('width', '0'); cp.appendChild(rc); defs.appendChild(cp); svg.appendChild(defs);
+      const LW = document.createElementNS(NS, 'g'), LR = document.createElementNS(NS, 'g'); LR.setAttribute('clip-path', 'url(#' + id + ')'); svg.appendChild(LW); svg.appendChild(LR);
+      fmEl.appendChild(svg);
+      const letters = [], icon = [];
+      ps.forEach(p => {
+        const gw = document.createElementNS(NS, 'g'), gr = document.createElementNS(NS, 'g');
+        const pw = document.importNode(p, true), pr = document.importNode(p, true); pw.setAttribute('fill', '#E9EBEF'); pr.setAttribute('fill', '#FA001E');
+        gw.appendChild(pw); gr.appendChild(pr); LW.appendChild(gw); LR.appendChild(gr);
+        const b = gw.getBBox(); if (b.x + b.width >= 40) letters.push({ gw, gr, b }); else icon.push(gw, gr);
+      });
+      icon.forEach(g => { g.style.transformBox = 'view-box'; g.style.transformOrigin = '17px 17px'; });
+      letters.sort((a, b) => a.b.x - b.b.x);
+      letters.forEach(it => [it.gw, it.gr].forEach(g => { g.style.transform = `translate(${3 - it.b.x}px,0)`; g.style.opacity = '0'; }));
+      fm = { rc, letters, icon, w: 0 };
+      if (fmOn) playFM(true);
+    };
+    const tweenW = (to, dur, delay) => {
+      const from = fm.w, t0 = performance.now() + delay; cancelAnimationFrame(fmRaf);
+      const st = now => { const k = Math.max(0, Math.min(1, (now - t0) / dur)), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; fm.w = from + (to - from) * e; fm.rc.setAttribute('width', fm.w.toFixed(2)); if (k < 1) fmRaf = requestAnimationFrame(st); };
+      fmRaf = requestAnimationFrame(st);
+    };
+    const playFM = on => {
+      if (!fm) return; fmT.forEach(clearTimeout); fmT = []; const n = fm.letters.length;
+      if (on) {
+        fm.icon.forEach(g => { g.style.transition = 'none'; g.style.transform = 'none'; g.style.opacity = '1'; });
+        tweenW(36, 560, 0);
+        fmT.push(setTimeout(() => {
+          fm.icon.forEach(g => { g.style.transition = `transform .5s ${EZ}, opacity .35s ease .1s`; g.style.transform = 'scale(.55)'; g.style.opacity = '0'; });
+          tweenW(176, 1100, 120);
+        }, 600));
+        fm.letters.forEach((it, i) => { const d = 640 + i * 70; [it.gw, it.gr].forEach(g => { g.style.transition = `transform .8s ${EZ} ${d}ms, opacity .25s ${d}ms`; g.style.transform = 'translate(-48px,0)'; g.style.opacity = '1'; }); });
+      } else {
+        fm.letters.forEach((it, i) => { const d = (n - 1 - i) * 40; [it.gw, it.gr].forEach(g => { g.style.transition = `transform .55s ${EZ} ${d}ms, opacity .2s ${d + 340}ms`; g.style.transform = `translate(${3 - it.b.x}px,0)`; g.style.opacity = '0'; }); });
+        fm.icon.forEach(g => { g.style.transition = `transform .45s ${EZ} .35s, opacity .3s .35s`; g.style.transform = 'none'; g.style.opacity = '1'; });
+        tweenW(0, 500, 650);
+      }
+    };
+    if (logoA || fmEl) fetch('src/logo-white.svg').then(r => r.text()).then(t => { buildFM(t); if (!logoA) throw 0; return t; }).then(t => {
+      const NS = 'http://www.w3.org/2000/svg', ps = [...new DOMParser().parseFromString(t, 'image/svg+xml').querySelectorAll('path')];
+      const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 219 34'); svg.setAttribute('width', (219 * 26 / 34).toFixed(2)); svg.setAttribute('height', '26');
+      svg.style.cssText = 'position:absolute;top:0;left:-28px;overflow:visible';
+      logoA.appendChild(svg);
+      const icon = document.createElementNS(NS, 'g'); icon.style.cssText = 'transform-box:view-box;transform-origin:17px 17px;opacity:0;transform:scale(.82)'; svg.appendChild(icon);
+      const letters = [];
+      ps.forEach(p => { const g = document.createElementNS(NS, 'g'); g.appendChild(document.importNode(p, true)); svg.appendChild(g); const b = g.getBBox(); if (b.x + b.width < 40) icon.appendChild(g.firstChild), g.remove(); else letters.push({ g, b }); });
+      letters.sort((a, b) => a.b.x - b.b.x);
+      letters.forEach(it => { it.g.style.transform = 'translate(-48px,0)'; });
+      logoA.querySelectorAll('img').forEach(i => i.remove());
+      const per = document.createElementNS(NS, 'path'); per.setAttribute('d', 'M3 31H31V3H3V31'); per.setAttribute('fill', 'none'); per.setAttribute('stroke', '#FA001E'); per.setAttribute('stroke-width', '1.4'); per.setAttribute('stroke-linecap', 'square');
+      per.style.strokeDasharray = '112'; per.style.strokeDashoffset = '112'; svg.appendChild(per);
+      lg = { icon, letters, per }; requestAnimationFrame(() => applyLogo(intro));
+    }).catch(() => {});
+    const setC = c => {
+      if (c === intro || !hdr) return; intro = c; clearTimeout(iT);
+      hdr.style.background = c ? 'rgba(15,15,15,.62)' : 'rgba(15,15,15,0)';
+      hdr.style.backdropFilter = hdr.style.webkitBackdropFilter = c ? 'blur(18px) saturate(1.4)' : 'blur(0px)';
+      applyLogo(c);
+      conn.style.transitionDelay = c ? '1.82s' : '0s'; conn.style.transform = c ? 'scaleY(1)' : 'scaleY(0)';
+      wrap.style.transitionDelay = c ? '2.05s' : '0s'; wrap.style.opacity = c ? '1' : '0';
+      live = false; if (c) { disp = 0; iT = setTimeout(() => { live = true; req(); }, 2050); } else req();
+    };
+    const onHdr = () => setC(scrollY > 40);
+    window.addEventListener('scroll', onHdr, { passive: true }); onHdr();
+    let nodes = [], invs = [], y0 = 0, y1 = 0, raf = 0, disp = 0;
+    const off = e => { let t = 0, l = 0; while (e && e !== root) { t += e.offsetTop; l += e.offsetLeft; e = e.offsetParent; } return { t, l }; };
+    let pT = [], pDone = false;
+    const pRow = root.querySelector('[data-tl="x"]'), pCards = pRow ? [...pRow.querySelectorAll('[data-pcard]')] : [];
+    pCards.forEach(c => { c.dataset.tr = c.style.transition; c.removeAttribute('data-reveal'); c.classList.remove('in'); c.style.transition = 'opacity .6s, transform .75s cubic-bezier(.2,.7,.2,1)'; c.style.opacity = '0'; c.style.transform = 'translateY(48px)'; });
+    const proc = (row, on) => {
+      if (!on || pDone) return; pDone = true;
+      pT.forEach(clearTimeout); pT = [];
+      const bars = [...row.querySelectorAll('[data-pbar]')], labs = [...row.querySelectorAll('[data-plab]')], icon = row.querySelector('[data-picon]');
+      const ret = row.querySelector('[data-pret]'), arw = row.querySelector('[data-parrow]'), bar2 = row.querySelector('[data-pbar2]');
+      const cards = pCards;
+      const act = c => { if (!c) return; c.style.opacity = '1'; c.style.transform = ''; setTimeout(() => { c.style.transition = c.dataset.tr; }, 800); };
+      const at = (ms, fn) => pT.push(setTimeout(fn, ms));
+      const bar = (i, d) => { bars[i].style.transition = `transform ${d}ms linear`; bars[i].style.transform = 'scaleX(1)'; labs[i].style.opacity = '1'; };
+      const sweep = (el, d) => { el.style.transition = `transform ${d}ms cubic-bezier(.4,0,.2,1)`; el.style.transform = 'scaleX(1)'; };
+      at(125, () => { bar(0, 750); act(cards[0]); }); at(500, () => act(cards[1]));
+      at(900, () => { bar(1, 650); act(cards[2]); if (icon) icon.style.animationDuration = '.9s'; }); at(1225, () => act(cards[3]));
+      at(1575, () => sweep(ret, 525)); at(2050, () => arw && (arw.style.opacity = '1'));
+      at(2200, () => sweep(bar2, 650));
+      at(2900, () => { bar(2, 475); act(cards[4]); if (icon) icon.style.animationDuration = '6s'; });
+    };
+    const layout = () => {
+      const rr = root.getBoundingClientRect(), lr = logo.getBoundingClientRect();
+      if (hdr) {
+        const sp = document.querySelector('[data-hsp]'); if (sp) sp.style.height = hdr.offsetHeight + 'px';
+        const ir = logoA.getBoundingClientRect(), hb = hdr.getBoundingClientRect(), k = logoA.offsetHeight / 34;
+        conn.style.top = Math.round(ir.top - hb.top + 31 * k) + 'px';
+      }
+      y0 = hdr ? hdr.offsetHeight : Math.round(lr.bottom - rr.top) - 1;
+      stub.style.top = y0 + 'px'; stub.style.width = Math.max(0, Math.round(lr.left - rr.left) - X) + 'px';
+      nodes.forEach(n => n.br.remove()); nodes = [];
+      invs.forEach(z => z.d.remove()); invs = [];
+      root.querySelectorAll('[data-tl-inv]').forEach(e => { const o = off(e); invs.push({ t: o.t, h: e.offsetHeight, d: mk(`left:${X}px;top:${o.t}px;width:1px;height:0;background:#0F0F0F`) }); });
+      root.querySelectorAll('[data-tl]').forEach(l => {
+        const o = off(l), v = l.dataset.tl === 'v', h = l.offsetHeight, lb = l.getBoundingClientRect();
+        const sq = [...l.children].find(c => c.tagName === 'SPAN' && /background:\s*(#FA001E|rgb\(250, 0, 30\))/i.test(c.getAttribute('style') || '')), sr = sq ? sq.getBoundingClientRect() : lb;
+        const x = l.dataset.tl === 'x';
+        const y = x ? o.t - 1 : Math.round(o.t + (sr.top - lb.top) + sr.height / 2), sx = x ? o.l : Math.round(o.l + (sr.left - lb.left));
+        const br = mk(`${x ? 'display:none;' : ''}left:${X + 1}px;top:${y}px;height:${x ? 2 : 1}px;width:${Math.max(0, sx - X - 1)}px;background:${x || l.closest('[data-tl-inv]') ? '#0F0F0F' : RED};transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.7,0,.2,1)`);
+        nodes.push({ l, v, x, p: l.dataset.tl === 'p' || x, t: o.t, y, h, br, on: false, last: -1 });
+      });
+      y1 = Math.round(rr.height - 60);
+      if (fmEl) {
+        fmEl.style.marginLeft = '0px'; fmEl.style.width = '100%';
+        const o0 = off(fmEl), s = (o0.l + fmEl.offsetWidth - X) / 165;
+        fmEl.style.width = (219 * s) + 'px'; fmEl.style.maxWidth = 'none';
+        fmEl.style.marginLeft = (X - o0.l - 3 * s) + 'px';
+        const o = off(fmEl); fmY = Math.round(o.t + 3 * s); y1 = fmY;
+      }
+      track.style.top = y0 + 'px'; track.style.height = (y1 - y0) + 'px'; fill.style.top = y0 + 'px';
+      upd();
+    };
+    const upd = () => {
+      raf = 0; const rr = root.getBoundingClientRect();
+      const rem = rr.bottom - innerHeight, lead = innerHeight * (.6 + .36 * Math.max(0, Math.min(1, 1 - rem / (innerHeight * .5))));
+      const tgt = live ? Math.max(0, Math.min(y1, lead - rr.top) - y0) : 0;
+      disp += (tgt - disp) * (disp < 200 && tgt > disp ? .07 : .12); if (Math.abs(tgt - disp) < .5) disp = tgt;
+      const fy = y0 + disp;
+      fill.style.height = disp + 'px'; head.style.top = (fy - 3) + 'px';
+      let inZ = false;
+      invs.forEach(z => { const hh = Math.max(0, Math.min(z.h, fy - z.t)); z.d.style.height = hh + 'px'; if (fy > z.t && fy < z.t + z.h) inZ = true; });
+      head.style.background = inZ ? '#0F0F0F' : RED;
+      nodes.forEach(n => {
+        const on = fy >= n.y;
+        if (on !== n.on) { n.on = on; n.br.style.transform = on ? 'scaleX(1)' : 'scaleX(0)'; if (n.x) proc(n.l, on); if (!n.v && !n.p) n.l.style.clipPath = on ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)'; }
+        if (n.v) { const fr = Math.max(0, Math.min(1, (fy - n.t) / n.h)); if (fr !== n.last) { n.last = fr; n.l.style.clipPath = `inset(${((1 - fr) * 100).toFixed(2)}% 0 0 0)`; } }
+      });
+      if (fmEl && fmY > 0) {
+        const on = fy >= fmY - 1;
+        if (on !== fmOn) { fmOn = on; if (fmBr) fmBr.style.transform = on ? 'scaleX(1)' : 'scaleX(0)'; fmT.forEach(clearTimeout); fmT = []; if (on) fmT.push(setTimeout(() => playFM(true), 380)); else playFM(false); }
+        head.style.opacity = on ? '0' : '1';
+      }
+      if (disp !== tgt) req();
+    };
+    const req = () => { if (!raf) raf = requestAnimationFrame(upd); };
+    this._ths = req; this._thr = () => layout();
+    window.addEventListener('scroll', req, { passive: true }); window.addEventListener('resize', this._thr);
+    layout(); setTimeout(layout, 1200); if (document.fonts) document.fonts.ready.then(layout);
+    [...root.querySelectorAll('img')].forEach(im => { if (!im.complete) im.addEventListener('load', () => layout(), { once: true }); });
+  }
+  _particles(el) {
+    const S = 4, DEP = 110, F = 1400, R = 240, COL = '#D4D7DC';
+    const host = el.closest('[data-screen-label]') || el.parentElement;
+    const capEl = host.querySelector('[data-cap]'), cap = capEl && { lines: [...capEl.querySelectorAll('[data-cap-line]')], plate: capEl.querySelector('[data-cap-plate]') };
+    const cv = document.createElement('canvas'), ctx = cv.getContext('2d');
+    if (capEl) {
+      const cw = capEl.closest('[data-reveal]') || capEl;
+      let g = cw.parentElement; while (g && g !== host && getComputedStyle(g).zIndex === 'auto') g = g.parentElement;
+      if (g && g !== host) { [...g.children].forEach(c => { if (getComputedStyle(c).position === 'static') c.style.position = 'relative'; if (getComputedStyle(c).zIndex === 'auto') c.style.zIndex = '3'; }); g.style.zIndex = 'auto'; }
+      if (getComputedStyle(cw).position === 'static') cw.style.position = 'relative'; cw.style.zIndex = '5';
+    }
+    let P = [], W = 0, H = 0, base = 1, dpr = 1, raf = 0, t0 = 0, alive = true, ocx = 0, ocy = 0;
+    const mouse = { x: -1e4, y: -1e4, nx: 0, ny: 0, sx: 0, sy: 0 };
+    const build = () => {
+      const r = el.getBoundingClientRect(), hr = host.getBoundingClientRect(), cs = getComputedStyle(el), fs = parseFloat(cs.fontSize);
+      const w = Math.round(r.width), pad = Math.round(fs * .25), mw = w + pad * 2, mh = Math.round(r.height) + pad * 2;
+      W = Math.round(hr.width); H = Math.round(hr.height); dpr = Math.min(1.5, devicePixelRatio || 1);
+      cv.width = W * dpr; cv.height = H * dpr;
+      cv.style.cssText = `position:absolute;left:0;top:0;width:${W}px;height:${H}px;pointer-events:none;z-index:4`;
+      if (!cv.parentNode) host.appendChild(cv);
+      const m = document.createElement('canvas'); m.width = mw; m.height = mh; const mc = m.getContext('2d');
+      mc.font = `${cs.fontWeight} ${fs}px Steelfish`; mc.fillStyle = mc.strokeStyle = '#000'; mc.textBaseline = 'alphabetic';
+      mc.lineWidth = fs * .04; mc.lineJoin = 'round';
+      const met = mc.measureText('20'), asc = met.fontBoundingBoxAscent ?? fs * .8, desc = met.fontBoundingBoxDescent ?? fs * .2;
+      const ls = parseFloat(cs.letterSpacing) || 0, chars = el.firstChild.textContent.trim().split('');
+      const gap = mc.lineWidth * 1.4, adv = chars.map(c => mc.measureText(c).width), tot = adv.reduce((a, b) => a + b + ls, 0) + gap * (chars.length - 1);
+      let x = pad + w - tot - mc.lineWidth / 2; const y = pad + (r.height - (asc + desc)) / 2 + asc;
+      chars.forEach((c, i) => { mc.fillText(c, x, y); mc.strokeText(c, x, y); x += adv[i] + ls + gap; });
+      if (!(mw > 0 && mh > 0)) return;
+      const d = mc.getImageData(0, 0, mw, mh).data, on = (xx, yy) => xx >= 0 && yy >= 0 && xx < mw && yy < mh && d[(yy * mw + xx) * 4 + 3] > 128;
+      let x0 = mw, x1 = 0, y0 = mh, y1 = 0;
+      for (let yy = 0; yy < mh; yy += 2) for (let xx = 0; xx < mw; xx += 2) if (on(xx, yy)) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (yy < y0) y0 = yy; if (yy > y1) y1 = yy; }
+      const shiftY = Math.max(0, (y1 - pad) - r.height + fs * .02);
+      const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+      ocx = r.left - hr.left - pad + cx; ocy = r.top - hr.top - pad + cy - shiftY + 40;
+      base = hr.top + scrollY + ocy + (y1 - y0) / 2; GR = Math.max(x1 - x0, y1 - y0) * .85; P = [];
+      const SRC = [], h1 = host.querySelector('h1');
+      if (h1) {
+        const sm = document.createElement('canvas'); sm.width = W; sm.height = H; const sc = sm.getContext('2d'); sc.textBaseline = 'bottom'; sc.fillStyle = '#000';
+        const tw = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT), rg = document.createRange(); let tn;
+        while ((tn = tw.nextNode())) {
+          const st = getComputedStyle(tn.parentElement); sc.font = `${st.fontWeight} ${st.fontSize} Steelfish`; try { sc.fontStretch = 'ultra-condensed'; } catch (e) {}
+          const re = /\S+/g, txt = tn.textContent; let mt;
+          while ((mt = re.exec(txt))) {
+            rg.setStart(tn, mt.index); rg.setEnd(tn, mt.index + mt[0].length); const rc = rg.getBoundingClientRect(); if (!rc.width) continue;
+            const wd = mt[0].toUpperCase(), mm = sc.measureText(wd), sxk = mm.width ? rc.width / mm.width : 1, asc2 = mm.fontBoundingBoxAscent ?? parseFloat(st.fontSize) * .8, dsc2 = mm.fontBoundingBoxDescent ?? parseFloat(st.fontSize) * .2;
+            const by = rc.top - hr.top + (rc.height - asc2 - dsc2) / 2 + asc2;
+            sc.setTransform(sxk, 0, 0, 1, rc.left - hr.left, by); sc.textBaseline = 'alphabetic'; sc.fillText(wd, 0, 0); sc.setTransform(1, 0, 0, 1, 0, 0);
+          }
+        }
+        if (!(W > 0 && H > 0)) return;
+        const sd = sc.getImageData(0, 0, W, H).data;
+        for (let yy = 0; yy < H; yy += 3) for (let xx = 0; xx < W; xx += 3) if (sd[(yy * W + xx) * 4 + 3] > 128) SRC.push(xx, yy);
+      }
+      const ns = SRC.length / 2;
+      const add = (x, y, z) => {
+        let sx, sy; if (ns) { const j = (Math.random() * ns | 0) * 2; sx = SRC[j]; sy = SRC[j + 1]; } else { sx = Math.random() * W; sy = Math.random() * H; }
+        const j2 = ns ? (Math.random() * ns | 0) * 2 : 0;
+        P.push({ hx: x - cx, hy: y - cy, hz: z, sx, sy, ex: ns ? SRC[j2] : sx, ey: ns ? SRC[j2 + 1] : sy, dl: Math.random() * .9,
+          ax: (Math.random() - .5) * 260, ay: -80 - Math.random() * 220,
+          th: Math.random(), ox: 0, oy: 0, pull: .55 + Math.random() * .4, spr: .05 + Math.random() * .09, sz: .8 + Math.random() * .8 });
+      };
+      for (let yy = 0; yy < mh; yy += S) for (let xx = 0; xx < mw; xx += S) {
+        const jx = xx + (Math.random() - .5) * S * .9 | 0, jy = yy + (Math.random() - .5) * S * .9 | 0;
+        if (!on(jx, jy)) continue;
+        const edge = !on(jx - S, jy) || !on(jx + S, jy) || !on(jx, jy - S) || !on(jx, jy + S);
+        add(jx, jy, -DEP / 2);
+        if (edge) { for (let k = 1; k <= 5; k++) add(jx, jy, -DEP / 2 + DEP * k / 5); }
+        else if (Math.random() < .25) add(jx, jy, DEP / 2);
+      }
+      ctx.fillStyle = COL;
+      if (!t0) t0 = performance.now();
+      BX = new Float32Array(P.length); BY = new Float32Array(P.length); BS = new Float32Array(P.length); BB = new Uint8Array(P.length);
+      wake();
+    };
+    let BX, BY, BS, BB, GR = 400, lastP = -1; const NB = 8;
+    const wake = () => { if (!raf && alive) raf = requestAnimationFrame(loop); };
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const loop = now => {
+      raf = 0; if (!alive || !P.length) return;
+      const rb = cv.getBoundingClientRect();
+      if (rb.bottom < 0 || rb.top > innerHeight) return;
+      const p = Math.min(1, Math.max(0, scrollY / base)), T = (now - t0) / 1000;
+      if (p >= 1 && lastP >= 1) return;
+      const dsx = mouse.nx - mouse.sx, dsy = mouse.ny - mouse.sy;
+      mouse.sx += dsx * .06; mouse.sy += dsy * .06;
+      const ry = -.18 + mouse.sx * .2, rx = .06 - mouse.sy * .1;
+      const cl = cap ? cap.lines : [];
+      for (let j = 0; j < cl.length; j++) {
+        const ii = Math.min(1, Math.max(0, (T - 1.6 - j * .14) / .8)), ie = 1 - Math.pow(1 - ii, 4);
+        const so = Math.min(1, Math.max(0, (p - j * .035) / .16)), se2 = so * so * (3 - 2 * so);
+        cl[j].style.transform = `translateY(${((1 - ie) * 110 - se2 * 110).toFixed(2)}%)`;
+      }
+      if (cap && cap.plate) {
+        const pi = Math.min(1, Math.max(0, (T - 2.2) / .55)), pe = 1 - Math.pow(1 - pi, 3), ps = Math.min(1, Math.max(0, p / .09));
+        cap.plate.style.clipPath = `inset(0 ${((1 - pe) * 100).toFixed(1)}% 0 ${(ps * 100).toFixed(1)}%)`;
+      }
+      let moving = T < 3.6 || p !== lastP || Math.abs(dsx) + Math.abs(dsy) > .002; lastP = p;
+      const R2 = R * R, iDep = 1 / (DEP * 2);
+      const cY = Math.cos(ry), sY = Math.sin(ry), cX = Math.cos(rx), sX = Math.sin(rx);
+      const ox0 = ocx, oy0 = ocy, mx = mouse.x - rb.left, my = mouse.y - rb.top;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      const ga = Math.min(1, T / 2.6) * (1 - p);
+      if (ga > .01) {
+        const gr = ctx.createRadialGradient(ocx, ocy, 0, ocx, ocy, GR);
+        gr.addColorStop(0, `rgba(233,235,239,${.085 * ga})`); gr.addColorStop(.45, `rgba(233,235,239,${.035 * ga})`); gr.addColorStop(1, 'rgba(233,235,239,0)');
+        ctx.fillStyle = gr; ctx.fillRect(ocx - GR, ocy - GR, GR * 2, GR * 2); ctx.fillStyle = COL;
+      }
+      for (let i = 0, n = P.length; i < n; i++) {
+        const q = P[i];
+        const st = p <= q.th * .45 ? 0 : Math.min(1, (p - q.th * .45) / .5), se = st < 1 ? st * st * (3 - 2 * st) : 1;
+        const it = T >= q.dl + 2 ? 1 : ease(Math.max(0, (T - q.dl) / 2));
+        const a = (T < q.dl ? 0 : 1) * (1 - Math.max(0, se - .8) * 5);
+        if (a <= .02) { BB[i] = 255; continue; }
+        const x = q.hx, y = q.hy, z = q.hz;
+        let x1 = x * cY - z * sY, z1 = x * sY + z * cY; const y1 = y * cX - z1 * sX; z1 = y * sX + z1 * cX;
+        const k = F / (F + z1), hx2 = ox0 + x1 * k, hy2 = oy0 + y1 * k;
+        const ai = Math.sin(Math.PI * it), as = Math.sin(Math.PI * se);
+        let px2 = q.sx + (hx2 - q.sx) * it + q.ax * ai, py2 = q.sy + (hy2 - q.sy) * it + q.ay * ai;
+        if (se > 0) { px2 += (q.ex - px2) * se + q.ax * as; py2 += (q.ey - py2) * se + q.ay * as; }
+        const dx = mx - px2, dy = my - py2, d2 = dx * dx + dy * dy;
+        let tx = 0, ty = 0; if (d2 < R2) { const u = 1 - Math.sqrt(d2) / R, f = q.pull * u * Math.sqrt(u); tx = dx * f; ty = dy * f; }
+        if (tx || ty || q.ox || q.oy) {
+          const ex = tx - q.ox, ey = ty - q.oy;
+          if (ex * ex + ey * ey < .01) { q.ox = tx; q.oy = ty; } else { q.ox += ex * q.spr; q.oy += ey * q.spr; moving = true; }
+          px2 += q.ox; py2 += q.oy;
+        }
+        const l0 = Math.max(.22, Math.min(1, .8 - z1 * iDep)), fr = se > 0 ? Math.min(it, 1 - se) : it, light = l0 + (1 - l0) * (1 - fr) * (1 - fr), s2 = q.sz * k;
+        BX[i] = px2 - s2 / 2; BY[i] = py2 - s2 / 2; BS[i] = s2; BB[i] = Math.min(NB - 1, a * light * NB | 0);
+      }
+      for (let b = 0; b < NB; b++) {
+        ctx.globalAlpha = .6 * (b + .5) / NB; ctx.beginPath();
+        for (let i = 0, n = P.length; i < n; i++) if (BB[i] === b) ctx.rect(BX[i], BY[i], BS[i], BS[i]);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      if (moving) wake();
+    };
+    const onMove = e => { mouse.x = e.clientX; mouse.y = e.clientY; mouse.nx = (e.clientX / innerWidth - .5) * 2; mouse.ny = (e.clientY / innerHeight - .5) * 2; wake(); };
+    const onLeave = () => { mouse.x = mouse.y = -1e4; wake(); };
+    const onScroll = () => wake(); this._psc = onScroll; window.addEventListener('scroll', onScroll, { passive: true });
+    this._pxr = () => build(); this._pmv = onMove; this._plv = onLeave; this._pstop = () => { alive = false; };
+    (document.fonts ? document.fonts.load('800 100px Steelfish').then(() => document.fonts.ready) : Promise.resolve()).then(build);
+    window.addEventListener('mousemove', onMove, { passive: true }); document.addEventListener('mouseleave', onLeave); window.addEventListener('resize', this._pxr);
+  }
+  _proc() {
+    const w = document.querySelector('[data-proc]'); if (!w) return;
+    const st = w.querySelector('[data-pstick]'), tr = w.querySelector('[data-ptrack]'), bar = w.querySelector('[data-pbar]'), pv = w.querySelector('[data-pv]'), cor = w.querySelector('[data-pcorner]'), rail = w.querySelector('[data-prail]'), cnt = w.querySelector('[data-pcount]');
+    const slides = [...w.querySelectorAll('[data-pslide]')], labs = [...w.querySelectorAll('[data-plabel]')], N = slides.length;
+    const cols = sl => [...sl.querySelectorAll('[data-pcol]')];
+    const grid = w.querySelector('[data-pgrid]'), nbox = w.querySelector('[data-pnum]'), cv = w.querySelector('[data-pcv]'), cx = cv.getContext('2d');
+    let evapT = 0, exiting = false, pdy = 0, lyP = -1e4, P = [], TG = [], cw = 0, ch = 0, dpr = 1, t0 = 0, shown = false, pc = [15, 15, 15], nc = [15, 15, 15], ploop = 0, ready = false;
+    const rnd = (a, b) => a + Math.random() * (b - a), cl = x => x < 0 ? 0 : x > 1 ? 1 : x, ez3 = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+    const colOf = n => n === N - 1 ? [250, 0, 30] : [15, 15, 15];
+    const pbuild = () => {
+      const r = nbox.getBoundingClientRect(); if (r.width < 20 || r.height < 20) return false;
+      dpr = Math.min(2, devicePixelRatio || 1); cw = r.width; ch = r.height; cv.width = (cw + 480) * dpr; cv.height = (ch + 480) * dpr;
+      const S = Math.max(3, Math.round(Math.min(cw, ch) / 120));
+      const oc = document.createElement('canvas'); oc.width = Math.ceil(cw); oc.height = Math.ceil(ch); const ox = oc.getContext('2d', { willReadFrequently: true });
+      ox.font = '800 100px Steelfish'; const m0 = ox.measureText('00'), a0 = m0.actualBoundingBoxAscent || 72, w0 = m0.width;
+      const fs = Math.min(ch * .96 / a0, cw / w0) * 100; ox.font = '800 ' + fs + 'px Steelfish'; ox.fillStyle = '#000';
+      TG = [];
+      for (let n = 1; n <= N; n++) {
+        ox.clearRect(0, 0, oc.width, oc.height); const s = '0' + n, a = ox.measureText(s).actualBoundingBoxAscent || a0 * fs / 100;
+        ox.fillText(s, 0, (ch + a) / 2);
+        const d = ox.getImageData(0, 0, oc.width, oc.height).data, pts = [];
+        for (let y = 0; y < oc.height; y += S) for (let x = 0; x < oc.width; x += S) if (d[(y * oc.width + x) * 4 + 3] > 120) pts.push([x + rnd(-.8, .8), y + rnd(-.8, .8)]);
+        pts.sort((p, q) => p[0] - q[0]); TG.push(pts);
+      }
+      const M = Math.max(...TG.map(p => p.length));
+      if (P.length !== M) P = Array.from({ length: M }, () => ({ x: rnd(0, cw), y: rnd(0, ch), sx: 0, sy: 0, qx: 0, qy: 0, tx: 0, ty: 0, d: 0, ph: rnd(0, 6.28), s: rnd(1, 2) }));
+      return true;
+    };
+    const morph = (n, dir, inst) => {
+      const pts = TG[n]; if (!pts) return; const L = pts.length, M = P.length;
+      pc = inst ? colOf(n) : curCol(); nc = colOf(n); t0 = performance.now();
+      P.forEach((p, i) => {
+        const tp = pts[Math.floor(i * L / M)];
+        p.sx = p.x; p.sy = p.y; p.tx = tp[0]; p.ty = tp[1];
+        p.qx = (p.sx + p.tx) / 2 + dir * rnd(30, 180); p.qy = (p.sy + p.ty) / 2 + rnd(-110, 110);
+        p.d = inst ? -9 : rnd(0, .28) + (dir > 0 ? p.tx / cw : 1 - p.tx / cw) * .22;
+      });
+    };
+    const curCol = () => { const k = cl((performance.now() - t0) / 1100); return pc.map((v, i) => v + (nc[i] - v) * k); };
+    const pdraw = now => {
+      ploop = 0; if (mob || !ready) return;
+      const r = nbox.getBoundingClientRect(); if (r.bottom < -50 || r.top > innerHeight + 50) return;
+      const t = (now - t0) / 1000;
+      cx.setTransform(1, 0, 0, 1, 0, 0); cx.clearRect(0, 0, cv.width, cv.height); cx.setTransform(dpr, 0, 0, dpr, 240 * dpr, (240 + pdy) * dpr);
+      const c = curCol(); cx.fillStyle = 'rgb(' + c.map(Math.round).join(',') + ')';
+      cx.globalAlpha = shown ? 1 : 0; if (!shown) return;
+      if (evapT) {
+        const k = cl((now - evapT) / 1300), e = 1 - Math.pow(1 - k, 2);
+        if (k >= 1) return;
+        cx.globalAlpha = 1 - k; cx.beginPath();
+        for (const p of P) cx.rect(p.x + p.vx * e + Math.sin(now * .004 + p.ph) * 3 * k, p.y - p.vy * e, p.s, p.s);
+        cx.fill(); ploop = requestAnimationFrame(pdraw); return;
+      }
+      const brr = bar.getBoundingClientRect(), hx = brr.right - r.left, lined = brr.width > 2, BAND = 120;
+      cx.beginPath();
+      for (const p of P) {
+        const k = ez3(cl((t - p.d) / .95)), u = 1 - k;
+        p.x = u * u * p.sx + 2 * u * k * p.qx + k * k * p.tx; p.y = u * u * p.sy + 2 * u * k * p.qy + k * k * p.ty;
+        const j = Math.sin(now * .0016 + p.ph) * .5;
+        let x = p.x, y = p.y; const dd = y - lyP, ad = dd < 0 ? -dd : dd;
+        if (ad < BAND && lined) {
+          const f = 1 - ad / BAND, sg = dd < 0 ? -1 : 1, rv = .6 + .8 * Math.abs(Math.sin(p.ph * 3.7)); let o = 16 * f * Math.sqrt(f);
+          if (p.cut === 0 && x <= hx) p.cut = now;
+          if (p.cut) { const a = (now - p.cut) / 1000, e = Math.exp(-a * 2.6); o += 80 * f * rv * e * Math.cos(a * 6); x += 60 * f * rv * Math.exp(-a * 3.5) + Math.sin(p.ph * 5.3) * 22 * f * e; }
+          else if (p.cut === 0) o = 0;
+          y += sg * o;
+        }
+        cx.rect(x + j, y - j, p.s, p.s);
+      }
+      cx.fill();
+      ploop = requestAnimationFrame(pdraw);
+    };
+    const pkick = () => { if (!ploop) ploop = requestAnimationFrame(pdraw); };
+    const pinit = () => { if (pbuild()) { ready = true; morph(cur, 1, !shown); pkick(); } };
+    (document.fonts ? document.fonts.load('800 100px Steelfish').then(() => document.fonts.ready) : Promise.resolve()).then(() => setTimeout(pinit, 50));
+    let rsT = 0; window.addEventListener('resize', () => { clearTimeout(rsT); rsT = setTimeout(pinit, 200); });
+    const EZ = 'cubic-bezier(.7,0,.2,1)', EO = 'cubic-bezier(.2,.8,.2,1)';
+    let cur = 0, target = 0, busy = false, mob = null, raf = 0, drawn = false, T = [];
+    const at = (ms, f) => T.push(setTimeout(f, ms));
+    const setCols = (i, on, dx, dur, stg, inst) => cols(slides[i]).forEach((c, j) => {
+      c.style.transition = inst ? 'none' : 'opacity ' + dur + 's ' + (on ? EO : EZ) + ' ' + (j * stg) + 's,transform ' + dur + 's ' + (on ? EO : EZ) + ' ' + (j * stg) + 's';
+      c.style.opacity = on ? 1 : 0; c.style.transform = on ? 'none' : 'translate3d(' + dx + 'px,0,0)';
+      slides[i].style.pointerEvents = on ? 'auto' : 'none'; slides[i].style.visibility = on || !inst ? 'visible' : 'hidden';
+    });
+    const line = (s, origin, dur) => { bar.style.transformOrigin = origin; bar.style.transition = dur ? 'transform ' + dur + 's ' + EZ : 'none'; bar.style.transform = 'scaleX(' + s + ')'; if (s === 1 && origin === 'left' && dur) { P.forEach(p => { p.cut = 0; }); pkick(); } };
+    const label = (to, dir) => labs.forEach((l, i) => { l.style.transform = i === to ? 'translateY(0)' : 'translateY(' + (i === cur ? -110 * dir : 110 * dir) + '%)'; });
+    const go = () => {
+      if (busy || !drawn || target === cur) return;
+      if (target === N || cur === N) return edge();
+      busy = true; const from = cur, to = target, d = to > from ? 1 : -1, sw = Math.min(160, innerWidth * .12);
+      setCols(from, false, -d * sw, .42, .05);
+      line(0, d > 0 ? 'right' : 'left', .5);
+      morph(to, d); pkick();
+      at(120, () => { labs.forEach((l, i) => { if (i !== from && i !== to) { l.style.transition = 'none'; l.style.transform = 'translateY(' + 110 * d + '%)'; l.offsetWidth; l.style.transition = ''; } }); label(to, d); });
+      at(380, () => { cnt.textContent = '0' + (to + 1); });
+      at(520, () => { cur = to; setCols(to, false, d * sw, 0, 0, true); slides[to].style.visibility = 'visible'; slides[to].offsetWidth; setCols(to, true, 0, .7, .09); line(1, 'left', .6); req(); });
+      at(1250, () => { slides.forEach((s, i) => { if (i !== cur) s.style.visibility = 'hidden'; }); busy = false; go(); });
+    };
+    const ph = document.createElement('span'); ph.style.cssText = 'position:absolute;width:7px;height:7px;background:#FA001E;opacity:0;transition:opacity .2s'; st.appendChild(ph);
+    const sw0 = () => Math.min(160, innerWidth * .12);
+    const edge = () => {
+      busy = true;
+      if (target === N) {
+        const from = cur; cur = N;
+        setCols(from, false, sw0(), .45, .05);
+        evapT = performance.now(); P.forEach(p => { p.vx = rnd(-40, 40); p.vy = rnd(70, 280); }); pkick();
+        at(150, () => line(0, 'left', .6));
+        at(760, () => { cor.style.transform = 'scale(0)'; exiting = true; pv.style.transition = 'height .55s cubic-bezier(.7,0,.2,1)'; ph.style.opacity = 1; req(); });
+        cnt.parentElement.style.transition = 'opacity .3s'; cnt.parentElement.style.opacity = 0;
+        at(1350, () => { pv.style.transition = 'none'; slides[from].style.visibility = 'hidden'; busy = false;
+          if (target === N) { const b = w.getBoundingClientRect(); if (b.bottom > 0) window.scrollTo({ top: scrollY + b.bottom, behavior: 'smooth' }); }
+          go(); });
+      } else {
+        const to = target; exiting = false; ph.style.opacity = 0; cnt.parentElement.style.opacity = 1;
+        pv.style.transition = 'height .4s cubic-bezier(.7,0,.2,1)'; req();
+        at(420, () => {
+          pv.style.transition = 'none'; cor.style.transform = 'scale(1)'; line(1, 'left', .6);
+          P.forEach(p => { if (p.vy) { p.x += p.vx; p.y -= p.vy; } }); evapT = 0; morph(to, -1); pkick();
+          cur = to; cnt.textContent = '0' + (to + 1);
+          setCols(to, false, sw0(), 0, 0, true); slides[to].style.visibility = 'visible'; slides[to].offsetWidth; setCols(to, true, 0, .7, .09);
+        });
+        at(1150, () => { busy = false; go(); });
+      }
+    };
+    const layout = () => {
+      const m = innerWidth < 820, X = this._tlX != null ? this._tlX : 22;
+      w.querySelectorAll('[data-pdesc]').forEach(e => e.style.display = !m && innerHeight < 720 ? 'none' : '');
+      w.querySelectorAll('[data-pct] > div:last-child > [data-pcol]:first-child').forEach(e => e.style.display = !m && innerHeight < 600 ? 'none' : '');
+      pv.style.left = X + 'px'; rail.style.left = X + 'px';
+      if (m === mob) return; mob = m;
+      w.style.height = m ? 'auto' : '560vh';
+      st.style.position = m ? 'relative' : 'sticky'; st.style.height = m ? 'auto' : '100vh'; st.style.zIndex = m ? '' : '45'; st.style.background = m ? 'transparent' : '#E9EBEF';
+      rail.style.display = m ? 'none' : 'block'; w.querySelectorAll('[data-pct]').forEach(e => e.style.gridTemplateRows = m ? 'auto auto' : ''); pv.style.display = m ? 'none' : 'block';
+      tr.style.display = m ? 'flex' : 'grid'; grid.style.display = m ? 'block' : 'grid'; nbox.style.display = m ? 'none' : 'block'; w.querySelectorAll('[data-pnt]').forEach(e => e.style.display = m ? 'block' : 'none'); tr.style.flexDirection = 'column'; tr.style.gap = m ? '72px' : '0';
+      slides.forEach((s, i) => { s.style.gridArea = m ? 'auto' : '1/1'; s.style.display = m ? 'flex' : 'grid'; s.style.flexDirection = 'column'; setCols(i, m || i === cur, 0, 0, 0, true); });
+    };
+    const upd = () => {
+      raf = 0; layout(); if (mob) return;
+      const b = w.getBoundingClientRect(), p = Math.min(.9999, Math.max(0, -b.top / Math.max(1, b.height - innerHeight)));
+      const sr = st.getBoundingClientRect(), gr = grid.getBoundingClientRect(), tc = slides[Math.min(cur, N - 1)].querySelector('[data-pct]').children[0].getBoundingClientRect(), turn = Math.round(tc.bottom - sr.top); rail.style.top = turn + 'px'; pdy = tc.bottom - (gr.top + gr.height / 2); lyP = tc.bottom - nbox.getBoundingClientRect().top - pdy;
+      const pinned = sr.top <= 1, head = innerHeight * .6 - sr.top, done = pinned || head >= turn;
+      const vh = exiting ? Math.min(st.offsetHeight, Math.max(turn, head)) : done ? turn : Math.max(0, Math.min(turn, head));
+      pv.style.height = vh + 'px'; ph.style.left = (parseFloat(pv.style.left) - 3) + 'px'; ph.style.top = (vh - 3) + 'px';
+      cor.style.transform = done && !exiting ? 'scale(1)' : 'scale(0)'; ph.style.opacity = exiting && head < st.offsetHeight ? 1 : 0;
+      if (done !== drawn && !busy) { drawn = done; line(done ? 1 : 0, 'left', done ? .7 : .3); if (done && ready && !shown) { shown = true; P.forEach(p => { p.x = rnd(-cw * .2, cw * 1.4); p.y = rnd(-ch * .3, ch * 1.3); }); morph(cur, 1); } pkick(); }
+      target = Math.min(N, Math.floor(p * (N + 1))); go(); pkick();
+    };
+    const req = () => { if (!raf) raf = requestAnimationFrame(upd); };
+    this._prs = req; window.addEventListener('scroll', req, { passive: true }); window.addEventListener('resize', req); upd(); setTimeout(req, 300);
+  }
+  componentDidUpdate() { document.body.style.overflow = this.state && this.state.menuOpen ? 'hidden' : ''; }
+  componentWillUnmount() { if (this._prs) { window.removeEventListener('scroll', this._prs); window.removeEventListener('resize', this._prs); } if (this._ths) window.removeEventListener('scroll', this._ths); if (this._thr) window.removeEventListener('resize', this._thr); if (this._pstop) this._pstop(); if (this._psc) window.removeEventListener('scroll', this._psc); if (this._pmv) window.removeEventListener('mousemove', this._pmv); if (this._plv) document.removeEventListener('mouseleave', this._plv); if (this._pxr) window.removeEventListener('resize', this._pxr); if (this._mdc) document.removeEventListener('click', this._mdc); if (this._esc) window.removeEventListener('keydown', this._esc); if (this._mgr) window.removeEventListener('resize', this._mgr); }
+  renderVals() {
+    const s = this.state || {}, up = (f, v) => f || (v && v.length);
+    const nU = up(s.fN, s.vN), pU = up(s.fP, s.vP);
+    const F = (k, big, small, top0, top1) => { const u = up(s['f' + k], s['v' + k]); return [u ? top1 : top0, u ? small : big]; };
+    const [cnTop, cnSize] = F('CN', '16px', '11px', '20px', '10px'), [ceTop, ceSize] = F('CE', '16px', '11px', '20px', '10px'), [cpTop, cpSize] = F('CP', '16px', '11px', '20px', '10px'), [cmTop, cmSize] = F('CM', '16px', '11px', '20px', '10px');
+    const h = k => ({ ['v' + k]: s['v' + k] || '', ['on' + k]: e => this.setState({ ['v' + k]: e.target.value }), ['foc' + k]: () => this.setState({ ['f' + k]: true }), ['blur' + k]: () => this.setState({ ['f' + k]: false }) });
+    return {
+      ...h('CN'), ...h('CE'), ...h('CP'), ...h('CM'),
+      cnTop, cnSize, ceTop, ceSize, cpTop, cpSize, cmTop, cmSize, cpPh: s.fCP ? '+7 (___) ___-__-__' : '',
+      fileLabel: s.file || 'Приложить бриф или документ',
+      onFile: e => { const f = e.target.files && e.target.files[0]; this.setState({ file: f ? f.name : '' }); },
+      sendLabel: s.sent ? 'Заявка отправлена' : 'Отправить заявку',
+      onSend: e => { e.preventDefault(); this.setState({ sent: true }); },
+      menuOpen: !!s.menuOpen, toggleMenu: e => { e.preventDefault(); this.setState(st => ({ menuOpen: !st.menuOpen })); }, closeMenu: () => this.setState({ menuOpen: false }),
+      toTop: e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      vN: s.vN || '', vP: s.vP || '', pPh: s.fP ? '+7 (___) ___-__-__' : '',
+      nTop: nU ? '10px' : '20px', nSize: nU ? '11px' : '16px', pTop: pU ? '10px' : '20px', pSize: pU ? '11px' : '16px',
+      onN: e => this.setState({ vN: e.target.value }), onP: e => this.setState({ vP: e.target.value }),
+      focN: () => this.setState({ fN: true }), blurN: () => this.setState({ fN: false }),
+      focP: () => this.setState({ fP: true }), blurP: () => this.setState({ fP: false })
+    };
+  }
+  _rvOld() { return {}; }
+}
+</script>
+</body>
+</html>

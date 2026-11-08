@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Contacts from '../../components/home/Contacts.astro';
+import ServiceHero from '../../components/blocks/ServiceHero.astro';
+import ServiceCardGrid from '../../components/blocks/ServiceCardGrid.astro';
+import ServiceDecisionMatrix from '../../components/blocks/ServiceDecisionMatrix.astro';
+import '../../styles/global.css';
+
+const title = 'Performance-маркетинг под задачи бизнеса — Простор';
+const description = 'Подбираем и объединяем рекламные инструменты, чтобы привлекать целевые обращения и управлять стоимостью привлечения. Связываем кампании с аналитикой.';
+const formAnchor = '#contacts';
+const navigationItems = [
+  { label: 'Задачи', href: '#tasks' }, { label: 'Каналы', href: '#channels' },
+  { label: 'Подход', href: '#approach' }, { label: 'Метрики', href: '#metrics' },
+  { label: 'Процесс', href: '#process' }, { label: 'Стоимость', href: '#pricing' },
+] as const;
+const tasks = [
+  { title: 'Нужны целевые обращения', description: 'Определить, какие рекламные инструменты стоит проверить для вашего продукта и аудитории.' },
+  { title: 'Реклама есть, результат не устраивает', description: 'Разобраться, где теряются бюджет и обращения: в настройках рекламных кампаний, предложении, посадочной странице или обработке заявок.' },
+  { title: 'Нужно проверить новое направление', description: 'Протестировать продукт, оффер, географию или аудиторию по заранее согласованным критериям.' },
+  { title: 'Нужно увеличить объём', description: 'Найти возможности роста и оценить, как расширение повлияет на стоимость и качество привлечения.' },
+];
+const channels = [
+  { title: 'Контекстная реклама', description: 'Запускаем и развиваем рекламу в Яндекс Директе с согласованными целями и аналитикой.', label: 'Задача канала', detail: 'Привлечение пользователей с уже сформированным спросом.' },
+  { title: 'Таргетированная реклама', description: 'Настраиваем и ведём рекламу в соцсетях и мессенджерах: подбираем аудитории, тестируем объявления и отслеживаем обращения.', label: 'Задача канала', detail: 'Формирование спроса и привлечение целевых аудиторий.' },
+  { title: 'Яндекс Промостраницы', description: 'Создаём и продвигаем статьи в Яндекс Промостраницах, чтобы знакомить аудиторию с продуктом и привлекать заинтересованных пользователей на сайт.', label: 'Задача канала', detail: 'Знакомство с продуктом через контент.' },
+  { title: 'Авито', description: 'Оформляем и продвигаем объявления на Авито и с помощью Авито Ads, тестируем подачу предложений и отслеживаем обращения.', label: 'Задача канала', detail: 'Привлечение покупателей через объявления.' },
+  { title: 'Геосервисы', description: 'Оформляем и продвигаем карточки компании в картах и геосервисах, чтобы клиентам было проще найти и выбрать вас.', label: 'Задача канала', detail: 'Повышение локальной видимости компании.' },
+];
+const approach = [
+  { title: 'Цель и экономика продукта', description: 'Какой результат/KPI оцениваем и какую стоимость привлечения рассматриваем как ориентир.' },
+  { title: 'Аудитория и путь до покупки', description: 'Какие точки контакта и рекламные инструменты стоит проверить.' },
+  { title: 'Состояние сайта и обработки заявок', description: 'Что нужно подготовить до запуска или улучшить параллельно.' },
+  { title: 'Доступный бюджет и данные', description: 'С какого набора гипотез начать, чтобы не распылять ресурсы.' },
+  { title: 'Результаты тестов', description: 'Что продолжать, пересматривать, останавливать или расширять.' },
+];
+const process = [
+  { title: 'Диагностика', description: 'Разбираем текущую ситуацию, анализируем сайт, рекламу и её результаты, если запускалась, цели, доступные данные и ограничения.', duration: '1–2 недели', label: 'Вы получаете', detail: 'Карту ограничений и точек роста' },
+  { title: 'Планирование и подготовка предложения', description: 'Согласовываем гипотезы, инструменты, бюджет и показатели.', duration: '1 неделя', label: 'Вы получаете', detail: 'План тестов и медиаплан' },
+  { title: 'Подготовка и запуск', description: 'Готовим кампании, материалы, настраиваем аналитику.', duration: '2–4 недели', label: 'Вы получаете', detail: 'Запущенные кампании и настроенную аналитику' },
+  { title: 'Оптимизация', description: 'Анализируем результаты и корректируем работу.', duration: 'Каждый месяц', label: 'Вы получаете', detail: 'Отчёт и обновлённый план' },
+  { title: 'Решение о развитии', description: 'Оцениваем дальнейшие гипотезы и возможности расширения.', duration: 'Постоянно', label: 'Вы получаете', detail: 'Рост на проверенных каналах' },
+];
+const additionalCosts = ['Посадочные страницы', 'Интеграции', 'Производство рекламных материалов', 'Коллтрекинг', 'Другие согласованные доработки'];
+---
+<BaseLayout {title} {description}>
+  <main class="performance-page">
+    <ServiceHero
+      eyebrow="Performance · Prostor"
+      title="Performance-маркетинг"
+      accentText="под задачи бизнеса."
+      description="Подбираем и объединяем рекламные инструменты, чтобы привлекать целевые обращения, лиды и будущих клиентов, а также управлять стоимостью привлечения и результатами. Связываем кампании с аналитикой и результатами обработки заявок."
+      additionalLabel="Используем собственную аналитику Prostor."
+      primaryCTA={{ label: 'Обсудить привлечение клиентов', href: formAnchor }}
+      secondaryCTA={{ label: 'Получить аудит рекламы', href: formAnchor }}
+      visualPreset="performance"
+      navigationItems={navigationItems}
+    />
+    <section class="pm-section pm-tasks" id="tasks" aria-labelledby="pm-tasks-title">
+      <div class="pm-section__intro">
+        <p class="pm-eyebrow" data-tl="h"><i></i>01 / Задачи</p>
+        <h2 id="pm-tasks-title">Когда бизнесу нужна работа с performance-рекламой</h2>
+        <p class="pm-section__lead">Четыре ситуации, в которых performance-реклама помогает найти точки роста.</p>
+      </div>
+      <div class="pm-task-list">{tasks.map((item, index) => <article class="pm-task-row"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.description}</p></div><span class="pm-task-row__arrow" aria-hidden="true">↗</span></article>)}</div>
+    </section>
+
+    <section class="pm-section pm-toolkit" id="channels" aria-labelledby="pm-channels-title">
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>02 / Каналы</p><h2 id="pm-channels-title">Подбираем инструменты под вашу задачу</h2><p class="pm-section__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</p></div>
+      <ServiceCardGrid items={channels} variant="toolkit" />
+    </section>
+
+    <section class="pm-section pm-approach" id="approach" aria-labelledby="pm-approach-title">
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>03 / Подход</p><h2 id="pm-approach-title">Как мы определяем, куда направить бюджет</h2></div>
+      <ServiceDecisionMatrix items={approach} featuredText="Не распределяем бюджет поровну между площадками. Сначала определяем приоритеты и критерии проверки, затем корректируем план по результатам." />
+    </section>
+
+    <section class="pm-metrics" id="metrics" aria-labelledby="pm-metrics-title">
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>04 / Аналитика</p><h2 id="pm-metrics-title">Согласовываем показатели до запуска</h2></div>
+      <div class="pm-metric-grid"><article><span>01</span><h3>Обращения</h3><p>Количество лидов, CPL — стоимость обращения, CPO — стоимость заказа.</p></article><article><span>02</span><h3>Качество</h3><p>Количество и стоимость квалифицированных обращений по согласованным критериям.</p></article><article><span>03</span><h3>Целевые действия</h3><p>CPA — стоимость конкретного согласованного действия, CR — конверсия на выбранном этапе.</p></article><article><span>04</span><h3>Продажи и экономика</h3><p>Выручка, стоимость привлечения покупателя, ROMI, ДРР.</p></article></div>
+      <p class="pm-metrics__foot">Для каждого проекта выбираем применимые показатели и фиксируем, что именно считаем лидом, целевым обращением и продажей. При необходимости настраиваем аналитику: от базовых целей в Метрике до полноценной сквозной аналитики.</p>
+    </section>
+
+    <section class="pm-section pm-process" id="process" aria-labelledby="pm-process-title">
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>05 / Процесс</p><h2 id="pm-process-title">От диагностики до регулярной оптимизации</h2><p class="pm-section__lead">Последовательность этапов и ясные решения на каждом шаге работы.</p></div>
+      <ServiceCardGrid items={process} variant="steps" />
+    </section>
+
+    <section class="pm-section pm-pricing" id="pricing" aria-labelledby="pm-pricing-title">
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>06 / Стоимость</p><h2 id="pm-pricing-title">Сколько стоит performance-маркетинг</h2></div>
+      <div class="pm-price-grid"><article><span class="pm-price-card__index">01</span><div><p class="pm-price-card__label">Услуги агентства</p><h3>Работа агентства</h3><p>Подготовка, запуск, ведение, аналитика и другие согласованные работы.</p></div></article><article><span class="pm-price-card__index">02</span><div><p class="pm-price-card__label">Бюджет площадок</p><h3>Рекламный бюджет</h3><p>Расходы на размещение на выбранных площадках.</p></div></article></div>
+      <div class="pm-additional-costs"><h3>Также могут потребоваться отдельно</h3><ul>{additionalCosts.map((item) => <li>{item}</li>)}</ul></div>
+      <a class="pm-pricing__cta" href={formAnchor}>Обсудить сотрудничество <span>↓</span></a>
+    </section>
+    <Contacts />
+  </main>
+</BaseLayout>
+<script>
+  import '../../scripts/home';
+</script>
+<style>
+.performance-page{background:#E9EBEF;color:#0F0F0F;overflow:clip}.pm-section{padding:108px max(48px,calc((100vw - 1320px)/2))}.pm-section__title-row{display:grid;grid-template-columns:minmax(120px,.45fr) minmax(0,1.55fr) minmax(200px,.8fr);gap:26px;align-items:start;margin-bottom:48px}.pm-eyebrow{display:flex;align-items:center;gap:10px;color:#BD0000;font:500 11px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;margin:7px 0}.pm-eyebrow i{width:7px;height:7px;background:#FA001E;display:inline-block;flex:none}.pm-section h2,.pm-metrics h2{font:700 clamp(44px,5.7vw,82px)/.92 Steelfish,sans-serif;text-transform:uppercase;letter-spacing:-.008em;margin:0;text-wrap:balance}.pm-section__lead{font-size:15px;line-height:1.5;color:rgba(15,15,15,.7);margin:6px 0 0;max-width:340px;text-wrap:pretty}.pm-tasks{display:grid;grid-template-columns:minmax(0,35fr) minmax(0,65fr);gap:6vw;align-items:start}.pm-section__intro .pm-eyebrow{margin:8px 0 25px}.pm-section__intro h2{font-size:clamp(44px,5.2vw,72px)}.pm-section__intro .pm-section__lead{margin-top:26px;max-width:360px}.pm-task-list{border-top:1px solid rgba(15,15,15,.28)}.pm-task-row{display:grid;grid-template-columns:44px minmax(0,1fr) 32px;gap:16px;align-items:start;padding:23px 4px 24px 0;border-bottom:1px solid rgba(15,15,15,.22)}.pm-task-row>span:first-child{font:500 10px 'JetBrains Mono',monospace;color:#FA001E;padding-top:3px}.pm-task-row h3{font:700 clamp(25px,2.8vw,37px)/.95 Steelfish,sans-serif;text-transform:uppercase;margin:0 0 10px}.pm-task-row p{margin:0;font-size:14px;line-height:1.5;color:rgba(15,15,15,.72);max-width:620px}.pm-task-row__arrow{font:20px 'JetBrains Mono',monospace;color:#FA001E;justify-self:end}.pm-toolkit{padding-top:90px}.pm-toolkit .pm-section__title-row{grid-template-columns:minmax(120px,.45fr) minmax(0,1.55fr) minmax(200px,.8fr)}.pm-approach{background:#DDE0E5;padding-top:108px}.pm-approach .pm-section__title-row{grid-template-columns:minmax(120px,.45fr) minmax(0,2.35fr)}.pm-approach__note{margin:26px 0 0 auto;max-width:700px;background:#0F0F0F;color:#E9EBEF;padding:24px 30px 24px 34px;border-left:3px solid #FA001E;font-size:15px;line-height:1.55}.pm-metrics{padding:105px max(48px,calc((100vw - 1320px)/2));background:#0F0F0F;color:#E9EBEF}.pm-metrics .pm-section__title-row{grid-template-columns:minmax(120px,.45fr) minmax(0,2.35fr)}.pm-metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(233,235,239,.2);border-bottom:1px solid rgba(233,235,239,.2)}.pm-metric-grid article{padding:25px 20px 30px;border-right:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:first-child{padding-left:0}.pm-metric-grid article:last-child{border:0}.pm-metric-grid article>span{font:500 10px 'JetBrains Mono',monospace;color:#FA001E}.pm-metric-grid h3{font:700 31px/1 Steelfish,sans-serif;text-transform:uppercase;margin:30px 0 14px}.pm-metric-grid p,.pm-metrics__foot{font-size:14px;line-height:1.5;color:rgba(233,235,239,.72)}.pm-metric-grid p{margin:0}.pm-metrics__foot{max-width:750px;margin:25px 0 0 auto}.pm-process{padding-top:108px}.pm-pricing{background:#DDE0E5;padding-top:104px;padding-bottom:110px}.pm-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.pm-price-grid article{min-height:250px;background:#F4F5F7;padding:27px 30px;display:grid;grid-template-columns:64px 1fr;gap:20px;box-sizing:border-box;border-top:2px solid #0F0F0F;transition:border-color .25s,background-color .25s}.pm-price-grid article:hover{border-color:#FA001E;background:#fff}.pm-price-card__index{font:700 58px/.8 Steelfish,sans-serif}.pm-price-card__label{font:500 9px 'JetBrains Mono',monospace;color:#BD0000;text-transform:uppercase;letter-spacing:.1em;margin:2px 0 24px}.pm-price-grid h3{font:700 clamp(32px,4vw,52px)/.9 Steelfish,sans-serif;text-transform:uppercase;margin:0 0 15px}.pm-price-grid article div>p:last-child{font-size:15px;line-height:1.5;color:rgba(15,15,15,.72);margin:0;max-width:490px}.pm-additional-costs{margin-top:36px;padding-top:26px;border-top:1px solid rgba(15,15,15,.25)}.pm-additional-costs h3{font:700 30px/1 Steelfish,sans-serif;text-transform:uppercase;margin:0 0 22px}.pm-additional-costs ul{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0;padding:0;border-top:1px solid rgba(15,15,15,.17)}.pm-additional-costs li{position:relative;padding:15px 18px 15px 24px;border-bottom:1px solid rgba(15,15,15,.17);font-size:14px}.pm-additional-costs li:nth-child(odd){border-right:1px solid rgba(15,15,15,.17)}.pm-additional-costs li:before{content:"";position:absolute;left:2px;top:22px;width:5px;height:5px;background:#FA001E}.pm-pricing__cta{margin-top:30px;min-height:70px;background:#FA001E;color:#E9EBEF;display:flex;justify-content:space-between;align-items:center;padding:0 28px;font:600 11px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;transition:background-color .2s}.pm-pricing__cta:hover{background:#BD0000;color:#E9EBEF}.pm-pricing__cta span{font:18px 'JetBrains Mono',monospace}
+@media(max-width:1000px){.pm-section,.pm-metrics{padding-left:30px;padding-right:30px}.pm-section__title-row{grid-template-columns:130px minmax(0,1.6fr)}.pm-section__title-row>.pm-section__lead{grid-column:2}.pm-tasks{gap:4vw}.pm-tasks .pm-section__intro h2{font-size:clamp(42px,6vw,62px)}.pm-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pm-metric-grid article:nth-child(2){border-right:0}.pm-metric-grid article:nth-child(3){padding-left:0;border-top:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:nth-child(4){border-top:1px solid rgba(233,235,239,.2)}}
+@media(max-width:680px){.pm-section,.pm-metrics{padding:76px 21px}.pm-section__title-row,.pm-toolkit .pm-section__title-row,.pm-approach .pm-section__title-row,.pm-metrics .pm-section__title-row{grid-template-columns:1fr;gap:14px;margin-bottom:31px}.pm-section__title-row>.pm-section__lead{grid-column:auto}.pm-section h2,.pm-metrics h2{font-size:clamp(44px,10vw,65px)}.pm-tasks{grid-template-columns:1fr;gap:32px;padding-top:72px}.pm-section__intro .pm-eyebrow{margin-bottom:18px}.pm-section__intro h2{font-size:clamp(46px,10vw,66px)}.pm-section__intro .pm-section__lead{margin-top:18px}.pm-task-row{grid-template-columns:32px minmax(0,1fr) 22px;gap:10px;padding:20px 0}.pm-task-row h3{font-size:26px}.pm-task-row p{font-size:13px}.pm-toolkit{padding-top:74px}.pm-approach__note{margin:23px 0 0;padding:20px 20px 20px 23px;font-size:14px}.pm-metric-grid article{padding:19px 14px 22px}.pm-metric-grid h3{font-size:26px;margin:23px 0 12px}.pm-metric-grid p{font-size:13px}.pm-metrics__foot{font-size:13px}.pm-price-grid{grid-template-columns:1fr}.pm-price-grid article{min-height:205px;padding:24px 20px;grid-template-columns:48px 1fr;gap:14px}.pm-price-card__index{font-size:48px}.pm-price-grid h3{font-size:39px}.pm-additional-costs ul{grid-template-columns:1fr}.pm-additional-costs li:nth-child(odd){border-right:0}.pm-additional-costs li{padding:13px 14px 13px 22px;font-size:13px}.pm-additional-costs li:before{top:20px}.pm-pricing__cta{min-height:64px;padding:0 19px;font-size:10px}}
+@media(max-width:380px){.pm-metric-grid{grid-template-columns:1fr}.pm-metric-grid article,.pm-metric-grid article:nth-child(n){padding:18px 0;border-right:0;border-top:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:first-child{border-top:0}.pm-task-row h3{font-size:24px}}
+</style>
+<style>
+.performance-page{overflow-x:clip;overflow-y:visible;position:relative}.pm-section{position:relative;padding-left:48px;padding-right:48px}.pm-metrics{padding-left:48px;padding-right:48px}
+.pm-eyebrow[data-tl="h"]{clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1)}
+.pm-section__title-row,.pm-metrics .pm-section__title-row{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-items:start;margin-bottom:44px}
+.pm-section__title-row .pm-eyebrow{grid-column:1;margin:0 0 4px}.pm-section__title-row h2{grid-column:1;max-width:1100px}.pm-section__title-row>.pm-section__lead{grid-column:1;margin:2px 0 0;max-width:550px}
+.pm-toolkit .service-card-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.pm-toolkit .service-card{min-height:310px;padding:25px 24px;background:transparent;border:1px solid rgba(15,15,15,.25);border-top:2px solid #0F0F0F}.pm-toolkit .service-card:hover{background:#F4F5F7;border-color:#FA001E}.pm-toolkit .service-card:nth-child(4){grid-column:1/2}.pm-toolkit .service-card:nth-child(5){grid-column:2/3}
+.pm-approach__note{display:none}.pm-additional-costs{border-top:0;padding-top:10px}.pm-additional-costs h3{padding-top:22px;border-top:1px solid rgba(15,15,15,.25)}.pm-additional-costs ul{column-gap:28px;border:0}.pm-additional-costs li{padding:14px 12px 14px 28px;border-bottom:1px solid rgba(15,15,15,.12)}.pm-additional-costs li:nth-child(odd){border-right:0}.pm-additional-costs li:before{content:"+";left:2px;top:12px;width:auto;height:auto;background:none;color:#FA001E;font:500 18px 'JetBrains Mono',monospace}
+.pm-price-grid{position:relative;gap:2px;background:#0F0F0F;border:1px solid #0F0F0F}.pm-price-grid:after{content:"=";position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);width:40px;height:40px;display:grid;place-items:center;background:#FA001E;color:#0F0F0F;font:600 20px 'JetBrains Mono',monospace}.pm-price-grid article{background:#E9EBEF;border:0;min-height:220px}.pm-price-grid article:hover{background:#F4F5F7}.pm-price-grid article div>p:last-child{max-width:380px}
+.pm-metrics .pm-section__title-row{grid-template-columns:minmax(0,1fr)}.pm-metrics .pm-eyebrow{grid-column:1;margin:0 0 4px}.pm-metrics h2{grid-column:1}.pm-section[id],.pm-metrics[id]{scroll-margin-top:156px}
+@media(max-width:1050px){.pm-toolkit .service-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pm-toolkit .service-card:nth-child(4),.pm-toolkit .service-card:nth-child(5){grid-column:auto}}
+@media(max-width:680px){.pm-section,.pm-metrics{padding-left:21px;padding-right:21px}.pm-section__title-row,.pm-metrics .pm-section__title-row{gap:12px;margin-bottom:30px}.pm-toolkit .service-card-grid{grid-template-columns:1fr 1fr}.pm-toolkit .service-card{min-height:300px;padding:19px 16px}.pm-price-grid{grid-template-columns:1fr}.pm-price-grid:after{content:"+";top:50%}.pm-additional-costs ul{grid-template-columns:1fr}.pm-section[id],.pm-metrics[id]{scroll-margin-top:128px}}
+@media(max-width:430px){.service-hero{padding-left:20px;padding-right:20px;min-height:780px}.service-hero__grid{min-width:0;width:100%;box-sizing:border-box}.service-hero__copy{min-width:0;width:100%}.service-hero h1{font-size:clamp(44px,11.5vw,60px);max-width:100%;overflow-wrap:anywhere;letter-spacing:-.025em}.service-hero__additional{font-size:12px;max-width:100%}.service-hero__actions,.service-hero__primary{max-width:100%;box-sizing:border-box}.service-hero__primary{font-size:9px}.service-hero__description{max-width:100%}.pm-toolkit .service-card-grid{grid-template-columns:1fr}.pm-toolkit .service-card{min-height:270px}.pm-price-grid article{min-height:205px}}
+.pm-section h2,.pm-metrics h2{font:var(--display-heading);font-stretch:var(--display-stretch);letter-spacing:-.005em}
+.performance-page{margin-top:0}
+.pm-eyebrow{font:var(--eyebrow-copy);color:var(--color-red)}.pm-eyebrow i{background:var(--color-red)}
+.pm-section__lead,.pm-task-row p,.pm-metric-grid p,.pm-metrics__foot,.pm-price-grid article div>p:last-child{font:var(--body-copy)}
+.pm-task-row h3,.pm-metric-grid h3,.pm-price-grid h3,.pm-additional-costs h3,.service-card h3,.service-decision-matrix__question h3{font-family:var(--font-display);font-stretch:var(--display-stretch)}
+.service-decision-matrix__answer p{font:var(--body-copy)}
+.pm-price-grid h3{font-size:clamp(32px,4vw,52px)}.pm-additional-costs h3{font-size:30px}.pm-metric-grid h3{font-size:31px}
+.performance-page{color:var(--color-ink);background:var(--color-paper)}.pm-eyebrow,.pm-price-card__label,.service-card__detail>span{color:var(--color-red)}
+@media(max-width:680px){.pm-section h2,.pm-metrics h2{font-size:clamp(44px,10vw,65px)}.pm-eyebrow{font-size:13px}.pm-section__lead,.pm-task-row p,.pm-metric-grid p,.pm-metrics__foot{font-size:15px}}
+</style>
