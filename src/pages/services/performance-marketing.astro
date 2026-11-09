@@ -4,6 +4,7 @@ import Contacts from '../../components/home/Contacts.astro';
 import ServiceHero from '../../components/blocks/ServiceHero.astro';
 import ServiceCardGrid from '../../components/blocks/ServiceCardGrid.astro';
 import ServiceDecisionMatrix from '../../components/blocks/ServiceDecisionMatrix.astro';
+import ProcessCards from '../../components/blocks/ProcessCards.astro';
 import '../../styles/global.css';
 
 const title = 'Performance-маркетинг под задачи бизнеса — Простор';
@@ -59,38 +60,37 @@ const additionalCosts = ['Посадочные страницы', 'Интегр�
     <section class="pm-section pm-tasks" id="tasks" aria-labelledby="pm-tasks-title">
       <div class="pm-section__intro">
         <p class="pm-eyebrow" data-tl="h"><i></i>01 / Задачи</p>
-        <h2 id="pm-tasks-title">Когда бизнесу нужна работа с performance-рекламой</h2>
+        <h2 class="page-display-heading" id="pm-tasks-title"><span>Когда</span> бизнесу <span>нужна</span> работа с <span lang="en">performance</span>-рекламой</h2>
         <p class="pm-section__lead">Четыре ситуации, в которых performance-реклама помогает найти точки роста.</p>
       </div>
-      <div class="pm-task-list">{tasks.map((item, index) => <article class="pm-task-row"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.description}</p></div><span class="pm-task-row__arrow" aria-hidden="true">↗</span></article>)}</div>
+      <div class="pm-task-list">{tasks.map((item, index) => <article class="pm-task-row"><span class="pm-task-row__number">{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.description}</p></div><span class="pm-task-row__arrow" aria-hidden="true">↗</span></article>)}</div>
     </section>
 
     <section class="pm-section pm-toolkit" id="channels" aria-labelledby="pm-channels-title">
-      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>02 / Каналы</p><h2 id="pm-channels-title">Подбираем инструменты под вашу задачу</h2><p class="pm-section__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</p></div>
-      <ServiceCardGrid items={channels} variant="toolkit" />
+      <div class="pm-section__title-row pm-toolkit__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>02 / Каналы</p><h2 class="page-display-heading" id="pm-channels-title">Подбираем инструменты под вашу задачу</h2><h3 class="pm-section__lead pm-toolkit__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</h3></div>
+      <ServiceCardGrid items={channels} />
     </section>
 
     <section class="pm-section pm-approach" id="approach" aria-labelledby="pm-approach-title">
-      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>03 / Подход</p><h2 id="pm-approach-title">Как мы определяем, куда направить бюджет</h2></div>
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>03 / Подход</p><h2 class="page-display-heading" id="pm-approach-title">Как мы определяем, куда направить бюджет</h2></div>
       <ServiceDecisionMatrix items={approach} featuredText="Не распределяем бюджет поровну между площадками. Сначала определяем приоритеты и критерии проверки, затем корректируем план по результатам." />
     </section>
 
     <section class="pm-metrics" id="metrics" aria-labelledby="pm-metrics-title">
-      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>04 / Аналитика</p><h2 id="pm-metrics-title">Согласовываем показатели до запуска</h2></div>
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>04 / Аналитика</p><h2 class="page-display-heading" id="pm-metrics-title">Согласовываем показатели до запуска</h2></div>
       <div class="pm-metric-grid"><article><span>01</span><h3>Обращения</h3><p>Количество лидов, CPL — стоимость обращения, CPO — стоимость заказа.</p></article><article><span>02</span><h3>Качество</h3><p>Количество и стоимость квалифицированных обращений по согласованным критериям.</p></article><article><span>03</span><h3>Целевые действия</h3><p>CPA — стоимость конкретного согласованного действия, CR — конверсия на выбранном этапе.</p></article><article><span>04</span><h3>Продажи и экономика</h3><p>Выручка, стоимость привлечения покупателя, ROMI, ДРР.</p></article></div>
       <p class="pm-metrics__foot">Для каждого проекта выбираем применимые показатели и фиксируем, что именно считаем лидом, целевым обращением и продажей. При необходимости настраиваем аналитику: от базовых целей в Метрике до полноценной сквозной аналитики.</p>
     </section>
 
     <section class="pm-section pm-process" id="process" aria-labelledby="pm-process-title">
-      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>05 / Процесс</p><h2 id="pm-process-title">От диагностики до регулярной оптимизации</h2><p class="pm-section__lead">Последовательность этапов и ясные решения на каждом шаге работы.</p></div>
-      <ServiceCardGrid items={process} variant="steps" />
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>05 / Процесс</p><h2 class="page-display-heading" id="pm-process-title">От диагностики до регулярной оптимизации</h2><p class="pm-section__lead">Последовательность этапов и ясные решения на каждом шаге работы.</p></div>
+      <ProcessCards items={process} inset={false} />
     </section>
 
     <section class="pm-section pm-pricing" id="pricing" aria-labelledby="pm-pricing-title">
-      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>06 / Стоимость</p><h2 id="pm-pricing-title">Сколько стоит performance-маркетинг</h2></div>
+      <div class="pm-section__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>06 / Стоимость</p><h2 class="page-display-heading" id="pm-pricing-title">Сколько стоит performance-маркетинг</h2></div>
       <div class="pm-price-grid"><article><span class="pm-price-card__index">01</span><div><p class="pm-price-card__label">Услуги агентства</p><h3>Работа агентства</h3><p>Подготовка, запуск, ведение, аналитика и другие согласованные работы.</p></div></article><article><span class="pm-price-card__index">02</span><div><p class="pm-price-card__label">Бюджет площадок</p><h3>Рекламный бюджет</h3><p>Расходы на размещение на выбранных площадках.</p></div></article></div>
       <div class="pm-additional-costs"><h3>Также могут потребоваться отдельно</h3><ul>{additionalCosts.map((item) => <li>{item}</li>)}</ul></div>
-      <a class="pm-pricing__cta" href={formAnchor}>Обсудить сотрудничество <span>↓</span></a>
     </section>
     <Contacts />
   </main>
@@ -104,6 +104,7 @@ const additionalCosts = ['Посадочные страницы', 'Интегр�
 @media(max-width:680px){.pm-section,.pm-metrics{padding:76px 21px}.pm-section__title-row,.pm-toolkit .pm-section__title-row,.pm-approach .pm-section__title-row,.pm-metrics .pm-section__title-row{grid-template-columns:1fr;gap:14px;margin-bottom:31px}.pm-section__title-row>.pm-section__lead{grid-column:auto}.pm-section h2,.pm-metrics h2{font-size:clamp(44px,10vw,65px)}.pm-tasks{grid-template-columns:1fr;gap:32px;padding-top:72px}.pm-section__intro .pm-eyebrow{margin-bottom:18px}.pm-section__intro h2{font-size:clamp(46px,10vw,66px)}.pm-section__intro .pm-section__lead{margin-top:18px}.pm-task-row{grid-template-columns:32px minmax(0,1fr) 22px;gap:10px;padding:20px 0}.pm-task-row h3{font-size:26px}.pm-task-row p{font-size:13px}.pm-toolkit{padding-top:74px}.pm-approach__note{margin:23px 0 0;padding:20px 20px 20px 23px;font-size:14px}.pm-metric-grid article{padding:19px 14px 22px}.pm-metric-grid h3{font-size:26px;margin:23px 0 12px}.pm-metric-grid p{font-size:13px}.pm-metrics__foot{font-size:13px}.pm-price-grid{grid-template-columns:1fr}.pm-price-grid article{min-height:205px;padding:24px 20px;grid-template-columns:48px 1fr;gap:14px}.pm-price-card__index{font-size:48px}.pm-price-grid h3{font-size:39px}.pm-additional-costs ul{grid-template-columns:1fr}.pm-additional-costs li:nth-child(odd){border-right:0}.pm-additional-costs li{padding:13px 14px 13px 22px;font-size:13px}.pm-additional-costs li:before{top:20px}.pm-pricing__cta{min-height:64px;padding:0 19px;font-size:10px}}
 @media(max-width:380px){.pm-metric-grid{grid-template-columns:1fr}.pm-metric-grid article,.pm-metric-grid article:nth-child(n){padding:18px 0;border-right:0;border-top:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:first-child{border-top:0}.pm-task-row h3{font-size:24px}}
 </style>
+
 <style>
 .performance-page{overflow-x:clip;overflow-y:visible;position:relative}.pm-section{position:relative;padding-left:48px;padding-right:48px}.pm-metrics{padding-left:48px;padding-right:48px}
 .pm-eyebrow[data-tl="h"]{clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1)}
@@ -125,4 +126,47 @@ const additionalCosts = ['Посадочные страницы', 'Интегр�
 .pm-price-grid h3{font-size:clamp(32px,4vw,52px)}.pm-additional-costs h3{font-size:30px}.pm-metric-grid h3{font-size:31px}
 .performance-page{color:var(--color-ink);background:var(--color-paper)}.pm-eyebrow,.pm-price-card__label,.service-card__detail>span{color:var(--color-red)}
 @media(max-width:680px){.pm-section h2,.pm-metrics h2{font-size:clamp(44px,10vw,65px)}.pm-eyebrow{font-size:13px}.pm-section__lead,.pm-task-row p,.pm-metric-grid p,.pm-metrics__foot{font-size:15px}}
+</style>
+
+
+<style is:global>
+@media(min-width:1001px){
+  #tasks.pm-tasks{grid-template-columns:minmax(640px,.85fr) minmax(0,1.15fr);gap:3vw}
+  #channels .pm-toolkit__title-row{grid-template-columns:minmax(0,3fr) minmax(240px,1fr);column-gap:5vw;row-gap:20px}
+  #channels .pm-toolkit__title-row .pm-eyebrow{grid-column:1/-1}
+  #channels .pm-toolkit__title-row h2{grid-column:1;width:75%;min-width:min(640px,calc(100vw - 96px));max-width:none}
+  #channels .pm-toolkit__lead{grid-column:2;grid-row:2;align-self:end;margin:0;max-width:440px}
+  #channels .service-card-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  #channels .service-card:nth-child(-n+2){grid-column:span 3}
+  #channels .service-card:nth-child(n+3){grid-column:span 2}
+}
+#approach .page-display-heading,#metrics .page-display-heading,#process .page-display-heading,#pricing .page-display-heading{width:85%;min-width:min(640px,calc(100vw - 96px));max-width:none}
+#tasks .page-display-heading{width:100%;min-width:min(640px,calc(100vw - 96px))}
+#tasks h2 span{color:var(--color-red)}
+#tasks .pm-task-row{grid-template-columns:72px minmax(0,1fr) 32px;align-items:center}
+#tasks .pm-task-row>span.pm-task-row__number{font:700 clamp(48px,4.2vw,66px)/.82 var(--font-display);color:var(--color-ink);letter-spacing:-.02em;padding:0}
+#channels .service-card{border-top:0}
+#channels .service-card__number{font-size:clamp(58px,5vw,78px);line-height:.82}
+#pricing .pm-price-grid{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;background:var(--color-card);border:0;padding:42px 30px 34px;overflow:hidden}
+#pricing .pm-price-grid:before{display:none}
+#pricing .pm-price-grid:after{content:"+";position:absolute;left:50%;top:48%;z-index:2;transform:translate(-50%,-50%);width:42px;height:42px;display:grid;place-items:center;background:var(--color-red);color:var(--color-ink);font:500 25px/1 var(--font-body)}
+#pricing .pm-price-grid article,#pricing .pm-price-grid article:hover{background:transparent;border:0;padding:0;min-height:190px}
+#pricing .pm-price-grid article:hover{color:var(--color-red-deep)}
+#pricing .pm-price-card__label{font:var(--eyebrow-copy);font-size:11px;color:var(--color-red)}
+#pricing .pm-price-grid article div>p:last-child{max-width:460px}
+#pricing .pm-additional-costs{margin-top:28px}
+@media(max-width:1000px){#tasks.pm-tasks{grid-template-columns:1fr}#tasks .page-display-heading{min-width:min(640px,calc(100vw - 60px))}}
+@media(max-width:680px){
+  #channels .page-display-heading,#approach .page-display-heading,#metrics .page-display-heading,#process .page-display-heading,#pricing .page-display-heading,#tasks .page-display-heading{width:100%;min-width:0}
+  #channels .pm-toolkit__title-row{grid-template-columns:1fr}
+  #channels .pm-toolkit__title-row .pm-eyebrow,#channels .pm-toolkit__title-row h2,#channels .pm-toolkit__lead{grid-column:1;grid-row:auto}
+  #channels .pm-toolkit__lead{margin:0}
+  #channels .service-card-grid{grid-template-columns:1fr 1fr}
+  #tasks .pm-task-row{grid-template-columns:56px minmax(0,1fr) 22px}
+  #tasks .pm-task-row>span.pm-task-row__number{font-size:44px}
+  #pricing .pm-price-grid{gap:30px;padding:30px 20px 25px}
+  #pricing .pm-price-grid:after{top:50%;width:32px;height:32px;font-size:20px}
+  #pricing .pm-price-grid article{min-height:210px}
+}
+@media(max-width:430px){#channels .service-card-grid{grid-template-columns:1fr}#pricing .pm-price-grid{grid-template-columns:1fr;gap:25px}#pricing .pm-price-grid:after{left:auto;right:20px;top:50%;transform:translateY(-50%)}}
 </style>

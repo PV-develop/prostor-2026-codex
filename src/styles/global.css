@@ -276,3 +276,10 @@
 }
 body { background: var(--color-ink); color: var(--color-ink); font-family: var(--font-body); }
 [data-hdr] { color: var(--color-paper); }
+/* Shared page-level heading rule: keep display titles broad whenever the viewport allows. */
+@media (min-width: 681px) {
+  .page-display-heading { min-width: min(640px, calc(100vw - 96px)); }
+}
+@media (max-width: 680px) {
+  .page-display-heading { min-width: 0; }
+}
