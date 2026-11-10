@@ -3,7 +3,10 @@
 export function initThread() {
     const hero = document.querySelector('[data-screen-label^="01"], [data-service-hero]'); if (!hero) return;
     const root = hero.parentElement, logo = document.querySelector('[data-logo]') || hero.querySelector('img'); root.style.position = 'relative';
-    const X = 22, RED = '#FA001E', TR = 'rgba(128,128,128,.42)'; 
+    // The thread sits near the content column edge: at viewport widths beyond
+    // the 1600px column it follows the gutter instead of hugging the screen.
+    const gutterX = () => Math.max(22, (innerWidth - 1600) / 2 - 26);
+    let X = gutterX(), RED = '#FA001E', TR = 'rgba(128,128,128,.42)'; 
     const wrap = document.createElement('div'); wrap.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:6'; wrap.dataset.thread = '1';
     const mk = css => { const d = document.createElement('div'); d.style.cssText = 'position:absolute;' + css; wrap.appendChild(d); return d; };
     const stub = mk(`left:${X}px;height:1px;background:${RED};transform:scaleX(0);transform-origin:right;transition:transform .6s cubic-bezier(.6,0,.2,1)`), track = mk(`left:${X}px;width:1px;background:${TR}`), fill = mk(`left:${X}px;width:1px;background:${RED};height:0`);
@@ -147,6 +150,8 @@ export function initThread() {
         fmEl.style.marginLeft = (X - o0.l - 3 * s) + 'px';
         const o = off(fmEl); fmY = Math.round(o.t + 3 * s); y1 = fmY;
       }
+      X = gutterX();
+      track.style.left = X + 'px'; fill.style.left = X + 'px'; stub.style.left = X + 'px'; head.style.left = (X - 3) + 'px';
       track.style.top = y0 + 'px'; track.style.height = (y1 - y0) + 'px'; fill.style.top = y0 + 'px';
       upd();
     };

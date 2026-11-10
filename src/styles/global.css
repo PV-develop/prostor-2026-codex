@@ -306,6 +306,7 @@ body { background: var(--color-ink); color: var(--color-ink); font-family: var(-
   [data-menu] [data-mg]{padding:18px 20px 0!important;align-content:start!important}
 }
 
-/* Site canvas: content never stretches past 1440px; fixed chrome (header,
-   menu) follows the same column so the thread line and logo stay aligned. */
-main,.home-shell{max-width:1440px;margin:0 auto}
+/* Content column: sections stay full-bleed, their content (and the fixed
+   header/menu chrome) aligns to a 1600px column via --gutter. */
+:root{--gutter:max(48px,calc((100vw - 1600px)/2))}
+.service-anchor-nav__items{max-width:1600px;margin:0 auto}

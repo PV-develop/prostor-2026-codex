@@ -18,7 +18,7 @@ const { items } = Astro.props;
    leading edge. One page-wide fill element, so the bar never splits into
    per-item sections. */
 .service-anchor-nav{position:sticky;top:91px;z-index:20;width:100%;color:#E9EBEF;background:rgba(15,15,15,.74);transition:background .4s}
-.service-anchor-nav__fill{position:absolute;z-index:0;top:0;bottom:0;left:0;width:calc(var(--progress,0) * 100%);background:var(--color-red,#FA001E);pointer-events:none;transition:width .18s linear}
+.service-anchor-nav__fill{position:absolute;z-index:0;top:0;bottom:0;left:var(--gutter,0px);width:calc(var(--progress,0) * 100%);max-width:1600px;background:var(--color-red,#FA001E);pointer-events:none;transition:width .18s linear}
 .service-anchor-nav__glass{position:absolute;z-index:1;inset:0;backdrop-filter:blur(18px) saturate(1.3);border-top:1px solid rgba(233,235,239,.14);pointer-events:none}
 /* Separate rule: bundlers dedupe the -webkit- alias into the standard
    property and ship only the prefixed one. */
