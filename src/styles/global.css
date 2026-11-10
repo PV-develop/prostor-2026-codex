@@ -1,6 +1,13 @@
 @font-face{font-family:Onest;font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/onest-400.ttf") format("truetype")}@font-face{font-family:Onest;font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/onest-500.ttf") format("truetype")}@font-face{font-family:Onest;font-style:normal;font-weight:600;font-display:swap;src:url("/fonts/onest-600.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/jetbrains-mono-400.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/jetbrains-mono-500.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url("/fonts/jetbrains-mono-600.ttf") format("truetype")}@font-face{font-family:Steelfish;font-weight:700;font-display:swap;font-stretch:25% 100%;src:url("/fonts/Steelfish-Bold.ttf") format("truetype")}@font-face{font-family:Steelfish;font-weight:800;font-display:swap;font-stretch:25% 100%;src:url("/fonts/Steelfish-ExtraBold.ttf") format("truetype")}body{margin:0;background:#0F0F0F;font-family:Onest,system-ui,sans-serif;color:#0F0F0F;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{color:inherit}@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes marqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}@keyframes spin{to{transform:rotate(360deg)}}[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
-[data-menu]{opacity:0;visibility:hidden;transform:translateY(-14px);pointer-events:none;transition:opacity .3s ease,transform .45s cubic-bezier(.2,.7,.2,1),visibility 0s linear .45s}
-[data-menu][data-open="true"]{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .35s ease .05s,transform .55s cubic-bezier(.2,.7,.2,1) .05s}
+/* Menu opens as a light circle expanding out of the «Меню» button and
+   flooding the screen; content then fades in from above. Closing shrinks the
+   circle back into the same spot (the «Закрыть» button sits there). */
+[data-menu]{visibility:hidden;clip-path:circle(0px at var(--mx,calc(100% - 90px)) var(--my,52px));pointer-events:none;transition:clip-path .5s cubic-bezier(.7,0,.2,1),visibility 0s linear .5s}
+[data-menu][data-open="true"]{visibility:visible;clip-path:circle(var(--mr,150vmax) at var(--mx,calc(100% - 90px)) var(--my,52px));pointer-events:auto;transition:clip-path .6s cubic-bezier(.2,.7,.2,1),visibility 0s}
+[data-menu] [data-mh],[data-menu] [data-mg]{opacity:0;transform:translateY(-18px);transition:opacity .4s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+[data-menu][data-open="true"] [data-mh]{opacity:1;transform:none;transition-delay:.3s}
+[data-menu][data-open="true"] [data-mg]{opacity:1;transform:none;transition-delay:.42s}
+@media (prefers-reduced-motion: reduce){[data-menu]{clip-path:none!important;transition:visibility 0s!important}[data-menu][data-open="true"]{clip-path:none!important}[data-menu] [data-mh],[data-menu] [data-mg]{opacity:1;transform:none;transition:none!important}}
 [data-menu] details>summary{list-style:none}
 [data-menu] details>summary::-webkit-details-marker{display:none}
 [data-menu] details[open]>summary>span:last-child{transform:rotate(45deg)}
@@ -282,4 +289,19 @@ body { background: var(--color-ink); color: var(--color-ink); font-family: var(-
 }
 @media (max-width: 680px) {
   .page-display-heading { min-width: 0; }
+}
+
+/* Fullscreen menu: the panel covers the whole viewport; the top row mirrors
+   the site header one-to-one, the content grid centers in the leftover
+   height on tall screens. */
+[data-menu]{display:flex;flex-direction:column}
+[data-menu] [data-mh]{flex:none}
+[data-menu] [data-mg]{flex:1;align-content:center}
+
+/* Mobile menu top row: mirrors the mobile site header (phone hidden,
+   short CTA) instead of the old stacked «Закрыть» bar. */
+@media (max-width:768px){
+  [data-menu]{padding:0!important}
+  [data-menu] [data-mh]{display:grid!important;flex-wrap:nowrap!important;gap:8px!important;padding:14px 20px!important;grid-template-columns:auto minmax(0,1fr) auto!important}
+  [data-menu] [data-mg]{padding:18px 20px 0!important;align-content:start!important}
 }

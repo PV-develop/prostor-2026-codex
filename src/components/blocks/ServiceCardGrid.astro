@@ -1,19 +1,22 @@
 ---
-export interface ServiceCard { title: string; description: string; label?: string; detail?: string; }
+export interface ServiceCard { title: string; description: string; label?: string; detail?: string; icon?: string; }
 interface Props { items: ServiceCard[]; }
 const { items } = Astro.props;
 ---
 <div class="service-card-grid">
   {items.map((item, index) => <article class="service-card" data-reveal style={`transition-delay:${index * 90}ms`}>
-    <span class="service-card__number">{String(index + 1).padStart(2, '0')}</span>
+    {item.icon
+      ? <span class="service-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={`<rect x="1.5" y="1.5" width="45" height="45" style="stroke:var(--color-red,#FA001E)"/><g transform="translate(6 6) scale(.75)" stroke-width="2.7">${item.icon}</g>`} /></span>
+      : <span class="service-card__number">{String(index + 1).padStart(2, '0')}</span>}
     <h3>{item.title}</h3>
     <p class="service-card__description">{item.description}</p>
     {item.detail && <div class="service-card__detail"><span>{item.label}</span><p>{item.detail}</p></div>}
   </article>)}
 </div>
 <style is:global>
-.service-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.service-card{position:relative;background:var(--color-card,#F4F5F7);min-width:0;min-height:390px;padding:24px 20px 22px;display:flex;flex-direction:column;box-sizing:border-box;border-top:2px solid var(--color-ink,#0F0F0F);transition:background-color .25s,border-color .25s}.service-card:hover{border-color:var(--color-red,#FA001E);background:#fff}.service-card__number{font:700 clamp(58px,5vw,78px)/.82 var(--font-display,Steelfish),sans-serif;color:var(--color-ink,#0F0F0F);letter-spacing:-.02em}.service-card h3{margin:30px 0 14px;font:700 clamp(22px,2vw,30px)/.95 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;text-wrap:balance}.service-card__description{margin:0;font:var(--body-copy,400 14px/1.5 Onest,sans-serif);color:rgba(15,15,15,.72)}.service-card__detail{margin-top:auto;padding-top:18px;border-top:1px solid rgba(15,15,15,.18)}.service-card__detail>span{font:500 9px var(--font-mono,'JetBrains Mono',monospace);text-transform:uppercase;letter-spacing:.09em;color:var(--color-red-deep,#BD0000)}.service-card__detail p{font:400 12px/1.4 var(--font-body,Onest,sans-serif);margin:8px 0 0}
-@media(max-width:1050px){.service-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.service-card{min-height:340px}}
-@media(max-width:650px){.service-card-grid{grid-template-columns:1fr 1fr;gap:8px}.service-card{min-height:340px;padding:18px 15px}.service-card h3{font-size:25px;margin-top:24px}.service-card__description{font-size:13px}.service-card__detail p{font-size:11px}}
-@media(max-width:430px){.service-card-grid{grid-template-columns:1fr}.service-card{min-height:300px}.service-card h3{font-size:28px}.service-card__description{max-width:360px}}
+.service-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.service-card{position:relative;background:var(--color-card,#F4F5F7);min-width:0;min-height:290px;padding:24px 20px 22px;display:flex;flex-direction:column;box-sizing:border-box;border-top:2px solid var(--color-ink,#0F0F0F);transition:background-color .25s,border-color .25s}.service-card:hover{border-color:var(--color-red,#FA001E);background:#fff}.service-card__number{font:700 clamp(58px,5vw,78px)/.82 var(--font-display,Steelfish),sans-serif;color:var(--color-ink,#0F0F0F);letter-spacing:-.02em}/* Icons temporarily hidden; when restoring, also bring back the h3 top margin. */
+.service-card__icon{display:none}.service-card h3{margin:0 0 14px;font:700 clamp(22px,2vw,30px)/.95 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;text-wrap:balance}.service-card__description{margin:0 0 16px;font:var(--body-copy,400 14px/1.5 Onest,sans-serif);color:rgba(15,15,15,.72)}.service-card__detail{margin-top:auto;padding-top:16px;border-top:1px solid rgba(15,15,15,.18)}.service-card__detail>span{font:500 9px var(--font-mono,'JetBrains Mono',monospace);text-transform:uppercase;letter-spacing:.09em;color:var(--color-red-deep,#BD0000)}.service-card__detail p{font:400 12px/1.4 var(--font-body,Onest,sans-serif);margin:8px 0 0}
+@media(max-width:1050px){.service-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.service-card{min-height:260px}}
+@media(max-width:650px){.service-card-grid{grid-template-columns:1fr 1fr;gap:8px}.service-card{min-height:230px;padding:18px 15px}.service-card h3{font-size:25px;margin-top:24px}.service-card__description{font-size:13px}.service-card__detail p{font-size:11px}}
+@media(max-width:430px){.service-card-grid{grid-template-columns:1fr}.service-card{min-height:210px}.service-card h3{font-size:28px}.service-card__description{max-width:360px}}
 </style>

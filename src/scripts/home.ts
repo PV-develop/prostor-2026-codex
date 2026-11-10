@@ -8,6 +8,17 @@ function setMenuOpen(open: boolean): void {
   const trigger = document.querySelector<HTMLElement>('[data-mbtn]');
   if (!menu) return;
 
+  if (open && trigger) {
+    // The menu background expands out of the «Меню» button as a growing
+    // circle; anchor it at the button centre and cover the farthest corner.
+    const b = trigger.getBoundingClientRect();
+    const x = b.left + b.width / 2;
+    const y = b.top + b.height / 2;
+    menu.style.setProperty('--mx', `${x.toFixed(1)}px`);
+    menu.style.setProperty('--my', `${y.toFixed(1)}px`);
+    menu.style.setProperty('--mr', `${(Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y)) + 40).toFixed(0)}px`);
+  }
+
   menu.dataset.open = String(open);
   trigger?.setAttribute('aria-expanded', String(open));
   document.body.style.overflow = open ? 'hidden' : '';
