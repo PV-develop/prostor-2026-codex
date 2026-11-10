@@ -11,12 +11,15 @@ function setMenuOpen(open: boolean): void {
   if (open && trigger) {
     // The menu background expands out of the «Меню» button as a growing
     // circle; anchor it at the button centre and cover the farthest corner.
+    // Coordinates are relative to the menu box, which is centred and capped
+    // at 1440px on wide screens.
     const b = trigger.getBoundingClientRect();
-    const x = b.left + b.width / 2;
-    const y = b.top + b.height / 2;
+    const m = menu.getBoundingClientRect();
+    const x = b.left + b.width / 2 - m.left;
+    const y = b.top + b.height / 2 - m.top;
     menu.style.setProperty('--mx', `${x.toFixed(1)}px`);
     menu.style.setProperty('--my', `${y.toFixed(1)}px`);
-    menu.style.setProperty('--mr', `${(Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y)) + 40).toFixed(0)}px`);
+    menu.style.setProperty('--mr', `${(Math.hypot(Math.max(x, m.width - x), Math.max(y, m.height - y)) + 40).toFixed(0)}px`);
   }
 
   menu.dataset.open = String(open);

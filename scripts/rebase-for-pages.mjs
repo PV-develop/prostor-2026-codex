@@ -25,7 +25,7 @@ const walk = (dir) => {
 walk(root);
 
 const attr = new RegExp(`((?:src|href|poster|data-src)=["'])/(?!/|${segment}/)`, 'g');
-const fetchCall = new RegExp(`(fetch\\()(["'])/(?!${segment}/)`, 'g');
+const fetchCall = new RegExp('(fetch\\()(["\'`])/(?!' + segment + '/)', 'g');
 const cssUrl = new RegExp(`(url\\()(["']?)/(?!/|${segment}/|data:)`, 'g');
 
 let touched = 0;

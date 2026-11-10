@@ -305,3 +305,7 @@ body { background: var(--color-ink); color: var(--color-ink); font-family: var(-
   [data-menu] [data-mh]{display:grid!important;flex-wrap:nowrap!important;gap:8px!important;padding:14px 20px!important;grid-template-columns:auto minmax(0,1fr) auto!important}
   [data-menu] [data-mg]{padding:18px 20px 0!important;align-content:start!important}
 }
+
+/* Site canvas: content never stretches past 1440px; fixed chrome (header,
+   menu) follows the same column so the thread line and logo stay aligned. */
+main,.home-shell{max-width:1440px;margin:0 auto}

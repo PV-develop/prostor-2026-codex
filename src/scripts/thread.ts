@@ -72,7 +72,7 @@ export function initThread() {
         tweenW(0, 500, 650);
       }
     };
-    if (logoA || fmEl) fetch('/src/logo-white.svg').then(r => r.text()).then(t => { buildFM(t); if (!logoA) throw 0; return t; }).then(t => {
+    if (logoA || fmEl) fetch('/src/logo-white.svg').then(r => { if (!r.ok) throw 0; return r.text(); }).then(t => { buildFM(t); if (!logoA) throw 0; return t; }).then(t => {
       const NS = 'http://www.w3.org/2000/svg', ps = [...new DOMParser().parseFromString(t, 'image/svg+xml').querySelectorAll('path')];
       const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 219 34'); svg.setAttribute('width', (219 * 26 / 34).toFixed(2)); svg.setAttribute('height', '26');
       svg.style.cssText = 'position:absolute;top:0;left:-28px;overflow:visible';

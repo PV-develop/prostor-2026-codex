@@ -223,5 +223,10 @@ export function initParticles(el, shape = 'text') {
     const onLeave = () => { mouse.x = mouse.y = -1e4; wake(); };
     const onScroll = () => wake(); window.addEventListener('scroll', onScroll, { passive: true });
     (document.fonts ? document.fonts.load('800 100px Steelfish').then(() => document.fonts.ready) : Promise.resolve()).then(build);
+    // Stylesheets can apply after fonts are ready (slow networks, Pages); the
+    // first build may then measure a zero-width host. Rebuild on load and once
+    // more late — build is idempotent.
+    addEventListener('load', () => build(), { once: true });
+    setTimeout(build, 1200);
     window.addEventListener('mousemove', onMove, { passive: true }); document.addEventListener('mouseleave', onLeave); window.addEventListener('resize', () => build());
 }
