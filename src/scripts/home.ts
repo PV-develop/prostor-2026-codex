@@ -170,14 +170,12 @@ const countObserver = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll<HTMLElement>('[data-count]').forEach((element) => countObserver.observe(element));
 
 const header = document.querySelector<HTMLElement>('[data-hdr]');
-const headerConnector = header?.querySelector<HTMLElement>('[data-hconn]');
 const updateHeader = () => {
   if (!header) return;
   const scrolled = window.scrollY > 24;
   header.style.background = scrolled ? 'rgba(15,15,15,.92)' : 'rgba(15,15,15,0)';
   header.style.backdropFilter = scrolled ? 'blur(14px)' : 'none';
   header.style.setProperty('-webkit-backdrop-filter', scrolled ? 'blur(14px)' : 'none');
-  if (headerConnector) headerConnector.style.transform = scrolled ? 'scaleY(1)' : 'scaleY(0)';
 };
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
