@@ -1,0 +1,23 @@
+---
+import BlogCard from './BlogCard.astro';
+export interface BlogPost { image: string; date: string; title: string; description: string; section: string; href?: string; }
+interface Props { heading: string; posts: readonly BlogPost[]; allLabel?: string; allHref?: string; }
+const { heading, posts, allLabel = 'Читать все записи', allHref = '#' } = Astro.props;
+---
+<div class="blog-articles">
+  <div class="blog-articles__head">
+    <h2 class="blog-articles__heading">{heading}</h2>
+    <a class="blog-articles__all" href={allHref}>{allLabel}<span>→</span></a>
+  </div>
+  <div class="blog-articles__grid">
+    {posts.slice(0, 3).map((post) => <BlogCard {...post} />)}
+  </div>
+</div>
+<style is:global>
+.blog-articles__head{display:flex;justify-content:space-between;align-items:end;gap:32px}
+.blog-articles__heading{margin:0;font:var(--display-heading);font-stretch:var(--display-stretch);text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance}
+.blog-articles__all{border:1px solid rgba(15,15,15,.4);background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;padding:20px 26px;font:600 12px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.12em;text-transform:uppercase;display:flex;gap:18px;white-space:nowrap;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s;margin-bottom:10px}
+.blog-articles__all:hover{background-position:0 0;color:var(--color-paper,#E9EBEF);border-color:#0F0F0F}
+.blog-articles__grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:900px){.blog-articles__head{flex-direction:column;align-items:flex-start;gap:24px}.blog-articles__all{margin-bottom:0}.blog-articles__grid{grid-template-columns:1fr;gap:10px}}
+</style>

@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Contacts from '../../components/home/Contacts.astro';
 import Cases from '../../components/home/Cases.astro';
 import ServiceHero from '../../components/blocks/ServiceHero.astro';
-import ServiceCardGrid from '../../components/blocks/ServiceCardGrid.astro';
+import BlogArticles from '../../components/blog/BlogArticles.astro';
 import ServiceDecisionMatrix from '../../components/blocks/ServiceDecisionMatrix.astro';
 import ProcessCards from '../../components/blocks/ProcessCards.astro';
 import '../../styles/global.css';
@@ -15,7 +15,7 @@ const navigationItems = [
   { label: 'Задачи', href: '#tasks' }, { label: 'Каналы', href: '#channels' },
   { label: 'Подход', href: '#approach' }, { label: 'Метрики', href: '#metrics' },
   { label: 'Процесс', href: '#process' }, { label: 'Стоимость', href: '#pricing' },
-  { label: 'Услуги', href: '#services' }, { label: 'Кейсы', href: '#cases' },
+  { label: 'Кейсы', href: '#cases' },
 ] as const;
 const tasks = [
   { title: 'Нужны целевые обращения', description: 'Определить, какие рекламные инструменты стоит проверить для вашего продукта и аудитории.' },
@@ -23,13 +23,7 @@ const tasks = [
   { title: 'Нужно проверить новое направление', description: 'Протестировать продукт, оффер, географию или аудиторию по заранее согласованным критериям.' },
   { title: 'Нужно увеличить объём', description: 'Найти возможности роста и оценить, как расширение повлияет на стоимость и качество привлечения.' },
 ];
-const channels = [
-  { title: 'Контекстная реклама', description: 'Запускаем и развиваем рекламу в Яндекс Директе с согласованными целями и аналитикой.', label: 'Задача канала', detail: 'Привлечение пользователей с уже сформированным спросом.', icon: '<circle cx="20" cy="20" r="13"/><path d="M29.6 29.6 41 41"/>' },
-  { title: 'Таргетированная реклама', description: 'Настраиваем и ведём рекламу в соцсетях и мессенджерах: подбираем аудитории, тестируем объявления и отслеживаем обращения.', label: 'Задача канала', detail: 'Формирование спроса и привлечение целевых аудиторий.', icon: '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="2.2" fill="currentColor" stroke="none"/>' },
-  { title: 'Яндекс Промостраницы', description: 'Создаём и продвигаем статьи в Яндекс Промостраницах, чтобы знакомить аудиторию с продуктом и привлекать заинтересованных пользователей на сайт.', label: 'Задача канала', detail: 'Знакомство с продуктом через контент.', icon: '<path d="M33 9v30"/><path d="M33 9C24 7 15 11 15 19s9 12 18 9"/><path d="M33 28 18 39"/>' },
-  { title: 'Авито', description: 'Оформляем и продвигаем объявления на Авито и с помощью Авито Ads, тестируем подачу предложений и отслеживаем обращения.', label: 'Задача канала', detail: 'Привлечение покупателей через объявления.', icon: '<circle cx="17" cy="31" r="10.5"/><circle cx="33.5" cy="14" r="8"/><circle cx="36" cy="33.5" r="5.5"/><circle cx="17.5" cy="11" r="4.5"/>' },
-  { title: 'Геосервисы', description: 'Оформляем и продвигаем карточки компании в картах и геосервисах, чтобы клиентам было проще найти и выбрать вас.', label: 'Задача канала', detail: 'Повышение локальной видимости компании.', icon: '<path d="M24 4.5c-8.6 0-15.5 6.7-15.5 15.1C8.5 30.6 24 44 24 44s15.5-13.4 15.5-24.4C39.5 11.2 32.6 4.5 24 4.5Z"/><circle cx="24" cy="19.3" r="5.8"/>' },
-];
+
 const approach = [
   { title: 'Цель и экономика продукта', description: 'Какой результат/KPI оцениваем и какую стоимость привлечения рассматриваем как ориентир.' },
   { title: 'Аудитория и путь до покупки', description: 'Какие точки контакта и рекламные инструменты стоит проверить.' },
@@ -45,6 +39,11 @@ const process = [
   { title: 'Решение о развитии', description: 'Оцениваем дальнейшие гипотезы и возможности расширения.', duration: 'Постоянно', label: 'Вы получаете', detail: 'Рост на проверенных каналах' },
 ];
 const additionalCosts = ['Посадочные страницы', 'Интеграции', 'Производство рекламных материалов', 'Коллтрекинг', 'Другие согласованные доработки'];
+const blogPosts = [
+  { image: '/src/cases/case-1.webp', date: '12 ноября 2026', title: 'Как снизить стоимость обращения в Директе', description: 'Разбираем структуру кампаний, минус-слова и управление ставками, которые помогают платить меньше за каждый лид.', section: 'Performance' },
+  { image: '/src/cases/case-2.webp', date: '29 октября 2026', title: 'Сквозная аналитика: связываем рекламу с продажами', description: 'Почему CPL без данных о продажах вводит в заблуждение, и с чего начать настройку аналитики.', section: 'Аналитика' },
+  { image: '/src/cases/case-3.webp', date: '15 октября 2026', title: 'Авито как источник заявок для B2B', description: 'Как оформление профиля и Авито Ads приводят обращения без больших рекламных бюджетов.', section: 'Кейсы' },
+];
 const subservices = [
   { title: 'Контекстная реклама', description: 'Привлекать обращения из поиска и сетей Яндекса там, где спрос уже сформирован', tags: 'Яндекс Директ · Поиск · РСЯ', href: '#channels' },
   { title: 'Таргетированная реклама', description: 'Находить и прогревать целевые аудитории в соцсетях и мессенджерах', tags: 'VK · Telegram · Соцсети', href: '#channels' },
@@ -75,9 +74,11 @@ const subservices = [
       <div class="pm-task-list">{tasks.map((item, index) => <article class="pm-task-row"><span class="pm-task-row__number">{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.description}</p></div><span class="pm-task-row__arrow" aria-hidden="true">↗</span></article>)}</div>
     </section>
 
-    <section class="pm-section pm-toolkit" id="channels" aria-labelledby="pm-channels-title">
-      <div class="pm-section__title-row pm-toolkit__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>02 / Каналы</p><h2 class="page-display-heading" id="pm-channels-title">Подбираем <span>инструменты</span> под вашу задачу</h2><h3 class="pm-section__lead pm-toolkit__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</h3></div>
-      <ServiceCardGrid items={channels} />
+    <section class="pm-toolkit" id="channels" aria-labelledby="pm-channels-title" style="padding:90px 0 0">
+      <div style="padding:0 var(--gutter)"><div class="pm-section__title-row pm-toolkit__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>02 / Каналы</p><h2 class="page-display-heading" id="pm-channels-title">Подбираем <span>инструменты</span> под вашу задачу</h2><h3 class="pm-section__lead pm-toolkit__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</h3></div></div>
+      <div style="margin-top:72px;border-top:1px solid #0F0F0F">
+        {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span data-tl="" style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">{String(index + 1).padStart(2, '0')}</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">{item.title}</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>)}
+      </div>
     </section>
 
     <section class="pm-section pm-approach" id="approach" aria-labelledby="pm-approach-title">
@@ -101,13 +102,14 @@ const subservices = [
       <div class="pm-price-grid"><article><span class="pm-price-card__index">01</span><div><p class="pm-price-card__label">Услуги агентства</p><h3>Работа агентства</h3><p>Подготовка, запуск, ведение, аналитика и другие согласованные работы.</p></div></article><article><span class="pm-price-card__index">02</span><div><p class="pm-price-card__label">Бюджет площадок</p><h3>Рекламный бюджет</h3><p>Расходы на размещение на выбранных площадках.</p></div></article></div>
       <div class="pm-additional-costs"><h3>Также могут потребоваться отдельно</h3><ul>{additionalCosts.map((item) => <li>{item}</li>)}</ul></div>
     </section>
-    <section class="pm-subservices" id="services" aria-labelledby="pm-subservices-title" style="padding:140px 0 160px">
-      <div data-reveal data-m="s2head" style="padding:0 var(--gutter);display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;row-gap:40px;align-items:end"><div data-tl="v" style="grid-column:1;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;color:#BD0000;display:flex;gap:12px;align-items:center;align-self:start;justify-self:start;writing-mode:vertical-rl;transform:rotate(180deg);clip-path:inset(100% 0 0 0)">07 / Услуги<span style="width:8px;height:8px;background:#FA001E;display:inline-block"></span></div><h2 id="pm-subservices-title" style="grid-column:2;margin:0;font:700 clamp(64px,8.3vw,120px)/.9 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">Выберите <span style="color:#FA001E">услугу</span></h2><p style="grid-column:3/5;align-self:end;margin:0;max-width:420px;font:400 20px/1.45 Onest,sans-serif;color:#0F0F0F;text-wrap:pretty">Пять направлений внутри performance-маркетинга: можно начать с одного и масштабировать по результатам.</p></div>
-      <div style="margin-top:72px;border-top:1px solid #0F0F0F">
-        {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span data-tl="" style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">{String(index + 1).padStart(2, '0')}</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">{item.title}</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>)}
+    
+    <Cases label="07 / Кейсы" />
+    <section class="pm-blog" id="blog" aria-labelledby="pm-blog-title" style="padding:140px 0 160px">
+      <div style="padding:0 var(--gutter)">
+        <p class="pm-eyebrow" data-tl="h"><i></i>08 / Блог</p>
+        <BlogArticles heading="Статьи, которые помогают расти" posts={blogPosts} allHref="#" />
       </div>
     </section>
-    <Cases label="08 / Кейсы" />
     <Contacts />
   </main>
 </BaseLayout>

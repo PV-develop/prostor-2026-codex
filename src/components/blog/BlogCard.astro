@@ -1,0 +1,36 @@
+---
+interface Props {
+  image: string;
+  date: string;
+  title: string;
+  description: string;
+  section: string;
+  href?: string;
+}
+const { image, date, title, description, section, href = '#' } = Astro.props;
+---
+<article class="blog-card">
+  <a class="blog-card__link" href={href}>
+    <div class="blog-card__media">
+      <img src={image} alt="" loading="lazy" />
+      <span class="blog-card__chip">{section}</span>
+    </div>
+    <div class="blog-card__body">
+      <time class="blog-card__date">{date}</time>
+      <h3 class="blog-card__title">{title}</h3>
+      <p class="blog-card__description">{description}</p>
+    </div>
+  </a>
+</article>
+<style is:global>
+.blog-card{min-width:0;background:var(--color-card,#F4F5F7);border-top:2px solid var(--color-ink,#0F0F0F);transition:background-color .25s,border-color .25s}
+.blog-card:hover{border-color:var(--color-red,#FA001E);background:#fff}
+.blog-card__link{display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none}
+.blog-card__media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.blog-card__media img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.86)}
+.blog-card__chip{position:absolute;left:12px;top:12px;background:var(--color-red,#FA001E);color:var(--color-ink,#0F0F0F);padding:6px 10px;font:600 11px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.1em;text-transform:uppercase}
+.blog-card__body{display:flex;flex-direction:column;gap:10px;padding:18px 20px 22px;flex:1}
+.blog-card__date{font:500 11px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.09em;text-transform:uppercase;color:rgba(15,15,15,.5)}
+.blog-card__title{margin:0;font:700 clamp(22px,1.8vw,28px)/.95 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;text-wrap:balance}
+.blog-card__description{margin:0;font:var(--body-copy,400 14px/1.5 Onest,sans-serif);color:rgba(15,15,15,.72);text-wrap:pretty}
+</style>
