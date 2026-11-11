@@ -75,7 +75,7 @@
 [data-m="twenty"] [data-cap-line]{font-size:30px!important}
 [data-logo] svg,[data-logo] img{display:none!important}
 [data-logo]{background:url(/src/logo-white.svg) no-repeat -39px 0/auto 26px}
-[data-fmark]{width:100%!important;max-width:100%!important;margin-left:0!important;aspect-ratio:168/34!important;background:url(/src/logo-white.svg) no-repeat 100% 0/130.36% auto}
+[data-fmark]{width:100%!important;max-width:100%!important;margin-left:0!important;aspect-ratio:219/34!important;background:url(/src/logo-white.svg) no-repeat 0 0/100% auto}
 [data-fmark]>svg{display:none!important}
 [data-m="trust"]{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important;row-gap:14px;padding:18px 0 22px!important}
 [data-tl="v"]{writing-mode:horizontal-tb!important;transform:none!important}
