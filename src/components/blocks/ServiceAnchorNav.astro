@@ -18,21 +18,19 @@ const { items } = Astro.props;
    leading edge. One page-wide fill element, so the bar never splits into
    per-item sections. */
 .service-anchor-nav{position:sticky;top:91px;z-index:20;width:100%;color:#E9EBEF;background:rgba(15,15,15,.74);transition:background .4s}
-.service-anchor-nav__fill{position:absolute;z-index:0;top:0;bottom:0;left:0;width:0;background:var(--color-red,#FA001E);pointer-events:none;transition:width .18s linear}
+.service-anchor-nav__fill{position:absolute;z-index:0;top:0;bottom:auto;height:4px;left:0;width:0;background:var(--color-red,#FA001E);pointer-events:none;transition:width .18s linear}
 .service-anchor-nav__glass{position:absolute;z-index:1;inset:0;backdrop-filter:blur(18px) saturate(1.3);border-top:1px solid rgba(233,235,239,.14);pointer-events:none}
 /* Separate rule: bundlers dedupe the -webkit- alias into the standard
    property and ship only the prefixed one. */
 .service-anchor-nav .service-anchor-nav__glass{-webkit-backdrop-filter:blur(18px) saturate(1.3)}
 .service-anchor-nav__items{position:relative;z-index:2;display:grid;grid-template-columns:repeat(var(--anchor-count,6),minmax(0,1fr));width:100%}
-.service-anchor-nav a{position:relative;min-width:0;display:flex;justify-content:center;align-items:center;min-height:41px;padding:0 10px;color:rgba(233,235,239,.72);font:600 10px/1.2 var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;transition:color .2s}
+.service-anchor-nav a{position:relative;min-width:0;display:flex;justify-content:center;align-items:center;min-height:36px;padding:0 10px;color:rgba(233,235,239,.72);font:600 11px/1.2 var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:color .2s}
 .service-anchor-nav a:hover{color:var(--color-red,#FA001E)}
-.service-anchor-nav a[aria-current="location"]{color:#E9EBEF}
-.service-anchor-nav a[data-filled="true"]{color:var(--color-paper,#E9EBEF)}
-.service-anchor-nav a[data-filled="true"]:hover{color:rgba(233,235,239,.7)}
+.service-anchor-nav a[aria-current="location"]{color:var(--color-red,#FA001E)}
 .service-anchor-nav a:focus-visible{outline:1px solid var(--color-red,#FA001E);outline-offset:-3px}
-html{scroll-padding-top:139px}
-@media(max-width:768px){.service-anchor-nav{top:64px}.service-anchor-nav a{min-height:38px;padding:0 3px;font-size:8px;letter-spacing:.025em}html{scroll-padding-top:112px}}
-@media(max-width:420px){.service-anchor-nav a{font-size:7px;letter-spacing:0}}
+html{scroll-padding-top:133px}
+@media(max-width:768px){.service-anchor-nav{top:64px}.service-anchor-nav a{min-height:36px;padding:0 3px;font-size:9px;letter-spacing:.025em}html{scroll-padding-top:105px}}
+@media(max-width:420px){.service-anchor-nav a{font-size:8px;letter-spacing:0}}
 </style>
 <script>
   const nav = document.querySelector<HTMLElement>('[data-service-anchor-nav]');
@@ -58,7 +56,7 @@ html{scroll-padding-top:139px}
       nav.dataset.scrolled = isStuck() ? 'true' : 'false';
       // Activation line: a section becomes current once its top passes just
       // under the sticky header + nav bars.
-      const line = 153;
+      const line = 138;
       const act = targets.map((target) => target.getBoundingClientRect().top + scrollY - line);
       const n = targets.length || 1;
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - innerHeight);
@@ -82,13 +80,6 @@ html{scroll-padding-top:139px}
       // Width in plain pixels from the bar's left edge, across the whole bar:
       // the fill is a property of the panel, not of the content column.
       if (fillEl) fillEl.style.width = `${(progress * nav.offsetWidth).toFixed(1)}px`;
-      // Items whose centre the fill has passed flip to light text.
-      const navLeft = nav.getBoundingClientRect().left;
-      const fillX = progress * nav.offsetWidth;
-      links.forEach((link) => {
-        const rect = link.getBoundingClientRect();
-        link.dataset.filled = rect.left + rect.width / 2 - navLeft <= fillX ? 'true' : 'false';
-      });
       links.forEach((link, index) => {
         if (index === current) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
