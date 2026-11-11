@@ -75,7 +75,7 @@ const subservices = [
     </section>
 
     <section class="pm-toolkit" id="channels" aria-labelledby="pm-channels-title" style="padding:90px 0 0">
-      <div style="padding:0 var(--gutter)"><div class="pm-section__title-row pm-toolkit__title-row"><p class="pm-eyebrow" data-tl="h"><i></i>02 / Каналы</p><h2 class="page-display-heading" id="pm-channels-title">Подбираем <span>инструменты</span> под вашу задачу</h2><h3 class="pm-section__lead pm-toolkit__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</h3></div></div>
+      <div style="padding:0 var(--gutter)"><div class="pm-section__title-row pm-toolkit__title-row"><p class="pm-eyebrow" data-tl="v">02 / Каналы<span style="width:7px;height:7px;background:#FA001E;display:inline-block;flex:none"></span></p><h2 class="page-display-heading" id="pm-channels-title">Подбираем <span>инструменты</span> под вашу задачу</h2><h3 class="pm-section__lead pm-toolkit__lead">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</h3></div></div>
       <div style="margin-top:72px;border-top:1px solid #0F0F0F">
         {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(72px,168px) minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #0F0F0F;background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span data-tl="" style="display:flex;align-items:center;gap:10px;font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;align-self:start;margin:10px 0 0 12px;justify-self:start;clip-path:inset(0 100% 0 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1)"><span style="width:8px;height:8px;background:#FA001E;flex:none"></span><span style="opacity:.5">{String(index + 1).padStart(2, '0')}</span></span><span style="font:700 clamp(40px,5vw,72px)/.92 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;letter-spacing:-.005em">{item.title}</span><span style="font-size:15px;line-height:1.5;opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:500 13px/1.35 Onest,sans-serif;letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:500 16px 'JetBrains Mono',monospace">→</span></a>)}
       </div>
@@ -230,7 +230,7 @@ const subservices = [
 @media(max-width:1050px){.pm-toolkit .service-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pm-toolkit .service-card:nth-child(4),.pm-toolkit .service-card:nth-child(5){grid-column:auto}}
 @media(max-width:680px){.pm-section,.pm-metrics{padding-left:21px;padding-right:21px}.pm-section__title-row,.pm-metrics .pm-section__title-row{gap:12px;margin-bottom:30px}.pm-toolkit .service-card-grid{grid-template-columns:1fr 1fr}.pm-toolkit .service-card{min-height:300px;padding:19px 16px}.pm-price-grid{grid-template-columns:1fr}.pm-price-grid:after{content:"+";top:50%}.pm-additional-costs ul{grid-template-columns:1fr}}
 @media(max-width:430px){.service-hero{padding-left:20px;padding-right:20px;min-height:780px}.service-hero__grid{min-width:0;width:100%;box-sizing:border-box}.service-hero__copy{min-width:0;width:100%}.service-hero h1{font-size:clamp(44px,11.5vw,60px);max-width:100%;overflow-wrap:anywhere;letter-spacing:-.025em}.service-hero__additional{font-size:12px;max-width:100%}.service-hero__actions,.service-hero__primary{max-width:100%;box-sizing:border-box}.service-hero__primary{font-size:9px}.service-hero__description{max-width:100%}.pm-toolkit .service-card-grid{grid-template-columns:1fr}.pm-toolkit .service-card{min-height:270px}.pm-price-grid article{min-height:205px}}
-.pm-section h2,.pm-metrics h2{font:var(--display-heading);font-stretch:var(--display-stretch);letter-spacing:-.005em}
+.pm-section h2,.pm-metrics h2,.pm-toolkit h2{font:var(--display-heading);font-stretch:var(--display-stretch);letter-spacing:-.005em}
 .performance-page{margin-top:0}
 .pm-eyebrow{font:var(--eyebrow-copy);color:var(--color-red)}.pm-eyebrow i{background:var(--color-red)}
 .pm-section__lead,.pm-task-row p,.pm-metric-grid p,.pm-metrics__foot,.pm-price-grid article div>p:last-child{font:var(--body-copy)}
@@ -250,9 +250,9 @@ const subservices = [
      the h2 first-line glyph gap (half-leading + ascent - cap height in
      Steelfish at line-height .9), scaled by the same clamp as the h2 font. */
   #tasks .pm-task-list{margin-top:calc(8px + 13px*1.35 + 25px + .077*clamp(64px,8.3vw,120px))}
-  #channels .pm-toolkit__title-row{grid-template-columns:minmax(0,3fr) minmax(240px,1fr);column-gap:5vw;row-gap:20px}
-  #channels .pm-toolkit__title-row .pm-eyebrow{grid-column:1/-1}
-  #channels .pm-toolkit__title-row h2{grid-column:1;width:75%;min-width:min(640px,calc(100vw - 96px));max-width:none}
+  #channels .pm-toolkit__title-row{grid-template-columns:minmax(72px,168px) minmax(0,1fr);column-gap:24px;row-gap:20px;align-items:start}
+  #channels .pm-toolkit__title-row .pm-eyebrow{grid-column:1;grid-row:1;writing-mode:vertical-rl;transform:rotate(180deg);margin:0;align-self:start;justify-self:start}
+  #channels .pm-toolkit__title-row h2{grid-column:2;grid-row:1;width:auto;min-width:0;max-width:none}
   #channels .pm-toolkit__lead{grid-column:2;grid-row:2;align-self:end;margin:0;max-width:440px}
   #channels .service-card-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
   #channels .service-card:nth-child(-n+2){grid-column:span 3}
