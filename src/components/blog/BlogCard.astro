@@ -23,7 +23,8 @@ const { image, date, title, description, section, href = '#' } = Astro.props;
   </a>
 </article>
 <style is:global>
-.blog-card{min-width:0}
+.blog-card{min-width:0;transition:transform .5s}
+.blog-card:hover{transform:translateY(-12px)}
 .blog-card__link{display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none}
 .blog-card__media{position:relative;aspect-ratio:16/10;overflow:hidden}
 .blog-card__media img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.86)}
