@@ -123,6 +123,7 @@ export function initThread() {
       at(2900, () => { bar(2, 475); act(cards[4]); if (icon) icon.style.animationDuration = '6s'; });
     };
     const layout = () => {
+      X = gutterX();
       const rr = root.getBoundingClientRect(), lr = logo.getBoundingClientRect();
       if (hdr) {
         const sp = document.querySelector('[data-hsp]'); if (sp) sp.style.height = hdr.offsetHeight + 'px';
@@ -150,7 +151,6 @@ export function initThread() {
         fmEl.style.marginLeft = (X - o0.l - 3 * s) + 'px';
         const o = off(fmEl); fmY = Math.round(o.t + 3 * s); y1 = fmY;
       }
-      X = gutterX();
       track.style.left = X + 'px'; fill.style.left = X + 'px'; stub.style.left = X + 'px'; head.style.left = (X - 3) + 'px';
       track.style.top = y0 + 'px'; track.style.height = (y1 - y0) + 'px'; fill.style.top = y0 + 'px';
       upd();
