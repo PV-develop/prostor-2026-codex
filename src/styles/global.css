@@ -22,6 +22,18 @@
 [data-m="proc"]::-webkit-scrollbar{display:none}
 [data-m="proc"]>div{flex:0 0 min(78vw,340px);scroll-snap-align:start;min-height:380px!important}
 }
+/* Tablet band: service rows stack like mobile (number above, title full
+   width) but keep the gutter insets, so the block heading and the service
+   titles hold one left axis. */
+@media (min-width:769px) and (max-width:1000px){
+  [data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 var(--gutter)!important}
+  [data-m="s2head"] p{font-size:17px!important}
+  [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"n a" "t t" "d d"!important;gap:14px 16px!important;padding:28px var(--gutter)!important;align-items:start!important}
+  [data-m="srow"]>:nth-child(1){grid-area:n;margin:0!important;align-self:center!important}
+  [data-m="srow"]>:nth-child(2){grid-area:t}
+  [data-m="srow"]>:nth-child(3){grid-area:d;max-width:none!important}
+  [data-m="srow"]>:nth-child(4){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
+}
 @media (max-width:768px){
 [data-m="proc"]{padding-left:20px!important;padding-right:20px!important;margin-top:16px!important;scroll-padding:0 20px}
 [data-m="proc"]>div{flex:0 0 80%!important;min-height:0!important}
@@ -84,7 +96,7 @@
 [data-screen-label^="04"]{padding-top:88px!important}
 [data-screen-label^="05"]{padding:88px 0 72px!important}
 [data-screen-label^="06"]{padding:40px 0!important}
-[data-m="s2head"]{display:flex!important;flex-direction:column;align-items:flex-start;gap:24px;padding:0 20px!important}
+[data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 20px!important}
 [data-m="s2head"] p{font-size:17px!important}
 [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"n a" "t t" "d d";gap:14px 16px!important;padding:28px 20px!important;align-items:start!important}
 [data-m="srow"]>:nth-child(1){grid-area:n;margin:0!important;align-self:center!important}
