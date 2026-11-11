@@ -164,11 +164,15 @@ export function initParticles(el, shape = 'text') {
       mouse.sx += dsx * .06; mouse.sy += dsy * .06;
       const ry = POSE.ry + mouse.sx * .2, rx = POSE.rx - mouse.sy * .1;
       const cl = cap ? cap.lines : [];
+      let capVis = 1;
       for (let j = 0; j < cl.length; j++) {
         const ii = Math.min(1, Math.max(0, (T - 1.6 - j * .14) / .8)), ie = 1 - Math.pow(1 - ii, 4);
         const so = Math.min(1, Math.max(0, (p - j * .035) / .16)), se2 = so * so * (3 - 2 * so);
         cl[j].style.transform = `translateY(${((1 - ie) * 110 - se2 * 110).toFixed(2)}%)`;
+        capVis = Math.min(capVis, ie, 1 - se2);
       }
+      // the caption plate fades in and out together with its lines
+      if (capEl) capEl.style.opacity = capVis.toFixed(3);
       if (cap && cap.plate) {
         const pi = Math.min(1, Math.max(0, (T - 2.2) / .55)), pe = 1 - Math.pow(1 - pi, 3), ps = Math.min(1, Math.max(0, p / .09));
         cap.plate.style.clipPath = `inset(0 ${((1 - pe) * 100).toFixed(1)}% 0 ${(ps * 100).toFixed(1)}%)`;
