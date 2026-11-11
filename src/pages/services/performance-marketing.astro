@@ -272,13 +272,18 @@ const subservices = [
    question titles share the same left axis, numbers stay out at the section
    edge where the thread line reaches them. */
 @media(min-width:1001px){
-  #approach .pm-section__title-row{grid-template-columns:minmax(72px,168px) minmax(0,1fr) minmax(280px,360px);column-gap:24px;row-gap:0;align-items:start}
+  #approach .pm-section__title-row{grid-template-columns:minmax(72px,168px) minmax(0,1fr);column-gap:24px;row-gap:0;align-items:start}
   #approach .pm-section__title-row .pm-eyebrow{grid-column:1;grid-row:1;writing-mode:vertical-rl;transform:rotate(180deg);margin:0;align-self:start;justify-self:start}
   #approach .pm-section__title-row h2{grid-column:2;grid-row:1}
-  #approach .pm-section__title-row .service-decision-matrix__feature{grid-column:3;grid-row:1;margin-top:0;align-self:stretch}
+  #approach .pm-section__title-row .service-decision-matrix__feature{grid-column:2;margin-top:18px;max-width:560px}
   #approach .service-decision-matrix__head{padding-left:0}
   #approach .service-decision-matrix__head span:first-child{margin-left:192px}
   #approach .service-decision-matrix__question{grid-template-columns:192px minmax(0,1fr);gap:0}
+}
+/* Wide screens put the principle card back beside the heading. */
+@media(min-width:1381px){
+  #approach .pm-section__title-row{grid-template-columns:minmax(72px,168px) minmax(0,1fr) minmax(280px,360px)}
+  #approach .pm-section__title-row .service-decision-matrix__feature{grid-column:3;grid-row:1;margin-top:0;max-width:none;align-self:stretch}
 }
 #tasks .pm-task-row{grid-template-columns:72px minmax(0,1fr) 32px;align-items:center}
 #tasks .pm-task-row>span.pm-task-row__number{font:700 clamp(48px,4.2vw,66px)/.82 var(--font-display);color:var(--color-ink);letter-spacing:-.02em;padding:0}
@@ -296,6 +301,13 @@ const subservices = [
 #pricing .pm-price-card__label{font:var(--eyebrow-copy);font-size:11px;color:var(--color-red)}
 #pricing .pm-price-grid article div>p:last-child{max-width:460px}
 #pricing .pm-additional-costs{margin-top:28px}
+/* Up to the wide breakpoint: matrix answers stack under the question rows. */
+@media(max-width:1380px){
+  #approach .service-decision-matrix__head{display:none}
+  #approach .service-decision-matrix__row{grid-template-columns:minmax(0,1fr);row-gap:8px}
+  #approach .service-decision-matrix__question{padding-bottom:0}
+  #approach .service-decision-matrix__answer{padding:0 0 0 44px}
+}
 @media(max-width:1000px){#tasks.pm-tasks{grid-template-columns:1fr}#tasks .page-display-heading{min-width:min(640px,calc(100vw - 60px))}}
 @media(max-width:680px){
   #channels .page-display-heading,#approach .page-display-heading,#metrics .page-display-heading,#process .page-display-heading,#pricing .page-display-heading,#tasks .page-display-heading{width:100%;min-width:0}
