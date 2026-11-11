@@ -23,14 +23,14 @@ const { image, date, title, description, section, href = '#' } = Astro.props;
   </a>
 </article>
 <style is:global>
-.blog-card{min-width:0;background:var(--color-card,#F4F5F7);border-top:2px solid var(--color-ink,#0F0F0F);transition:background-color .25s,border-color .25s}
-.blog-card:hover{border-color:var(--color-red,#FA001E);background:#fff}
+.blog-card{min-width:0}
 .blog-card__link{display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none}
 .blog-card__media{position:relative;aspect-ratio:16/10;overflow:hidden}
 .blog-card__media img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.86)}
 .blog-card__chip{position:absolute;left:12px;top:12px;background:var(--color-red,#FA001E);color:var(--color-ink,#0F0F0F);padding:6px 10px;font:600 11px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.1em;text-transform:uppercase}
-.blog-card__body{display:flex;flex-direction:column;gap:10px;padding:18px 20px 22px;flex:1}
+.blog-card__body{display:flex;flex-direction:column;gap:10px;padding:16px 2px 0;flex:1}
 .blog-card__date{font:500 11px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.09em;text-transform:uppercase;color:rgba(15,15,15,.5)}
-.blog-card__title{margin:0;font:700 clamp(22px,1.8vw,28px)/.95 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;text-wrap:balance}
+.blog-card__title{margin:0;font:700 clamp(22px,1.8vw,28px)/.95 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;text-wrap:balance;transition:color .2s}
+.blog-card:hover .blog-card__title{color:var(--color-red,#FA001E)}
 .blog-card__description{margin:0;font:var(--body-copy,400 14px/1.5 Onest,sans-serif);color:rgba(15,15,15,.72);text-wrap:pretty}
 </style>
