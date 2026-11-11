@@ -146,9 +146,9 @@ export function initThread() {
       y1 = Math.round(rr.height - 60);
       if (fmEl) {
         fmEl.style.marginLeft = '0px'; fmEl.style.width = '100%';
-        const o0 = off(fmEl), s = Math.min((o0.l + fmEl.offsetWidth - X) / 165, 420 / 219);
+        const o0 = off(fmEl), s = (o0.l + fmEl.offsetWidth - X) / 165;
         fmEl.style.width = (219 * s) + 'px'; fmEl.style.maxWidth = 'none';
-        fmEl.style.marginLeft = Math.max(0, X - o0.l) + 'px';
+        fmEl.style.marginLeft = (X - o0.l - 3 * s) + 'px';
         const o = off(fmEl); fmY = Math.round(o.t + 3 * s); y1 = fmY;
       }
       track.style.left = X + 'px'; fill.style.left = X + 'px'; stub.style.left = X + 'px'; head.style.left = (X - 3) + 'px';
