@@ -51,7 +51,7 @@ export function initThread() {
       icon.forEach(g => { g.style.transformBox = 'view-box'; g.style.transformOrigin = '17px 17px'; });
       letters.sort((a, b) => a.b.x - b.b.x);
       letters.forEach(it => [it.gw, it.gr].forEach(g => { g.style.transform = `translate(${3 - it.b.x}px,0)`; g.style.opacity = '0'; }));
-      fm = { rc, letters, icon, w: 0 };
+      fm = { rc, letters, icon, w: 0, maxX: letters.length ? Math.max(...letters.map((it) => it.b.x + it.b.width)) : 176 };
       if (fmOn) playFM(true);
     };
     const tweenW = (to, dur, delay) => {
@@ -66,7 +66,7 @@ export function initThread() {
         tweenW(36, 560, 0);
         fmT.push(setTimeout(() => {
           fm.icon.forEach(g => { g.style.transition = `transform .5s ${EZ}, opacity .35s ease .1s`; g.style.transform = 'scale(.55)'; g.style.opacity = '0'; });
-          tweenW(176, 1100, 120);
+          tweenW((fm.maxX || 176) + 2, 1100, 120);
         }, 600));
         fm.letters.forEach((it, i) => { const d = 640 + i * 70; [it.gw, it.gr].forEach(g => { g.style.transition = `transform .8s ${EZ} ${d}ms, opacity .25s ${d}ms`; g.style.transform = 'translate(-48px,0)'; g.style.opacity = '1'; }); });
       } else {
@@ -146,9 +146,9 @@ export function initThread() {
       y1 = Math.round(rr.height - 60);
       if (fmEl) {
         fmEl.style.marginLeft = '0px'; fmEl.style.width = '100%';
-        const o0 = off(fmEl), s = (o0.l + fmEl.offsetWidth - X) / 165;
+        const o0 = off(fmEl), s = Math.min((o0.l + fmEl.offsetWidth - X) / 165, 420 / 219);
         fmEl.style.width = (219 * s) + 'px'; fmEl.style.maxWidth = 'none';
-        fmEl.style.marginLeft = (X - o0.l - 3 * s) + 'px';
+        fmEl.style.marginLeft = Math.max(0, X - o0.l) + 'px';
         const o = off(fmEl); fmY = Math.round(o.t + 3 * s); y1 = fmY;
       }
       track.style.left = X + 'px'; fill.style.left = X + 'px'; stub.style.left = X + 'px'; head.style.left = (X - 3) + 'px';
