@@ -1,8 +1,8 @@
 ---
-import BlogCard from './BlogCard.astro';
 export interface BlogPost { image: string; date: string; title: string; description: string; section: string; href?: string; }
 interface Props { heading: string; posts: readonly BlogPost[]; allLabel?: string; allHref?: string; }
 const { heading, posts, allLabel = 'Читать все записи', allHref = '#' } = Astro.props;
+const [featured, ...rest] = posts.slice(0, 3);
 ---
 <div class="blog-articles">
   <div class="blog-articles__head">
@@ -10,14 +10,48 @@ const { heading, posts, allLabel = 'Читать все записи', allHref =
     <a class="blog-articles__all" href={allHref}>{allLabel}<span>→</span></a>
   </div>
   <div class="blog-articles__grid">
-    {posts.slice(0, 3).map((post) => <BlogCard {...post} />)}
+    {featured && <a class="blog-featured" href={featured.href ?? '#'}>
+      <img src={featured.image} alt="" aria-hidden="true" loading="lazy" />
+      <span class="blog-featured__scrim" aria-hidden="true"></span>
+      <span class="blog-featured__body">
+        <span class="blog-featured__meta"><span class="blog-featured__tag">{featured.section}</span><span class="blog-featured__sep" aria-hidden="true">·</span><span class="blog-featured__date">{featured.date}</span></span>
+        <h3>{featured.title}</h3>
+        <p>{featured.description}</p>
+      </span>
+    </a>}
+    {rest.map((post) => <a class="blog-minor" href={post.href ?? '#'}>
+      <span class="blog-minor__meta"><span>{post.section}</span><span class="blog-minor__sep" aria-hidden="true">·</span><span>{post.date}</span></span>
+      <h3>{post.title}</h3>
+      <p>{post.description}</p>
+    </a>)}
   </div>
 </div>
 <style is:global>
 .blog-articles__head{display:flex;justify-content:space-between;align-items:end;gap:32px}
 .blog-articles__heading{margin:0;font:var(--display-heading);font-stretch:var(--display-stretch);text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance}
-.blog-articles__all{border:1px solid rgba(15,15,15,.4);background-image:linear-gradient(90deg,#0F0F0F 50%,transparent 50%);background-size:201% 100%;background-position:100% 0;background-repeat:no-repeat;padding:20px 26px;font:600 12px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.12em;text-transform:uppercase;display:flex;gap:18px;white-space:nowrap;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s;margin-bottom:10px}
-.blog-articles__all:hover{background-position:0 0;color:var(--color-paper,#E9EBEF);border-color:#0F0F0F}
-.blog-articles__grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-@media(max-width:900px){.blog-articles__head{flex-direction:column;align-items:flex-start;gap:24px}.blog-articles__all{margin-bottom:0}.blog-articles__grid{grid-template-columns:1fr;gap:10px}}
+.blog-articles__all{border:1px solid rgba(15,15,15,.4);background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;padding:20px 26px;font:600 12px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.12em;text-transform:uppercase;display:flex;gap:18px;white-space:nowrap;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s}
+.blog-articles__all:hover{background-position:0 100%;color:var(--color-paper,#E9EBEF);border-color:#0F0F0F}
+.blog-articles__grid{margin-top:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr 1fr;gap:12px}
+/* Featured card: latest post over its photo, darkened with a bottom gradient */
+.blog-featured{grid-row:1/3;position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:560px;background:#0F0F0F;color:#E9EBEF;text-decoration:none;overflow:hidden}
+.blog-featured:hover{color:#E9EBEF}
+.blog-featured>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.blog-featured:hover>img{transform:scale(1.03)}
+.blog-featured__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,15,15,0) 38%,rgba(15,15,15,.85) 100%)}
+.blog-featured__body{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;padding:36px 40px 40px}
+.blog-featured__meta{display:flex;gap:10px;font:500 11px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.1em;text-transform:uppercase}
+.blog-featured__tag{color:rgba(233,235,239,.6)}
+.blog-featured__sep{color:rgba(233,235,239,.6)}
+.blog-featured__date{color:rgba(233,235,239,.6)}
+.blog-featured h3{margin:20px 0 12px;font:700 clamp(28px,2.6vw,44px)/1 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance;transition:opacity .25s}
+.blog-featured:hover h3{opacity:.7}
+.blog-featured p{margin:0;font:var(--body-copy,400 14px/1.5 Onest,sans-serif);color:rgba(233,235,239,.75);max-width:520px;text-wrap:pretty}
+/* Text cards: no photos, tag + date line, title, description */
+.blog-minor{display:flex;flex-direction:column;background:var(--color-card,#F4F5F7);padding:30px 34px;text-decoration:none;transition:background .25s}
+.blog-minor:hover{background:#fff}
+.blog-minor__meta{display:flex;gap:10px;font:500 11px var(--font-mono,'JetBrains Mono',monospace);letter-spacing:.1em;text-transform:uppercase;color:rgba(15,15,15,.5)}
+.blog-minor h3{margin:20px 0 12px;font:700 clamp(24px,2vw,34px)/1.02 var(--font-display,Steelfish),sans-serif;font-stretch:var(--display-stretch,25%);text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance;transition:color .2s}
+.blog-minor:hover h3{color:var(--color-red,#FA001E)}
+.blog-minor p{margin:0;font:var(--body-copy,400 14px/1.5 Onest,sans-serif);color:rgba(15,15,15,.72);text-wrap:pretty}
+@media(max-width:1000px){.blog-articles__head{flex-direction:column;align-items:flex-start;gap:24px}.blog-articles__grid{grid-template-columns:1fr;grid-template-rows:none;margin-top:40px}.blog-featured{grid-row:auto;min-height:440px}.blog-minor{padding:26px 28px}}
 </style>

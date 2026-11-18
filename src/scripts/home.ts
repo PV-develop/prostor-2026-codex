@@ -1,5 +1,5 @@
 import { initParticles } from './particles';
-import { initThread } from './thread';
+import { initLogos } from './logos';
 
 const actionSelector = '[data-action-click]';
 
@@ -9,17 +9,16 @@ function setMenuOpen(open: boolean): void {
   if (!menu) return;
 
   if (open && trigger) {
-    // The menu background expands out of the «Меню» button as a growing
-    // circle; anchor it at the button centre and cover the farthest corner.
-    // Coordinates are relative to the menu box, which is centred and capped
-    // at 1440px on wide screens.
+    // The menu background grows out of the «Меню» button as an expanding
+    // rectangle: its box is clipped to the button rect and opens up to the
+    // full screen, sweeping down and to the left. Offsets are inset() edges
+    // relative to the menu box.
     const b = trigger.getBoundingClientRect();
     const m = menu.getBoundingClientRect();
-    const x = b.left + b.width / 2 - m.left;
-    const y = b.top + b.height / 2 - m.top;
-    menu.style.setProperty('--mx', `${x.toFixed(1)}px`);
-    menu.style.setProperty('--my', `${y.toFixed(1)}px`);
-    menu.style.setProperty('--mr', `${(Math.hypot(Math.max(x, m.width - x), Math.max(y, m.height - y)) + 40).toFixed(0)}px`);
+    menu.style.setProperty('--mt', `${(b.top - m.top).toFixed(1)}px`);
+    menu.style.setProperty('--mrt', `${(m.right - b.right).toFixed(1)}px`);
+    menu.style.setProperty('--mbt', `${(m.bottom - b.bottom).toFixed(1)}px`);
+    menu.style.setProperty('--mlt', `${(b.left - m.left).toFixed(1)}px`);
   }
 
   menu.dataset.open = String(open);
@@ -173,23 +172,19 @@ const header = document.querySelector<HTMLElement>('[data-hdr]');
 const updateHeader = () => {
   if (!header) return;
   const scrolled = window.scrollY > 24;
-  header.style.background = scrolled ? 'rgba(15,15,15,.92)' : 'rgba(15,15,15,0)';
+  // Stuck chrome (in-page nav revealed, phone and «Меню» label folded away)
+  // flips on the same 40px threshold where the wordmark collapses to the
+  // red icon, so the header changes state in one move.
+  header.dataset.stuck = String(window.scrollY > 40);
+  // Scrolled bar tint follows the header theme: paper glass on light, ink
+  // glass on the dark variant.
+  const tint = header.dataset.hdrTheme === 'dark' ? '15,15,15' : '233,235,239';
+  header.style.background = scrolled ? `rgba(${tint},.92)` : 'rgba(15,15,15,0)';
   header.style.backdropFilter = scrolled ? 'blur(14px)' : 'none';
   header.style.setProperty('-webkit-backdrop-filter', scrolled ? 'blur(14px)' : 'none');
 };
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
-
-const threadObserver = new IntersectionObserver((entries, observer) => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) continue;
-    const element = entry.target as HTMLElement;
-    element.style.transition = 'clip-path .6s cubic-bezier(.7,0,.2,1)';
-    element.style.clipPath = element.dataset.tl === 'v' ? 'inset(-2px 0 -2px 0)' : 'inset(0 -2px 0 -2px)';
-    observer.unobserve(element);
-  }
-}, { threshold: 0.15 });
-document.querySelectorAll<HTMLElement>('[data-tl]').forEach((element) => threadObserver.observe(element));
 
 const processSection = document.querySelector<HTMLElement>('[data-screen-label^="04"]');
 if (processSection) {
@@ -257,6 +252,77 @@ document.querySelectorAll<HTMLElement>('[data-gs]').forEach((overlay) => {
   card?.addEventListener('mouseleave', () => { overlay.style.clipPath = 'inset(0 0 0 0)'; });
 });
 
-const particleText = document.querySelector<HTMLElement>('[data-parallax]');
-if (particleText) initParticles(particleText, particleText.dataset.particleShape ?? 'text');
-initThread();
+document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((element) => {
+  initParticles(element, element.dataset.particleShape ?? 'text');
+});
+initLogos();
+
+  // Page-wide dot field (lucaslima.design spec): a fixed canvas between the
+  // page background and the content. Stateless grid pinned to the document,
+  // cursor repulsion, click attraction, one path per frame, rAF on events.
+  (() => {
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'st-dots';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.prepend(canvas);
+    document.body.classList.add('has-dots');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const W = 50, Wn = W * 6, Gn = W * .25, Kn = Wn * 1.25, qn = W * .32;
+    let vw = 0, vh = 0, raf = 0, lastDraw = 0;
+    let mx = -1e4, my = -1e4, cx = 0, cy = 0;
+    let tween = { from: 0, to: 0, start: 0, ms: 1, power: 3 };
+    const smoothstep = (x: number) => x * x * (3 - 2 * x);
+    const dValue = (now: number) => {
+      const t = Math.min(1, (now - tween.start) / tween.ms);
+      return tween.from + (tween.to - tween.from) * (1 - Math.pow(1 - t, tween.power));
+    };
+    const size = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      vw = innerWidth; vh = innerHeight;
+      canvas.width = vw * dpr; canvas.height = vh * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    const draw = () => {
+      raf = 0; lastDraw = performance.now();
+      const now = lastDraw;
+      const d = dValue(now);
+      ctx.clearRect(0, 0, vw, vh);
+      ctx.fillStyle = 'rgb(50 50 50 / .35)';
+      ctx.beginPath();
+      for (let y = -(scrollY % W); y < vh + W; y += W) {
+        for (let x = 0; x < vw + W; x += W) {
+          let px = x, py = y;
+          let dx = px - mx, dy = py - my, s = Math.hypot(dx, dy);
+          if (s > 0 && s < Wn) { const k = smoothstep(1 - s / Wn) * Gn; px += dx / s * k; py += dy / s * k; }
+          if (d > 0) {
+            dx = px - cx; dy = py - cy; s = Math.hypot(dx, dy);
+            if (s > 0 && s < Kn) { const k = smoothstep(1 - s / Kn) * qn * d; px -= dx / s * k; py -= dy / s * k; }
+          }
+          ctx.moveTo(px + 1, py);
+          ctx.arc(px, py, 1, 0, 6.2832);
+        }
+      }
+      ctx.fill();
+      if (d !== tween.to) raf = requestAnimationFrame(draw);
+    };
+    const wake = () => {
+      // frozen-rAF webviews: paint the event frame synchronously
+      if (performance.now() - lastDraw > 200) { if (raf) cancelAnimationFrame(raf); draw(); return; }
+      if (!raf) raf = requestAnimationFrame(draw);
+    };
+    const startTween = (to: number, ms: number, power: number) => {
+      const now = performance.now();
+      tween = { from: dValue(now), to, start: now, ms: reduced ? 1 : ms, power };
+      wake();
+    };
+    addEventListener('resize', () => { size(); wake(); }, { passive: true });
+    addEventListener('scroll', wake, { passive: true });
+    addEventListener('pointermove', (e: Event) => { const pe = e as PointerEvent; if (pe.pointerType !== 'mouse') return; mx = pe.clientX; my = pe.clientY; wake(); }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', () => { mx = -1e4; my = -1e4; wake(); });
+    addEventListener('pointerdown', (e: Event) => { const pe = e as PointerEvent; if (pe.pointerType !== 'mouse') return; cx = pe.clientX; cy = pe.clientY; startTween(1, 250, 2); }, { passive: true });
+    addEventListener('pointerup', () => startTween(0, 600, 3), { passive: true });
+    size(); draw();
+  })();

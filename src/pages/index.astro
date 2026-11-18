@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/home/Hero.astro';
+import HeroLight from '../components/home/HeroLight.astro';
 import Services from '../components/home/Services.astro';
 import Cases from '../components/home/Cases.astro';
 import Process from '../components/home/Process.astro';
@@ -12,8 +12,8 @@ const title = 'Простор — digital-агентство полного ци
 const description = 'Стратегия и digital-маркетинг для роста бизнеса: продвижение, аналитика и разработка.';
 ---
 <BaseLayout {title} {description}>
-  <div class="home-shell" style="margin: 0 auto; background: #E9EBEF; overflow: clip">
-    <Hero />
+  <div class="home-shell" style="margin: 0 auto; overflow: clip">
+    <HeroLight />
     <Services />
     <Cases />
     <Process />

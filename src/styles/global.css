@@ -1,9 +1,10 @@
 @font-face{font-family:Onest;font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/onest-400.ttf") format("truetype")}@font-face{font-family:Onest;font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/onest-500.ttf") format("truetype")}@font-face{font-family:Onest;font-style:normal;font-weight:600;font-display:swap;src:url("/fonts/onest-600.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/jetbrains-mono-400.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/jetbrains-mono-500.ttf") format("truetype")}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url("/fonts/jetbrains-mono-600.ttf") format("truetype")}@font-face{font-family:Steelfish;font-weight:700;font-display:swap;font-stretch:25% 100%;src:url("/fonts/Steelfish-Bold.ttf") format("truetype")}@font-face{font-family:Steelfish;font-weight:800;font-display:swap;font-stretch:25% 100%;src:url("/fonts/Steelfish-ExtraBold.ttf") format("truetype")}body{margin:0;background:#0F0F0F;font-family:Onest,system-ui,sans-serif;color:#0F0F0F;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{color:inherit}@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes marqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}@keyframes spin{to{transform:rotate(360deg)}}[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
-/* Menu opens as a light circle expanding out of the «Меню» button and
-   flooding the screen; content then fades in from above. Closing shrinks the
-   circle back into the same spot (the «Закрыть» button sits there). */
-[data-menu]{visibility:hidden;clip-path:circle(0px at var(--mx,calc(100% - 90px)) var(--my,52px));pointer-events:none;transition:clip-path .5s cubic-bezier(.7,0,.2,1),visibility 0s linear .5s}
-[data-menu][data-open="true"]{visibility:visible;clip-path:circle(var(--mr,150vmax) at var(--mx,calc(100% - 90px)) var(--my,52px));pointer-events:auto;transition:clip-path .6s cubic-bezier(.2,.7,.2,1),visibility 0s}
+/* Menu opens as the «Меню» button box stretching into a light rectangle
+   that floods the screen — anchored at the button, it sweeps down and to
+   the left; content then fades in from above. Closing shrinks the rectangle
+   back into the same spot (the «Закрыть» button sits there). */
+[data-menu]{visibility:hidden;clip-path:inset(var(--mt,24px) var(--mrt,48px) var(--mbt,calc(100% - 68px)) var(--mlt,calc(100% - 190px)));pointer-events:none;transition:clip-path .5s cubic-bezier(.7,0,.2,1),visibility 0s linear .5s}
+[data-menu][data-open="true"]{visibility:visible;clip-path:inset(0 0 0 0);pointer-events:auto;transition:clip-path .6s cubic-bezier(.2,.7,.2,1),visibility 0s}
 [data-menu] [data-mh],[data-menu] [data-mg]{opacity:0;transform:translateY(-18px);transition:opacity .4s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
 [data-menu][data-open="true"] [data-mh]{opacity:1;transform:none;transition-delay:.3s}
 [data-menu][data-open="true"] [data-mg]{opacity:1;transform:none;transition-delay:.42s}
@@ -22,24 +23,22 @@
 [data-m="proc"]::-webkit-scrollbar{display:none}
 [data-m="proc"]>div{flex:0 0 min(78vw,340px);scroll-snap-align:start;min-height:380px!important}
 }
-/* Tablet band: service rows stack like mobile (number above, title full
-   width) but keep the gutter insets, so the block heading and the service
-   titles hold one left axis. */
+/* Tablet band: service rows stack like mobile (title full width) but keep
+   the gutter insets, so the block heading and the service titles hold one
+   left axis. */
 @media (min-width:769px) and (max-width:1000px){
   [data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 var(--gutter)!important}
   [data-m="s2head"] p{font-size:17px!important}
-  [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"n a" "t t" "d d"!important;gap:14px 16px!important;padding:28px var(--gutter)!important;align-items:start!important}
-  [data-m="srow"]>:nth-child(1){grid-area:n;margin:0!important;align-self:center!important}
-  [data-m="srow"]>:nth-child(2){grid-area:t}
-  [data-m="srow"]>:nth-child(3){grid-area:d;max-width:none!important}
-  [data-m="srow"]>:nth-child(4){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
+  [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d"!important;gap:14px 16px!important;padding:28px var(--gutter)!important;align-items:start!important}
+  [data-m="srow"]>:nth-child(1){grid-area:t}
+  [data-m="srow"]>:nth-child(2){grid-area:d;max-width:none!important}
+  [data-m="srow"]>:nth-child(3){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
 }
 @media (max-width:768px){
 [data-m="proc"]{padding-left:20px!important;padding-right:20px!important;margin-top:16px!important;scroll-padding:0 20px}
 [data-m="proc"]>div{flex:0 0 80%!important;min-height:0!important}
 [data-m="prochint"]{display:flex!important;margin:32px 20px 0!important}
-[data-hdr]{padding:14px 20px!important;gap:8px!important;grid-template-columns:auto minmax(0,1fr) auto!important}
-[data-hconn],[data-thread]{display:none!important}
+[data-hdr]{padding:14px 20px!important;gap:8px!important;grid-template-columns:auto minmax(0,1fr)!important}
 [data-m="hright"]{justify-self:end;gap:8px!important}
 [data-m="hright"]>a{padding:12px 14px!important;height:40px;display:flex;align-items:center;gap:8px;box-sizing:border-box}
 [data-m="hright"]>button{padding:0!important;width:40px!important;height:40px!important;justify-content:center!important}
@@ -51,7 +50,7 @@
 [data-menu] [data-mh]>a[href^="tel"]{display:none}
 [data-menu] [data-mh]>button{order:2!important;margin-left:auto!important;min-width:0!important;border:0!important;background:transparent!important;padding:2px!important;color:#0F0F0F!important}
 [data-menu] [data-mhlabel]{display:none}
-[data-menu] [data-mh]>button>span:last-child{font-size:28px!important}
+[data-menu] [data-mh]>button>span:last-child svg{width:22px!important;height:22px!important}
 [data-menu] [data-mg]{grid-template-columns:1fr!important;gap:24px!important;padding-top:18px}
 [data-menu] [data-mmain]{display:grid!important;grid-template-columns:1fr 1fr;gap:20px 24px;border-right:0!important;padding-right:0!important;border-bottom:1px solid rgba(15,15,15,.12);padding-bottom:22px}
 [data-menu] [data-mmain]>a{font-size:26px}
@@ -72,7 +71,6 @@
 [data-menu] [data-msoc]{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 12px;margin-top:6px}
 [data-menu] [data-mcta]{display:flex!important;margin-top:12px}
 [data-screen-label^="01"]{min-height:0!important}
-[data-screen-label^="01"] [data-tl="v"]{display:none!important}
 [data-m="heropad"]{padding:0 20px!important}
 [data-m="herogrid"]{display:flex!important;flex-direction:column;align-items:stretch;padding:36px 0 48px!important;gap:32px}
 [data-m="herogrid"] h1{font-size:min(22vw,96px)!important}
@@ -86,23 +84,21 @@
 [data-m="twenty"] [data-parallax]{font-size:min(88vw,420px)!important;width:max-content;text-align:center!important}
 [data-m="twenty"] [data-cap-line]{font-size:30px!important}
 [data-logo] svg,[data-logo] img{display:none!important}
-[data-logo]{background:url(/src/logo-white.svg) no-repeat -39px 0/auto 26px}
+[data-logo]{background:url(/src/logo-black.svg) no-repeat -39px 0/auto 26px}
+[data-hdr-theme="dark"] [data-logo]{background:url(/src/logo-white.svg) no-repeat -39px 0/auto 26px}
 [data-fmark]{width:100%!important;max-width:100%!important;margin-left:0!important;aspect-ratio:168/34!important;background:url(/src/logo-white.svg) no-repeat 100% 0/130.36% auto}
 [data-fmark]>svg{display:none!important}
 [data-m="trust"]{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important;row-gap:14px;padding:18px 0 22px!important}
-[data-tl="v"]{writing-mode:horizontal-tb!important;transform:none!important}
-[data-tl="h"]{margin-left:20px!important;margin-right:20px!important}
 [data-screen-label^="02"],[data-screen-label^="03"]{padding:88px 0 96px!important}
 [data-screen-label^="04"]{padding-top:88px!important}
 [data-screen-label^="05"]{padding:88px 0 72px!important}
 [data-screen-label^="06"]{padding:40px 0!important}
 [data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 20px!important}
 [data-m="s2head"] p{font-size:17px!important}
-[data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"n a" "t t" "d d";gap:14px 16px!important;padding:28px 20px!important;align-items:start!important}
-[data-m="srow"]>:nth-child(1){grid-area:n;margin:0!important;align-self:center!important}
-[data-m="srow"]>:nth-child(2){grid-area:t}
-[data-m="srow"]>:nth-child(3){grid-area:d;max-width:none!important}
-[data-m="srow"]>:nth-child(4){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
+[data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d";gap:14px 16px!important;padding:28px 20px!important;align-items:start!important}
+[data-m="srow"]>:nth-child(1){grid-area:t}
+[data-m="srow"]>:nth-child(2){grid-area:d;max-width:none!important}
+[data-m="srow"]>:nth-child(3){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
 [data-m="otr"]{margin-top:96px!important;padding:0 20px!important;display:flex!important;flex-direction:column;gap:24px}
 [data-m="sechead"]{flex-direction:column;align-items:flex-start!important;gap:28px!important;padding:0 20px!important}
 [data-m="sechead"]>a{margin-bottom:0!important}
@@ -118,7 +114,6 @@
 [data-team-number]{left:10px!important;bottom:10px!important;min-width:32px!important;padding:8px!important;font-size:10px!important}
 [data-m="s4head"]{padding:0 20px!important;gap:20px!important}
 [data-m="s4head"]>div:first-child{flex-direction:column;gap:20px!important}
-[data-m="s4head"]>div:first-child>div:first-child{writing-mode:horizontal-tb!important;transform:none!important}
 [data-m="procnote"]{margin:16px 20px 0!important;flex-direction:column;gap:6px!important}
 [data-m="cta"]{margin:56px 20px 0!important;padding:36px 20px!important;gap:28px!important}
 [data-m="cta"]>div:nth-child(2){grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
@@ -133,7 +128,7 @@
 }
 
 /* Hover states ported from the Claude Design export. */
-.export-hover-1:hover{background-position:0 0 !important;color:#0F0F0F !important}
+.export-hover-1:hover{background-position:0 100% !important;color:#0F0F0F !important}
 .export-hover-2:hover{background:#E9EBEF !important;color:#0F0F0F !important}
 .export-hover-3:hover{background:#0F0F0F !important;color:#E9EBEF !important}
 .export-hover-4:hover{color:#FA001E !important}
@@ -168,33 +163,33 @@
 .export-hover-33:hover{color:#FA001E !important}
 .export-hover-34:hover{color:#FA001E !important}
 .export-hover-35:hover{color:#FA001E !important}
-.export-hover-36:hover{background-position:0 0 !important;color:#0F0F0F !important}
-.export-hover-37:hover{background-position:0 0 !important;color:#0F0F0F !important;border-color:#E9EBEF !important}
+.export-hover-36:hover{background-position:0 100% !important;color:#0F0F0F !important}
+.export-hover-37:hover{background-position:0 100% !important;color:#0F0F0F !important;border-color:#E9EBEF !important}
 .export-hover-38:hover{padding-left:8px !important}
 .export-hover-39:hover{padding-left:8px !important}
-.export-hover-40:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-41:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-42:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-43:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-44:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-45:hover{background-position:0 0 !important;color:#0F0F0F !important}
-.export-hover-46:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-47:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-48:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-49:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-50:hover{background-position:0 0 !important;color:#E9EBEF !important}
-.export-hover-51:hover{background-position:0 0 !important;color:#E9EBEF !important}
+.export-hover-40:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-41:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-42:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-43:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-44:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-45:hover{background-position:0 100% !important;color:#0F0F0F !important}
+.export-hover-46:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-47:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-48:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-49:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-50:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-51:hover{background-position:0 100% !important;color:#E9EBEF !important}
 .export-hover-52:hover{color:#0F0F0F !important;gap:.36em !important}
-.export-hover-53:hover{background-position:0 0 !important}
-.export-hover-54:hover{background-position:0 0 !important;color:#0F0F0F !important;border-color:#E9EBEF !important}
+.export-hover-53:hover{background-position:0 100% !important}
+.export-hover-54:hover{background-position:0 100% !important;color:#0F0F0F !important;border-color:#E9EBEF !important}
 .export-hover-55:hover{transform:translateY(-12px) !important}
 .export-hover-56:hover{transform:translateY(-12px) !important}
 .export-hover-57:hover{transform:translateY(-12px) !important}
-.export-hover-58:hover{background-position:0 0 !important;color:#0F0F0F !important;border-color:#E9EBEF !important}
+.export-hover-58:hover{background-position:0 100% !important;color:#0F0F0F !important;border-color:#E9EBEF !important}
 .export-hover-59:hover{gap:26px !important;color:#FA001E !important;border-color:#FA001E !important}
 .export-hover-60:hover{border-color:#E9EBEF !important}
-.export-hover-61:hover{background-position:0 0 !important;color:#0F0F0F !important}
-.export-hover-62:hover{background-position:0 0 !important}
+.export-hover-61:hover{background-position:0 100% !important;color:#0F0F0F !important}
+.export-hover-62:hover{background-position:0 100% !important}
 .export-hover-63:hover{color:#FA001E !important}
 .export-hover-64:hover{color:#FA001E !important}
 .export-hover-65:hover{color:#FA001E !important}
@@ -260,10 +255,20 @@
 .export-hover-125:hover{background:#FA001E !important;border-color:#FA001E !important}
 
 
+/* Light hero variant buttons: the ink primary ignites red on hover, the
+   dark-outline secondary fills ink and flips its label to paper. */
+.export-hover-127:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-128:hover{background-position:0 100% !important;color:#E9EBEF !important;border-color:#0F0F0F !important}
+/* Header menu button: the ink (light theme) / paper (dark theme) fill wipes
+   in from the bottom on hover, mirroring the hero outline buttons. */
+.export-hover-129:hover{background-position:0 100% !important;color:#E9EBEF !important}
+.export-hover-130:hover{background-position:0 100% !important;color:#0F0F0F !important}
+
+
 /* Restored process lead block interaction states. */
 [data-focus-state="export-focus-1"]:focus{border-color:#E9EBEF !important}
 [data-focus-state="export-focus-2"]:focus{border-color:#E9EBEF !important}
-.export-hover-126:hover{background-position:0 0 !important;color:#0F0F0F !important;gap:36px !important}
+.export-hover-126:hover{background-position:0 100% !important;color:#0F0F0F !important;gap:36px !important}
 
 
 /* Desktop service groups stay expanded; keep the first-level labels static. */
@@ -288,13 +293,16 @@
   --font-display: Steelfish, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --display-stretch: 25%;
-  --display-heading: 700 clamp(64px, 8.3vw, 120px)/.9 var(--font-display);
+  --display-heading: 700 clamp(64px, 8.3vw, 120px)/.95 var(--font-display);
   --body-copy: 400 15px/1.5 var(--font-body);
   --eyebrow-copy: 500 13px/1.35 var(--font-body);
   --button-copy: 600 12px/1.2 var(--font-mono);
 }
 body { background: var(--color-ink); color: var(--color-ink); font-family: var(--font-body); }
-[data-hdr] { color: var(--color-paper); }
+/* Header follows its theme: light bar over the light hero (ink text, black
+   wordmark), dark bar when the dark variant is restored. */
+[data-hdr] { color: var(--color-ink); }
+[data-hdr][data-hdr-theme="dark"] { color: var(--color-paper); }
 /* Shared page-level heading rule: keep display titles broad whenever the viewport allows. */
 @media (min-width: 681px) {
   .page-display-heading { min-width: min(640px, calc(100vw - 96px)); }
@@ -314,11 +322,20 @@ body { background: var(--color-ink); color: var(--color-ink); font-family: var(-
    short CTA) instead of the old stacked «Закрыть» bar. */
 @media (max-width:768px){
   [data-menu]{padding:0!important}
-  [data-menu] [data-mh]{display:grid!important;flex-wrap:nowrap!important;gap:8px!important;padding:14px 20px!important;grid-template-columns:auto minmax(0,1fr) auto!important}
+  [data-menu] [data-mh]{display:grid!important;flex-wrap:nowrap!important;gap:8px!important;padding:14px 20px!important;grid-template-columns:auto minmax(0,1fr)!important}
   [data-menu] [data-mg]{padding:18px 20px 0!important;align-content:start!important}
 }
 
 /* Content column: sections stay full-bleed, their content (and the fixed
    header/menu chrome) aligns to a 1600px column via --gutter. */
 :root{--gutter:max(48px,calc((100vw - 1600px)/2))}
-.service-anchor-nav__items{max-width:1600px;margin:0 auto}
+
+
+/* Site-wide dot field (created by home.ts): the fixed canvas sits between the
+   page background and the page shell; opaque sections cover it, transparent
+   ones show it through. The shell keeps its plain background when the field
+   is disabled (touch devices, no hover). */
+.home-shell{background:#E9EBEF}
+.st-dots{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+body.has-dots{background:var(--color-paper,#E9EBEF)}
+body.has-dots .home-shell,body.has-dots .performance-page{position:relative;z-index:1;background:transparent}

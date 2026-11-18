@@ -1,7 +1,11 @@
 // @ts-nocheck
 // Ported from the page animation in the Claude Design export.
 export function initParticles(el, shape = 'text') {
-    const S = 4, DEP = 110, F = 1400, R = 240, COL = '#D4D7DC';
+    // Dot colour is per instance: dark heroes use the default light gray,
+    // the light hero passes data-particle-color (dark gray). The glow RGB is
+    // derived from the same colour.
+    const S = 4, DEP = 110, F = 1400, R = 240, COL = el.dataset.particleColor || '#D4D7DC';
+    const GRGB = COL.slice(1).match(/.{2}/g).map((h) => parseInt(h, 16)).join(',');
     // Resting pose of the figure. The pyramid sits upright with a slight 3/4 yaw
     // and a raised camera so two side faces and the base geometry read as volume.
     // Softer perspective keeps the near base vertex from spilling past the hero.
@@ -186,7 +190,7 @@ export function initParticles(el, shape = 'text') {
       const ga = Math.min(1, T / 2.6) * (1 - p);
       if (ga > .01) {
         const gr = ctx.createRadialGradient(ocx, ocy, 0, ocx, ocy, GR);
-        gr.addColorStop(0, `rgba(233,235,239,${.085 * ga})`); gr.addColorStop(.45, `rgba(233,235,239,${.035 * ga})`); gr.addColorStop(1, 'rgba(233,235,239,0)');
+        gr.addColorStop(0, `rgba(${GRGB},${.085 * ga})`); gr.addColorStop(.45, `rgba(${GRGB},${.035 * ga})`); gr.addColorStop(1, `rgba(${GRGB},0)`);
         ctx.fillStyle = gr; ctx.fillRect(ocx - GR, ocy - GR, GR * 2, GR * 2); ctx.fillStyle = COL;
       }
       for (let i = 0, n = P.length; i < n; i++) {
