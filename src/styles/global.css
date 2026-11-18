@@ -293,7 +293,7 @@
   --font-display: Steelfish, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --display-stretch: 25%;
-  --display-heading: 700 clamp(64px, 8.3vw, 120px)/.95 var(--font-display);
+  --display-heading: 700 clamp(64px, 8.3vw, 120px)/1.14 var(--font-display);
   --body-copy: 400 15px/1.5 var(--font-body);
   --eyebrow-copy: 500 13px/1.35 var(--font-body);
   --button-copy: 600 12px/1.2 var(--font-mono);
