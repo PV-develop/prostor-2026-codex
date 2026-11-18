@@ -88,7 +88,10 @@ const subservices = [
         <p class="pm-section__lead">Четыре ситуации, в которых performance-реклама помогает найти точки роста.</p>
       </div>
       <div class="pm-tasks__split">
-        <div class="pm-tasks__visual"><img src="/src/chips/photo-1486406146926-c627a92ad1ab.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
+        <div class="pm-tasks__aside">
+          <div class="pm-tasks__visual"><img src="/src/chips/photo-1486406146926-c627a92ad1ab.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
+          <div class="pm-tasks__plate"><span>Получить консультацию по моей задаче</span><a class="pm-tasks__cta" href="#contacts">Обсудить рост <span>→</span></a></div>
+        </div>
         <div class="pm-task-list">{tasks.map((item, index) => <article class="pm-task-row"><span class="pm-task-row__index">{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
       </div>
     </section>
@@ -346,7 +349,14 @@ const subservices = [
 <style>
 .performance-page{background:#E9EBEF;color:#0F0F0F;overflow:clip}.pm-section{padding:108px var(--gutter)}.pm-section__title-row{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start;margin-bottom:48px}.pm-section h2,.pm-metrics h2{font:700 clamp(44px,5.7vw,82px)/1.1 Steelfish,sans-serif;text-transform:uppercase;letter-spacing:-.008em;margin:0;text-wrap:balance}.pm-section__lead{font-size:15px;line-height:1.5;color:rgba(15,15,15,.7);margin:6px 0 0;max-width:340px;text-wrap:pretty}.pm-tasks .pm-section__lead{color:#4F5257}
 .pm-tasks__split{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:clamp(32px,4.5vw,80px);align-items:start;margin-top:72px}
-.pm-tasks__visual{position:sticky;top:calc(91px + 60px);height:400px;background:#0F0F0F;overflow:hidden}
+.pm-tasks__aside{position:sticky;top:calc(91px + 60px)}
+.pm-tasks__visual{height:400px;background:#0F0F0F;overflow:hidden}
+/* Plate under the sticky photo: invitation line on the left, red CTA on the
+   right (reference screenshot), same bottom-up hover as the site buttons. */
+.pm-tasks__plate{background:#0F0F0F;color:#E9EBEF;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 30px}
+.pm-tasks__plate>span{margin:0;font:400 15px/1.4 Onest,sans-serif;max-width:280px;text-wrap:pretty}
+.pm-tasks__cta{flex:none;display:inline-flex;align-items:center;gap:18px;background-image:linear-gradient(0deg,#BD0000 50%,#FA001E 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;color:#E9EBEF;padding:18px 22px;font:600 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;transition:background-position .55s cubic-bezier(.7,0,.2,1)}
+.pm-tasks__cta:hover{background-position:0 100%}
 .pm-tasks__visual img{display:block;width:100%;height:100%;object-fit:cover}.pm-section__intro h2{font-size:clamp(44px,5.2vw,72px)}.pm-section__intro .pm-section__lead{margin-top:26px;max-width:360px}.pm-task-list{border-top:1px solid #C2C5CA}.pm-task-row{display:flex;flex-direction:column;justify-content:center;min-height:calc((100svh - 211px + 360px)/4);padding:48px 0;border-bottom:1px solid #C2C5CA}
 .pm-pricing__grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:12px;align-items:stretch}
 .pm-pricing__main{background:var(--color-card,#F4F5F7)}
@@ -436,7 +446,7 @@ const subservices = [
 .pm-metric-grid article>span{display:inline-block;transition:opacity .4s ease,transform .4s ease}
 .pm-metric-grid[data-line="0"] article>span{opacity:0;transform:translateY(4px)}.pm-metric-grid article{padding:25px 20px 30px;border-right:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:first-child{padding-left:0}.pm-metric-grid article:last-child{border:0}.pm-metric-grid article>span{font:500 10px 'JetBrains Mono',monospace;color:#FA001E}.pm-metric-grid h3{font:700 31px/1 Steelfish,sans-serif;text-transform:uppercase;margin:30px 0 14px}.pm-metric-grid p,.pm-metrics__foot{font-size:14px;line-height:1.5;color:rgba(233,235,239,.72)}.pm-metric-grid p{margin:0}.pm-metrics__foot{max-width:750px;margin:25px 0 0 auto}.pm-process{padding-top:108px}.pm-pricing{padding-top:104px;padding-bottom:110px}
 @media(max-width:1000px){.pm-section,.pm-metrics{padding-left:30px;padding-right:30px}.pm-section__title-row>.pm-section__lead{grid-column:1}.pm-tasks__split{grid-template-columns:1fr;margin-top:44px;gap:28px}
-.pm-tasks__visual{position:static;height:auto;aspect-ratio:16/10}
+.pm-tasks__aside{position:static}.pm-tasks__visual{height:auto;aspect-ratio:16/10}.pm-tasks__plate{flex-wrap:wrap;padding:20px}
 .pm-task-row{min-height:0;padding:32px 0 36px}.pm-tasks .pm-section__intro h2{font-size:clamp(42px,6vw,62px)}.pm-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pm-metric-grid article:nth-child(2){border-right:0}.pm-metric-grid article:nth-child(3){padding-left:0;border-top:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:nth-child(4){border-top:1px solid rgba(233,235,239,.2)}}
 @media(max-width:680px){.pm-section,.pm-metrics{padding:76px 21px}.pm-section__title-row,.pm-toolkit .pm-section__title-row,.pm-approach .pm-section__title-row,.pm-metrics .pm-section__title-row{grid-template-columns:1fr;gap:14px;margin-bottom:31px}.pm-section__title-row>.pm-section__lead{grid-column:auto}.pm-section h2,.pm-metrics h2{font-size:clamp(44px,10vw,65px)}.pm-tasks{padding-top:72px}.pm-section__intro h2{font-size:clamp(46px,10vw,66px)}.pm-section__intro .pm-section__lead{margin-top:18px}.pm-task-row{min-height:0;padding:26px 0 30px}.pm-task-row h3{font-size:26px}.pm-task-row p{font-size:13px}.pm-tasks__split{margin-top:32px;gap:20px}.pm-tasks__visual{aspect-ratio:4/3}.pm-task-row__index{font-size:52px;margin-bottom:18px}.pm-toolkit{padding-top:74px}.pm-approach__note{margin:23px 0 0;padding:20px 20px 20px 23px;font-size:14px}.pm-metric-grid article{padding:19px 14px 22px}.pm-metric-grid h3{font-size:26px;margin:23px 0 12px}.pm-metric-grid p{font-size:13px}.pm-metrics__foot{font-size:13px}.pm-pricing__extra-cta{min-height:64px;padding:0 19px;font-size:10px}}
 @media(max-width:380px){.pm-metric-grid{grid-template-columns:1fr}.pm-metric-grid article,.pm-metric-grid article:nth-child(n){padding:18px 0;border-right:0;border-top:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:first-child{border-top:0}.pm-task-row h3{font-size:24px}}
