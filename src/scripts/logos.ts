@@ -68,8 +68,10 @@ export function initLogos() {
     };
     // The footer mark always stays paper-on-dark; the header wordmark follows
     // the header theme — black letters on the light bar, white on the dark one.
-    const hdrLogo = hdr && hdr.dataset.hdrTheme === 'dark' ? '/src/logo-white.svg' : '/src/logo-black.svg';
-    if (logoA || fmEl) fetch('/src/logo-white.svg').then(r => { if (!r.ok) throw 0; return r.text(); }).then(t => { buildFM(t); if (!logoA) throw 0; return fetch(hdrLogo).then(r => { if (!r.ok) throw 0; return r.text(); }); }).then(t => {
+    // Both fetches spell their URL out as a direct literal: the Pages rebase
+    // pass only rewrites root-absolute strings that sit inside fetch() itself,
+    // so routing them through a variable breaks the header mark on GitHub Pages.
+    if (logoA || fmEl) fetch('/src/logo-white.svg').then(r => { if (!r.ok) throw 0; return r.text(); }).then(t => { buildFM(t); if (!logoA) throw 0; return (hdr && hdr.dataset.hdrTheme === 'dark' ? fetch('/src/logo-white.svg') : fetch('/src/logo-black.svg')).then(r => { if (!r.ok) throw 0; return r.text(); }); }).then(t => {
       const NS = 'http://www.w3.org/2000/svg', ps = [...new DOMParser().parseFromString(t, 'image/svg+xml').querySelectorAll('path')];
       const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 219 34'); svg.setAttribute('width', (219 * 26 / 34).toFixed(2)); svg.setAttribute('height', '26');
       svg.style.cssText = 'position:absolute;top:0;left:-2px;overflow:visible';
