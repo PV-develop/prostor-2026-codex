@@ -1,0 +1,26 @@
+---
+const certificates = [
+  { src: '/src/certificates/bitrix24.png', alt: 'Сертификат партнёра Битрикс24' },
+  { src: '/src/certificates/1c-bitrix.png', alt: 'Сертификат партнёра 1С-Битрикс' },
+  { src: '/src/certificates/avito.png', alt: 'Сертификат партнёра Авито' },
+  { src: '/src/certificates/yandex-direct.png', alt: 'Сертификат партнёра Яндекс Директ' },
+  { src: '/src/certificates/it-accreditation.png', alt: 'Запись компании в реестре аккредитованных IT-компаний' },
+];
+---
+
+<section class="certificates" aria-label="Сертификаты и подтверждения партнёрства">
+  <div class="certificates__grid">
+    {certificates.map((certificate) => <figure class="certificates__item">
+      <img src={certificate.src} alt={certificate.alt} loading="lazy" />
+    </figure>)}
+  </div>
+</section>
+
+<style>
+.certificates{background:#0f0f0f;padding:var(--section-space-y) var(--gutter)}
+.certificates__grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.5vw,28px);max-width:1680px;margin:0 auto}
+.certificates__item{margin:0;min-width:0;background:#202020;overflow:hidden}
+.certificates__item img{display:block;width:100%;height:auto;aspect-ratio:252/324;object-fit:cover}
+@media(max-width:1000px){.certificates__grid{grid-template-columns:repeat(3,minmax(0,1fr))}.certificates__item:nth-child(n+4){grid-column:span 1}}
+@media(max-width:680px){.certificates{padding:64px 21px}.certificates__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.certificates__item:last-child{grid-column:1/-1;width:calc(50% - 6px)}}
+</style>

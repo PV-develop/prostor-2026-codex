@@ -27,8 +27,8 @@
    the gutter insets, so the block heading and the service titles hold one
    left axis. */
 @media (min-width:769px) and (max-width:1000px){
-  [data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 var(--gutter)!important}
-  [data-m="s2head"] p{font-size:17px!important}
+  [data-m="s2head"]{display:grid!important;grid-template-columns:minmax(0,3fr) minmax(220px,2fr)!important;align-items:end!important;gap:24px!important;padding:0 var(--gutter)!important}
+  [data-m="s2head"] p{font:var(--type-lead)!important}
   [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d"!important;gap:14px 16px!important;padding:28px var(--gutter)!important;align-items:start!important}
   [data-m="srow"]>:nth-child(1){grid-area:t}
   [data-m="srow"]>:nth-child(2){grid-area:d;max-width:none!important}
@@ -53,13 +53,13 @@
 [data-menu] [data-mh]>button>span:last-child svg{width:22px!important;height:22px!important}
 [data-menu] [data-mg]{grid-template-columns:1fr!important;gap:24px!important;padding-top:18px}
 [data-menu] [data-mmain]{display:grid!important;grid-template-columns:1fr 1fr;gap:20px 24px;border-right:0!important;padding-right:0!important;border-bottom:1px solid rgba(15,15,15,.12);padding-bottom:22px}
-[data-menu] [data-mmain]>a{font-size:26px}
+[data-menu] [data-mmain]>a{font:var(--type-h4)}
 [data-menu] [data-mmain]>a>span{display:none}
 [data-menu] [data-mmain] [data-mextra]{display:block}
 [data-menu] [data-mservices]{border-bottom:1px solid rgba(15,15,15,.12);padding-bottom:22px}
 [data-menu] [data-msnav]{gap:22px 20px!important}
 [data-menu] [data-mplus]{display:inline}
-[data-menu] [data-msnav] summary{font-size:20px!important;margin-bottom:0!important}
+[data-menu] [data-msnav] summary{font:var(--type-h5)!important;margin-bottom:0!important}
 [data-menu] [data-mgrp][open] summary{margin-bottom:12px!important}
 [data-menu] [data-mc]{flex-direction:column!important;gap:18px!important;align-items:stretch!important}
 [data-menu] [data-mc]>details{display:none}
@@ -73,7 +73,6 @@
 [data-screen-label^="01"]{min-height:0!important}
 [data-m="heropad"]{padding:0 20px!important}
 [data-m="herogrid"]{display:flex!important;flex-direction:column;align-items:stretch;padding:36px 0 48px!important;gap:32px}
-[data-m="herogrid"] h1{font-size:min(22vw,96px)!important}
 [data-m="lead"]{display:none!important}
 [data-m="leadm"]{display:block!important;order:1}
 [data-m="herocta"]{order:2;margin-top:0!important;max-width:none!important}
@@ -81,20 +80,16 @@
 [data-m="twenty"]{order:3;align-self:stretch!important;margin-top:8px}
 [data-m="twenty"]{order:-1;align-items:center!important;align-self:center!important;justify-self:center!important;gap:8px!important;margin:0 0 8px!important}
 [data-m="twenty"] [data-cap]{align-items:center!important;text-align:center!important}
-[data-m="twenty"] [data-parallax]{font-size:min(88vw,420px)!important;width:max-content;text-align:center!important}
-[data-m="twenty"] [data-cap-line]{font-size:30px!important}
+[data-m="twenty"] [data-parallax]{font:var(--type-hero-stat)!important;width:max-content;text-align:center!important}
+[data-m="twenty"] [data-cap-line]{font:var(--type-h5)!important}
 [data-logo] svg,[data-logo] img{display:none!important}
 [data-logo]{background:url(/src/logo-black.svg) no-repeat -39px 0/auto 26px}
 [data-hdr-theme="dark"] [data-logo]{background:url(/src/logo-white.svg) no-repeat -39px 0/auto 26px}
 [data-fmark]{width:100%!important;max-width:100%!important;margin-left:0!important;aspect-ratio:168/34!important;background:url(/src/logo-white.svg) no-repeat 100% 0/130.36% auto}
 [data-fmark]>svg{display:none!important}
 [data-m="trust"]{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important;row-gap:14px;padding:18px 0 22px!important}
-[data-screen-label^="02"],[data-screen-label^="03"]{padding:88px 0 96px!important}
-[data-screen-label^="04"]{padding-top:88px!important}
-[data-screen-label^="05"]{padding:88px 0 72px!important}
-[data-screen-label^="06"]{padding:40px 0!important}
 [data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 20px!important}
-[data-m="s2head"] p{font-size:17px!important}
+[data-m="s2head"] p{font:var(--type-lead)!important}
 [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d";gap:14px 16px!important;padding:28px 20px!important;align-items:start!important}
 [data-m="srow"]>:nth-child(1){grid-area:t}
 [data-m="srow"]>:nth-child(2){grid-area:d;max-width:none!important}
@@ -108,10 +103,10 @@
 [data-m="team"]{margin-top:48px!important;padding:0 20px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
 [data-team-card]{padding:12px!important}
 [data-team-caption]{padding:16px 0 2px!important}
-[data-team-name]{font-size:22px!important}
-[data-team-role],[data-team-year]{font-size:11px!important;margin-top:10px!important}
+[data-team-name]{font:var(--type-h4)!important}
+[data-team-role],[data-team-year]{font:var(--type-meta)!important;margin-top:10px!important}
 [data-team-year]{margin-top:12px!important}
-[data-team-number]{left:10px!important;bottom:10px!important;min-width:32px!important;padding:8px!important;font-size:10px!important}
+[data-team-number]{left:10px!important;bottom:10px!important;min-width:32px!important;padding:8px!important;font:var(--type-meta)!important}
 [data-m="s4head"]{padding:0 20px!important;gap:20px!important}
 [data-m="s4head"]>div:first-child{flex-direction:column;gap:20px!important}
 [data-m="procnote"]{margin:16px 20px 0!important;flex-direction:column;gap:6px!important}
@@ -119,7 +114,7 @@
 [data-m="cta"]>div:nth-child(2){grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
 [data-m="spacer"]{height:80px!important}
 [data-m="quote"]{padding:64px 20px 0!important;display:flex!important;flex-direction:column;gap:20px}
-[data-m="quote"]>div:first-child{font-size:96px!important;line-height:.8!important}
+[data-m="quote"]>div:first-child{font:var(--type-quote-mark)!important}
 [data-m="contacts"]{padding:0 20px!important}
 [data-screen-label^="07"]{margin:80px 20px 0!important;padding-top:48px!important}
 [data-m="fbar"]{display:flex!important;flex-wrap:wrap;gap:16px 24px!important;margin-top:56px!important}
@@ -293,12 +288,89 @@
   --font-display: Steelfish, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --display-stretch: 25%;
-  --display-heading: 700 clamp(64px, 8.3vw, 120px)/1.14 var(--font-display);
-  --body-copy: 400 15px/1.5 var(--font-body);
-  --eyebrow-copy: 500 13px/1.35 var(--font-body);
-  --button-copy: 600 12px/1.2 var(--font-mono);
+  /* Shared type scale: semantic levels are the single source of heading
+     sizes on every page. Layout variants should change width/color only. */
+  --type-h1: 700 clamp(76px, 9vw, 160px)/.98 var(--font-display);
+  --type-h2: 700 clamp(48px, 6vw, 96px)/1.02 var(--font-display);
+  --type-h3: 700 clamp(30px, 3vw, 48px)/1 var(--font-display);
+  --type-h4: 700 clamp(24px, 2.4vw, 36px)/1.02 var(--font-display);
+  --type-h5: 700 clamp(20px, 2vw, 30px)/1.08 var(--font-display);
+  --type-h6: 700 clamp(18px, 1.6vw, 24px)/1.12 var(--font-display);
+  --type-metric: 700 clamp(72px, 8.1vw, 122px)/.9 var(--font-display);
+  --type-row-title: 700 clamp(40px, 5vw, 72px)/.92 var(--font-display);
+  --type-contact: 700 clamp(28px, 2.6vw, 36px)/1 var(--font-display);
+  --type-nav-title: 700 clamp(28px, 2.4vw, 38px)/1.02 var(--font-display);
+  --type-display-callout: 700 clamp(44px, 4.4vw, 64px)/.92 var(--font-display);
+  --type-hero-copy: 400 clamp(16px, 1.3vw, 18px)/1.5 var(--font-body);
+  --type-ui-copy: 400 14px/1.4 var(--font-body);
+  --type-ui-emphasis: 500 14px/1.4 var(--font-body);
+  --type-icon: 500 16px/1 var(--font-mono);
+  --type-stat: 700 clamp(84px, 11.7vw, 168px)/.72 var(--font-display);
+  --type-step-number: 700 clamp(52px, 5vw, 72px)/.8 var(--font-display);
+  --type-hero-stat: 800 clamp(280px, 34vw, 480px)/.8 var(--font-display);
+  --type-hero-stat-mobile: 800 clamp(220px, 88vw, 420px)/.8 var(--font-display);
+  --type-quote-mark: 700 clamp(120px, 15vw, 220px)/.6 var(--font-display);
+  --type-lead: 400 clamp(18px, 1.55vw, 24px)/1.45 var(--font-body);
+  --type-body: 400 16px/1.5 var(--font-body);
+  --type-body-small: 400 14px/1.45 var(--font-body);
+  --type-label: 500 13px/1.35 var(--font-body);
+  --type-meta: 500 12px/1.25 var(--font-mono);
+  --type-button: 600 12px/1.2 var(--font-mono);
+  --display-heading: var(--type-h2);
+  --display-h1: var(--type-h1);
+  --section-subtitle: var(--type-lead);
+  --body-copy: var(--type-body);
+  --eyebrow-copy: var(--type-label);
+  --button-copy: var(--type-button);
+
+  /* Shared spacing scale. Section rhythm uses the three semantic tokens
+     below; local component spacing uses the fixed scale as needed. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-18: 72px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --section-space-y: clamp(80px, 8vw, 120px);
+  --section-heading-gap: clamp(24px, 3vw, 48px);
+  --section-content-gap: 48px;
 }
+@media(max-width:760px){:root{--type-h1:700 clamp(59px,14.3vw,84px)/.98 var(--font-display);--type-h2:700 clamp(44px,8.47vw,68px)/1.04 var(--font-display);--type-h3:700 clamp(26px,7vw,38px)/1 var(--font-display);--type-h4:700 clamp(23px,6vw,32px)/1.02 var(--font-display);--type-h5:700 clamp(19px,5vw,26px)/1.08 var(--font-display);--type-h6:700 clamp(17px,4.4vw,22px)/1.12 var(--font-display);--type-lead:400 clamp(17px,4.4vw,20px)/1.45 var(--font-body);--type-body:400 16px/1.5 var(--font-body);--type-body-small:400 14px/1.45 var(--font-body);--type-hero-stat:var(--type-hero-stat-mobile);--type-quote-mark:700 96px/.8 var(--font-display);--section-space-y:64px;--section-heading-gap:16px;--section-content-gap:32px}}
 body { background: var(--color-ink); color: var(--color-ink); font-family: var(--font-body); }
+h1,h2,h3,h4,h5,h6{margin:0;font-stretch:var(--display-stretch);text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance}
+h1{font:var(--type-h1)}
+h2{font:var(--type-h2)}
+h3{font:var(--type-h3)}
+h4{font:var(--type-h4)}
+h5{font:var(--type-h5)}
+h6{font:var(--type-h6)}
+p{font:var(--type-body)}
+.type-lead{font:var(--type-lead)}
+.type-body{font:var(--type-body)}
+.type-body-small{font:var(--type-body-small)}
+.type-label{font:var(--type-label)}
+.type-meta{font:var(--type-meta)}
+.type-button{font:var(--type-button)}
+.service-title{font-stretch:var(--display-stretch);text-transform:uppercase}
+.service-title--row{font:var(--type-row-title)}
+/* Shared section-heading pattern: display title at left, larger supporting
+   copy at right. Sections with a CTA or a bespoke composition can opt out. */
+.section-heading-pair{display:grid;grid-template-columns:minmax(0,3fr) minmax(280px,2fr);column-gap:var(--section-heading-gap);align-items:end}
+.section-heading-pair>.section-heading-pair__title{grid-column:1;width:auto;min-width:0;max-width:none}
+.section-heading-pair>.section-heading-pair__subtitle{grid-column:2;align-self:end;margin:0;max-width:760px;font:var(--type-lead);text-wrap:pretty}
+@media(max-width:760px){.section-heading-pair{grid-template-columns:minmax(0,1fr);row-gap:var(--space-4)}.section-heading-pair>.section-heading-pair__title,.section-heading-pair>.section-heading-pair__subtitle{grid-column:1}}
 /* Header follows its theme: light bar over the light hero (ink text, black
    wordmark), dark bar when the dark variant is restored. */
 [data-hdr] { color: var(--color-ink); }
@@ -329,6 +401,8 @@ body { background: var(--color-ink); color: var(--color-ink); font-family: var(-
 /* Content column: sections stay full-bleed, their content (and the fixed
    header/menu chrome) aligns to a 1600px column via --gutter. */
 :root{--gutter:max(48px,calc((100vw - 1600px)/2))}
+@media(max-width:1000px){:root{--gutter:30px}}
+@media(max-width:680px){:root{--gutter:21px}}
 
 
 /* Site-wide dot field (created by home.ts): the fixed canvas sits between the

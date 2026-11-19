@@ -1,0 +1,36 @@
+---
+interface Props {
+  image?: string;
+  imageAlt?: string;
+  description?: string;
+}
+
+const {
+  image = '/src/chips/analytics-dashboard-reference.jpg',
+  imageAlt = 'Интерфейс личного кабинета с показателями рекламы и заявок',
+  description = 'Мы разработали для клиентов удобный личный кабинет, где в реальном времени отображаются все ключевые показатели.',
+} = Astro.props;
+---
+
+<section class="analytics-showcase" aria-labelledby="analytics-showcase-title">
+  <div class="analytics-showcase__inner">
+    <div class="analytics-showcase__visual">
+      <img src={image} alt={imageAlt} loading="lazy" />
+    </div>
+    <div class="analytics-showcase__copy">
+      <h2 id="analytics-showcase-title"><span>Собственная</span><br />система аналитики</h2>
+      <p>{description}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.analytics-showcase{background:#bd0017;color:#e9ebef;padding:var(--section-space-y) var(--gutter)}
+.analytics-showcase__inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.88fr);gap:clamp(40px,5vw,76px);align-items:center;max-width:1600px;margin:0 auto}
+.analytics-showcase__visual{position:relative;width:100%;aspect-ratio:675/409;overflow:hidden;background:#f4f5f7}
+.analytics-showcase__visual img{position:absolute;width:213.33%;max-width:none;height:auto;left:-7.11%;top:-22%;display:block}
+.analytics-showcase__copy h2{margin:0}
+.analytics-showcase__copy h2 span{color:#0f0f0f}
+.analytics-showcase__copy p{max-width:540px;margin:var(--space-6) 0 0;font:var(--type-body);color:rgba(233,235,239,.9)}
+@media(max-width:760px){.analytics-showcase{padding:var(--section-space-y) 21px}.analytics-showcase__inner{grid-template-columns:1fr;gap:var(--section-content-gap)}.analytics-showcase__copy p{margin-top:var(--space-6)}}
+</style>
