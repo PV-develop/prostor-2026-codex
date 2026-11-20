@@ -1,0 +1,26 @@
+---
+interface Props {
+  description: string;
+  className?: string;
+  style?: string;
+}
+
+const { description, className, style } = Astro.props;
+---
+<div class:list={["hero-content", className]} style={style}>
+  <h1 class="page-display-heading hero-content__title" data-reveal>
+    <slot name="heading" />
+  </h1>
+  <p class="hero-content__subtitle">{description}</p>
+  <div class="hero-content__actions" data-actions-buttons data-m="herocta">
+    <slot name="actions" />
+  </div>
+</div>
+
+<style is:global>
+.hero-content{display:flex;width:100%;min-width:0;flex-direction:column;align-items:flex-start;gap:clamp(24px,3vw,40px);position:relative;z-index:3}
+.hero-content__title{margin:0;text-wrap:balance}
+.hero-content__subtitle{max-width:620px;margin:0;font:var(--type-hero-copy);color:inherit;text-wrap:pretty}
+.hero-content__actions{display:flex;width:100%;max-width:820px;align-items:flex-start;gap:20px;flex-wrap:wrap}
+@media(max-width:768px){.hero-content{gap:24px}.hero-content__actions{max-width:none}}
+</style>

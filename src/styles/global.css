@@ -18,11 +18,6 @@
 [data-menu] [data-mg]{grid-template-columns:1.3fr 1.6fr!important}
 [data-menu] [data-mc]{grid-column:1/-1;flex-direction:row!important;flex-wrap:wrap;align-items:center;gap:14px 30px}
 }
-@media (max-width:1024px){
-[data-m="proc"]{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:2px!important;scroll-padding:0 48px;scrollbar-width:none;padding-bottom:4px!important}
-[data-m="proc"]::-webkit-scrollbar{display:none}
-[data-m="proc"]>div{flex:0 0 min(78vw,340px);scroll-snap-align:start;min-height:380px!important}
-}
 /* Tablet band: service rows stack like mobile (title full width) but keep
    the gutter insets, so the block heading and the service titles hold one
    left axis. */
@@ -35,8 +30,6 @@
   [data-m="srow"]>:nth-child(3){grid-area:a;width:48px!important;height:48px!important;justify-self:end}
 }
 @media (max-width:768px){
-[data-m="proc"]{padding-left:20px!important;padding-right:20px!important;margin-top:16px!important;scroll-padding:0 20px}
-[data-m="proc"]>div{flex:0 0 80%!important;min-height:0!important}
 [data-m="prochint"]{display:flex!important;margin:32px 20px 0!important}
 [data-hdr]{padding:14px 20px!important;gap:8px!important;grid-template-columns:auto minmax(0,1fr)!important}
 [data-m="hright"]{justify-self:end;gap:8px!important}

@@ -7,10 +7,10 @@ export interface ProcessCard {
   detail: string;
 }
 
-interface Props { items: ProcessCard[]; inset?: boolean; }
-const { items, inset = true } = Astro.props;
+interface Props { items: ProcessCard[]; inset?: boolean; carousel?: boolean; }
+const { items, inset = true, carousel = false } = Astro.props;
 ---
-<div class:list={["process-cards", !inset && "process-cards--flush"]} lang="ru">
+<div class:list={["process-cards", !inset && "process-cards--flush", carousel && "process-cards--carousel"]} lang="ru" data-m={carousel ? "proc" : undefined}>
   {items.map((item, index) => <article class="process-card" data-reveal style={`transition-delay:${index * 90}ms`}>
     <div class="process-card__top">
       <span class="process-card__number">{String(index + 1).padStart(2, '0')}</span>
@@ -30,4 +30,7 @@ const { items, inset = true } = Astro.props;
 @media(max-width:680px){.process-cards{grid-template-columns:1fr 1fr;gap:8px;padding:0 21px}.process-card{min-height:340px;padding:22px 16px 26px}.process-card h3{margin:30px 0 16px}.process-card__detail{padding-top:22px}}
 @media(max-width:430px){.process-cards{grid-template-columns:1fr}.process-card{min-height:300px}}
 .process-cards.process-cards--flush{padding-left:0;padding-right:0}
+@media(max-width:768px){.process-cards--carousel{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;scrollbar-width:none;gap:2px;padding:0 20px 4px}.process-cards--carousel::-webkit-scrollbar{display:none}.process-cards--carousel .process-card{flex:0 0 100%;scroll-snap-align:start;min-height:0}}
+@media(min-width:431px) and (max-width:768px){.process-cards--carousel{gap:12px}.process-cards--carousel .process-card{flex:0 0 40vw;min-height:400px}}
+@media(min-width:769px) and (max-width:1800px){.process-cards--carousel{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;overflow:visible;scroll-snap-type:none;scroll-padding:0;padding:0 30px}.process-cards--carousel .process-card{flex:none;scroll-snap-align:none;min-height:400px}}
 </style>
