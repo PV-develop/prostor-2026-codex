@@ -32,7 +32,7 @@
    left axis. */
 @media (min-width:769px) and (max-width:1000px){
   [data-m="s2head"]{padding:0 var(--gutter)!important}
-  [data-m="s2head"] p{font:var(--type-lead)!important}
+  [data-m="s2head"] p{font:var(--type-body)!important}
   [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d"!important;gap:14px 16px!important;padding:28px var(--gutter)!important;align-items:start!important}
   [data-m="srow"]>:nth-child(1){grid-area:t}
   [data-m="srow"]>:nth-child(2){grid-area:d;max-width:none!important}
@@ -91,7 +91,7 @@
 [data-fmark]>svg{display:none!important}
 [data-m="trust"]{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important;row-gap:14px;padding:18px 0 22px!important}
 [data-m="s2head"]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:0 20px!important}
-[data-m="s2head"] p{font:var(--type-lead)!important}
+[data-m="s2head"] p{font:var(--type-body)!important}
 [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d";gap:14px 16px!important;padding:28px 20px!important;align-items:start!important}
 [data-m="srow"]>:nth-child(1){grid-area:t}
 [data-m="srow"]>:nth-child(2){grid-area:d;max-width:none!important}
@@ -365,10 +365,10 @@ h3{font:var(--type-h3)}
 h4{font:var(--type-h4)}
 h5{font:var(--type-h5)}
 h6{font:var(--type-h6)}
-p{font:var(--type-body)}
-.type-lead{font:var(--type-lead)}
-.type-body{font:var(--type-body)}
-.type-body-small{font:var(--type-body-small)}
+p:not(.pm-pricing__label):not(.pm-stage__kicker):not(.pm-stage__gain){font:var(--type-body);color:inherit!important;opacity:1}
+.type-lead{font:var(--type-lead);color:inherit!important;opacity:1}
+.type-body{font:var(--type-body);color:inherit!important;opacity:1}
+.type-body-small{font:var(--type-body-small);color:inherit!important;opacity:1}
 .type-label{font:var(--type-label)}
 .type-meta{font:var(--type-meta)}
 .type-button{font:var(--type-button)}
@@ -378,7 +378,7 @@ p{font:var(--type-body)}
    copy at right. Sections with a CTA or a bespoke composition can opt out. */
 .section-heading-pair{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:end}
 .section-heading-pair>.section-heading-pair__title{grid-column:1;width:auto;min-width:0;max-width:none;overflow-wrap:anywhere}
-.section-heading-pair>.section-heading-pair__subtitle{grid-column:2;align-self:end;margin:0;max-width:760px;font:var(--type-body);text-wrap:pretty}
+.section-heading-pair>.section-heading-pair__subtitle{grid-column:2;align-self:end;margin:0;max-width:760px;font:var(--type-body);color:inherit!important;opacity:1;text-wrap:pretty}
 @media(max-width:760px){.section-heading-pair{grid-template-columns:minmax(0,1fr);row-gap:var(--space-4)}.section-heading-pair>.section-heading-pair__title,.section-heading-pair>.section-heading-pair__subtitle{grid-column:1}}
 /* Header follows its theme: light bar over the light hero (ink text, black
    wordmark), dark bar when the dark variant is restored. */
