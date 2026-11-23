@@ -127,7 +127,7 @@
 /* Hover states ported from the Claude Design export. */
 .export-hover-1:hover{background-position:0 100% !important;color:#0F0F0F !important}
 .export-hover-2:hover{background:#E9EBEF !important;color:#0F0F0F !important}
-.export-hover-3:hover{background:#0F0F0F !important;color:#E9EBEF !important}
+.export-hover-3:hover{background-position:0 100% !important;color:#E9EBEF !important}
 .export-hover-4:hover{color:#FA001E !important}
 .export-hover-5:hover{color:#FA001E !important}
 .export-hover-6:hover{color:#FA001E !important}
@@ -374,6 +374,7 @@ p:not(.pm-pricing__label):not(.pm-stage__kicker):not(.pm-stage__gain){font:var(-
 .type-button{font:var(--type-button)}
 .service-title{font-stretch:var(--display-stretch);text-transform:uppercase}
 .service-title--row{font:var(--type-row-title)}
+[data-m="srow"]:hover{border-bottom-color:var(--color-ink)!important}
 /* Shared section-heading pattern: display title at left, larger supporting
    copy at right. Sections with a CTA or a bespoke composition can opt out. */
 .section-heading-pair{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:end}

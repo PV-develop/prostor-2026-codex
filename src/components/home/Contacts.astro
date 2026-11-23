@@ -2,7 +2,7 @@
 import Footer from './Footer.astro';
 ---
 <div data-screen-label="06 Контакты" id="contacts" data-page-nav style="background:#0F0F0F;color:#E9EBEF;padding:var(--section-space-y) 0;overflow:hidden">
-<div data-reveal="" data-m="contacts" style="padding:0 var(--gutter);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:1px">
+<div data-reveal="" data-m="contacts" style="padding:0 var(--gutter);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:0">
 <form class="contacts-form" style="margin:0;background:#BD0000;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:28px" data-action-submit="onSend">
 <div class="section-heading-pair contacts-heading-pair"><h2 class="section-heading-pair__title contacts-form__title">Оставьте заявку, чтобы <span>обсудить проект</span></h2><p class="section-heading-pair__subtitle" style="color:rgba(233,235,239,.86);max-width:440px">Свяжемся в течение часа и проконсультируем по вашему вопросу.</p></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(max(220px,calc(50% - 6px)),1fr));gap:12px">
@@ -14,7 +14,7 @@ import Footer from './Footer.astro';
 </div>
 <div style="display:flex;flex-direction:column;gap:14px"><button type="submit" style="all:unset;box-sizing:border-box;cursor:pointer;background:#0F0F0F;color:#FFFFFF;padding:24px 28px;font:var(--type-button);letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;transition:background .25s" class="contacts-submit"><span>Отправить заявку</span><span>→</span></button><div style="font:var(--type-body-small);color:rgba(233,235,239,.72)">Отправляя заявку, вы соглашаетесь с <a href="#" style="color:rgba(233,235,239,.95);text-decoration:underline;text-underline-offset:3px">политикой обработки персональных данных</a></div></div>
 </form>
-<div class="contacts-form__aside" style="display:grid;grid-template-rows:auto 1fr;gap:1px;min-width:0">
+<div class="contacts-form__aside" style="display:grid;grid-template-rows:auto 1fr;gap:0;min-width:0">
 <div class="contacts-form__brief" style="background:#E9EBEF;color:#0F0F0F;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:28px"><div style="display:flex;flex-direction:column;gap:16px"><h3 class="contacts-card-heading" style="margin:0;text-transform:uppercase;text-wrap:balance">Или сразу заполните<br />бриф из 5 вопросов</h3><p style="margin:0;font:var(--type-body);max-width:420px;text-wrap:pretty">Чем раньше мы поймём задачу, тем точнее подготовим предложение.</p></div><a href="#" style="align-self:flex-start;border:1px solid #0F0F0F;background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;color:#0F0F0F;padding:22px 28px;font:var(--type-button);letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s" class="contacts-brief-cta">Заполнить бриф <span>→</span></a></div>
 <div class="contacts-form__contact-card" style="background:#242526;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:32px"><h3 class="contacts-card-heading" style="margin:0;text-transform:uppercase">Контакты</h3>
 <div class="contacts-form__contact-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px;align-items:start">
