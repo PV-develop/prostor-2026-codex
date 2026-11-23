@@ -378,7 +378,7 @@ p{font:var(--type-body)}
    copy at right. Sections with a CTA or a bespoke composition can opt out. */
 .section-heading-pair{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:end}
 .section-heading-pair>.section-heading-pair__title{grid-column:1;width:auto;min-width:0;max-width:none;overflow-wrap:anywhere}
-.section-heading-pair>.section-heading-pair__subtitle{grid-column:2;align-self:end;margin:0;max-width:760px;font:var(--type-lead);text-wrap:pretty}
+.section-heading-pair>.section-heading-pair__subtitle{grid-column:2;align-self:end;margin:0;max-width:760px;font:var(--type-body);text-wrap:pretty}
 @media(max-width:760px){.section-heading-pair{grid-template-columns:minmax(0,1fr);row-gap:var(--space-4)}.section-heading-pair>.section-heading-pair__title,.section-heading-pair>.section-heading-pair__subtitle{grid-column:1}}
 /* Header follows its theme: light bar over the light hero (ink text, black
    wordmark), dark bar when the dark variant is restored. */

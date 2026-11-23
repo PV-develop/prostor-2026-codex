@@ -46,7 +46,7 @@ const titleId = `${id}-title`;
         <span data-field-label="EXE">Email</span>
         <input type="email" name="email" autocomplete="email" data-field-input="EXE" />
       </label>
-      <label class="pm-expert__consent"><input type="checkbox" checked required /><span>Согласен на <a href="#">обработку персональных данных</a> и с <a href="#">политикой обработки персональных данных</a></span></label>
+      <label class="pm-expert__consent"><input type="checkbox" required /><span>Согласен на <a href="#">обработку персональных данных</a> и с <a href="#">политикой обработки персональных данных</a></span></label>
       <button type="submit" class="pm-expert__submit"><span>Отправить заявку</span><span aria-hidden="true">→</span></button>
     </form>
   </div>
@@ -60,7 +60,7 @@ const titleId = `${id}-title`;
 .pm-expert__intro h2{min-width:0;margin:0 0 var(--section-content-gap)}
 .pm-expert__contacts{display:grid;grid-template-columns:repeat(3,minmax(min-content,1fr));gap:28px clamp(12px,1.6vw,48px);border-top:0;padding-top:0}
 .pm-expert__contact{display:flex;flex-direction:column;gap:10px;min-width:0}
-.pm-expert__contact>span:not(.pm-expert__big){font:var(--type-body);letter-spacing:0;text-transform:none;color:rgba(233,235,239,.9)}
+.pm-expert__contact>span:not(.pm-expert__big){font:var(--type-body);letter-spacing:0;text-transform:none;color:#E9EBEF}
 .pm-expert__messengers{display:flex;flex-direction:row;gap:24px;align-items:flex-start;flex-wrap:wrap}
 .pm-expert__messengers a{display:inline-flex;gap:10px;font:var(--type-button);letter-spacing:.1em;text-transform:uppercase;color:#E9EBEF;transition:color .2s}
 .pm-expert__messengers a:hover{color:rgba(233,235,239,.7)}
@@ -69,15 +69,15 @@ const titleId = `${id}-title`;
 .pm-expert__big:hover{color:rgba(233,235,239,.7)}
 .pm-expert__form{display:flex;flex-direction:column;padding-top:8px}
 .pm-expert__field{position:relative;display:block;cursor:text;margin-bottom:34px}
-.pm-expert__field span{position:absolute;left:0;top:20px;font:var(--type-body);color:rgba(233,235,239,.6);pointer-events:none;transition:top .2s,font-size .2s,color .2s}
+.pm-expert__field span{position:absolute;left:0;top:20px;font:var(--type-body);color:#E9EBEF;pointer-events:none;transition:top .2s,font-size .2s,color .2s}
 .pm-expert__field input{all:unset;box-sizing:border-box;width:100%;height:56px;border-bottom:1px solid rgba(233,235,239,.45);color:#fff;font:var(--type-body);transition:border-color .25s}
 .pm-expert__field input::placeholder{color:rgba(255,255,255,.7);opacity:1}
 .pm-expert__field input:focus{border-color:#E9EBEF}
 .pm-expert__field:focus-within span{top:0!important;font:var(--type-label);color:#E9EBEF}
-.pm-expert__consent{display:flex;gap:12px;align-items:flex-start;cursor:pointer;margin:0 0 34px;font:var(--type-body-small);color:rgba(233,235,239,.85)}
+.pm-expert__consent{display:flex;gap:12px;align-items:flex-start;cursor:pointer;margin:0 0 34px;font:var(--type-body-small);color:#E9EBEF}
 .pm-expert__consent input{all:unset;flex:none;width:15px;height:15px;border:1px solid #E9EBEF;margin-top:2px;display:grid;place-content:center;cursor:pointer}
-.pm-expert__consent input:checked{background:#0F0F0F;border-color:#0F0F0F}
-.pm-expert__consent input:checked::after{content:"";width:7px;height:7px;background:#E9EBEF}
+.pm-expert__consent input:checked{border-color:#E9EBEF}
+.pm-expert__consent input:checked::after{content:"";width:5px;height:9px;border:solid #E9EBEF;border-width:0 2px 2px 0;transform:rotate(45deg);margin-top:-3px}
 .pm-expert__consent a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .pm-expert__submit{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 26px;background:#0F0F0F;color:#E9EBEF;font:var(--type-button);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;background-image:linear-gradient(0deg,#E9EBEF 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s}
 .pm-expert__submit:hover{background-position:0 100%;color:#0F0F0F}

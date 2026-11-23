@@ -107,7 +107,7 @@ const subservices = [
     <section class="pm-toolkit" id="channels" data-page-nav="Каналы" aria-labelledby="pm-channels-title">
       <div class="pm-toolkit__heading-wrap"><div class="pm-section__title-row pm-toolkit__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-channels-title">Подбираем <span>инструменты</span> под вашу задачу</h2><p class="pm-section__lead pm-toolkit__lead section-heading-pair__subtitle">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</p></div></div>
       <div style="margin-top:var(--section-content-gap);border-top:1px solid #C2C5CA">
-        {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #C2C5CA;background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span class="service-title service-title--row">{item.title}</span><span style="font:var(--type-body);opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:var(--type-label);letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:var(--type-icon)">→</span></a>)}
+        {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;align-items:center;padding:36px var(--gutter);background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span class="service-title service-title--row">{item.title}</span><span style="font:var(--type-body);opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:var(--type-label);letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:var(--type-icon)">→</span></a>)}
         <a class="pm-toolkit__featured export-hover-45" href="#expert" data-reveal data-m="srow" aria-label="Обсудить комплексный маркетинг">
           <span class="pm-toolkit__featured-title"><span class="pm-toolkit__featured-badge">Всё вместе</span><span class="pm-toolkit__featured-name service-title service-title--row"><span>Комплексный</span> маркетинг</span></span>
           <span class="pm-toolkit__featured-copy">Локальная видимость и звонки из карт и геосервисов<span>Карты · Локальный спрос</span></span>
@@ -359,7 +359,7 @@ const subservices = [
 
 </script>
 <style>
-.performance-page{background:#E9EBEF;color:#0F0F0F;overflow:clip}.pm-section{padding:var(--section-space-y) var(--gutter)}.pm-toolkit,.pm-blog{padding-block:var(--section-space-y)}.pm-toolkit__heading-wrap{padding-inline:var(--gutter)}.pm-section__title-row{margin-bottom:var(--section-content-gap)}.pm-section__lead{font:var(--type-lead);color:rgba(15,15,15,.7);margin:0;max-width:760px;text-wrap:pretty}.pm-tasks .pm-section__lead{color:#4F5257}
+.performance-page{background:#E9EBEF;color:#0F0F0F;overflow:clip}.pm-section{padding:var(--section-space-y) var(--gutter)}.pm-toolkit,.pm-blog{padding-block:var(--section-space-y)}.pm-toolkit__heading-wrap{padding-inline:var(--gutter)}.pm-section__title-row{margin-bottom:var(--section-content-gap)}.pm-section__lead{font:var(--type-body);color:rgba(15,15,15,.7);margin:0;max-width:760px;text-wrap:pretty}.pm-tasks .pm-section__lead{color:#4F5257}
 .pm-tasks__split{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:start;margin-top:var(--section-content-gap)}
 .pm-tasks__aside{position:sticky;top:calc(91px + 60px)}
 .pm-tasks__visual{height:400px;position:relative;background:#0F0F0F;overflow:hidden}
@@ -498,6 +498,17 @@ const subservices = [
 </style>
 
 <style is:global>
+#channels .pm-toolkit__lead{font:var(--type-body);color:#0F0F0F}
+#channels .service-card__description{color:#0F0F0F}
+#channels [data-m="srow"]{border-bottom:1px solid #C2C5CA}
+#channels [data-m="srow"]:hover,#channels .pm-toolkit__featured:hover{border-bottom-color:#0F0F0F}
+#channels [data-m="srow"] > :nth-child(2){opacity:1!important}
+#channels [data-m="srow"] > :nth-child(2) > span{color:#0F0F0F;opacity:1}
+#faq .pm-faq__q>span:first-child{text-transform:uppercase}
+#process .process-card__detail{display:none}
+.performance-page p:not(.pm-stage__kicker):not(.pm-stage__gain):not(.pm-pricing__label){color:inherit!important;opacity:1}
+.performance-page .pm-stage__point .pm-stage__name{color:#E9EBEF}
+.performance-page .case-card__metric-label,.performance-page .case-card__description{color:#E9EBEF;opacity:1}
 @media(min-width:1001px){
   #channels .service-card-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
   #channels .service-card:nth-child(-n+2){grid-column:span 3}
