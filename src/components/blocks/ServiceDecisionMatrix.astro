@@ -3,7 +3,7 @@ import type { ServiceCard } from './ServiceCardGrid.astro';
 interface Props { items: ServiceCard[]; featuredTitle?: string; featuredText?: string; }
 const { items, featuredTitle, featuredText } = Astro.props;
 ---
-<div class="service-decision-matrix" role="table" aria-label="Как принимаем решения о распределении бюджета">
+<div class:list={["service-decision-matrix", !featuredTitle && "service-decision-matrix--full"]} role="table" aria-label="Как принимаем решения о распределении бюджета">
   <div class="service-decision-matrix__main">
   {items.map((item, index) => <div class="service-decision-matrix__row" role="row">
     <div class="service-decision-matrix__question" role="cell"><span class="service-decision-matrix__index">{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3></div>
@@ -14,5 +14,13 @@ const { items, featuredTitle, featuredText } = Astro.props;
 </div>
 <style is:global>
 .service-decision-matrix{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,.25fr);gap:30px;align-items:stretch}.service-decision-matrix__main{position:relative}.service-decision-matrix__row{display:grid;grid-template-columns:minmax(0,49.5fr) minmax(0,50.5fr)}.service-decision-matrix__row{position:relative;min-height:92px;align-items:center}.service-decision-matrix__row::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100vw;height:1px;background:#C2C5CA}.service-decision-matrix__row:first-child::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:100vw;height:1px;background:#C2C5CA}.service-decision-matrix__question{display:flex;flex-direction:row;align-items:baseline;gap:14px;padding:17px 22px 17px 0}.service-decision-matrix__index{font:var(--type-h3);font-stretch:var(--display-stretch);color:#6A6D72;letter-spacing:-.02em;flex:none}.service-decision-matrix__question h3{margin:0}.service-decision-matrix__answer{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;padding:17px 0 17px 26px}.service-decision-matrix__answer p{margin:0;max-width:600px;font:var(--type-body);color:rgba(15,15,15,.76)}.service-decision-matrix__feature{align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:24px 0 24px 24px;border-left:1px solid rgba(15,15,15,.18)}.service-decision-matrix__feature h3{color:#BD0000;margin:0}.service-decision-matrix__feature p{font:var(--type-body-small);color:rgba(15,15,15,.76);margin:12px 0 0}
+.service-decision-matrix--full{grid-template-columns:minmax(0,1fr)}
+@media (width > 760px) {
+  .service-decision-matrix--full .service-decision-matrix__row {
+    grid-template-columns: var(--guide-columns);
+    column-gap: var(--guide-gap);
+  }
+  .service-decision-matrix--full .service-decision-matrix__answer { padding-inline-start: 0; }
+}
 @media(max-width:760px){.service-decision-matrix{grid-template-columns:1fr;gap:20px}.service-decision-matrix__feature{padding:18px 0 0;border-left:0;border-top:1px solid rgba(15,15,15,.18)}.service-decision-matrix__row{grid-template-columns:1fr;padding:18px 0;gap:8px}.service-decision-matrix__question{padding:0;gap:10px}.service-decision-matrix__answer{padding:0 0 0 26px;grid-template-columns:minmax(0,1fr)}}
 </style>

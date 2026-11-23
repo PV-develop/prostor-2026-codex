@@ -18,11 +18,20 @@
 [data-menu] [data-mg]{grid-template-columns:1.3fr 1.6fr!important}
 [data-menu] [data-mc]{grid-column:1/-1;flex-direction:row!important;flex-wrap:wrap;align-items:center;gap:14px 30px}
 }
+@media (width > 1000px) {
+  [data-m="srow"] {
+    grid-template-columns: var(--guide-left) var(--guide-gap) minmax(0, 1fr) 56px;
+    grid-template-areas: "title . description arrow";
+  }
+  [data-m="srow"] > :first-child { grid-area: title; }
+  [data-m="srow"] > :nth-child(2) { grid-area: description; margin-right: 24px; }
+  [data-m="srow"] > :last-child { grid-area: arrow; }
+}
 /* Tablet band: service rows stack like mobile (title full width) but keep
    the gutter insets, so the block heading and the service titles hold one
    left axis. */
 @media (min-width:769px) and (max-width:1000px){
-  [data-m="s2head"]{display:grid!important;grid-template-columns:minmax(0,3fr) minmax(220px,2fr)!important;align-items:end!important;gap:24px!important;padding:0 var(--gutter)!important}
+  [data-m="s2head"]{padding:0 var(--gutter)!important}
   [data-m="s2head"] p{font:var(--type-lead)!important}
   [data-m="srow"]{grid-template-columns:minmax(0,1fr) 48px!important;grid-template-areas:"t a" "d d"!important;gap:14px 16px!important;padding:28px var(--gutter)!important;align-items:start!important}
   [data-m="srow"]>:nth-child(1){grid-area:t}
@@ -337,6 +346,13 @@
   --space-24: 96px;
   --space-30: 120px;
   --section-space-y: clamp(80px, 8vw, 120px);
+  /* Coordinates within a section with symmetric horizontal insets. */
+  --guide-center: 50%;
+  --guide-offset: 80px;
+  --guide-left: calc(var(--guide-center) - var(--guide-offset));
+  --guide-right: calc(var(--guide-center) + var(--guide-offset));
+  --guide-gap: calc(var(--guide-right) - var(--guide-left));
+  --guide-columns: var(--guide-left) minmax(0, 1fr);
   --section-heading-gap: clamp(24px, 3vw, 48px);
   --section-content-gap: 48px;
 }
@@ -360,8 +376,8 @@ p{font:var(--type-body)}
 .service-title--row{font:var(--type-row-title)}
 /* Shared section-heading pattern: display title at left, larger supporting
    copy at right. Sections with a CTA or a bespoke composition can opt out. */
-.section-heading-pair{display:grid;grid-template-columns:minmax(0,3fr) minmax(280px,2fr);column-gap:var(--section-heading-gap);align-items:end}
-.section-heading-pair>.section-heading-pair__title{grid-column:1;width:auto;min-width:0;max-width:none}
+.section-heading-pair{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:end}
+.section-heading-pair>.section-heading-pair__title{grid-column:1;width:auto;min-width:0;max-width:none;overflow-wrap:anywhere}
 .section-heading-pair>.section-heading-pair__subtitle{grid-column:2;align-self:end;margin:0;max-width:760px;font:var(--type-lead);text-wrap:pretty}
 @media(max-width:760px){.section-heading-pair{grid-template-columns:minmax(0,1fr);row-gap:var(--space-4)}.section-heading-pair>.section-heading-pair__title,.section-heading-pair>.section-heading-pair__subtitle{grid-column:1}}
 /* Header follows its theme: light bar over the light hero (ink text, black

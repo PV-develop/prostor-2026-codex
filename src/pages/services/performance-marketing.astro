@@ -107,7 +107,7 @@ const subservices = [
     <section class="pm-toolkit" id="channels" data-page-nav="Каналы" aria-labelledby="pm-channels-title">
       <div class="pm-toolkit__heading-wrap"><div class="pm-section__title-row pm-toolkit__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-channels-title">Подбираем <span>инструменты</span> под вашу задачу</h2><p class="pm-section__lead pm-toolkit__lead section-heading-pair__subtitle">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</p></div></div>
       <div style="margin-top:var(--section-content-gap);border-top:1px solid #C2C5CA">
-        {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #C2C5CA;background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span class="service-title service-title--row">{item.title}</span><span style="font:var(--type-body);opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:var(--type-label);letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:var(--type-icon)">→</span></a>)}
+        {subservices.map((item, index) => <a href={item.href} data-reveal data-m="srow" style="display:grid;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #C2C5CA;background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s" class={`export-hover-${40 + index}`}><span class="service-title service-title--row">{item.title}</span><span style="font:var(--type-body);opacity:.8;max-width:420px;text-wrap:pretty">{item.description}<br /><span style="font:var(--type-label);letter-spacing:0;display:block;margin-top:14px;opacity:.65">{item.tags}</span></span><span style="width:56px;height:56px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font:var(--type-icon)">→</span></a>)}
         <a class="pm-toolkit__featured export-hover-45" href="#expert" data-reveal data-m="srow" aria-label="Обсудить комплексный маркетинг">
           <span class="pm-toolkit__featured-title"><span class="pm-toolkit__featured-badge">Всё вместе</span><span class="pm-toolkit__featured-name service-title service-title--row"><span>Комплексный</span> маркетинг</span></span>
           <span class="pm-toolkit__featured-copy">Локальная видимость и звонки из карт и геосервисов<span>Карты · Локальный спрос</span></span>
@@ -360,7 +360,7 @@ const subservices = [
 </script>
 <style>
 .performance-page{background:#E9EBEF;color:#0F0F0F;overflow:clip}.pm-section{padding:var(--section-space-y) var(--gutter)}.pm-toolkit,.pm-blog{padding-block:var(--section-space-y)}.pm-toolkit__heading-wrap{padding-inline:var(--gutter)}.pm-section__title-row{margin-bottom:var(--section-content-gap)}.pm-section__lead{font:var(--type-lead);color:rgba(15,15,15,.7);margin:0;max-width:760px;text-wrap:pretty}.pm-tasks .pm-section__lead{color:#4F5257}
-.pm-tasks__split{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:clamp(32px,4.5vw,80px);align-items:start;margin-top:var(--section-content-gap)}
+.pm-tasks__split{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:start;margin-top:var(--section-content-gap)}
 .pm-tasks__aside{position:sticky;top:calc(91px + 60px)}
 .pm-tasks__visual{height:400px;position:relative;background:#0F0F0F;overflow:hidden}
 /* Caption and CTA sit over the lower gradient of the team photo. */
@@ -371,7 +371,7 @@ const subservices = [
 .pm-tasks__cta:hover{background-position:0 100%}
 .pm-tasks__visual img{display:block;width:100%;height:100%;object-fit:cover}.pm-section__intro .pm-section__lead{max-width:360px}.pm-task-list{border-top:1px solid #C2C5CA}.pm-task-row{display:flex;flex-direction:column;justify-content:center;min-height:0;padding:40px 0;border-bottom:1px solid #C2C5CA}
 .pm-pricing__grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:12px;align-items:stretch}
-.pm-toolkit__featured{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr) 56px;column-gap:24px;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #C2C5CA;position:relative;color:#E9EBEF;background-image:linear-gradient(0deg,#FA001E 50%,#BD0000 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s}
+.pm-toolkit__featured{display:grid;align-items:center;padding:36px var(--gutter);border-bottom:1px solid #C2C5CA;position:relative;color:#E9EBEF;background-image:linear-gradient(0deg,#FA001E 50%,#BD0000 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.7,0,.2,1),color .4s}
 .pm-toolkit__featured-title{display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:flex-start;gap:14px;font:var(--type-row-title);color:#E9EBEF}
 .pm-toolkit__featured-badge{font:var(--type-label);letter-spacing:.01em;background:#0F0F0F;color:#E9EBEF;padding:5px 8px;flex:none;white-space:nowrap;line-height:1;margin-top:calc(clamp(40px,5vw,72px) * .06)}
 .pm-toolkit__featured-name{font:var(--type-row-title)}
@@ -396,8 +396,9 @@ const subservices = [
 .pm-pricing__extra-cta span{font-size:16px;flex:none}
 @media(max-width:1000px){.pm-pricing__grid{grid-template-columns:1fr}.pm-pricing__extra-cta{margin-top:44px}}
 @media(max-width:680px){.pm-pricing__card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:14px;padding:26px 22px}.pm-pricing__card>.pm-pricing__label{grid-column:1;grid-row:1;padding:0}.pm-pricing__card h3{grid-column:1;grid-row:2}.pm-pricing__card>p:last-child{grid-column:1;grid-row:3}.pm-pricing__extra{padding:26px 22px}}
-.pm-faq__split{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:clamp(32px,4.5vw,80px);align-items:start}
+.pm-faq__split{display:grid;grid-template-columns:var(--guide-columns);column-gap:var(--guide-gap);align-items:start}
 .pm-faq__intro{position:sticky;top:calc(91px + 60px)}
+.pm-faq__intro h2{min-width:0}
 .pm-faq__intro .pm-section__lead{margin-top:var(--space-6);max-width:360px}
 .pm-faq__ask{margin-top:40px;display:inline-flex;align-items:center;gap:18px;border:1px solid rgba(15,15,15,.4);background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;padding:20px 26px;font:var(--type-button);letter-spacing:.12em;text-transform:uppercase;color:#0F0F0F;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s}
 .pm-faq__ask:hover{background-position:0 100%;color:#E9EBEF;border-color:#0F0F0F}
@@ -429,7 +430,7 @@ const subservices = [
 .pm-stage__pin{position:sticky;top:91px;height:calc(100vh - 91px);min-height:0;box-sizing:border-box;padding:0 var(--gutter);overflow:hidden}
 @supports(height:100svh){.pm-stage__pin{height:calc(100svh - 91px)}}
 .pm-stage__frame{height:100%;min-height:0;display:grid;grid-template-rows:6% auto 7% auto 5% minmax(0,1fr) 7%}
-.pm-stage__head{grid-row:2;display:grid;grid-template-columns:minmax(0,3fr) minmax(280px,2fr);column-gap:clamp(28px,4vw,72px);align-items:end;min-height:0}
+.pm-stage__head{grid-row:2;min-height:0}
 .pm-stage__head h2 span{color:#FA001E}
 .pm-stage__timeline{grid-row:4;position:relative;display:flex;justify-content:space-between;margin:0;padding-top:20px}
 .pm-stage__timeline::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:rgba(233,235,239,.2)}
@@ -459,7 +460,7 @@ const subservices = [
 .pm-stage__visual{position:relative;height:300px;background:#E9EBEF;overflow:hidden}
 .pm-stage__visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 @media (prefers-reduced-motion: reduce){.pm-stage__slide{transition:opacity .2s,visibility 0s}.pm-stage__mark{transition:none}.pm-stage__name{transition:none}}
-@media(max-width:1000px){.pm-stage__head{grid-template-columns:minmax(0,3fr) minmax(240px,2fr)}.pm-stage__slide{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:1000px){.pm-stage__slide{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 @media(max-width:760px){.pm-stage__frame{grid-template-rows:4% auto 5% auto 4% minmax(0,1fr) 5%}.pm-stage__head{grid-template-columns:1fr;row-gap:10px}.pm-stage__timeline{padding-top:18px}}
 @media(max-width:680px){.pm-stage__pin{top:62px;height:calc(100vh - 62px);padding:0 20px;min-height:0}@supports(height:100svh){.pm-stage__pin{height:calc(100svh - 62px)}}.pm-stage__name{font:var(--type-meta);letter-spacing:0}.pm-stage__mark{top:-21px;width:6px;height:6px}.pm-stage__slide{grid-template-columns:1fr;grid-template-rows:auto auto;row-gap:14px;align-content:center}.pm-stage__kicker{margin-bottom:12px;font-size:12px}.pm-stage__desc{font:var(--type-body)}.pm-stage__gain{margin:16px 0 6px}.pm-stage__result{font:var(--type-h5)}.pm-stage__visual{height:clamp(160px,28vh,220px);min-height:0}}
 @media(max-height:760px) and (min-width:761px){.pm-stage__frame{grid-template-rows:4% auto 4% auto 3% minmax(0,1fr) 4%}.pm-stage__visual{height:min(300px,32vh)}}
@@ -468,7 +469,7 @@ const subservices = [
 .pm-metric-grid:before{top:0}.pm-metric-grid:after{bottom:0}
 .pm-metric-grid article>span{display:inline-block;transition:opacity .4s ease,transform .4s ease}
 .pm-metric-grid[data-line="0"] article>span{opacity:0;transform:translateY(4px)}.pm-metric-grid article{padding:25px 20px 30px;border-right:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:first-child{padding-left:0}.pm-metric-grid article:last-child{border:0}.pm-metric-grid article>span{font:var(--type-meta);color:#FA001E}.pm-metric-grid h3{margin:30px 0 14px}.pm-metric-grid p,.pm-metrics__foot{font:var(--type-body-small);color:rgba(233,235,239,.72)}.pm-metric-grid p{margin:0}.pm-metrics__foot{max-width:750px;margin:25px 0 0 auto}.pm-pricing{padding-block:var(--section-space-y)}
-@media(max-width:1000px){.pm-section,.pm-metrics{padding-left:30px;padding-right:30px}.pm-section__title-row>.pm-section__lead{grid-column:2}.pm-tasks__split{grid-template-columns:1fr;margin-top:44px;gap:28px}
+@media(max-width:1000px){.pm-section,.pm-metrics{padding-left:30px;padding-right:30px}.pm-tasks__split{grid-template-columns:1fr;margin-top:44px;gap:28px}
 .pm-tasks__aside{position:static}.pm-tasks__visual{height:auto;aspect-ratio:16/10}.pm-tasks__plate{flex-wrap:wrap;padding:20px}
 .pm-task-row{padding:40px 0}.pm-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pm-metric-grid article{border-right:0}.pm-metric-grid article:nth-child(odd){border-right:1px solid rgba(233,235,239,.2)}.pm-metric-grid article:nth-child(2){border-right:0}.pm-metric-grid article:nth-child(3){position:relative;padding-left:0;border-top:0}.pm-metric-grid article:nth-child(3)::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:100vw;height:1px;background:rgba(233,235,239,.2)}.pm-metric-grid article:nth-child(4){border-top:0}}
 @media(max-width:768px){.pm-toolkit__heading-wrap{padding-inline:20px}}
@@ -506,7 +507,6 @@ const subservices = [
 #tasks h2 span[lang="en"]{color:inherit}
 #channels h2 span,#approach h2 span{color:var(--color-red)}
 
-#approach .service-decision-matrix{grid-template-columns:minmax(0,1fr)}
 #approach .pm-budget-v2{margin-top:var(--section-space-y)}
 #approach .pm-budget-v2__title{margin:0 0 var(--section-content-gap)}
 #approach .pm-budget-v2__title span{color:var(--color-red)}
