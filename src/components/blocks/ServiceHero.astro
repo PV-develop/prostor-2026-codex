@@ -11,10 +11,11 @@ interface Props {
   primaryCTA: ServiceCTA;
   secondaryCTA?: ServiceCTA;
   visualPreset?: 'performance' | 'static';
+  particleShape?: 'pyramid' | 'direct';
 }
-const { sections, title, accentText, description, additionalLabel, primaryCTA, secondaryCTA, visualPreset = 'static' } = Astro.props;
+const { sections, title, accentText, description, additionalLabel, primaryCTA, secondaryCTA, visualPreset = 'static', particleShape = 'pyramid' } = Astro.props;
 ---
-<section data-screen-label="01 Сервисный экран" data-service-hero data-visual-preset={visualPreset} style="position:relative;min-height:860px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;color:#0F0F0F">
+<section data-screen-label="01 Сервисный экран" data-service-hero data-visual-preset={visualPreset} data-figure={visualPreset === 'performance' ? particleShape : undefined} style="position:relative;min-height:860px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;color:#0F0F0F">
   <SiteHeader {sections} activeSection="services" />
   <slot name="breadcrumbs" />
   <div data-m="heropad" style="position:relative;padding:0 var(--gutter);display:flex;flex-direction:column;z-index:5">
@@ -28,7 +29,7 @@ const { sections, title, accentText, description, additionalLabel, primaryCTA, s
       </HeroContent>
       {visualPreset === 'performance' && <div data-reveal data-m="twenty" style="grid-column:8/13;grid-row:1/4;justify-self:stretch;align-self:stretch;min-height:440px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:12px">
         {additionalLabel && <div data-cap style="position:absolute;z-index:6;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-align:center;pointer-events:none;white-space:nowrap;padding:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;opacity:0"><span style="display:block;overflow:hidden;padding:0 4px"><span data-cap-line style="display:block;transform:translateY(110%);font:700 clamp(28px,2.8vw,40px)/1.04 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;white-space:nowrap">Используем собственную</span></span><span style="display:block;overflow:hidden;padding:0 4px"><span data-cap-line style="display:flex;justify-content:center;gap:10px;transform:translateY(110%);font:700 clamp(28px,2.8vw,40px)/1.04 Steelfish,sans-serif;font-stretch:25%;text-transform:uppercase;color:#0F0F0F;white-space:nowrap"><span data-cap-plate style="display:inline-block;background:#FA001E;color:#E9EBEF;padding:0 8px;clip-path:inset(0 100% 0 0)">аналитику Prostor</span></span></span></div>}
-        <span data-parallax data-particle-shape="pyramid" data-particle-color="#3A3D42" style="display:block;width:min(100%,480px);height:clamp(340px,40vw,520px);font:var(--type-hero-stat);font-stretch:25%;letter-spacing:-.04em;text-align:right;-webkit-text-fill-color:transparent;color:transparent;user-select:none">20</span>
+        <span data-parallax aria-hidden="true" data-particle-shape={particleShape} data-particle-color="#3A3D42" style="display:block;width:min(100%,480px);height:clamp(340px,40vw,520px);font:var(--type-hero-stat);font-stretch:25%;letter-spacing:-.04em;text-align:right;-webkit-text-fill-color:transparent;color:transparent;user-select:none"></span>
       </div>}
     </div>
   </div>
@@ -40,6 +41,10 @@ const { sections, title, accentText, description, additionalLabel, primaryCTA, s
   [data-service-hero] .service-hero__content{grid-column:1/7!important;grid-row:1/4!important}
   [data-service-hero] [data-m="twenty"]{grid-column:6/9;grid-row:1/4}
   [data-service-hero] [data-cap]{margin-left:auto!important}
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  [data-figure="direct"] .service-hero__content { grid-column: 1/8 !important; }
+  [data-figure="direct"] .hero-content__title { min-width: 0; max-width: 100%; }
 }
 @media(max-width:768px){
   [data-service-hero]{min-height:0!important}

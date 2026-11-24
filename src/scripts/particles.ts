@@ -1,4 +1,6 @@
 // @ts-nocheck
+import { directFigure } from './direct-figure';
+
 // Ported from the page animation in the Claude Design export.
 export function initParticles(el, shape = 'text') {
     // Dot colour is per instance: dark heroes use the default light gray,
@@ -9,7 +11,7 @@ export function initParticles(el, shape = 'text') {
     // Resting pose of the figure. The pyramid sits upright with a slight 3/4 yaw
     // and a raised camera so two side faces and the base geometry read as volume.
     // Softer perspective keeps the near base vertex from spilling past the hero.
-    const POSE = shape === 'pyramid' ? { rz: 0, ry: .26, rx: .36, f: 1900 } : { rz: 20, ry: -.18, rx: .06, f: F };
+    const POSE = shape === 'direct' ? { rz: -3, ry: .56, rx: .16, f: 1900 } : shape === 'pyramid' ? { rz: 0, ry: .26, rx: .36, f: 1900 } : { rz: 20, ry: -.18, rx: .06, f: F };
     const host = el.closest('[data-screen-label]') || el.parentElement;
     const capEl = host.querySelector('[data-cap]'), cap = capEl && { lines: [...capEl.querySelectorAll('[data-cap-line]')], plate: capEl.querySelector('[data-cap-plate]') };
     const cv = document.createElement('canvas'), ctx = cv.getContext('2d');
@@ -32,9 +34,12 @@ export function initParticles(el, shape = 'text') {
       mc.font = `${cs.fontWeight} ${fs}px Steelfish`; mc.fillStyle = mc.strokeStyle = '#000'; mc.textBaseline = 'alphabetic';
       mc.lineWidth = fs * .04; mc.lineJoin = 'round';
       const met = mc.measureText('20'), asc = met.fontBoundingBoxAscent ?? fs * .8, desc = met.fontBoundingBoxDescent ?? fs * .2;
-      const ls = parseFloat(cs.letterSpacing) || 0, chars = el.firstChild.textContent.trim().split('');
+      const ls = parseFloat(cs.letterSpacing) || 0, chars = el.textContent.trim().split('');
       const gap = mc.lineWidth * 1.4, adv = chars.map(c => mc.measureText(c).width), tot = adv.reduce((a, b) => a + b + ls, 0) + gap * (chars.length - 1);
       let x = pad + w - tot - mc.lineWidth / 2; const y = pad + (r.height - (asc + desc)) / 2 + asc;
+      // Leave room for the projecting bar when pointer movement rotates the sign.
+      const directSize = Math.min(w, r.height) * .99;
+      const direct = shape === 'direct' ? directFigure(directSize) : null;
       if (shape === 'pyramid') {
         // Tetrahedron in 3D: apex up, triangular base tilted back. Vertices are
         // figure-centred; the mask silhouette is projected with the same resting
@@ -58,11 +63,16 @@ export function initParticles(el, shape = 'text') {
           q.slice(1).forEach(p => mc.lineTo(mw / 2 + p[0], mh / 2 + p[1]));
           mc.closePath(); mc.fill();
         }
-      } else chars.forEach((c, i) => { mc.fillText(c, x, y); mc.strokeText(c, x, y); x += adv[i] + ls + gap; });
+      } else if (!direct) chars.forEach((c, i) => { mc.fillText(c, x, y); mc.strokeText(c, x, y); x += adv[i] + ls + gap; });
       if (!(mw > 0 && mh > 0)) return;
-      const d = mc.getImageData(0, 0, mw, mh).data, on = (xx, yy) => xx >= 0 && yy >= 0 && xx < mw && yy < mh && d[(yy * mw + xx) * 4 + 3] > 128;
+      const d = direct ? null : mc.getImageData(0, 0, mw, mh).data, on = (xx, yy) => xx >= 0 && yy >= 0 && xx < mw && yy < mh && d[(yy * mw + xx) * 4 + 3] > 128;
       let x0 = mw, x1 = 0, y0 = mh, y1 = 0;
-      for (let yy = 0; yy < mh; yy += 2) for (let xx = 0; xx < mw; xx += 2) if (on(xx, yy)) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (yy < y0) y0 = yy; if (yy > y1) y1 = yy; }
+      if (direct) {
+        x0 = (mw - directSize) / 2;
+        x1 = mw - x0;
+        y0 = (mh - directSize * .7) / 2;
+        y1 = mh - y0;
+      } else for (let yy = 0; yy < mh; yy += 2) for (let xx = 0; xx < mw; xx += 2) if (on(xx, yy)) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (yy < y0) y0 = yy; if (yy > y1) y1 = yy; }
       const shiftY = Math.max(0, (y1 - pad) - r.height + fs * .02);
       const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
       ocx = r.left - hr.left - pad + cx; ocy = r.top - hr.top - pad + cy - shiftY + 40;
@@ -70,7 +80,7 @@ export function initParticles(el, shape = 'text') {
       // span-derived pose sat ~70px low of the block centre) and carry the
       // caption along so it stays glued to the pyramid's centre. Mobile keeps
       // the in-column placement of its own stacked row.
-      if (shape === 'pyramid') {
+      if (shape === 'pyramid' || direct) {
         if (matchMedia('(min-width:769px)').matches) {
           const dy = H / 2 - ocy;
           ocy = H / 2;
@@ -104,7 +114,9 @@ export function initParticles(el, shape = 'text') {
           ax: (Math.random() - .5) * 260, ay: -80 - Math.random() * 220,
           th: Math.random(), ox: 0, oy: 0, pull: .55 + Math.random() * .4, spr: .05 + Math.random() * .09, sz: (red ? 1.2 + Math.random() * 2.2 : .8 + Math.random() * .8) + boost });
       };
-      if (shape === 'pyramid' && VERTS) {
+      if (direct) {
+        for (const [x, y, z, weight] of direct) add(cx + x, cy + y, z, false, weight);
+      } else if (shape === 'pyramid' && VERTS) {
         const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
         const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
         const nrm = a => { const l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; };

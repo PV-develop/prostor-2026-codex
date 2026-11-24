@@ -21,7 +21,7 @@ function example(slug: string, code: string, label = 'Пример'): Example {
 }
 
 const library: Entry[] = [
-  { id: 'hero', title: 'Первый экран', description: 'Заголовок, предложение и основные действия. У обеих композиций общие SiteHeader и HeroContent.', examples: [example('home-hero', '<HeroLight />', 'Главная'), example('service-hero', '<ServiceHero {...hero} />', 'Услуга')] },
+  { id: 'hero', title: 'Первый экран', description: 'Заголовок, предложение и основные действия. У обеих композиций общие SiteHeader и HeroContent.', examples: [example('home-hero', '<HeroLight />', 'Главная'), example('service-hero', '<ServiceHero {...hero} />', 'Performance-маркетинг'), example('contextual-hero', '<ServiceHero {...contextualHero} />', 'Контекстная реклама')] },
   { id: 'header', title: 'Шапка и навигация', description: 'Логотип, меню и переходы между разделами страницы.', examples: [example('header', '<SiteHeader activeSection="services" />')] },
   { id: 'directions', title: 'Каталог направлений', description: 'Список направлений с описаниями, тегами и ссылками. Обе композиции используют DirectionRows.', examples: [example('directions', '<Services items={directions} />', 'Главная'), example('channels', '<ServiceChannels items={subservices} />', 'Услуга')] },
   { id: 'cases', title: 'Кейсы', description: 'Подборка проектов с фотографиями и измеримыми результатами.', examples: [example('cases', '<Cases items={cases} />')] },

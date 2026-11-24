@@ -1,10 +1,11 @@
 export const contextualHero = {
   title: 'Контекстная реклама',
-  accentText: 'в Яндекс Директе для привлечения клиентов',
+  accentText: 'в Яндекс',
   description: 'Запускаем и развиваем рекламу с согласованными целями и аналитикой. Работаем с кампаниями, объявлениями и посадочными страницами, чтобы оценивать не только клики, но и обращения и их качество.',
   primaryCTA: { label: 'Рассчитать запуск', href: '#contacts' },
   secondaryCTA: { label: 'Заказать аудит рекламы', href: '#contacts' },
-  visualPreset: 'static' as const,
+  visualPreset: 'performance' as const,
+  particleShape: 'direct' as const,
 };
 
 export const clientScenarios = [
