@@ -16,6 +16,7 @@ const { sections, title, accentText, description, additionalLabel, primaryCTA, s
 ---
 <section data-screen-label="01 Сервисный экран" data-service-hero data-visual-preset={visualPreset} style="position:relative;min-height:860px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;color:#0F0F0F">
   <SiteHeader {sections} activeSection="services" />
+  <slot name="breadcrumbs" />
   <div data-m="heropad" style="position:relative;padding:0 var(--gutter);display:flex;flex-direction:column;z-index:5">
     <div data-m="herogrid" style="position:relative;z-index:3;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:108px 0 48px;align-items:start">
       <HeroContent description={description} className="service-hero__content" style={visualPreset === 'performance' ? 'grid-column:1/8;grid-row:1/4' : 'grid-column:1/10;grid-row:1/4'}>

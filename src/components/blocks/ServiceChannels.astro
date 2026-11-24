@@ -5,12 +5,12 @@ interface Props { items: Direction[] }
 const { items: subservices } = Astro.props;
 ---
 <section class="pm-toolkit" id="channels" data-page-nav="Каналы" aria-labelledby="pm-channels-title">
-  <div class="pm-toolkit__heading-wrap"><div class="pm-section__title-row pm-toolkit__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-channels-title"><slot name="heading">Подбираем <span>инструменты</span> под вашу задачу</slot></h2><p class="pm-section__lead pm-toolkit__lead section-heading-pair__subtitle"><slot name="description">Пять инструментов — единая система привлечения, настроенная под продукт и аудиторию.</slot></p></div></div>
+  <div class="pm-toolkit__heading-wrap"><div class="pm-section__title-row pm-toolkit__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-channels-title"><slot name="heading">Подбираем <span>инструменты</span> под вашу задачу</slot></h2></div></div>
   <div style="margin-top:var(--section-content-gap);border-top:1px solid #C2C5CA">
     <DirectionRows items={subservices} />
     <a class="pm-toolkit__featured export-hover-45" href="#expert" data-reveal data-m="srow" aria-label="Обсудить комплексный маркетинг">
       <span class="pm-toolkit__featured-title"><span class="pm-toolkit__featured-badge">Всё вместе</span><span class="pm-toolkit__featured-name service-title service-title--row"><span>Комплексный</span> маркетинг</span></span>
-      <span class="pm-toolkit__featured-copy">Локальная видимость и звонки из карт и геосервисов<span>Карты · Локальный спрос</span></span>
+      <span class="pm-toolkit__featured-copy">Если нужно связать несколько направлений, соберём общий план: цели, каналы привлечения, задачи по сайту, аналитику и зоны ответственности. Определим, что запускать сначала и по каким показателям оценивать результат.<span>Обсудить комплексный маркетинг</span></span>
       <span class="pm-toolkit__featured-arrow" aria-hidden="true">→</span>
     </a>
   </div>

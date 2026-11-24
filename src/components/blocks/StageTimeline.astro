@@ -5,10 +5,14 @@ interface Props { items: (ProcessCard & { short: string; phase: string; image: s
 const { items: stages } = Astro.props;
 ---
 <section class="pm-stage" id="stages" aria-labelledby="pm-stage-title" style={`--stage-n:${stages.length}`}>
+  <header class="pm-stage__mobile-head section-heading-pair">
+    <h2 class="section-heading-pair__title" id="pm-stage-title"><slot name="heading">От диагностики <span>до оптимизации</span></slot></h2>
+    <p class="pm-stage__lead section-heading-pair__subtitle"><slot name="description">Разбираем исходную ситуацию, согласуем план и запускаем кампании.</slot></p>
+  </header>
   <div class="pm-stage__pin">
     <div class="pm-stage__frame">
-      <header class="pm-stage__head section-heading-pair">
-        <h2 class="section-heading-pair__title" id="pm-stage-title"><slot name="heading">От диагностики <span>до оптимизации</span></slot></h2>
+      <header class="pm-stage__head pm-stage__head--pinned section-heading-pair" aria-hidden="true">
+        <h2 class="section-heading-pair__title"><slot name="heading">От диагностики <span>до оптимизации</span></slot></h2>
         <p class="pm-stage__lead section-heading-pair__subtitle"><slot name="description">Разбираем исходную ситуацию, согласуем план и запускаем кампании.</slot></p>
       </header>
       <div class="pm-stage__timeline">
@@ -45,9 +49,15 @@ const { items: stages } = Astro.props;
     const n = slides.length;
     if (!n) return;
     const check = () => {
+      const mobileHead = sec.querySelector<HTMLElement>('.pm-stage__mobile-head');
+      const pin = sec.querySelector<HTMLElement>('.pm-stage__pin');
+      const isMobileLayout = Boolean(mobileHead && getComputedStyle(mobileHead).display !== 'none');
       const top = sec.getBoundingClientRect().top;
-      const runway = Math.max(1, sec.offsetHeight - innerHeight);
-      const p = Math.max(0, Math.min(1, -top / runway));
+      const runway = isMobileLayout ? Math.max(1, (n - 1) * innerHeight) : Math.max(1, sec.offsetHeight - innerHeight);
+      const start = isMobileLayout && mobileHead && pin
+        ? scrollY + top + mobileHead.offsetHeight - parseFloat(getComputedStyle(pin).top)
+        : 0;
+      const p = Math.max(0, Math.min(1, isMobileLayout ? (scrollY - start) / runway : -top / runway));
       const idx = Math.min(n - 1, Math.floor(p * n));
       points.forEach((point, i) => { point.dataset.state = i < idx ? 'past' : i === idx ? 'current' : 'future'; });
       // The timeline doubles as a progress bar: the red fill runs from the

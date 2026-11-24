@@ -8,17 +8,15 @@ import AnalyticsShowcase from '../../components/blocks/AnalyticsShowcase.astro';
 import Certificates from '../../components/blocks/Certificates.astro';
 import BlogArticles from '../../components/blog/BlogArticles.astro';
 import ServiceDecisionMatrix from '../../components/blocks/ServiceDecisionMatrix.astro';
-import ProcessCards from '../../components/blocks/ProcessCards.astro';
 import '../../styles/global.css';
 import '../../styles/performance.css';
-import { metrics, pricing, pricingExtra, hero, tasks, subservices, approach, budgetCriteria, process, stages, faq, blogPosts } from '../../data/performance';
+import { metrics, pricing, pricingExtra, hero, tasks, subservices, approach, stages, faq, blogPosts } from '../../data/performance';
 import BusinessTasks from '../../components/blocks/BusinessTasks.astro';
 import ServiceChannels from '../../components/blocks/ServiceChannels.astro';
 import Metrics from '../../components/blocks/Metrics.astro';
 import StageTimeline from '../../components/blocks/StageTimeline.astro';
 import Pricing from '../../components/blocks/Pricing.astro';
 import Faq from '../../components/blocks/Faq.astro';
-import BudgetCriteria from '../../components/blocks/BudgetCriteria.astro';
 
 const title = 'Performance-маркетинг под задачи бизнеса — Простор';
 const description = 'Подбираем и объединяем рекламные инструменты, чтобы привлекать целевые обращения и управлять стоимостью привлечения. Связываем кампании с аналитикой.';
@@ -35,19 +33,13 @@ const description = 'Подбираем и объединяем рекламны
     <Cases />
 
     <section class="pm-section pm-approach" id="approach" data-page-nav="Подход" aria-labelledby="pm-approach-title">
-      <div class="pm-section__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-approach-title">Как мы <span>определяем</span>, куда направить <span>бюджет</span></h2><p class="pm-approach__summary section-heading-pair__subtitle">Не распределяем бюджет поровну между площадками. Сначала определяем приоритеты и критерии проверки, затем корректируем план по результатам.</p></div>
+      <div class="pm-section__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-approach-title">Как определяем <span>приоритеты</span> и <span>бюджет</span></h2><p class="pm-approach__summary section-heading-pair__subtitle">Не распределяем бюджет поровну между площадками. Сначала определяем приоритеты и критерии проверки, затем корректируем план по результатам.</p></div>
       <ServiceDecisionMatrix items={approach} />
-      <BudgetCriteria items={budgetCriteria} />
     </section>
 
     <Metrics items={metrics} />
 
     <AnalyticsShowcase />
-
-    <section class="pm-section pm-process" id="process" data-page-nav="Процесс" aria-labelledby="pm-process-title">
-      <div class="pm-section__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-process-title">От диагностики до регулярной оптимизации</h2><p class="pm-section__lead section-heading-pair__subtitle">Последовательность этапов и ясные решения на каждом шаге работы.</p></div>
-      <ProcessCards items={process} inset={false} />
-    </section>
 
     <StageTimeline items={stages} />
 

@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Contacts from '../../components/home/Contacts.astro';
+import Cases from '../../components/home/Cases.astro';
+import ServiceHero from '../../components/blocks/ServiceHero.astro';
+import BusinessTasks from '../../components/blocks/BusinessTasks.astro';
+import ExpertContactForm from '../../components/blocks/ExpertContactForm.astro';
+import ServiceDecisionMatrix from '../../components/blocks/ServiceDecisionMatrix.astro';
+import BudgetCriteria from '../../components/blocks/BudgetCriteria.astro';
+import Metrics from '../../components/blocks/Metrics.astro';
+import ProcessCards from '../../components/blocks/ProcessCards.astro';
+import StageTimeline from '../../components/blocks/StageTimeline.astro';
+import TeamReviews from '../../components/home/TeamReviews.astro';
+import Faq from '../../components/blocks/Faq.astro';
+import { resolveCases } from '../../data/cases';
+import {
+  contextualHero, clientScenarios, decisionCriteria, placements,
+  resultMetrics, collaborationFormats, deliveryStages, workStages, packages, contextualFaq,
+} from '../../data/contextual-advertising';
+import '../../styles/global.css';
+import '../../styles/performance.css';
+
+const title = 'Контекстная реклама в Яндекс Директе — Простор';
+const description = 'Запуск, ведение и аудит контекстной рекламы в Яндекс Директе. Согласуем цели и аналитику, оцениваем обращения и качество заявок.';
+const cases = await resolveCases(['legal-company'], 'Контекстная реклама');
+---
+<BaseLayout {title} {description}>
+  <main class="performance-page contextual-page">
+    <ServiceHero {...contextualHero} sections={['Задачи', 'Подход', 'Работы', 'Форматы', 'Результат', 'Кейсы', 'Стоимость', 'FAQ', 'Контакты']}>
+      <nav slot="breadcrumbs" class="contextual-breadcrumbs" aria-label="Хлебные крошки">
+        <a href="/">Главная</a><span aria-hidden="true">/</span>
+        <a href="/services/performance-marketing/">Performance-маркетинг</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Контекстная реклама</span>
+      </nav>
+    </ServiceHero>
+
+    <BusinessTasks items={clientScenarios} id="tasks" photo={{ src: '/src/chips/analytics-dashboard-reference.jpg', alt: 'Пример панели рекламной аналитики' }} caption="Запуск · перезапуск · развитие" cta={{ label: 'Обсудить мою ситуацию', href: '#contacts' }}>
+      <span slot="heading">Запускаем, пересобираем <span>и развиваем рекламу</span></span>
+      <span slot="description">Сначала разберёмся, что происходит с рекламой и обращениями, затем предложим следующий шаг.</span>
+    </BusinessTasks>
+
+    <ExpertContactForm id="contextual-expert">
+      <span slot="heading">Разберите задачу по контекстной рекламе с экспертом</span>
+    </ExpertContactForm>
+
+    <section class="pm-section contextual-approach" id="approach" data-page-nav="Подход" aria-labelledby="contextual-approach-title">
+      <div class="pm-section__title-row section-heading-pair">
+        <h2 class="page-display-heading section-heading-pair__title" id="contextual-approach-title">Сначала цель и экономика, <span>затем кампании</span></h2>
+        <p class="pm-section__lead section-heading-pair__subtitle">Не начинаем с обещания дешёвых заявок. Согласуем, какие обращения нужны бизнесу и по каким данным будем оценивать рекламу.</p>
+      </div>
+      <ServiceDecisionMatrix items={decisionCriteria} />
+    </section>
+
+    <Cases items={cases} id="cases" cta={{ label: 'Обсудить задачу', href: '#contacts' }}>
+      <Fragment slot="heading">Как решали задачи клиентов <span style="-webkit-text-stroke:2px #E9EBEF;color:transparent">с рекламой</span></Fragment>
+    </Cases>
+
+    <StageTimeline items={workStages}>
+      <span slot="heading">От аналитики <span>до отчётности</span></span>
+      <span slot="description">Последовательно проходим путь от проверки исходных данных и гипотез до оптимизации кампаний и плана следующего периода.</span>
+    </StageTimeline>
+
+    <section class="pm-section contextual-formats" id="formats" data-page-nav="Форматы">
+      <BudgetCriteria items={placements}>
+        <span slot="heading">Подбираем форматы <span>под спрос и задачу</span></span>
+        <span slot="principle">Не запускаем все форматы одновременно.</span>
+        <span slot="principle-description">Выбираем приоритетные размещения по спросу, продукту и данным, затем расширяем план по результатам.</span>
+      </BudgetCriteria>
+    </section>
+
+    <Metrics items={resultMetrics}>
+      <span slot="heading">Считаем не только клики,<br /><span>но и результат обращений</span></span>
+      <span slot="description">Агентство отвечает за согласованные рекламные работы. Условия продукта, работа сайта и отдела продаж обсуждаются вместе.</span>
+    </Metrics>
+
+    <BusinessTasks items={collaborationFormats} id="collaboration" photo={{ src: '/src/chips/performance-team.jpg', alt: 'Команда специалистов по интернет-рекламе' }} caption="Настройка · ведение · аудит" cta={{ label: 'Обсудить формат работы', href: '#contacts' }}>
+      <span slot="heading">Выберите удобный <span>формат работы</span></span>
+      <span slot="description">Можно начать с аудита, заказать настройку и запуск или передать рекламу на регулярное ведение.</span>
+    </BusinessTasks>
+
+    <section class="pm-section contextual-pricing" id="pricing" data-page-nav="Стоимость" aria-labelledby="contextual-pricing-title">
+      <div class="pm-section__title-row section-heading-pair">
+        <h2 class="page-display-heading section-heading-pair__title" id="contextual-pricing-title">Сколько стоит <span>контекстная реклама</span></h2>
+        <p class="pm-section__lead section-heading-pair__subtitle">Пакеты и цены приведены по текущей тарифной сетке. Рекламный бюджет отделён от оплаты работ агентства.</p>
+      </div>
+      <div class="contextual-package-grid">
+        {packages.map((item, index) => <article class:list={['contextual-package', index === 3 && 'contextual-package--featured']}>
+          <h3>{item.name}</h3><p class="contextual-package__budget">{item.budget}</p>
+          <p class="contextual-package__price">{item.price}</p><p class="contextual-package__detail">{item.detail}</p>
+          <a class="contextual-package__cta" href="#contacts">Рассчитать пакет <span>→</span></a>
+        </article>)}
+      </div>
+      <p class="contextual-note">Состав пакета, период и порядок оплаты, НДС и обязательные платежи уточняются в предложении. Сайт, дополнительные материалы, коллтрекинг и интеграции включаются по согласованному объёму. Аудит оценивается отдельно после уточнения задачи.</p>
+    </section>
+
+    <section class="pm-section contextual-process" id="process" data-page-nav="Процесс" aria-labelledby="contextual-process-title">
+      <div class="pm-section__title-row section-heading-pair">
+        <h2 class="page-display-heading section-heading-pair__title" id="contextual-process-title">Как проходит <span>сотрудничество</span></h2>
+        <p class="pm-section__lead section-heading-pair__subtitle">После обсуждения задачи согласуем диагностику, объём работ и дальнейший формат.</p>
+      </div>
+      <ProcessCards items={deliveryStages} inset={false} />
+    </section>
+
+    <TeamReviews />
+
+    <Faq items={contextualFaq} cta={{ label: 'Обсудить проект', href: '#contacts' }}>
+      <span slot="heading">Вопросы о контекстной рекламе</span>
+      <span slot="description">Если у вас уже есть реклама или вы только планируете запуск, обсудим, какие данные нужны для решения.</span>
+    </Faq>
+
+    <Contacts serviceRequest submitLabel="Рассчитать запуск">
+      <span slot="heading">Обсудим контекстную рекламу <span>для вашего бизнеса</span></span>
+      <span slot="description">Расскажите о продукте и задаче. Уточним исходные данные и определим, что потребуется для запуска или работы с текущими кампаниями.</span>
+    </Contacts>
+  </main>
+</BaseLayout>
+<script>
+  import '../../scripts/home';
+</script>
+
+<style is:global>
+.contextual-page .contextual-breadcrumbs{position:absolute;z-index:6;top:91px;left:0;right:0;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:10px;padding:0 var(--gutter);font:500 12px/16px 'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:rgba(15,15,15,.56)}
+.contextual-page .contextual-breadcrumbs a:hover,.contextual-inline-link:hover{color:var(--color-red,#FA001E)}
+.contextual-page .contextual-breadcrumbs [aria-current]{color:var(--color-ink,#0F0F0F)}
+.contextual-note{max-width:920px;margin:24px 0 0;font:var(--type-body-small);color:rgba(15,15,15,.64)}
+.contextual-pricing{background:#0F0F0F;color:#E9EBEF}
+.contextual-pricing .section-heading-pair__subtitle{color:rgba(233,235,239,.72)}
+.contextual-package-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px}
+.contextual-package{display:flex;flex-direction:column;min-width:0;padding:24px;background:#202122;color:#E9EBEF}
+.contextual-package--featured{background:#BD0000}
+.contextual-package h3{margin:0 0 8px;font:var(--type-h3);font-stretch:25%;text-transform:uppercase}
+.contextual-package__budget{min-height:42px;margin:0;font:var(--type-body-small);color:rgba(233,235,239,.72)}
+#pricing .contextual-package .contextual-package__price{margin:22px 0;font-family:var(--font-display);font-size:clamp(24px,2.4vw,36px);font-weight:700;line-height:1.02;font-stretch:25%;color:#fff}
+.contextual-package__detail{margin:0 0 28px;font:var(--type-body-small);color:rgba(233,235,239,.78)}
+.contextual-package__cta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding:16px 20px;border:1px solid #E9EBEF;background-image:linear-gradient(0deg,#E9EBEF 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;color:#E9EBEF;font:var(--type-button);letter-spacing:.08em;text-transform:uppercase;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s}
+.contextual-package__cta:hover{background-position:0 100%;color:#0F0F0F}
+.contextual-pricing .contextual-note{color:rgba(233,235,239,.62)}
+@media(min-width:1001px){#collaboration .pm-tasks__split{grid-template-columns:minmax(0,55fr) minmax(0,45fr)}#collaboration .pm-tasks__aside{grid-column:2;grid-row:1}#collaboration .pm-task-list{grid-column:1;grid-row:1}}
+@media(max-width:1000px){.contextual-package-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.contextual-package-grid{grid-template-columns:1fr}.contextual-package{padding:22px}.contextual-package h3{margin-top:20px}.contextual-package__budget{min-height:0}}
+</style>
