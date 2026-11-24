@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import SiteHeader from '../../components/blocks/SiteHeader.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageBlocks from '../../components/content/PageBlocks.astro';
+import '../../styles/global.css';
+import '../../styles/performance.css';
+
+export async function getStaticPaths() {
+  return (await getCollection('seo')).map(entry => ({
+    params: { slug: entry.id }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { title, description, noindex, blocks } = entry.data;
+---
+<BaseLayout {title} {description} {noindex}>
+  <main class="performance-page">
+    {!blocks.some(block => block.type === 'hero') && <>
+      <SiteHeader activeSection="services" sections={blocks.map(block => block.type)} />
+      <h1 class="pm-section page-display-heading">{title}</h1>
+    </>}
+    <PageBlocks {blocks} source={entry.filePath ?? entry.id} />
+  </main>
+</BaseLayout>
+<script>
+  import '../../scripts/home';
+</script>

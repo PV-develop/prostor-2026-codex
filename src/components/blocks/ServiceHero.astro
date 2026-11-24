@@ -3,6 +3,7 @@ import SiteHeader from './SiteHeader.astro';
 import HeroContent from './HeroContent.astro';
 export interface ServiceCTA { label: string; href: string; }
 interface Props {
+  sections?: string[];
   title: string;
   accentText?: string;
   description: string;
@@ -11,14 +12,14 @@ interface Props {
   secondaryCTA?: ServiceCTA;
   visualPreset?: 'performance' | 'static';
 }
-const { title, accentText, description, additionalLabel, primaryCTA, secondaryCTA, visualPreset = 'static' } = Astro.props;
+const { sections, title, accentText, description, additionalLabel, primaryCTA, secondaryCTA, visualPreset = 'static' } = Astro.props;
 ---
 <section data-screen-label="01 Сервисный экран" data-service-hero data-visual-preset={visualPreset} style="position:relative;min-height:860px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;color:#0F0F0F">
-  <SiteHeader activeSection="services" />
+  <SiteHeader {sections} activeSection="services" />
   <div data-m="heropad" style="position:relative;padding:0 var(--gutter);display:flex;flex-direction:column;z-index:5">
     <div data-m="herogrid" style="position:relative;z-index:3;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:108px 0 48px;align-items:start">
       <HeroContent description={description} className="service-hero__content" style={visualPreset === 'performance' ? 'grid-column:1/8;grid-row:1/4' : 'grid-column:1/10;grid-row:1/4'}>
-        <Fragment slot="heading">{title}<br /><span style="color:#FA001E">{accentText}</span></Fragment>
+        <Fragment slot="heading">{title}{accentText && <><br /><span style="color:#FA001E">{accentText}</span></>}</Fragment>
         <Fragment slot="actions">
           <a href={primaryCTA.href} style="background-image:linear-gradient(0deg,#FA001E 50%,#0F0F0F 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;color:#E9EBEF;padding:28px 36px;font:var(--type-button);letter-spacing:.14em;text-transform:uppercase;display:flex;gap:20px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s" class="export-hover-127"><span class="service-hero__button-label">{primaryCTA.label}</span><span class="service-hero__button-icon">→</span></a>
           {secondaryCTA && <a href={secondaryCTA.href} style="border:1px solid rgba(15,15,15,.4);background-image:linear-gradient(0deg,#0F0F0F 50%,transparent 50%);background-size:100% 201%;background-position:0 0;background-repeat:no-repeat;padding:28px 28px;font:var(--type-button);letter-spacing:.14em;text-transform:uppercase;display:flex;gap:16px;transition:background-position .55s cubic-bezier(.7,0,.2,1),color .35s,border-color .35s" class="export-hover-128"><span class="service-hero__button-label">{secondaryCTA.label}</span><span class="service-hero__button-icon">↗</span></a>}

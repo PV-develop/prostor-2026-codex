@@ -1,0 +1,35 @@
+---
+import '../../styles/performance.css';
+interface Props {
+  items: { title: string; description: string }[];
+  id?: string;
+  photo?: { src: string; alt: string };
+  caption?: string | null;
+  cta?: { label: string; href: string } | null;
+}
+const {
+  items: tasks, id = 'tasks',
+  photo = { src: '/src/chips/performance-team.jpg', alt: 'Специалисты агентства Простор' },
+  caption = 'Получить консультацию по моей задаче',
+  cta = { label: 'Обсудить рост', href: '#expert' },
+} = Astro.props;
+const titleId = `pm-${id}-title`;
+---
+<section class="pm-section pm-tasks" id={id} data-page-nav="Задачи" aria-labelledby={titleId}>
+  <div class="pm-section__intro section-heading-pair">
+    <h2 class="page-display-heading section-heading-pair__title" id={titleId}><slot name="heading"><span>Когда</span> бизнесу <span>нужна</span> работа с <span lang="en">performance</span>-рекламой</slot></h2>
+    <p class="pm-section__lead section-heading-pair__subtitle"><slot name="description">Четыре ситуации, в которых performance-реклама помогает найти точки роста.</slot></p>
+  </div>
+  <div class="pm-tasks__split">
+    <div class="pm-tasks__aside">
+      <div class="pm-tasks__visual">
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+        {(caption || cta) && <div class="pm-tasks__plate">
+          {caption && <span>{caption}</span>}
+          {cta && <a class="pm-tasks__cta" href={cta.href}>{cta.label} <span>→</span></a>}
+        </div>}
+      </div>
+    </div>
+    <div class="pm-task-list">{tasks.map((item) => <article class="pm-task-row"><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
+  </div>
+</section>

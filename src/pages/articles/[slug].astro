@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageBlocks from '../../components/content/PageBlocks.astro';
+import SiteHeader from '../../components/blocks/SiteHeader.astro';
+import '../../styles/global.css';
+import '../../styles/performance.css';
+
+export async function getStaticPaths() {
+  return (await getCollection('articles')).map(entry => ({
+    params: { slug: entry.id }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { title, description, cover, blocks, noindex } = entry.data;
+const { Content } = await render(entry);
+---
+<BaseLayout {title} {description} {noindex}>
+  <SiteHeader sections={blocks.map(block => block.type)} />
+  <main class="performance-page">
+    <article class="article">
+      <h1>{title}</h1>
+      <p class="lead">{description}</p>
+      {cover && <img class="cover" src={cover.src} alt={cover.alt} />}
+      <div class="body"><Content /></div>
+    </article>
+    <PageBlocks {blocks} source={entry.filePath ?? entry.id} />
+  </main>
+</BaseLayout>
+<script>
+  import '../../scripts/home';
+</script>
+<style>
+  .article { margin-inline:auto; max-width:900px; padding:var(--section-space-y) var(--gutter); box-sizing:content-box }
+  h1 { margin:0; font:var(--type-h1); overflow-wrap:anywhere }
+  .lead { margin:var(--space-6) 0; font:var(--type-lead) }
+  .cover { display:block; width:100%; aspect-ratio:2/1; object-fit:cover }
+  .body { max-width:68ch; margin:var(--section-content-gap) auto 0; font:var(--type-body); overflow-wrap:anywhere }
+  .body :global(h2) { margin:var(--space-10) 0 var(--space-4); font:var(--type-h3) }
+  .body :global(li) { margin-block:.5em }
+  .body :global(a) { text-decoration:underline }
+  .body :global(img) { max-width:100%; height:auto }
+  .body :global(pre) { overflow-x:auto }
+</style>

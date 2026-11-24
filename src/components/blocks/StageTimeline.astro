@@ -1,0 +1,70 @@
+---
+import '../../styles/performance.css';
+import type { ProcessCard } from './ProcessCards.astro';
+interface Props { items: (ProcessCard & { short: string; phase: string; image: string })[] }
+const { items: stages } = Astro.props;
+---
+<section class="pm-stage" id="stages" aria-labelledby="pm-stage-title" style={`--stage-n:${stages.length}`}>
+  <div class="pm-stage__pin">
+    <div class="pm-stage__frame">
+      <header class="pm-stage__head section-heading-pair">
+        <h2 class="section-heading-pair__title" id="pm-stage-title"><slot name="heading">От диагностики <span>до оптимизации</span></slot></h2>
+        <p class="pm-stage__lead section-heading-pair__subtitle"><slot name="description">Разбираем исходную ситуацию, согласуем план и запускаем кампании.</slot></p>
+      </header>
+      <div class="pm-stage__timeline">
+        {stages.map((stage) => <div class="pm-stage__point"><span class="pm-stage__mark" aria-hidden="true"></span><span class="pm-stage__name">{stage.short}</span><span class="pm-stage__dur">{stage.duration}</span></div>)}
+      </div>
+      <div class="pm-stage__body">
+        {stages.map((stage) => <article class="pm-stage__slide">
+          <div class="pm-stage__info">
+            <p class="pm-stage__kicker">{stage.phase} / {stage.duration}</p>
+            <h3>{stage.title}</h3>
+            <p class="pm-stage__desc">{stage.description}</p>
+            <p class="pm-stage__gain">{stage.label}</p>
+            <p class="pm-stage__result">{stage.detail}</p>
+          </div>
+          <div class="pm-stage__visual"><img src={stage.image} alt="" loading="lazy" /></div>
+        </article>)}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Alt process block: the section pins a full-screen frame for N screens
+  // while the vertical scroll walks the stages left → right. Each stage owns
+  // an equal share of the runway; markers flip past/current/future and the
+  // slides crossfade with a directional offset. The interval poll mirrors
+  // the watchers above for throttled webviews.
+  (() => {
+    const sec = document.querySelector<HTMLElement>('.pm-stage');
+    if (!sec) return;
+    const points = [...sec.querySelectorAll<HTMLElement>('.pm-stage__point')];
+    const slides = [...sec.querySelectorAll<HTMLElement>('.pm-stage__slide')];
+    const timeline = sec.querySelector<HTMLElement>('.pm-stage__timeline');
+    const marks = points.map((point) => point.querySelector<HTMLElement>('.pm-stage__mark'));
+    const n = slides.length;
+    if (!n) return;
+    const check = () => {
+      const top = sec.getBoundingClientRect().top;
+      const runway = Math.max(1, sec.offsetHeight - innerHeight);
+      const p = Math.max(0, Math.min(1, -top / runway));
+      const idx = Math.min(n - 1, Math.floor(p * n));
+      points.forEach((point, i) => { point.dataset.state = i < idx ? 'past' : i === idx ? 'current' : 'future'; });
+      // The timeline doubles as a progress bar: the red fill runs from the
+      // left edge to the current stage's marker.
+      if (timeline && marks[idx]) {
+        const lr = timeline.getBoundingClientRect();
+        const mr = marks[idx].getBoundingClientRect();
+        timeline.style.setProperty('--fill', `${Math.max(4, mr.left + mr.width / 2 - lr.left).toFixed(1)}px`);
+      }
+      slides.forEach((slide, i) => {
+        if (i === idx) { slide.dataset.active = ''; delete slide.dataset.passed; }
+        else { delete slide.dataset.active; if (i < idx) slide.dataset.passed = ''; else delete slide.dataset.passed; }
+      });
+    };
+    addEventListener('scroll', check, { passive: true });
+    addEventListener('resize', check, { passive: true });
+    window.setInterval(check, 400);
+    check();
+  })();
+</script>

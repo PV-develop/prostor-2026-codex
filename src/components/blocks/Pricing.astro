@@ -1,0 +1,26 @@
+---
+import '../../styles/performance.css';
+interface PriceItem { label: string; title: string; description: string }
+interface Props { items: PriceItem[]; extra: PriceItem & { href: string; cta: string } }
+const { items, extra } = Astro.props;
+---
+<section class="pm-section pm-pricing" id="pricing" data-page-nav="Стоимость" aria-labelledby="pm-pricing-title">
+  <div class="pm-section__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-pricing-title"><slot name="heading">Из чего складывается стоимость</slot></h2><p class="pm-section__lead section-heading-pair__subtitle"><slot name="description">В предложении отдельно показываем работу агентства и расходы на размещение.</slot></p></div>
+  <div class="pm-pricing__grid">
+    <div class="pm-pricing__main">
+      {items.map((item) => (
+        <article class="pm-pricing__card">
+          <p class="pm-pricing__label">{item.label}</p>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+    <aside class="pm-pricing__extra">
+      <p class="pm-pricing__label">{extra.label}</p>
+      <h3>{extra.title}</h3>
+      <p class="pm-pricing__extra-text">{extra.description}</p>
+      <a class="pm-pricing__extra-cta" href={extra.href}>{extra.cta} <span>→</span></a>
+    </aside>
+  </div>
+</section>

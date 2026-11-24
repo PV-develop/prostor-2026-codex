@@ -1,0 +1,50 @@
+---
+import type { ContentBlock } from '../../content/schema';
+import { resolveCases } from '../../data/cases';
+import ServiceHero from '../blocks/ServiceHero.astro';
+import BusinessTasks from '../blocks/BusinessTasks.astro';
+import Faq from '../blocks/Faq.astro';
+import Cases from '../home/Cases.astro';
+import Contacts from '../home/Contacts.astro';
+
+interface Props { blocks: ContentBlock[]; source: string }
+const { blocks, source } = Astro.props;
+const sections = blocks.map(block => block.type);
+const counts = new Map<string, number>();
+const usedSlots = new Set<string>();
+const entries = [];
+for (const block of blocks) {
+  const count = (counts.get(block.type) ?? 0) + 1;
+  counts.set(block.type, count);
+  const id = count === 1 ? block.type : `${block.type}-${count}`;
+  const cards = block.type === 'cases' ? await resolveCases(block.caseIds, source) : [];
+  const items = cards.map(card => {
+    let slotId = card.slotId;
+    let suffix = 1;
+    while (usedSlots.has(slotId)) slotId = `${card.slotId}-${++suffix}`;
+    usedSlots.add(slotId);
+    return { ...card, slotId };
+  });
+  entries.push({ block, id, items });
+}
+---
+{entries.map(({ block, id, items }) => <>
+  {block.type === 'hero' && <ServiceHero title={block.heading} accentText={block.accent}
+    description={block.description} primaryCTA={block.primaryCTA} secondaryCTA={block.secondaryCTA} sections={sections} />}
+  {block.type === 'tasks' && <BusinessTasks {id} items={block.items} photo={block.photo}
+    caption={block.caption ?? null} cta={block.cta ?? null}>
+    <Fragment slot="heading">{block.heading}</Fragment>
+    <Fragment slot="description">{block.description}</Fragment>
+  </BusinessTasks>}
+  {block.type === 'cases' && <Cases {id} {items} cta={block.cta ?? null}>
+    <Fragment slot="heading">{block.heading}</Fragment>
+  </Cases>}
+  {block.type === 'faq' && <Faq {id} items={block.items.map(item => ({ q: item.question, a: item.answer }))} cta={block.cta ?? null}>
+    <Fragment slot="heading">{block.heading}</Fragment>
+    <Fragment slot="description">{block.description}</Fragment>
+  </Faq>}
+  {block.type === 'contacts' && <Contacts submitLabel={block.submitLabel} brief={block.brief}>
+    <Fragment slot="heading">{block.heading}</Fragment>
+    <Fragment slot="description">{block.description}</Fragment>
+  </Contacts>}
+</>)}

@@ -1,11 +1,13 @@
 ---
-const certificates = [
+const defaultCertificates = [
   { src: '/src/certificates/bitrix24.png', alt: 'Сертификат партнёра Битрикс24' },
   { src: '/src/certificates/1c-bitrix.png', alt: 'Сертификат партнёра 1С-Битрикс' },
   { src: '/src/certificates/avito.png', alt: 'Сертификат партнёра Авито' },
   { src: '/src/certificates/yandex-direct.png', alt: 'Сертификат партнёра Яндекс Директ' },
   { src: '/src/certificates/it-accreditation.png', alt: 'Запись компании в реестре аккредитованных IT-компаний' },
 ];
+interface Props { items?: { src: string; alt: string }[] }
+const { items: certificates = defaultCertificates } = Astro.props;
 ---
 
 <section class="certificates" aria-label="Сертификаты и подтверждения партнёрства">

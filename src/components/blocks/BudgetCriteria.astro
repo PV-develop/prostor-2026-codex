@@ -1,0 +1,19 @@
+---
+import '../../styles/performance.css';
+interface Props { items: { label: string; title: string; description?: string; featured?: boolean }[] }
+const { items: budgetCriteria } = Astro.props;
+---
+<div class="pm-budget-v2" aria-label="Куда направляем бюджет">
+  <h2 class="pm-budget-v2__title"><slot name="heading">Куда направляем <span>бюджет</span></slot></h2>
+  <div class="pm-budget-v2__principle">
+    <div><span class="pm-budget-v2__eyebrow">Правило распределения</span><h4>Не распределяем бюджет поровну между площадками.</h4></div>
+    <p>Сначала определяем приоритеты и критерии проверки, затем корректируем план по результатам.</p>
+  </div>
+  <div class="pm-budget-v2__grid">
+    {budgetCriteria.map((item) => <article class:list={["pm-budget-v2__card", item.featured && "pm-budget-v2__card--featured"]}>
+      <span class="pm-budget-v2__eyebrow">{item.label}</span>
+      <h4>{item.title}</h4>
+      {item.description && <p>{item.description}</p>}
+    </article>)}
+  </div>
+</div>

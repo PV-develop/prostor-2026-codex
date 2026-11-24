@@ -1,0 +1,21 @@
+---
+import '../../styles/performance.css';
+interface Props { items: { q: string; a: string }[]; id?: string; cta?: { label: string; href: string } | null }
+const { items: faq, id = 'faq', cta = { label: 'Задать вопрос', href: '#contacts' } } = Astro.props;
+const titleId = `pm-${id}-title`;
+---
+<section class="pm-section pm-faq" id={id} data-page-nav="FAQ" aria-labelledby={titleId}>
+  <div class="pm-faq__split">
+    <div class="pm-faq__intro">
+      <h2 class="page-display-heading" id={titleId}><slot name="heading">Частые вопросы</slot></h2>
+      <p class="pm-section__lead"><slot name="description">Не нашли ответ на свой вопрос? Задайте его — разберём вашу ситуацию и подскажем, что сработает.</slot></p>
+      {cta && <a class="pm-faq__ask" href={cta.href}>{cta.label} <span>→</span></a>}
+    </div>
+    <div class="pm-faq__list">
+      {faq.map((item) => <details class="pm-faq__item">
+        <summary class="pm-faq__q"><span>{item.q}</span><span class="pm-faq__icon" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" style="width:18px;height:18px;display:block"><path d="M9 2v14M2 9h14"></path></svg></span></summary>
+        <div class="pm-faq__a"><p>{item.a}</p></div>
+      </details>)}
+    </div>
+  </div>
+</section>

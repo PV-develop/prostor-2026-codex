@@ -1,0 +1,105 @@
+---
+import '../../styles/performance.css';
+interface Props { items: { title: string; description: string }[] }
+const { items } = Astro.props;
+---
+<section class="pm-metrics" id="metrics" data-page-nav="Метрики" aria-labelledby="pm-metrics-title">
+  <div class="pm-section__title-row section-heading-pair"><h2 class="page-display-heading section-heading-pair__title" id="pm-metrics-title"><slot name="heading">Согласовываем показатели<br />до запуска</slot></h2><p class="section-heading-pair__subtitle" style="color:rgba(233,235,239,.72)"><slot name="description">Для каждого проекта выбираем применимые показатели и фиксируем, что именно считаем лидом, целевым обращением и продажей. При необходимости настраиваем аналитику: от базовых целей в Метрике до полноценной сквозной аналитики.</slot></p></div>
+  <div class="pm-metric-grid">
+    {items.map((item, index) => (
+      <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.description}</p></article>
+    ))}
+  </div>
+</section>
+<script>
+  // Metrics sweep: a horizontal red line grows from the screen's left edge
+  // and runs through the column numbers at their vertical centre,
+  // keeping a 5px clearance on both sides of every digit, and continues to
+  // the screen edge. Each number pops in as the line reaches it; scrolling
+  // back plays the whole thing in reverse (far end retracts first). Rows
+  // sweep one after another on narrow layouts where the grid wraps.
+  (() => {
+    const grid = document.querySelector<HTMLElement>('.pm-metric-grid');
+    if (!grid) return;
+    const nums = [...grid.querySelectorAll<HTMLElement>('article > span')];
+    const SPEED = 0.8, GAP = 5, NDUR = 400; // px per ms, digit clearance, number fade
+    let shown = false;
+    const apply = (on: boolean) => {
+      grid.querySelectorAll('i[data-seg]').forEach((e) => e.remove());
+      const gr = grid.getBoundingClientRect();
+      const x0 = -gr.left, endX = window.innerWidth - gr.left;
+      // offset* measurements ignore the reveal translate, so the line sits at
+      // the digits' true resting centre.
+      const items = nums.map((n) => ({ el: n, l: n.offsetLeft, r: n.offsetLeft + n.offsetWidth, y: n.offsetTop + n.offsetHeight / 2, top: n.offsetTop }));
+      const rows: { y: number; idx: number[] }[] = [];
+      items.forEach((it, i) => {
+        const row = rows[rows.length - 1];
+        if (row && Math.abs(items[row.idx[0]].top - it.top) < 8) row.idx.push(i);
+        else rows.push({ y: it.y, idx: [i] });
+      });
+      const segs: { l: number; w: number; y: number; d: number }[] = [];
+      const numDelays: number[] = [];
+      let clock = 0;
+      rows.forEach((row, ri) => {
+        const first = items[row.idx[0]], last = items[row.idx[row.idx.length - 1]];
+        segs.push({ l: x0, w: first.l - GAP - x0, y: row.y, d: clock });
+        row.idx.forEach((i) => { numDelays[i] = clock + (items[i].l - x0) / SPEED + 80; });
+        for (let k = 0; k + 1 < row.idx.length; k++) {
+          const a = items[row.idx[k]], b = items[row.idx[k + 1]];
+          const l = a.r + GAP;
+          segs.push({ l, w: b.l - GAP - l, y: row.y, d: clock + (l - x0) / SPEED });
+        }
+        if (ri === rows.length - 1) segs.push({ l: last.r + GAP, w: Math.max(0, endX - last.r - GAP), y: row.y, d: clock + (last.r + GAP - x0) / SPEED });
+        clock += (last.r - x0) / SPEED + 250;
+      });
+      const total = clock;
+      const els: HTMLElement[] = [];
+      segs.forEach((s) => {
+        if (s.w <= 0) return;
+        const dur = Math.max(120, s.w / SPEED);
+        const d = document.createElement('i');
+        d.dataset.seg = '1';
+        d.style.left = `${s.l.toFixed(1)}px`;
+        d.style.top = `${s.y.toFixed(1)}px`;
+        d.style.width = `${s.w.toFixed(1)}px`;
+        d.style.transform = on ? 'scaleX(0)' : 'scaleX(1)';
+        // the reverse timeline mirrors the forward one around the total
+        const delay = on ? s.d : Math.max(0, total - s.d - dur);
+        d.style.transition = `transform ${dur.toFixed(0)}ms linear ${delay.toFixed(0)}ms`;
+        grid.appendChild(d);
+        els.push(d);
+      });
+      nums.forEach((n, i) => {
+        const fwd = numDelays[i];
+        n.style.transitionDelay = `${(on ? fwd : Math.max(0, total - fwd - NDUR)).toFixed(0)}ms`;
+      });
+      // Flip on the next frame; the timeout covers paused-animation webviews.
+      const flip = () => {
+        grid.dataset.line = on ? '1' : '0';
+        els.forEach((e) => { e.style.transform = on ? 'scaleX(1)' : 'scaleX(0)'; });
+      };
+      let done = false;
+      requestAnimationFrame(() => { if (!done) { done = true; flip(); } });
+      setTimeout(() => { if (!done) { done = true; flip(); } }, 48);
+    };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      grid.dataset.line = '1';
+      return;
+    }
+    grid.dataset.line = '0';
+    // Scroll-driven both ways: extend once the block is well in view, retract
+    // (mirrored) when it leaves in either direction. IntersectionObserver
+    // callbacks ride the rendering pipeline, which stays paused in some
+    // webviews; plain scroll events do not always fire for programmatic
+    // scrolls there either, so a light poll backs them up.
+    const check = () => {
+      const r = grid.getBoundingClientRect();
+      const extend = !shown && r.top < innerHeight * 0.65 && r.bottom > innerHeight * 0.1;
+      const retract = shown && (r.bottom < innerHeight * 0.3 || r.top > innerHeight * 0.9);
+      if (extend || retract) { shown = extend; apply(shown); }
+    };
+    addEventListener('scroll', check, { passive: true });
+    window.setInterval(check, 400);
+    check();
+  })();
+</script>

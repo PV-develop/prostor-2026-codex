@@ -1,0 +1,79 @@
+---
+import PageBlocks from '../../components/content/PageBlocks.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLibrary } from '../../data/design-system';
+import { hero, tasks, approach, budgetCriteria, process, stages, subservices, metrics, pricing, pricingExtra, faq, blogPosts } from '../../data/performance';
+import '../../styles/global.css';
+import '../../styles/performance.css';
+import SiteHeader from '../../components/blocks/SiteHeader.astro';
+import HeroLight from '../../components/home/HeroLight.astro';
+import ServiceHero from '../../components/blocks/ServiceHero.astro';
+import Services from '../../components/home/Services.astro';
+import ServiceChannels from '../../components/blocks/ServiceChannels.astro';
+import Cases from '../../components/home/Cases.astro';
+import ProcessCards from '../../components/blocks/ProcessCards.astro';
+import ExpertContactForm from '../../components/blocks/ExpertContactForm.astro';
+import TeamReviews from '../../components/home/TeamReviews.astro';
+import Contacts from '../../components/home/Contacts.astro';
+import Footer from '../../components/home/Footer.astro';
+import BusinessTasks from '../../components/blocks/BusinessTasks.astro';
+import ServiceDecisionMatrix from '../../components/blocks/ServiceDecisionMatrix.astro';
+import BudgetCriteria from '../../components/blocks/BudgetCriteria.astro';
+import Metrics from '../../components/blocks/Metrics.astro';
+import AnalyticsShowcase from '../../components/blocks/AnalyticsShowcase.astro';
+import StageTimeline from '../../components/blocks/StageTimeline.astro';
+import Pricing from '../../components/blocks/Pricing.astro';
+import Faq from '../../components/blocks/Faq.astro';
+import BlogArticles from '../../components/blog/BlogArticles.astro';
+import Certificates from '../../components/blocks/Certificates.astro';
+
+export async function getStaticPaths() {
+  return (await getLibrary()).flatMap(entry => entry.examples.map(({ slug, block, source }) => ({
+    params: { example: slug }, props: { block, source, title: entry.title, description: entry.description },
+  })));
+}
+const { block, source, title, description } = Astro.props;
+const slug = Astro.params.example;
+const home = ['home-hero', 'directions', 'team', 'carousel', 'contacts', 'footer'].includes(slug);
+---
+<BaseLayout {title} {description} noindex>
+  <main class={home ? 'home-shell' : 'performance-page'} data-example data-source={block ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/services/seo-internet-magazinov/` : home ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL.replace(/\/$/, '')}/services/performance-marketing/`}>
+    {block && <PageBlocks blocks={[block]} source={source ?? slug} />}
+    {slug === 'header' && <SiteHeader activeSection="services" />}
+    {slug === 'home-hero' && <HeroLight />}
+    {slug === 'service-hero' && <ServiceHero {...hero} />}
+    {slug === 'directions' && <Services />}
+    {slug === 'channels' && <ServiceChannels items={subservices} />}
+    {slug === 'cases' && <Cases />}
+    {slug === 'process' && <section class="pm-section" id="process"><ProcessCards items={process} inset={false} /></section>}
+    {slug === 'carousel' && <section id="process" data-screen-label="04 Как работаем"><ProcessCards items={process} carousel /></section>}
+    {slug === 'expert' && <ExpertContactForm />}
+    {slug === 'team' && <TeamReviews />}
+    {slug === 'contacts' && <Contacts />}
+    {slug === 'footer' && <div class="footer-example"><Footer /></div>}
+    {slug === 'tasks' && <BusinessTasks items={tasks} />}
+    {slug === 'matrix' && <section class="pm-section" id="approach"><ServiceDecisionMatrix items={approach} /></section>}
+    {slug === 'budget' && <section class="pm-section" id="approach"><BudgetCriteria items={budgetCriteria} /></section>}
+    {slug === 'metrics' && <Metrics items={metrics} />}
+    {slug === 'analytics' && <AnalyticsShowcase />}
+    {slug === 'timeline' && <StageTimeline items={stages} />}
+    {slug === 'pricing' && <Pricing items={pricing} extra={pricingExtra} />}
+    {slug === 'faq' && <Faq items={faq} />}
+    {slug === 'articles' && <div class="article-example"><BlogArticles heading="Статьи, которые помогают расти" posts={blogPosts} /></div>}
+    {slug === 'certificates' && <Certificates />}
+  </main>
+</BaseLayout>
+<script>
+  import '../../scripts/home';
+  const sample = document.querySelector<HTMLElement>('[data-example]')!;
+  for (const link of sample.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+    if (link.hash && !document.getElementById(link.hash.slice(1))) {
+      link.href = sample.dataset.source + link.hash;
+    }
+  }
+</script>
+<style>
+  main { overflow: clip }
+  .footer-example { display: flow-root; background: var(--color-ink) }
+  .article-example { padding: var(--section-space-y) var(--gutter) }
+</style>
